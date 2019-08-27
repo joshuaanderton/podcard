@@ -50,6 +50,7 @@ h2 {
   display: flex;
   width: 180px;
   height: 180px;
+  background-color: #e0e0e0;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -127,6 +128,7 @@ h2 {
   top: 0;
   bottom: 0;
   left: 0;
+  border-radius: 30px;
   background-color: #404040;
 }
 
