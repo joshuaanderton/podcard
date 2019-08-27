@@ -67,6 +67,8 @@ $cover-height: 180px;
     width: $cover-height;
     height: $cover-height;
 
+    background-color: #e0e0e0;
+
     align-items: center;
     justify-content: center;
      > a {
@@ -131,6 +133,7 @@ $cover-height: 180px;
         bottom: 0;
         left: 0;
 
+        border-radius: 30px;
         background-color: $player-seeker-color;
     }
 }
