@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+
+body {
+    font-family: 'Nunito', sans-serif;
+
+    margin: 0;
+    padding: 0;
+
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+$player-bg: #fff;
+$player-border-color: darken($player-bg, 12%);
+$player-link-color: darken($player-bg, 75%);
+$player-progress-color: $player-border-color;
+$player-seeker-color: $player-link-color;
+$player-text-color: $player-link-color;
+
+.player-wrapper {
+    height: 100vh;
+
+    background-color: $player-bg;
+    background-image: linear-gradient(90deg, #fff 0, darken(#fff, 12%));
+}
+
+.player {
+    line-height: 1.5625;
+
+    display: inline-block;
+
+    width: 100%;
+    height: 100%;
+
+    color: $player-text-color;
+    border: 1px solid $player-border-color;
+    border-radius: 5px;
+    background-color: $player-bg;
+}
+
+.player-controls {
+    display: flex;
+
+     > div {
+        border-right: 1px solid $player-border-color;
+
+        &:last-child {
+            border-right: none;
+        }
+
+        a {
+            line-height: 0;
+
+            display: block;
+
+            padding: 1em;
+
+            text-decoration: none;
+
+            color: $player-link-color;
+        }
+    }
+}
+
+.player-progress {
+    position: relative;
+
+    min-width: 200px;
+    height: 50%;
+
+    cursor: pointer;
+
+    background-color: $player-progress-color;
+
+    .player-seeker {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+
+        background-color: $player-seeker-color;
+    }
+}
+
+.player-time {
+    display: flex;
+    // font-size: 18px;
+
+    justify-content: space-between;
+
+    .player-time-current {
+        font-weight: 700;
+
+        padding-left: 5px;
+    }
+
+    .player-time-total {
+        padding-right: 5px;
+
+        opacity: .5;
+    }
+}

@@ -11,8 +11,10 @@
 |
 */
 
-Route::domain('player.' . (env('APP_ENV') == 'production' ? 'podcard.co' : 'podcard.test'))->group(function ($router) {
+Route::domain('player.' . env('SESSION_DOMAIN'))->group(function ($router) {
     Route::get('/', function(){
-        return view('player');
+        return view('player', [
+            'file_url' => $_GET['file']
+        ]);
     });
 });
