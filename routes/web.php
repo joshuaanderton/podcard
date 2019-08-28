@@ -22,12 +22,18 @@ Route::domain('player.' . env('SESSION_DOMAIN'))->group(function ($router) {
     Route::get('/', function(Request $request){
         if (empty($request->feed)) return abort(404);
 
-        $feed   = simplexml_load_file($request->feed);
+        $feed   = file_get_contents($request->feed);
+        $feed   = str_replace('itunes:', '', $feed);
+        $feed   = simplexml_load_string($feed);
         $feed   = $feed->channel;
         $latest = $feed->item[0];
+
+        $image = !empty($latest->image['href']) ? $latest->image['href'] : !empty($feed->image['href']) ? $feed->image['href'] : false;
+        $image = !$image && !empty($latest->image->url) ? $latest->image->url : !$image && !empty($feed->image->url) ? $feed->image->url : $image;
+
         $data   = [
             'file_url'  => $latest->enclosure['url'],
-            'cover_url' => $feed->image->url,
+            'cover_url' => $image,
             'title'     => $latest->title,
             'podcast'   => $feed->title,
             'episode'   => $latest->episode,
