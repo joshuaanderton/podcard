@@ -9,7 +9,7 @@
             .player-progress .player-seeker { background-color: rgba(0,0,0,.3) !important; }
             .player-cover > a { background-color: rgba({{ $color }},0.8); }
             .player-mute svg { color: rgba({{ $color }},.7) !important; }
-            .player-time-current { color: rgba({{ $color }},1); }
+            .player-time-current, .player-time-total { color: rgba({{ $color }},1); }
         </style>
     @endif
 
