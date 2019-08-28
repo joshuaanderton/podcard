@@ -16,7 +16,7 @@
             </div>
             <div class="player-options">
                 <div class="player-heading">
-                    <div v-if="podcast || episode"><strong>{{podcast}}</strong> {{ episode && podcast ? '-' : '' }} {{episode ? 'Episode ' + episode : ''}}</div>
+                    <div v-if="podcast || episode"><strong>{{podcast}}</strong> {{ episode && podcast ? '—' : '' }} {{ season && season > 1 ? 'S' + season + ' ' : '' }}{{episode ? 'Episode ' + episode : ''}}</div>
                     <h2 v-if="title">{{title}}</h2>
                 </div>
                 <div>
@@ -59,8 +59,12 @@
                 type: String,
                 default: null
             },
+            season: {
+                type: Number,
+                default: null
+            },
             episode: {
-                type: String,
+                type: Number,
                 default: null
             },
             autoPlay: {

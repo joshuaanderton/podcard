@@ -1,5 +1,15 @@
 /*@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');*/
 
+$black: #000;
+$white: #fff;
+$player-bg: $white;
+$player-border-color: darken($player-bg, 12%);
+$player-link-color: darken($player-bg, 75%);
+$player-progress-color: $player-border-color;
+$player-seeker-color: $player-link-color;
+$player-text-color: $black;
+$cover-height: 180px;
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Calibri Light', Roboto, sans-serif; //'Nunito', sans-serif;
 
@@ -32,16 +42,9 @@ h2 {
     margin-top: 0;
     margin-bottom: 15px;
     padding-top: 0;
-}
 
-$white: #fff;
-$player-bg: $white;
-$player-border-color: darken($player-bg, 12%);
-$player-link-color: darken($player-bg, 75%);
-$player-progress-color: $player-border-color;
-$player-seeker-color: $player-link-color;
-$player-text-color: $player-link-color;
-$cover-height: 180px;
+    color: $black;
+}
 
 .player-wrapper {
     display: flex;
@@ -51,6 +54,7 @@ $cover-height: 180px;
 
     border: 1px solid $player-border-color;
     border-radius: 8px;
+    background-color: $player-bg;
 }
 
 .player {
@@ -60,7 +64,6 @@ $cover-height: 180px;
     height: 100%;
 
     color: $player-text-color;
-    background-color: $player-bg;
 }
 
 .player-cover {

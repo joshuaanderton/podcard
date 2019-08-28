@@ -22,26 +22,35 @@ Route::domain('player.' . env('SESSION_DOMAIN'))->group(function ($router) {
     Route::get('/', function(Request $request){
         if (empty($request->feed)) return abort(404);
 
-        $feed   = file_get_contents($request->feed);
-        $feed   = str_replace('itunes:', '', $feed);
-        $feed   = simplexml_load_string($feed);
-        $feed   = $feed->channel;
-        $latest = $feed->item[0];
+        $request->feed = explode('?', $request->feed)[0];
 
-        $image = !empty($latest->image['href']) ? $latest->image['href'] : !empty($feed->image['href']) ? $feed->image['href'] : false;
-        $image = !$image && !empty($latest->image->url) ? $latest->image->url : !$image && !empty($feed->image->url) ? $feed->image->url : $image;
+        $podcast = \App\Podcast::where('feed_url', $request->feed)->first();
 
-        $data   = [
-            'file_url'  => $latest->enclosure['url'],
-            'cover_url' => $image,
-            'title'     => $latest->title,
-            'podcast'   => $feed->title,
-            'episode'   => $latest->episode,
+        if (!$podcast || $podcast->episodes()->count() == 0) :
+            if (!$podcast) $podcast = new \App\Podcast;
+            $podcast->feed_url = $request->feed;
+            $podcast->import();
+        endif;
+
+        $podcast->import();
+
+        $episode                                = null;
+        $query                                  = [];
+        if ($request->season)  $query['season'] = $request->season;
+        if ($request->episode) $query['number'] = $request->episode;
+        if (!empty($query))    $episode         = $podcast->episodes()->where($query)->first();
+        if (!$episode)         $episode         = $podcast->episodes()->latest()->first();
+
+        return view('player', [
+            'file_url'  => $episode->file_url,
+            'cover_url' => $episode->imageUrl(),
+            'title'     => $episode->title,
+            'podcast'   => $podcast->title,
+            'episode'   => $episode->number,
+            'season'    => $episode->season,
             'border'    => $request->border === '0' ? 0 : 1,
-            'color'     => $request->color,
-        ];
-
-        return view('player', $data);
+            'color'     => \App\Podcast::hexToRgb('#' . str_replace('#', '', $request->color)),
+        ]);
     });
 });
 

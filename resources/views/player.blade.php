@@ -3,9 +3,13 @@
 @section('content')
     @if($color)
         <style>
-            .player-progress { background-color: #{{ str_replace('#', '', $color) }}; }
+            .player-wrapper { border-color: rgba({{ $color }},.3) !important; }
+            .player-wrapper:before { content:' '; height:100%; width:100%; position:absolute; left:0; right:0; background-color: rgba({{ $color }},.15); }
+            .player-progress { background-color: rgba({{ $color }},1); }
             .player-progress .player-seeker { background-color: rgba(0,0,0,.3) !important; }
-            .player-cover > a { background-color: #{{ str_replace('#', '', $color) }}; opacity: .9; }
+            .player-cover > a { background-color: rgba({{ $color }},0.8); }
+            .player-mute svg { color: rgba({{ $color }},.7) !important; }
+            .player-time-current { color: rgba({{ $color }},1); }
         </style>
     @endif
 
@@ -13,6 +17,7 @@
         <player
             podcast="{{ $podcast }}"
             title="{{ $title }}"
+            season="{{ $season }}"
             episode="{{ $episode }}"
             cover="{{ $cover_url }}"
             file="{{ $file_url }}"></player>

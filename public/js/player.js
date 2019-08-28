@@ -49129,8 +49129,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             type: String,
             default: null
         },
+        season: {
+            type: Number,
+            default: null
+        },
         episode: {
-            type: String,
+            type: Number,
             default: null
         },
         autoPlay: {
@@ -49349,8 +49353,11 @@ var render = function() {
                 _c("strong", [_vm._v(_vm._s(_vm.podcast))]),
                 _vm._v(
                   " " +
-                    _vm._s(_vm.episode && _vm.podcast ? "-" : "") +
+                    _vm._s(_vm.episode && _vm.podcast ? "—" : "") +
                     " " +
+                    _vm._s(
+                      _vm.season && _vm.season > 1 ? "S" + _vm.season + " " : ""
+                    ) +
                     _vm._s(_vm.episode ? "Episode " + _vm.episode : "")
                 )
               ])
