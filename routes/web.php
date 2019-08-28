@@ -52,6 +52,25 @@ Route::domain('player.' . env('SESSION_DOMAIN'))->group(function ($router) {
             'color'     => \App\Podcast::hexToRgb('#' . str_replace('#', '', $request->color)),
         ]);
     });
+    Route::get('/import', function(Request $request){
+        if (empty($request->feed)) return abort(404);
+
+        $request->feed = explode('?', $request->feed)[0];
+
+        $podcast = \App\Podcast::where('feed_url', $request->feed)->first();
+
+        if (!$podcast || $podcast->episodes()->count() == 0) :
+            if (!$podcast) $podcast = new \App\Podcast;
+            $podcast->feed_url = $request->feed;
+            $podcast->import();
+        endif;
+
+        $podcast->import();
+
+        $podcast->episode_imported = $podcast->episodes()->count();
+
+        return response()->json(['message' => $podcast], 202);
+    });
 });
 
 Route::domain('{subdomain}.' . env('SESSION_DOMAIN'))->group(function ($router) {
