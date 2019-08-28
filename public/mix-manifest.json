@@ -1,4 +1,10 @@
 {
     "/js/player.js": "/js/player.js",
-    "/css/player.css": "/css/player.css"
+    "/css/player.css": "/css/player.css",
+    "/css/site.css": "/css/site.css",
+    "/js/player.js.map": "/js/player.js.map",
+    "/css/player.css.map": "/css/player.css.map",
+    "/css/site.css.map": "/css/site.css.map",
+    "/js/site.js": "/js/site.js",
+    "/js/site.js.map": "/js/site.js.map"
 }

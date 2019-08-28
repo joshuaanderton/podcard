@@ -14,39 +14,46 @@ use Illuminate\Http\Request;
 
 Route::group(['domain' => env('SITE_URL')], function() {
     Route::get('/', function(){
-        return response()->json(['message' => 'Nothing here yet.'], 202);
+        return view('home');
     });
 });
 
 Route::domain('player.' . env('SESSION_DOMAIN'))->group(function ($router) {
     Route::get('/', function(Request $request){
-        return view('player', [
-            'file_url'  => $request->file,
-            'cover_url' => $request->cover,
-            'title'     => $request->title,
-            'podcast'   => $request->podcast,
-            'episode'   => $request->episode,
-            /*
-            'episode' => [
-                'title'          => $request->title,
-                'podcast'        => $request->podcast,
-                'episode_number' => $request->episode_number,
-                'file'           => $request->file,
-                'cover'          => $request->cover,
-            ]
-            */
+        if (empty($request->feed)) return abort(404);
+
+        $feed   = simplexml_load_file($request->feed);
+        $feed   = $feed->channel;
+        $latest = $feed->item[0];
+        $data   = [
+            'file_url'  => $latest->enclosure['url'],
+            'cover_url' => $feed->image->url,
+            'title'     => $latest->title,
+            'podcast'   => $feed->title,
+            'episode'   => $latest->episode,
+            'border'    => $request->border === '0' ? 0 : 1,
+            'color'     => $request->color,
+        ];
+
+        return view('player', $data);
+    });
+});
+
+Route::domain('{subdomain}.' . env('SESSION_DOMAIN'))->group(function ($router) {
+    Route::get('/', function(string $subdomain){
+        $feed = simplexml_load_file('https://anchor.fm/s/d5d3614/podcast/rss');
+        // Get card data from $subdomain
+        return view('site', [
+            'site' => $feed->channel,
+            'episodes' => $feed->channel->item,
+            'latest' => $feed->channel->item[0]
         ]);
     });
 });
 
-Route::domain('{podcast_domain}')->group(function ($router) {
-    Route::get('/', function(string $podcast_domain){
-        return response()->json(['name' => $podcast_domain], 202);
-    });
-});
-
-Route::domain('{podcast_subdomain}.' . env('SESSION_DOMAIN'))->group(function ($router) {
-    Route::get('/', function(string $podcast_subdomain){
-        return response()->json(['name' => $podcast_subdomain], 202);
+Route::group(array('domain' => '{domain}.{tld}'), function(){
+    Route::get('/', function(string $domain){
+        // Get card data from $domain
+        return view('site', []);
     });
 });

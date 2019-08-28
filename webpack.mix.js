@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+const tailwindcss = require('tailwindcss');
 
 /*
  |--------------------------------------------------------------------------
@@ -12,4 +13,12 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/player.js', 'public/js')
-    .sass('resources/sass/player.scss', 'public/css');
+   .js('resources/js/site.js', 'public/js')
+   .sass('resources/sass/player.scss', 'public/css')
+   .sass('resources/sass/site.scss', 'public/css')
+   .options({
+        processCssUrls: false,
+        postCss: [ tailwindcss('./tailwind.config.js') ],
+   })
+   .sourceMaps()
+   .webpackConfig({devtool: 'source-map'});

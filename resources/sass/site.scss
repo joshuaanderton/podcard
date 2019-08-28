@@ -1,0 +1,15 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+.pb-1\/1 {
+    padding-bottom: 100%;
+}
+
+@media (min-width: 1024px) {
+    .lg\:pb-1\/1 {
+        padding-bottom: 100%;
+    }
+}
