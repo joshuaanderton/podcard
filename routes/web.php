@@ -41,8 +41,9 @@ Route::domain('player.' . env('SESSION_DOMAIN'))->group(function ($router) {
         if ($request->episode) $query['number'] = $request->episode;
         if (!empty($query))    $episode         = $podcast->episodes()->where($query)->first();
         */
-        if ($request->episode) $episode         = $podcast->episodes()->offset(intval($request->episode-1))->first();
-        if (!$episode)         $episode         = $podcast->episodes()->latest('published_at')->first();
+        if ($request->episode)              $episode = $podcast->episodes()->where(['number' => $request->episode])->first();
+        if (!$episode && $request->episode) $episode = $podcast->episodes()->offset(intval($request->episode-1))->first();
+        if (!$episode)                      $episode = $podcast->episodes()->latest('published_at')->first();
 
         return view('player', [
             'file_url'  => $episode->file_url,
