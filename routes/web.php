@@ -35,11 +35,14 @@ Route::domain('player.' . env('SESSION_DOMAIN'))->group(function ($router) {
         $podcast->import();
 
         $episode                                = null;
+        /*
         $query                                  = [];
         if ($request->season)  $query['season'] = $request->season;
         if ($request->episode) $query['number'] = $request->episode;
         if (!empty($query))    $episode         = $podcast->episodes()->where($query)->first();
-        if (!$episode)         $episode         = $podcast->episodes()->latest()->first();
+        */
+        if ($request->episode) $episode         = $podcast->episodes()->offset(intval($request->episode-1))->first();
+        if (!$episode)         $episode         = $podcast->episodes()->latest('published_at')->first();
 
         return view('player', [
             'file_url'  => $episode->file_url,

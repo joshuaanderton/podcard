@@ -40,18 +40,14 @@ class Podcast extends Model
         $episodes = [];
         foreach ($feed->item as $episode) $episodes[] = $episode;
 
-        $episode_number = 0;
-        $current_season = 1;
         $episodes = array_reverse($episodes);
 
         foreach ($episodes as $episode) :
-            if ($episode->episodeType == 'full') $episode_number++;
-
             $episode = $this->episodes()->updateOrCreate(['guid' => $episode->guid], [
                 'title'        => $episode->title,
                 'image_url'    => !empty($episode->image['href']) ? strval($episode->image['href']) : !empty($episode->image->url) ? $episode->image->url : null,
                 'file_url'     => $episode->enclosure['url'],
-                'number'       => $episode->episode ?: $episode_number > 0 ? $episode_number : null,
+                'number'       => $episode->episode ?: null,
                 'season'       => $episode->season  ?: null,
                 'episode_type' => $episode->episodeType,
                 'published_at' => date('Y-m-d H:i:s', strtotime($episode->pubDate))
