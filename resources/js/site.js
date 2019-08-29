@@ -6,3 +6,17 @@
 
 require('./bootstrap');
 
+window.Vue = require('vue');
+import '@claviska/jquery-minicolors';
+
+if ($('#player_builder').length > 0) {
+    new Vue({
+        el: "#player_builder",
+        components: {
+            PlayerBuilder: require('./components/PlayerBuilder.vue')
+        },
+        mounted: function() {
+            $('.color_input').minicolors({theme: 'bootstrap'});
+        }
+    });
+}

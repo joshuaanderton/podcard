@@ -14,13 +14,13 @@ use Illuminate\Http\Request;
 
 Route::group(['domain' => env('SITE_URL')], function() {
     Route::get('/', function(){
-        return view('home');
+        return view('player-builder');
     });
 });
 
 Route::domain('player.' . env('SESSION_DOMAIN'))->group(function ($router) {
     Route::get('/', function(Request $request){
-        if (empty($request->feed)) return abort(404);
+        if (empty($request->feed)) return view('player', ['podcast' => false]);
 
         $request->feed = explode('?', $request->feed)[0];
 
@@ -34,14 +34,15 @@ Route::domain('player.' . env('SESSION_DOMAIN'))->group(function ($router) {
 
         $podcast->import();
 
-        $episode                                = null;
+        $episode                                = $request->episode;
         /*
         $query                                  = [];
         if ($request->season)  $query['season'] = $request->season;
         if ($request->episode) $query['number'] = $request->episode;
         if (!empty($query))    $episode         = $podcast->episodes()->where($query)->first();
         */
-        if ($request->episode)              $episode = $podcast->episodes()->where(['number' => $request->episode])->first();
+        if (is_numeric($episode))           $episode = $podcast->episodes()->where(['number' => $request->episode])->first();
+        if (is_string($episode))            $episode = $podcast->episodes()->where(['title' => $request->episode])->first();
         if (!$episode && $request->episode) $episode = $podcast->episodes()->offset(intval($request->episode-1))->first();
         if (!$episode)                      $episode = $podcast->episodes()->latest('published_at')->first();
 
