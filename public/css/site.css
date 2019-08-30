@@ -11292,8 +11292,34 @@ video {
   z-index: auto;
 }
 
+* {
+  position: relative;
+}
+
+body {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+  color: black;
+}
+
+.line-height-9 {
+  line-height: .9;
+}
+
+.content {
+  content: '';
+}
+
 .pb-1\/1 {
   padding-bottom: 100%;
+}
+
+.align-items-center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 @media (min-width: 1024px) {
@@ -11364,6 +11390,16 @@ video {
   right: -1px;
   bottom: -1px;
   left: -1px;
+}
+
+.bg-texture {
+  position: absolute;
+  z-index: 0;
+  top: -5rem;
+  left: -5rem;
+  -webkit-transform: rotate(34deg);
+          transform: rotate(34deg);
+  opacity: .5;
 }
 
 @media (min-width: 640px) {

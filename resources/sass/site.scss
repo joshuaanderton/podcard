@@ -6,8 +6,32 @@
 
 @tailwind utilities;
 
+* {
+    position: relative;
+}
+
+body {
+    color: rgba(0,0,0,.5);
+}
+
+h1 {
+    color: black;
+}
+
+.line-height-9 {
+    line-height: .9;
+}
+
+.content {
+    content: '';
+}
+
 .pb-1\/1 {
     padding-bottom: 100%;
+}
+
+.align-items-center {
+    align-items: center;
 }
 
 @media (min-width: 1024px) {
@@ -85,4 +109,15 @@ $border-radius: 7px;
             left: -1px;
         }
     }
+}
+
+.bg-texture {
+    position: absolute;
+    z-index: 0;
+    top: -5rem;
+    left: -5rem;
+
+    transform: rotate(34deg);
+
+    opacity: .5;
 }

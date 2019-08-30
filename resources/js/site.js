@@ -7,8 +7,9 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+
+import Clipboard from "clipboard";
 import '@claviska/jquery-minicolors';
-$('.color_input').minicolors();
 
 if ($('#player_builder').length > 0) {
     new Vue({
