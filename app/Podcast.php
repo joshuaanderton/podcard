@@ -55,13 +55,13 @@ class Podcast extends Model
         endforeach;
     }
 
-    static function hexToRgb($colour) {
-        if ($colour[0] == '#') $colour = substr($colour, 1);
+    static function hexToRgb($color) {
+        if ($color[0] == '#') $color = substr($color, 1);
 
-        if (strlen($colour) == 6) :
-            list($r, $g, $b) = [$colour[0] . $colour[1], $colour[2] . $colour[3], $colour[4] . $colour[5]];
-        elseif (strlen($colour) == 3) :
-            list($r, $g, $b) = [$colour[0] . $colour[0], $colour[1] . $colour[1], $colour[2] . $colour[2]];
+        if (strlen($color) == 6) :
+            list($r, $g, $b) = [$color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5]];
+        elseif (strlen($color) == 3) :
+            list($r, $g, $b) = [$color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2]];
         else :
             return false;
         endif;
@@ -71,5 +71,12 @@ class Podcast extends Model
         $b = hexdec($b);
 
         return "{$r},{$g},{$b}";
+    }
+
+    static function isColorLight($color)
+    {
+        $rgb = explode(',', $color);
+        $lightness = (max($rgb[0], $rgb[1], $rgb[2]) + min($rgb[0], $rgb[1], $rgb[2])) / 510.0;
+        return $lightness >= .8;
     }
 }

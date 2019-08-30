@@ -49330,17 +49330,21 @@ var render = function() {
       _c("div", { staticClass: "player-options" }, [
         _c("div", { staticClass: "player-heading" }, [
           _vm.podcast || _vm.episode
-            ? _c("div", [
+            ? _c("div", { staticClass: "player-meta" }, [
                 _c("strong", [_vm._v(_vm._s(_vm.podcast))]),
-                _vm._v(
-                  " " +
+                _vm._v(" "),
+                _c("small", [
+                  _vm._v(
                     _vm._s(_vm.episode && _vm.podcast ? "—" : "") +
-                    " " +
-                    _vm._s(
-                      _vm.season && _vm.season > 1 ? "S" + _vm.season + " " : ""
-                    ) +
-                    _vm._s(_vm.episode ? "Episode " + _vm.episode : "")
-                )
+                      " " +
+                      _vm._s(
+                        _vm.season && _vm.season > 1
+                          ? "S" + _vm.season + " "
+                          : ""
+                      ) +
+                      _vm._s(_vm.episode ? "EP" + _vm.episode : "")
+                  )
+                ])
               ])
             : _vm._e(),
           _vm._v(" "),

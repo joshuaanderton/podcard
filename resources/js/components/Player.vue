@@ -16,7 +16,7 @@
             </div>
             <div class="player-options">
                 <div class="player-heading">
-                    <div v-if="podcast || episode"><strong>{{podcast}}</strong> {{ episode && podcast ? '—' : '' }} {{ season && season > 1 ? 'S' + season + ' ' : '' }}{{episode ? 'Episode ' + episode : ''}}</div>
+                    <div class="player-meta" v-if="podcast || episode"><strong>{{podcast}}</strong> <small>{{ episode && podcast ? '—' : '' }} {{ season && season > 1 ? 'S' + season + ' ' : '' }}{{episode ? 'EP' + episode : ''}}</small></div>
                     <h2 v-if="title">{{title}}</h2>
                 </div>
                 <div>

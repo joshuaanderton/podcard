@@ -28,7 +28,14 @@ h2 {
   margin-top: 0;
   margin-bottom: 15px;
   padding-top: 0;
-  color: #000;
+  color: #333333;
+}
+
+.player {
+  line-height: 1.5625;
+  width: 100%;
+  height: 100%;
+  color: #333333;
 }
 
 .player-wrapper {
@@ -37,16 +44,9 @@ h2 {
   display: flex;
   overflow: hidden;
   height: 100vh;
-  border: 1px solid #e0e0e0;
+  height: 180px;
   border-radius: 8px;
   background-color: #fff;
-}
-
-.player {
-  line-height: 1.5625;
-  width: 100%;
-  height: 100%;
-  color: #000;
 }
 
 .player-cover {
@@ -120,13 +120,21 @@ h2 {
   width: 100%;
 }
 
-.player-heading h2 {
-  font-size: 1.3rem;
+.player-heading h2,
+.player-heading .player-meta {
   display: block;
   overflow: hidden;
   width: calc(100vw - 180px - 50px);
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.player-heading h2 {
+  font-size: 1.2rem;
+}
+
+.player-heading .player-meta {
+  font-size: .9rem;
 }
 
 .player-progress {
@@ -148,17 +156,13 @@ h2 {
   background-color: #404040;
 }
 
-.player-time {
-  padding-top: 10px;
-  padding-bottom: 20px;
-}
-
 .player-mute {
   position: absolute;
   right: 15px;
   bottom: 15px;
   display: block;
   height: 20px;
+  opacity: .7;
 }
 
 .player-time {
@@ -166,17 +170,14 @@ h2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding-top: 10px;
+  padding-bottom: 20px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
 
-.player-time .player-time-current {
-  padding-left: 5px;
-}
-
-.player-time .player-time-total {
-  padding-right: 5px;
+.player-time-total {
   opacity: .5;
 }
 

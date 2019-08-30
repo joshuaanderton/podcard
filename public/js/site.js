@@ -48993,15 +48993,13 @@ __webpack_require__(11);
 
 window.Vue = __webpack_require__(33);
 
+$('.color_input').minicolors();
 
 if ($('#player_builder').length > 0) {
     new Vue({
         el: "#player_builder",
         components: {
             PlayerBuilder: __webpack_require__(48)
-        },
-        mounted: function mounted() {
-            $('.color_input').minicolors({ theme: 'bootstrap' });
         }
     });
 }
@@ -50234,16 +50232,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: {
         feed_url: {
             type: String,
-            default: 'https://feeds.podhunt.app/feeds/daily/rss'
+            default: ''
         },
         episode: {
-            type: Number,
-            default: 0
+            type: String,
+            default: ''
         },
         color: {
             type: String,
@@ -50251,11 +50265,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     },
     data: function data() {
-        return {};
+        return {
+            player_url: window.location.href.indexOf('.test') > 0 ? 'http://player.podcard.test' : 'https://player.podcard.co',
+            demos: [{ feed_url: 'https://feeds.podhunt.app/feeds/daily/rss', color: '#8772c7', episode: '37signals' }, { feed_url: 'https://feeds.transistor.fm/founderquest', color: '', episode: 'We\'re Going on Summer Vacation!' }, { feed_url: 'https://feeds.transistor.fm/build-your-saas', color: '#fbc85c', episode: '70' }, { feed_url: 'https://anchor.fm/s/d5d3614/podcast/rss', color: '#ff4500', episode: 'growth hacking' }]
+        };
     },
     methods: {},
-    created: function created() {},
-    mounted: function mounted() {}
+    created: function created() {
+        var random_demo = Math.floor(Math.random() * this.demos.length + 1) - 1;
+        this.feed_url = this.demos[random_demo].feed_url;
+        this.episode = this.demos[random_demo].episode;
+        this.color = this.demos[random_demo].color;
+    },
+    mounted: function mounted() {
+        var _this = this;
+        $('.color_input').minicolors({ theme: 'bootstrap' });
+        $('.color_input').change(function () {
+            _this.color = $(this).val();
+        });
+    }
 });
 
 /***/ }),
@@ -50266,138 +50294,220 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container mx-auto px-4 py-8" }, [
-    _c("div", { staticClass: "w-full max-w-lg mx-auto" }, [
-      _c("div", { staticClass: "flex flex-wrap -mx-3 mb-6" }, [
-        _c("div", { staticClass: "w-full px-3" }, [
-          _c(
-            "label",
-            {
-              staticClass:
-                "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2",
-              attrs: { for: "feed_url" }
-            },
-            [_vm._v("Feed URL")]
-          ),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
+  return _c("div", { staticClass: "container mx-auto px-4" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "flex flex-col lg:flex-row py-8" }, [
+      _c("div", { staticClass: "w-full lg:w-1/3 mx-auto lg:ml-0" }, [
+        _c("div", { staticClass: "flex flex-wrap -mx-3 mb-6" }, [
+          _c("div", { staticClass: "w-full px-3" }, [
+            _c(
+              "label",
               {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.feed_url,
-                expression: "feed_url"
-              }
-            ],
-            staticClass:
-              "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
-            attrs: { type: "text", id: "feed_url", placeholder: "" },
-            domProps: { value: _vm.feed_url },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+                staticClass: "block tracking-wide text-gray-700 font-bold mb-2",
+                attrs: { for: "feed_url" }
+              },
+              [_vm._v("Feed URL")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.feed_url,
+                  expression: "feed_url"
                 }
-                _vm.feed_url = $event.target.value
+              ],
+              staticClass:
+                "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
+              attrs: { type: "text", id: "feed_url", placeholder: "" },
+              domProps: { value: _vm.feed_url },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.feed_url = $event.target.value
+                }
               }
-            }
-          })
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "flex flex-wrap -mx-3 mb-6" }, [
+          _c("div", { staticClass: "w-full px-3" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.episode,
+                  expression: "episode"
+                }
+              ],
+              staticClass:
+                "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
+              attrs: { type: "text", id: "episode", placeholder: "" },
+              domProps: { value: _vm.episode },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.episode = $event.target.value
+                }
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "flex flex-wrap -mx-3 mb-6" }, [
+          _c("div", { staticClass: "w-full px-3" }, [
+            _c(
+              "label",
+              {
+                staticClass: "block tracking-wide text-gray-700 font-bold mb-2",
+                attrs: { for: "episode" }
+              },
+              [_vm._v("Color")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.color,
+                  expression: "color"
+                }
+              ],
+              staticClass:
+                "color_input appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
+              attrs: { type: "text", id: "color", placeholder: "" },
+              domProps: { value: _vm.color },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.color = $event.target.value
+                }
+              }
+            })
+          ])
         ])
       ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "flex flex-wrap -mx-3 mb-6" }, [
-        _c("div", { staticClass: "w-full px-3" }, [
-          _c(
-            "label",
-            {
-              staticClass:
-                "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2",
-              attrs: { for: "episode" }
-            },
-            [_vm._v("Episode (leave blank for latest)")]
-          ),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.episode,
-                expression: "episode"
-              }
-            ],
-            staticClass:
-              "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
-            attrs: { type: "number", id: "episode", placeholder: "" },
-            domProps: { value: _vm.episode },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.episode = $event.target.value
-              }
-            }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "flex flex-wrap -mx-3 mb-6" }, [
-        _c("div", { staticClass: "w-full px-3" }, [
-          _c(
-            "label",
-            {
-              staticClass:
-                "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2",
-              attrs: { for: "episode" }
-            },
-            [_vm._v("Color")]
-          ),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.color,
-                expression: "color"
-              }
-            ],
-            staticClass:
-              "color_input appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
-            attrs: { type: "text", id: "color", placeholder: "" },
-            domProps: { value: _vm.color },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.color = $event.target.value
-              }
-            }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _vm._m(0),
       _vm._v(" "),
       _vm.feed_url && _vm.feed_url.length > 0
-        ? _c("iframe", {
-            attrs: {
-              frameBorder: "0",
-              height: "180px",
-              width: "100%",
-              src:
-                "https://player.podcard.co?color=" +
-                _vm.color.replace("#", "") +
-                "&episode=" +
-                _vm.episode +
-                "&feed=" +
-                _vm.feed_url
-            }
-          })
+        ? _c("div", { staticClass: "w-full lg:w-1/2" }, [
+            _c("div", { staticClass: "border rounded p-6 bg-gray-100" }, [
+              _c(
+                "label",
+                {
+                  staticClass:
+                    "block tracking-wide text-gray-700 font-bold mb-2",
+                  attrs: { for: "episode" }
+                },
+                [_vm._v("Preview")]
+              ),
+              _vm._v(" "),
+              _c("iframe", {
+                attrs: {
+                  frameBorder: "0",
+                  height: "180",
+                  width: "100%",
+                  src:
+                    _vm.player_url +
+                    "?color=" +
+                    _vm.color.replace("#", "") +
+                    "&episode=" +
+                    _vm.episode +
+                    "&feed=" +
+                    _vm.feed_url
+                }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "pt-5" }, [
+                _c(
+                  "label",
+                  {
+                    staticClass:
+                      "block tracking-wide text-gray-700 font-bold mb-2",
+                    attrs: { for: "episode" }
+                  },
+                  [_vm._v("Snippet")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "code",
+                  {
+                    staticClass:
+                      "bg-gray-700 p-4 block rounded text-white text-sm"
+                  },
+                  [
+                    _c("span", { staticClass: "token tag" }, [
+                      _vm._m(2),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "token attr-name" }, [
+                        _vm._v("frameBorder")
+                      ]),
+                      _vm._m(3),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "token attr-name" }, [
+                        _vm._v("height")
+                      ]),
+                      _vm._m(4),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "token attr-name" }, [
+                        _vm._v("width")
+                      ]),
+                      _vm._m(5),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "token attr-name" }, [
+                        _vm._v("src")
+                      ]),
+                      _c("span", { staticClass: "token attr-value" }, [
+                        _c("span", { staticClass: "token punctuation" }, [
+                          _vm._v("=")
+                        ]),
+                        _c("span", { staticClass: "token punctuation" }, [
+                          _vm._v('"')
+                        ]),
+                        _vm._v(
+                          _vm._s(
+                            _vm.player_url +
+                              "?color=" +
+                              _vm.color.replace("#", "") +
+                              "&episode=" +
+                              _vm.episode +
+                              "&feed=" +
+                              _vm.feed_url
+                          )
+                        ),
+                        _c("span", { staticClass: "token punctuation" }, [
+                          _vm._v('"')
+                        ])
+                      ]),
+                      _c("span", { staticClass: "token punctuation" }, [
+                        _vm._v(">")
+                      ]),
+                      _vm._m(6),
+                      _c("span", { staticClass: "token punctuation" }, [
+                        _vm._v(">")
+                      ])
+                    ])
+                  ]
+                )
+              ])
+            ])
+          ])
         : _vm._e()
-    ])
+    ]),
+    _vm._v(" "),
+    _vm._m(7)
   ])
 }
 var staticRenderFns = [
@@ -50405,17 +50515,96 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "md:flex md:items-center mb-6" }, [
-      _c("div", { staticClass: "md:w-1/3" }),
-      _vm._v(" "),
-      _c("label", { staticClass: "md:w-2/3 block text-gray-500 font-bold" }, [
-        _c("input", {
-          staticClass: "mr-2 leading-tight",
-          attrs: { type: "checkbox" }
-        }),
-        _vm._v(" "),
-        _c("span", [_vm._v("Show border")])
-      ])
+    return _c("div", { staticClass: "py-6" }, [
+      _c("h1", { staticClass: "text-xl font-bold" }, [_vm._v("Podcard Player")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      {
+        staticClass: "block tracking-wide text-gray-700 font-bold mb-2",
+        attrs: { for: "episode" }
+      },
+      [
+        _vm._v("Episode Number or Title "),
+        _c("span", { staticClass: "text-gray-500 font-normal" }, [
+          _vm._v("(leave blank for latest)")
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "token tag" }, [
+      _c("span", { staticClass: "token punctuation" }, [_vm._v("<")]),
+      _vm._v("iframe\n                            ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "token attr-value" }, [
+      _c("span", { staticClass: "token punctuation" }, [_vm._v("=")]),
+      _c("span", { staticClass: "token punctuation" }, [_vm._v('"')]),
+      _vm._v("0"),
+      _c("span", { staticClass: "token punctuation" }, [_vm._v('"')])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "token attr-value" }, [
+      _c("span", { staticClass: "token punctuation" }, [_vm._v("=")]),
+      _c("span", { staticClass: "token punctuation" }, [_vm._v('"')]),
+      _vm._v("180"),
+      _c("span", { staticClass: "token punctuation" }, [_vm._v('"')])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "token attr-value" }, [
+      _c("span", { staticClass: "token punctuation" }, [_vm._v("=")]),
+      _c("span", { staticClass: "token punctuation" }, [_vm._v('"')]),
+      _vm._v("100%"),
+      _c("span", { staticClass: "token punctuation" }, [_vm._v('"')])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "token tag" }, [
+      _c("span", { staticClass: "token punctuation" }, [_vm._v("<")]),
+      _vm._v("/iframe")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-xs text-gray-500 pb-6" }, [
+      _vm._v("Made by "),
+      _c(
+        "a",
+        {
+          staticClass: "text-gray-600 font-bold",
+          attrs: {
+            target: "_blank",
+            href: "https://twitter.com/joshuaanderton"
+          }
+        },
+        [_c("code", [_vm._v("@joshanderton")])]
+      )
     ])
   }
 ]

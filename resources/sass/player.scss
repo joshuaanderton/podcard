@@ -2,13 +2,14 @@
 
 $black: #000;
 $white: #fff;
+$gray-100: #fafafa;
 $player-bg: $white;
 $player-border-color: darken($player-bg, 12%);
 $player-link-color: darken($player-bg, 75%);
 $player-progress-color: $player-border-color;
 $player-seeker-color: $player-link-color;
-$player-text-color: $black;
-$cover-height: 180px;
+$player-text-color: lighten($black, 20%);
+$player-height: 180px;
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Calibri Light', Roboto, sans-serif; //'Nunito', sans-serif;
@@ -43,18 +44,7 @@ h2 {
     margin-bottom: 15px;
     padding-top: 0;
 
-    color: $black;
-}
-
-.player-wrapper {
-    display: flex;
-    overflow: hidden;
-
-    height: 100vh;
-
-    border: 1px solid $player-border-color;
-    border-radius: 8px;
-    background-color: $player-bg;
+    color: $player-text-color;
 }
 
 .player {
@@ -64,132 +54,142 @@ h2 {
     height: 100%;
 
     color: $player-text-color;
-}
 
-.player-cover {
-    position: relative;
+    &-wrapper {
+        display: flex;
+        overflow: hidden;
 
-    display: flex;
+        height: 100vh;
+        height: $player-height;
 
-    min-width: $cover-height;
-    height: $cover-height;
+        border-radius: 8px;
+        background-color: $player-bg;
+    }
 
-    background-color: #e0e0e0;
-
-    align-items: center;
-    justify-content: center;
-     > a {
-        font-size: 40px;
-
+    &-cover {
         position: relative;
-        z-index: 20;
 
         display: flex;
 
-        width: 60px;
-        height: 60px;
-        margin: 0;
-        padding: 0;
+        min-width: $player-height;
+        height: $player-height;
 
-        color: $white;
-        border-radius: 50%;
-        background: rgba(0,0,0,.7);
+        background-color: #e0e0e0;
 
         align-items: center;
         justify-content: center;
-        svg {
-            width: 40px;
-            height: 40px;
+         > a {
+            font-size: 40px;
+
+            position: relative;
+            z-index: 20;
+
+            display: flex;
+
+            width: 60px;
+            height: 60px;
+            margin: 0;
+            padding: 0;
 
             color: $white;
+            border-radius: 50%;
+            background: rgba(0,0,0,.7);
+
+            align-items: center;
+            justify-content: center;
+            svg {
+                width: 40px;
+                height: 40px;
+
+                color: $white;
+            }
         }
     }
-}
 
-.player-controls {
-    display: flex;
-}
-
-.player-options {
-    display: flex;
-    flex-direction: column;
-
-    padding: 15px;
-
-    justify-content: center;
-    flex: 1;
-     > div {
-        width: 100%;
+    &-controls {
+        display: flex;
     }
-}
 
-.player-heading {
-    h2 {
-        font-size: 1.3rem;
+    &-options {
+        display: flex;
+        flex-direction: column;
 
-        display: block;
-        overflow: hidden;
+        padding: 15px;
 
-        width: calc(100vw - #{$cover-height} - 50px);
-
-        white-space: nowrap;
-        text-overflow: ellipsis;
+        justify-content: center;
+        flex: 1;
+         > div {
+            width: 100%;
+        }
     }
-}
 
-.player-progress {
-    position: relative;
+    &-heading {
+        h2,
+        .player-meta {
+            display: block;
+            overflow: hidden;
 
-    min-width: 200px;
-    height: 15px;
+            width: calc(100vw - #{$player-height} - 50px);
 
-    cursor: pointer;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        h2 {
+            font-size: 1.2rem;
+        }
+        .player-meta {
+            font-size: .9rem;
+        }
+    }
 
-    border-radius: 30px;
-    background-color: $player-progress-color;
+    &-progress {
+        position: relative;
 
-    .player-seeker {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
+        min-width: 200px;
+        height: 15px;
 
-        min-width: 15px;
+        cursor: pointer;
 
         border-radius: 30px;
-        background-color: $player-seeker-color;
-    }
-}
+        background-color: $player-progress-color;
 
-.player-time {
-    padding-top: 10px;
-    padding-bottom: 20px;
-}
+        .player-seeker {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
 
-.player-mute {
-    position: absolute;
-    right: 15px;
-    bottom: 15px;
+            min-width: 15px;
 
-    display: block;
-
-    height: 20px;
-}
-
-.player-time {
-    font-size: 13px;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    .player-time-current {
-        padding-left: 5px;
+            border-radius: 30px;
+            background-color: $player-seeker-color;
+        }
     }
 
-    .player-time-total {
-        padding-right: 5px;
+    &-mute {
+        position: absolute;
+        right: 15px;
+        bottom: 15px;
 
-        opacity: .5;
+        display: block;
+
+        height: 20px;
+
+        opacity: .7;
+    }
+
+    &-time {
+        font-size: 13px;
+
+        display: flex;
+
+        padding-top: 10px;
+        padding-bottom: 20px;
+
+        justify-content: space-between;
+
+        &-total {
+            opacity: .5;
+        }
     }
 }
