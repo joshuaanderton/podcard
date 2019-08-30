@@ -35,10 +35,11 @@ Route::domain('player.' . env('SESSION_DOMAIN'))->group(function ($router) {
 
         $podcast->import();
 
-        if (is_numeric($request->episode))  $episode = $podcast->episodes()->where(['number' => $request->episode])->first();
-        if (is_string($request->episode))   $episode = $podcast->episodes()->where('title', 'LIKE', "%{$request->episode}%")->first();
-        if (!$episode && $request->episode) $episode = $podcast->episodes()->offset(intval($request->episode-1))->first();
-        if (!$episode)                      $episode = $podcast->episodes()->latest('published_at')->first();
+        $episode = null;
+        if (is_numeric($request->episode))             $episode = $podcast->episodes()->where(['number' => $request->episode])->first();
+        if (!$episode && is_string($request->episode)) $episode = $podcast->episodes()->where('title', 'LIKE', "%{$request->episode}%")->first();
+        if (!$episode && $request->episode)            $episode = $podcast->episodes()->offset(intval($request->episode-1))->first();
+        if (!$episode)                                 $episode = $podcast->episodes()->latest('published_at')->first();
 
         $color = $request->color ? \App\Podcast::hexToRgb('#' . str_replace('#', '', $request->color)) : false;
 
