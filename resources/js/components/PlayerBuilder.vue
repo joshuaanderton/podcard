@@ -50,7 +50,7 @@
 
                                     <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>100%<span class="token punctuation">"</span></span>
 
-                                    <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{{ player_url + '?color=' + color.replace('#', '') + '&episode=' + episode + '&feed=' + feed_url }}<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span><span class="token tag"><span class="token punctuation">&lt;</span>/iframe</span><span class="token punctuation">&gt;</span>
+                                    <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{{ player_url + '?color=' + color.replace('#', '') + '&episode=' + encodeURIComponent(episode) + '&feed=' + feed_url }}<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span><span class="token tag"><span class="token punctuation">&lt;</span>/iframe</span><span class="token punctuation">&gt;</span>
                                 </span>
                             </code>
                         </div>

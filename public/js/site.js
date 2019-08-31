@@ -51539,7 +51539,7 @@ var render = function() {
                                     "?color=" +
                                     _vm.color.replace("#", "") +
                                     "&episode=" +
-                                    _vm.episode +
+                                    encodeURIComponent(_vm.episode) +
                                     "&feed=" +
                                     _vm.feed_url
                                 )
@@ -51720,7 +51720,7 @@ var staticRenderFns = [
               }
             }),
             _vm._v(" "),
-            _c("code", [_vm._v("@joshanderton")])
+            _c("code", [_vm._v("@joshuaanderton")])
           ]
         )
       ]
