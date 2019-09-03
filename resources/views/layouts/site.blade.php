@@ -5,11 +5,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>Podcard.co</title>
+
+        <meta name="og:image" content="https://jads.s3-us-west-2.amazonaws.com/podcard/screely-transistor.png">
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@joshuaanderton" />
+        <meta name="twitter:image" content="https://jads.s3-us-west-2.amazonaws.com/podcard/screely-transistor.png" />
+
+        <meta property="og:type" content="url">
+        <meta property="og:title" content="Podcard.co - Customizable embeddable podcast player">
+        <meta property="og:description" content="A beautiful brandable podcast player that you can easily embed on your website." />
+        <meta property="og:url" content="https://podcard.co">
+        <meta property="og:image" content="https://jads.s3-us-west-2.amazonaws.com/podcard/screely-transistor.png">
 
         <script src="{{ asset('js/site.js') }}?v=4" defer></script>
         <link href="{{ asset('css/site.css') }}?v=4" rel="stylesheet">
-        <link rel="shortcut icon" href="https://s3-us-west-2.amazonaws.com/upscribe/media/favicon.png"/>
+        <link rel="shortcut icon" href="/favicon.png"/>
 
         <!-- Start of Async Drift Code -->
         <script>
@@ -37,6 +49,53 @@
         }();
         drift.SNIPPET_VERSION = '0.3.1';
         drift.load('knezbhmtc5w9');
+        </script>
+        <!-- place this script tag after the Drift embed tag -->
+        <script>
+        (function() {
+          /* Add this class to any elements you want to use to open Drift.
+           *
+           * Examples:
+           * - <a class="drift-open-chat">Questions? We're here to help!</a>
+           * - <button class="drift-open-chat">Chat now!</button>
+           *
+           * You can have any additional classes on those elements that you
+           * would ilke.
+           */
+          var DRIFT_CHAT_SELECTOR = '.drift-open-chat'
+          /* http://youmightnotneedjquery.com/#ready */
+          function ready(fn) {
+            if (document.readyState != 'loading') {
+              fn();
+            } else if (document.addEventListener) {
+              document.addEventListener('DOMContentLoaded', fn);
+            } else {
+              document.attachEvent('onreadystatechange', function() {
+                if (document.readyState != 'loading')
+                  fn();
+              });
+            }
+          }
+          /* http://youmightnotneedjquery.com/#each */
+          function forEachElement(selector, fn) {
+            var elements = document.querySelectorAll(selector);
+            for (var i = 0; i < elements.length; i++)
+              fn(elements[i], i);
+          }
+          function openSidebar(driftApi, event) {
+            event.preventDefault();
+            driftApi.sidebar.open();
+            return false;
+          }
+          ready(function() {
+            drift.on('ready', function(api) {
+              var handleClick = openSidebar.bind(this, api)
+              forEachElement(DRIFT_CHAT_SELECTOR, function(el) {
+                el.addEventListener('click', handleClick);
+              });
+            });
+          });
+        })();
         </script>
         <!-- End of Async Drift Code -->
 

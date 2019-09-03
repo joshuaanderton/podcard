@@ -51255,6 +51255,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: {
@@ -51313,7 +51316,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "lg:h-screen flex align-items-center overflow-hidden" },
+    {
+      staticClass: "lg:h-screen flex align-items-center overflow-hidden",
+      staticStyle: { "min-height": "720px" }
+    },
     [
       _c("div", {
         staticClass: "h-full w-full absolute left-0 right-0 content opacity-25",
@@ -51502,7 +51508,7 @@ var render = function() {
                         "code",
                         {
                           staticClass:
-                            "copy-snippet bg-gray-700 p-4 block rounded text-white text-sm hover:cursor-pointer"
+                            "copy-snippet bg-black p-4 block rounded text-white text-sm hover:cursor-pointer"
                         },
                         [
                           _c("span", { staticClass: "token tag" }, [
@@ -51679,7 +51685,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c(
         "code",
-        { staticClass: "bg-gray-700 p-4 block rounded text-white text-sm" },
+        { staticClass: "bg-black p-4 block rounded text-white text-sm" },
         [
           _vm._v(
             "\n                            https://player.podcard.co?episode="
@@ -51697,34 +51703,48 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass:
-          "text-xs text-gray-700 inline-block bg-white rounded px-4 py-2 text-gray-400 border border-gray-200 mb-6",
-        attrs: { target: "_blank", href: "https://twitter.com/joshuaanderton" }
-      },
-      [
-        _vm._v("\n            Made by\n            "),
-        _c(
-          "span",
-          { staticClass: "text-gray-600 font-bold flex align-items-center" },
-          [
-            _c("img", {
-              staticClass: "rounded-full mr-1",
-              attrs: {
-                height: "40",
-                width: "40",
-                src:
-                  "https://pbs.twimg.com/profile_images/1124918005719113733/nhF5z17L_400x400.png"
-              }
-            }),
-            _vm._v(" "),
-            _c("code", [_vm._v("@joshuaanderton")])
-          ]
-        )
-      ]
-    )
+    return _c("div", { staticClass: "flex align-items-center mb-6" }, [
+      _c(
+        "a",
+        {
+          staticClass:
+            "text-xs text-gray-700 inline-block bg-white rounded px-4 py-2 text-gray-400 border border-gray-200",
+          attrs: {
+            target: "_blank",
+            href: "https://twitter.com/joshuaanderton"
+          }
+        },
+        [
+          _vm._v("\n                Made by\n                "),
+          _c(
+            "span",
+            { staticClass: "text-gray-600 font-bold flex align-items-center" },
+            [
+              _c("img", {
+                staticClass: "rounded-full mr-1",
+                attrs: {
+                  height: "40",
+                  width: "40",
+                  src:
+                    "https://pbs.twimg.com/profile_images/1124918005719113733/nhF5z17L_400x400.png"
+                }
+              }),
+              _vm._v(" "),
+              _c("code", [_vm._v("@joshuaanderton")])
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass:
+            "ml-auto drift-open-chat bg-black hover:bg-gray-700 text-white text-sm font-bold py-2 px-4 rounded-full focus:outline-none"
+        },
+        [_vm._v("Questions?")]
+      )
+    ])
   }
 ]
 render._withStripped = true

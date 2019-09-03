@@ -1,5 +1,5 @@
 <template>
-    <div class="lg:h-screen flex align-items-center overflow-hidden">
+    <div class="lg:h-screen flex align-items-center overflow-hidden" style="min-height:720px">
         <div
             class="h-full w-full absolute left-0 right-0 content opacity-25"
             v-bind:style="color ? 'background: linear-gradient(' + '#' + color.replace('#', '') + ', #ffffff)' : ''"></div>
@@ -38,7 +38,7 @@
                         <iframe frameBorder="0" height="180" width="100%" v-bind:src="player_url + '?color=' + color.replace('#', '') + '&episode=' + episode + '&feed=' + feed_url"></iframe>
                         <div class="pt-5 overflow-hidden mb-5">
                             <label class="block tracking-wide font-bold mb-2" for="episode">Snippet</label>
-                            <code class="copy-snippet bg-gray-700 p-4 block rounded text-white text-sm hover:cursor-pointer">
+                            <code class="copy-snippet bg-black p-4 block rounded text-white text-sm hover:cursor-pointer">
                                 <span class="token tag">
                                     <span class="token tag">
                                         <span class="token punctuation">&lt;</span>iframe
@@ -56,20 +56,23 @@
                         </div>
                         <div class="">
                             <label class="block tracking-wide font-bold mb-2" for="episode">Or build one your self dynamically using the URL...</label>
-                            <code class="bg-gray-700 p-4 block rounded text-white text-sm">
+                            <code class="bg-black p-4 block rounded text-white text-sm">
                                 https://player.podcard.co?episode=<strong>TITLE_OR_NUMBER</strong>&color=<strong>HEX_CODE</strong>&feed=<strong>FEED_URL</strong>
                             </code>
                         </div>
                     </div>
                 </div>
             </div>
-            <a target="_blank" href="https://twitter.com/joshuaanderton" class="text-xs text-gray-700 inline-block bg-white rounded px-4 py-2 text-gray-400 border border-gray-200 mb-6">
-                Made by
-                <span class="text-gray-600 font-bold flex align-items-center">
-                    <img class="rounded-full mr-1" height="40" width="40" src="https://pbs.twimg.com/profile_images/1124918005719113733/nhF5z17L_400x400.png"/>
-                    <code>@joshuaanderton</code>
-                </span>
-            </a>
+            <div class="flex align-items-center mb-6">
+                <a target="_blank" href="https://twitter.com/joshuaanderton" class="text-xs text-gray-700 inline-block bg-white rounded px-4 py-2 text-gray-400 border border-gray-200">
+                    Made by
+                    <span class="text-gray-600 font-bold flex align-items-center">
+                        <img class="rounded-full mr-1" height="40" width="40" src="https://pbs.twimg.com/profile_images/1124918005719113733/nhF5z17L_400x400.png"/>
+                        <code>@joshuaanderton</code>
+                    </span>
+                </a>
+                <button class="ml-auto drift-open-chat bg-black hover:bg-gray-700 text-white text-sm font-bold py-2 px-4 rounded-full focus:outline-none">Questions?</button>
+            </div>
         </div>
     </div>
 </template>

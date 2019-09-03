@@ -55,7 +55,8 @@ Route::domain('player.' . env('SESSION_DOMAIN'))->group(function ($router) {
             'is_light'  => $color && \App\Podcast::isColorLight($color)
         ]);
     });
-    Route::get('/import', function(Request $request){
+
+    Route::get('import', function(Request $request){
         if (empty($request->feed)) return abort(404);
 
         $request->feed = explode('?', $request->feed)[0];
@@ -73,6 +74,26 @@ Route::domain('player.' . env('SESSION_DOMAIN'))->group(function ($router) {
         $podcast->episode_imported = $podcast->episodes()->count();
 
         return response()->json(['message' => $podcast], 202);
+    });
+
+    Route::get('embed', function(Request $request){
+
+        // Pass args through
+        $url = '';
+
+        return [
+            'version'          => '1.0',
+            'provider_name'    => 'Podcard',
+            'provider_url'     => env('SITE_URL'),
+            'title'            => '',
+            'html'             => "<iframe width=\"100%\" height=\"180\" scrolling=\"no\" frameborder=\"0\" src=\"{$url}?as_embed\"></iframe>",
+            'height'           => '180',
+            'width'            => '800',
+            'type'             => 'rich',
+            //'thumbnail_url'    => "http://api.screenshotlayer.com/api/capture?access_key=" . env('SCREENSHOT_LAYER_ACCESS_KEY') . "&viewport=1024x612&width=1000&url=" . urlencode($url),
+            //'thumbnail_width'  => 1200,
+            //'thumbnail_height' => 630
+        ];
     });
 });
 
