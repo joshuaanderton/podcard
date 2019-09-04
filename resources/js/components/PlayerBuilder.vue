@@ -64,14 +64,15 @@
                 </div>
             </div>
             <div class="flex align-items-center mb-6">
-                <a target="_blank" href="https://twitter.com/joshuaanderton" class="text-xs text-gray-700 inline-block bg-white rounded px-4 py-2 text-gray-400 border border-gray-200">
+                <a target="_blank" href="https://twitter.com/joshuaanderton" class="text-xs text-gray-700 inline-block bg-white rounded px-4 py-2 text-gray-400 border border-gray-200 mr-auto">
                     Made by
                     <span class="text-gray-600 font-bold flex align-items-center">
                         <img class="rounded-full mr-1" height="40" width="40" src="https://pbs.twimg.com/profile_images/1124918005719113733/nhF5z17L_400x400.png"/>
                         <code>@joshuaanderton</code>
                     </span>
                 </a>
-                <button class="ml-auto drift-open-chat bg-black hover:bg-gray-700 text-white text-sm font-bold py-2 px-4 rounded-full focus:outline-none">Questions?</button>
+                <a href="https://www.producthunt.com/posts/podcard?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-podcard" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=166628&theme=dark" alt="Podcard - Customizable embeddable podcast player. | Product Hunt Embed" style="width: 250px; height: 54px;" width="250px" height="54px" /></a>
+                <!--<button class="ml-auto drift-open-chat bg-black hover:bg-gray-700 text-white text-sm font-bold py-2 px-4 rounded-full focus:outline-none">Questions?</button>-->
             </div>
         </div>
     </div>

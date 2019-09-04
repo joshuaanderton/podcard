@@ -23,6 +23,7 @@
         <link href="{{ asset('css/site.css') }}?v=4" rel="stylesheet">
         <link rel="shortcut icon" href="/favicon.png"/>
 
+        {{--
         <!-- Start of Async Drift Code -->
         <script>
         "use strict";
@@ -98,6 +99,7 @@
         })();
         </script>
         <!-- End of Async Drift Code -->
+        --}}
 
     </head>
     <body>
