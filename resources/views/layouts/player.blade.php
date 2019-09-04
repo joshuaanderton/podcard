@@ -7,8 +7,8 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <script src="{{ asset('js/player.js') }}?v=4" defer></script>
-        <link href="{{ asset('css/player.css') }}?v=4" rel="stylesheet">
+        <script src="{{ asset('js/player.js') }}?v=5" defer></script>
+        <link href="{{ asset('css/player.css') }}?v=5" rel="stylesheet">
         <link rel="shortcut icon" href="https://s3-us-west-2.amazonaws.com/upscribe/media/favicon.png"/>
     </head>
     <body>

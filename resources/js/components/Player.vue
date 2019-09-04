@@ -147,6 +147,7 @@
             },
             pause() {
                 this.audio.pause();
+                this.paused = true;
             },
             stop() {
                 this.playing = false;
@@ -190,7 +191,8 @@
             receiver.on('getDuration', callback => callback(this.audio.duration));
             receiver.on('getVolume', callback => callback(this.audio.volume*100));
             receiver.on('setVolume', value => this.audio.volume = (value/100));
-            receiver.on('mute', () => this.audio.mute())
+            receiver.on('getPaused', () => !this.audio.playing);
+            receiver.on('mute', () => this.audio.mute());
             receiver.on('unmute', () => this.audio.unmute());
             receiver.on('getMuted', callback => callback(this.audio.muted));
             receiver.on('getLoop', callback => callback(this.audio.loop));
