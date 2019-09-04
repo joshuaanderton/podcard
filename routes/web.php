@@ -16,6 +16,10 @@ Route::group(['domain' => env('SITE_URL')], function() {
     Route::get('/', function(){
         return view('player-builder');
     });
+
+    Route::get('dnt', function(Request $request){
+        return view('pages.dnt');
+    });
 });
 
 Route::domain('player.' . env('SESSION_DOMAIN'))->group(function ($router) {

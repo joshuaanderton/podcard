@@ -41,6 +41,8 @@
 </template>
 
 <script>
+    import playerjs from 'player.js'
+
     export default {
         props: {
             file: {
@@ -124,11 +126,14 @@
             },
             mute() {
                 if (this.muted) {
-                    return this.volume = this.previousVolume;
+                    this.unmute();
                 }
 
                 this.previousVolume = this.volume;
                 this.volume = 0;
+            },
+            unmute() {
+                return this.volume = this.previousVolume;
             },
             seek(e) {
                 if (e.target.tagName === 'SPAN') {
@@ -160,6 +165,38 @@
             this.audio.addEventListener('loadeddata', this.load);
             this.audio.addEventListener('pause', () => { this.playing = false; });
             this.audio.addEventListener('play', () => { this.playing = true; });
+
+            // Player.js stuff
+            const receiver = new playerjs.Receiver();
+
+            this.audio.addEventListener('ended', () => receiver.emit('ended'));
+            this.audio.addEventListener('timeupdate', () => {
+                receiver.emit('timeupdate', {
+                    seconds: this.audio.currentTime,
+                    duration: this.audio.duration
+                });
+            });
+
+            receiver.on('play', () => {
+                this.audio.play();
+                receiver.emit('play');
+            });
+
+            receiver.on('pause', () => {
+                this.audio.pause();
+                receiver.emit('pause');
+            });
+
+            receiver.on('getDuration', callback => callback(this.audio.duration));
+            receiver.on('getVolume', callback => callback(this.audio.volume*100));
+            receiver.on('setVolume', value => this.audio.volume = (value/100));
+            receiver.on('mute', () => this.audio.mute())
+            receiver.on('unmute', () => this.audio.unmute());
+            receiver.on('getMuted', callback => callback(this.audio.muted));
+            receiver.on('getLoop', callback => callback(this.audio.loop));
+            receiver.on('setLoop', value => this.audio.loop = value);
+
+            receiver.ready();
         }
     }
 </script>
