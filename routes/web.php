@@ -78,8 +78,14 @@ Route::domain('player.' . env('SESSION_DOMAIN'))->group(function ($router) {
 
     Route::get('embed', function(Request $request){
 
-        // Pass args through
-        $url = '';
+        $params = [];
+        foreach($request->all() as $key => $val) :
+            if (in_array($key, ['feed', 'color', 'episode'])) :
+                $params[$key] = $val;
+            endif;
+        endforeach;
+
+        $url = 'https://player.' . env('SESSION_DOMAIN') . '?' . http_build_query($params);
 
         return [
             'version'          => '1.0',
