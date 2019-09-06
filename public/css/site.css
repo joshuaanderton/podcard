@@ -1082,7 +1082,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 /**
@@ -1144,6 +1144,54 @@ video {
   .container {
     max-width: 1280px;
   }
+}
+
+.pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.pagination .page-item .page-link {
+  padding: .75rem;
+  display: block;
+  text-decoration: none;
+  border-top-width: 1px;
+  border-left-width: 1px;
+  border-bottom-width: 1px;
+  background-color: #ffffff;
+  color: #2779BD;
+}
+
+.pagination .page-item .page-link:hover {
+  background-color: #f1f5f8;
+}
+
+.pagination .page-item:first-child .page-link {
+  border-top-left-radius: .25rem;
+  border-bottom-left-radius: .25rem;
+}
+
+.pagination .page-item:last-child .page-link {
+  border-right-width: 1px;
+  border-top-right-radius: .25rem;
+  border-bottom-right-radius: .25rem;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #2779BD;
+  border-color: #2779BD;
+  color: #ffffff;
+}
+
+.pagination .page-item.disabled .page-link {
+  background-color: #f1f5f8;
+  color: #8795a1;
 }
 
 .sr-only {
@@ -4257,15 +4305,11 @@ video {
 }
 
 .font-sans {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: -apple-system, BlinkMacSystemFont;
 }
 
 .font-serif {
-  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-}
-
-.font-mono {
-  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: Permanent Marker;
 }
 
 .font-hairline {
@@ -11292,6 +11336,24 @@ video {
   z-index: auto;
 }
 
+.bg-body-gradient {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#381205), to(#712d14));
+  background-image: linear-gradient(to bottom, #381205, #712d14);
+}
+
+.bg-mono-circle {
+  background-image: radial-gradient(circle, #CCC, #000);
+}
+
+.hover\:bg-body-gradient:hover {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#381205), to(#712d14));
+  background-image: linear-gradient(to bottom, #381205, #712d14);
+}
+
+.hover\:bg-mono-circle:hover {
+  background-image: radial-gradient(circle, #CCC, #000);
+}
+
 * {
   position: relative;
 }
@@ -14514,15 +14576,11 @@ h1 {
   }
 
   .sm\:font-sans {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: -apple-system, BlinkMacSystemFont;
   }
 
   .sm\:font-serif {
-    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-  }
-
-  .sm\:font-mono {
-    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: Permanent Marker;
   }
 
   .sm\:font-hairline {
@@ -21548,6 +21606,24 @@ h1 {
   .sm\:z-auto {
     z-index: auto;
   }
+
+  .sm\:bg-body-gradient {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#381205), to(#712d14));
+    background-image: linear-gradient(to bottom, #381205, #712d14);
+  }
+
+  .sm\:bg-mono-circle {
+    background-image: radial-gradient(circle, #CCC, #000);
+  }
+
+  .sm\:hover\:bg-body-gradient:hover {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#381205), to(#712d14));
+    background-image: linear-gradient(to bottom, #381205, #712d14);
+  }
+
+  .sm\:hover\:bg-mono-circle:hover {
+    background-image: radial-gradient(circle, #CCC, #000);
+  }
 }
 
 @media (min-width: 768px) {
@@ -24662,15 +24738,11 @@ h1 {
   }
 
   .md\:font-sans {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: -apple-system, BlinkMacSystemFont;
   }
 
   .md\:font-serif {
-    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-  }
-
-  .md\:font-mono {
-    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: Permanent Marker;
   }
 
   .md\:font-hairline {
@@ -31696,6 +31768,24 @@ h1 {
   .md\:z-auto {
     z-index: auto;
   }
+
+  .md\:bg-body-gradient {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#381205), to(#712d14));
+    background-image: linear-gradient(to bottom, #381205, #712d14);
+  }
+
+  .md\:bg-mono-circle {
+    background-image: radial-gradient(circle, #CCC, #000);
+  }
+
+  .md\:hover\:bg-body-gradient:hover {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#381205), to(#712d14));
+    background-image: linear-gradient(to bottom, #381205, #712d14);
+  }
+
+  .md\:hover\:bg-mono-circle:hover {
+    background-image: radial-gradient(circle, #CCC, #000);
+  }
 }
 
 @media (min-width: 1024px) {
@@ -34810,15 +34900,11 @@ h1 {
   }
 
   .lg\:font-sans {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: -apple-system, BlinkMacSystemFont;
   }
 
   .lg\:font-serif {
-    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-  }
-
-  .lg\:font-mono {
-    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: Permanent Marker;
   }
 
   .lg\:font-hairline {
@@ -41844,6 +41930,24 @@ h1 {
   .lg\:z-auto {
     z-index: auto;
   }
+
+  .lg\:bg-body-gradient {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#381205), to(#712d14));
+    background-image: linear-gradient(to bottom, #381205, #712d14);
+  }
+
+  .lg\:bg-mono-circle {
+    background-image: radial-gradient(circle, #CCC, #000);
+  }
+
+  .lg\:hover\:bg-body-gradient:hover {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#381205), to(#712d14));
+    background-image: linear-gradient(to bottom, #381205, #712d14);
+  }
+
+  .lg\:hover\:bg-mono-circle:hover {
+    background-image: radial-gradient(circle, #CCC, #000);
+  }
 }
 
 @media (min-width: 1280px) {
@@ -44958,15 +45062,11 @@ h1 {
   }
 
   .xl\:font-sans {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: -apple-system, BlinkMacSystemFont;
   }
 
   .xl\:font-serif {
-    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-  }
-
-  .xl\:font-mono {
-    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: Permanent Marker;
   }
 
   .xl\:font-hairline {
@@ -51991,6 +52091,24 @@ h1 {
 
   .xl\:z-auto {
     z-index: auto;
+  }
+
+  .xl\:bg-body-gradient {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#381205), to(#712d14));
+    background-image: linear-gradient(to bottom, #381205, #712d14);
+  }
+
+  .xl\:bg-mono-circle {
+    background-image: radial-gradient(circle, #CCC, #000);
+  }
+
+  .xl\:hover\:bg-body-gradient:hover {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#381205), to(#712d14));
+    background-image: linear-gradient(to bottom, #381205, #712d14);
+  }
+
+  .xl\:hover\:bg-mono-circle:hover {
+    background-image: radial-gradient(circle, #CCC, #000);
   }
 }
 

@@ -30,6 +30,8 @@ class Podcast extends Model
         $feed = $feed->channel;
 
         $this->title       = $feed->title;
+        $this->description = $feed->description;
+        $this->link        = !empty($feed->link['href']) ? strval($feed->link['href']) : !empty($feed->link) ? $feed->link : null;
         $this->owner_name  = $feed->owner->name;
         $this->owner_email = $feed->owner->email;
         $this->image_url   = !empty($feed->image['href']) ? strval($feed->image['href']) : null;

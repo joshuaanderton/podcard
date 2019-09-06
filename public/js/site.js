@@ -49008,6 +49008,10 @@ if ($('#player_builder').length > 0) {
     });
 }
 
+jQuery(function () {
+    $('.fade-up').addClass('active');
+});
+
 /***/ }),
 /* 48 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -51259,7 +51263,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: {
@@ -51720,7 +51723,10 @@ var staticRenderFns = [
           _vm._v("\n                Made by\n                "),
           _c(
             "span",
-            { staticClass: "text-gray-600 font-bold flex align-items-center" },
+            {
+              staticClass:
+                "text-gray-600 font-bold flex align-items-center pt-1"
+            },
             [
               _c("img", {
                 staticClass: "rounded-full mr-1",
@@ -51739,27 +51745,12 @@ var staticRenderFns = [
       ),
       _vm._v(" "),
       _c(
-        "a",
+        "button",
         {
-          attrs: {
-            href:
-              "https://www.producthunt.com/posts/podcard?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-podcard",
-            target: "_blank"
-          }
+          staticClass:
+            "ml-auto drift-open-chat bg-black hover:bg-gray-700 text-white text-sm font-bold py-2 px-4 rounded-full focus:outline-none"
         },
-        [
-          _c("img", {
-            staticStyle: { width: "250px", height: "54px" },
-            attrs: {
-              src:
-                "https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=166628&theme=dark",
-              alt:
-                "Podcard - Customizable embeddable podcast player. | Product Hunt Embed",
-              width: "250px",
-              height: "54px"
-            }
-          })
-        ]
+        [_vm._v("Questions?")]
       )
     ])
   }

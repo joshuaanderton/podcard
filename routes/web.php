@@ -12,6 +12,27 @@
 */
 use Illuminate\Http\Request;
 
+Route::domain('ramengames.' . env('SESSION_DOMAIN'))->group(function ($router) {
+    Route::get('/', function(){
+        return view('ramen-games', [
+            'podcasts' => \App\Podcast::where('ramen_games', 1)->paginate(5),
+            /*
+            'episodes' => \App\PodcastEpisode::select(
+                                'podcast_episodes.*',
+                                'podcasts.title as podcast_title',
+                                'podcasts.description as podcast_description',
+                                'podcasts.link as podcast_link'
+                            )
+                            ->latest('published_at')
+                            ->join('podcasts', 'podcast_episodes.podcast_id', 'podcasts.id')
+                            ->where('podcasts.ramen_games', 1)
+                            ->distinct('podcast_id')
+                            ->paginate(5)
+                            */
+        ]);
+    });
+});
+
 Route::group(['domain' => env('SITE_URL')], function() {
     Route::get('/', function(){
         return view('player-builder');

@@ -66,7 +66,7 @@
             <div class="flex align-items-center mb-6">
                 <a target="_blank" href="https://twitter.com/joshuaanderton" class="text-xs text-gray-700 inline-block bg-white rounded px-4 py-2 text-gray-400 mr-auto">
                     Made by
-                    <span class="text-gray-600 font-bold flex align-items-center">
+                    <span class="text-gray-600 font-bold flex align-items-center pt-1">
                         <img class="rounded-full mr-1" height="40" width="40" src="https://pbs.twimg.com/profile_images/1124918005719113733/nhF5z17L_400x400.png"/>
                         <code>@joshuaanderton</code>
                     </span>
