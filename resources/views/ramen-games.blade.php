@@ -17,7 +17,7 @@
                 @php $episode = $podcast->episodes()->latest('published_at')->first() @endphp
                 <div class="mb-6 rounded bg-white shadow lg:flex overflow-hidden">
                     <img width="400" height="400" class="hidden max-w-full mr-4 mb-4 rounded-right-bottom" src="{{ $podcast->image_url }}" alt="Sunset in the mountains">
-                    <div class="w-1/1 lg:w-1/2 mb-6 lg:mb-0 lg:pr-6 h-full flex flex-col p-6">
+                    <div class="w-1/1 lg:w-1/2 mb-6 lg:mb-0 lg:pr-6 h-1/1 flex flex-col p-6">
                         <h2 class="font-bold text-3xl text-black mb-3">{{ $podcast->title }}</h2>
                         <div class="mb-auto pb-4">{{ $podcast->description }}</div>
                         <div>

@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 Route::domain('ramengames.' . env('SESSION_DOMAIN'))->group(function ($router) {
     Route::get('/', function(){
         return view('ramen-games', [
-            'podcasts' => \App\Podcast::where('ramen_games', 1)->paginate(5),
+            'podcasts' => \App\Podcast::where('ramen_games', 1)->paginate(20),
             /*
             'episodes' => \App\PodcastEpisode::select(
                                 'podcast_episodes.*',
