@@ -13,19 +13,19 @@
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
                             <label class="block tracking-wide font-bold mb-2" for="feed_url">Paste your feed URL</label>
-                            <input v-model="feed_url" type="text" id="feed_url" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="">
+                            <input v-model="feed_url" type="text" id="feed_url" class="appearance-none block w-full bg-white text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border" placeholder="">
                         </div>
                     </div>
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
                             <label class="block tracking-wide font-bold mb-2" for="episode">Episode number or title <span class="text-sm font-normal">(leave blank for latest)</span></label>
-                            <input v-model="episode" type="text" id="episode" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="">
+                            <input v-model="episode" type="text" id="episode" class="appearance-none block w-full bg-white text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border" placeholder="">
                         </div>
                     </div>
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
                             <label class="block tracking-wide font-bold mb-2" for="episode">Player Color</label>
-                            <input v-model="color" type="text" id="color" class="color_input appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="">
+                            <input v-model="color" type="text" id="color" class="color_input appearance-none block w-full bg-white text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border" placeholder="">
                         </div>
                     </div>
                 </div>
@@ -64,15 +64,14 @@
                 </div>
             </div>
             <div class="flex align-items-center mb-6">
-                <a target="_blank" href="https://twitter.com/joshuaanderton" class="text-xs text-gray-700 inline-block bg-white rounded px-4 py-2 text-gray-400 border border-gray-200 mr-auto">
+                <a target="_blank" href="https://twitter.com/joshuaanderton" class="text-xs text-gray-700 inline-block bg-white rounded px-4 py-2 text-gray-400 mr-auto">
                     Made by
                     <span class="text-gray-600 font-bold flex align-items-center">
                         <img class="rounded-full mr-1" height="40" width="40" src="https://pbs.twimg.com/profile_images/1124918005719113733/nhF5z17L_400x400.png"/>
                         <code>@joshuaanderton</code>
                     </span>
                 </a>
-                <a href="https://www.producthunt.com/posts/podcard?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-podcard" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=166628&theme=dark" alt="Podcard - Customizable embeddable podcast player. | Product Hunt Embed" style="width: 250px; height: 54px;" width="250px" height="54px" /></a>
-                <!--<button class="ml-auto drift-open-chat bg-black hover:bg-gray-700 text-white text-sm font-bold py-2 px-4 rounded-full focus:outline-none">Questions?</button>-->
+                <button class="ml-auto drift-open-chat bg-black hover:bg-gray-700 text-white text-sm font-bold py-2 px-4 rounded-full focus:outline-none">Questions?</button>
             </div>
         </div>
     </div>
@@ -100,7 +99,7 @@
                 {feed_url: 'https://feeds.podhunt.app/feeds/daily/rss',   color: '#8772c7', episode: '37signals'},
                 {feed_url: 'https://feeds.transistor.fm/founderquest',    color: '#b8702d', episode: 'We\'re Going on Summer Vacation!'},
                 {feed_url: 'https://feeds.transistor.fm/build-your-saas', color: '#fbc85c', episode: '70'},
-                {feed_url: 'https://anchor.fm/s/d5d3614/podcast/rss',     color: '#ff4500', episode: 'growth hacking'},
+                {feed_url: 'https://feeds.transistor.fm/ramen',           color: '#ff4500', episode: 'growth hacking'},
             ]
         }),
         methods: {

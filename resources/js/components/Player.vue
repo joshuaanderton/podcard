@@ -147,7 +147,6 @@
             },
             pause() {
                 this.audio.pause();
-                this.paused = true;
             },
             stop() {
                 this.playing = false;

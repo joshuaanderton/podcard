@@ -80,6 +80,16 @@ Route::domain('player.' . env('SESSION_DOMAIN'))->group(function ($router) {
         return response()->json(['message' => $podcast], 202);
     });
 
+    Route::get('import/all', function(Request $request){
+        $podcast = \App\Podcast::get();
+
+        $podcast->map(function($p){
+            $p->import();
+        });
+
+        return response()->json(['message' => $podcast->count() . ' feeds updated.'], 202);
+    });
+
     Route::get('embed', function(Request $request){
 
         $params = [];

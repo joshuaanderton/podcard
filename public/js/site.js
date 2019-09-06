@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 45);
+/******/ 	return __webpack_require__(__webpack_require__.s = 46);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -48969,21 +48969,22 @@ module.exports = function normalizeComponent (
 /* 42 */,
 /* 43 */,
 /* 44 */,
-/* 45 */
+/* 45 */,
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(46);
+module.exports = __webpack_require__(47);
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_clipboard__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_clipboard__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_clipboard___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_clipboard__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__claviska_jquery_minicolors__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__claviska_jquery_minicolors__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__claviska_jquery_minicolors___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__claviska_jquery_minicolors__);
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -49002,13 +49003,13 @@ if ($('#player_builder').length > 0) {
     new Vue({
         el: "#player_builder",
         components: {
-            PlayerBuilder: __webpack_require__(49)
+            PlayerBuilder: __webpack_require__(50)
         }
     });
 }
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -49991,7 +49992,7 @@ module.exports = closest;
 });
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//
@@ -51127,15 +51128,15 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(37)
 /* script */
-var __vue_script__ = __webpack_require__(50)
+var __vue_script__ = __webpack_require__(51)
 /* template */
-var __vue_template__ = __webpack_require__(51)
+var __vue_template__ = __webpack_require__(52)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -51174,7 +51175,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -51278,7 +51279,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             player_url: window.location.href.indexOf('.test') > 0 ? 'http://player.podcard.test' : 'https://player.podcard.co',
-            demos: [{ feed_url: 'https://feeds.podhunt.app/feeds/daily/rss', color: '#8772c7', episode: '37signals' }, { feed_url: 'https://feeds.transistor.fm/founderquest', color: '#b8702d', episode: 'We\'re Going on Summer Vacation!' }, { feed_url: 'https://feeds.transistor.fm/build-your-saas', color: '#fbc85c', episode: '70' }, { feed_url: 'https://anchor.fm/s/d5d3614/podcast/rss', color: '#ff4500', episode: 'growth hacking' }]
+            demos: [{ feed_url: 'https://feeds.podhunt.app/feeds/daily/rss', color: '#8772c7', episode: '37signals' }, { feed_url: 'https://feeds.transistor.fm/founderquest', color: '#b8702d', episode: 'We\'re Going on Summer Vacation!' }, { feed_url: 'https://feeds.transistor.fm/build-your-saas', color: '#fbc85c', episode: '70' }, { feed_url: 'https://feeds.transistor.fm/ramen', color: '#ff4500', episode: 'growth hacking' }]
         };
     },
     methods: {},
@@ -51308,7 +51309,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -51361,7 +51362,7 @@ var render = function() {
                       }
                     ],
                     staticClass:
-                      "appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
+                      "appearance-none block w-full bg-white text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border",
                     attrs: { type: "text", id: "feed_url", placeholder: "" },
                     domProps: { value: _vm.feed_url },
                     on: {
@@ -51390,7 +51391,7 @@ var render = function() {
                       }
                     ],
                     staticClass:
-                      "appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
+                      "appearance-none block w-full bg-white text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border",
                     attrs: { type: "text", id: "episode", placeholder: "" },
                     domProps: { value: _vm.episode },
                     on: {
@@ -51426,7 +51427,7 @@ var render = function() {
                       }
                     ],
                     staticClass:
-                      "color_input appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
+                      "color_input appearance-none block w-full bg-white text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border",
                     attrs: { type: "text", id: "color", placeholder: "" },
                     domProps: { value: _vm.color },
                     on: {
@@ -51709,7 +51710,7 @@ var staticRenderFns = [
         "a",
         {
           staticClass:
-            "text-xs text-gray-700 inline-block bg-white rounded px-4 py-2 text-gray-400 border border-gray-200 mr-auto",
+            "text-xs text-gray-700 inline-block bg-white rounded px-4 py-2 text-gray-400 mr-auto",
           attrs: {
             target: "_blank",
             href: "https://twitter.com/joshuaanderton"
