@@ -2,8 +2,9 @@
 module.exports = {
     theme: {
         fontFamily: {
-            'sans': ['-apple-system', 'BlinkMacSystemFont'],
+            'sans': ['Barlow', '-apple-system', 'BlinkMacSystemFont'],
             'serif': ['Permanent Marker'],
+            //'heading': ['Barlow', '-apple-system', 'BlinkMacSystemFont']
         },
         borderRadius: {
             'none': '0',
@@ -13,8 +14,13 @@ module.exports = {
             'full': '9999px',
             'large': '12px',
         },
+        colors: {
+          'white': '#fff',
+          'black': '#000',
+          'yellow': '#f1e5b3'
+        },
         gradients: theme => ({
-            'body-gradient': ['to bottom', '#381205', '#712d14'],
+            'body-gradient': ['to bottom', '#fffaea', '#fff', '#fff'],
             'mono-circle': {
                 type: 'radial',
                 colors: ['circle', '#CCC', '#000']

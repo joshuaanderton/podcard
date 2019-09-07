@@ -23,8 +23,7 @@
         <link href="{{ asset('css/site.css') }}?v=4" rel="stylesheet">
         <link rel="shortcut icon" href="/favicon.png"/>
 
-        <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
-
+        <link href="https://fonts.googleapis.com/css?family=Barlow:400,600,700,900&display=swap" rel="stylesheet">
     </head>
     <body class="bg-body-gradient">
         @yield('content')
