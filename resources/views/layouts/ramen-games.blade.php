@@ -7,17 +7,15 @@
 
         <title>The Ramen Games - Podcard.co</title>
 
-        <meta name="og:image" content="https://jads.s3-us-west-2.amazonaws.com/podcard/screely-transistor.png">
-
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@joshuaanderton" />
-        <meta name="twitter:image" content="https://jads.s3-us-west-2.amazonaws.com/podcard/screely-transistor.png" />
+        <meta name="twitter:image" content="https://ramengames.podcard.co/ramen-games-social.png" />
 
         <meta property="og:type" content="url">
         <meta property="og:title" content="The Ramen Games">
         <meta property="og:description" content="A list of podcasts following bootstrappers and their journeys to ramen profitable" />
         <meta property="og:url" content="https://podcard.co">
-        <meta property="og:image" content="/ramen-games-social.png">
+        <meta property="og:image" content="https://ramengames.podcard.co/ramen-games-social.png">
 
         <script src="{{ asset('js/site.js') }}?v=4" defer></script>
         <link href="{{ asset('css/site.css') }}?v=4" rel="stylesheet">
