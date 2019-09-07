@@ -14,10 +14,10 @@
         <meta name="twitter:image" content="https://jads.s3-us-west-2.amazonaws.com/podcard/screely-transistor.png" />
 
         <meta property="og:type" content="url">
-        <meta property="og:title" content="Podcard.co - Customizable embeddable podcast player">
-        <meta property="og:description" content="A beautiful brandable podcast player that you can easily embed on your website." />
+        <meta property="og:title" content="The Ramen Games">
+        <meta property="og:description" content="A list of podcasts following bootstrappers and their journeys to ramen profitable" />
         <meta property="og:url" content="https://podcard.co">
-        <meta property="og:image" content="https://jads.s3-us-west-2.amazonaws.com/podcard/screely-transistor.png">
+        <meta property="og:image" content="/ramen-games-social.png">
 
         <script src="{{ asset('js/site.js') }}?v=4" defer></script>
         <link href="{{ asset('css/site.css') }}?v=4" rel="stylesheet">
