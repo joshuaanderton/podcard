@@ -24,7 +24,7 @@
                         <div class="text-black mb-6 lg:mb-0">{{ $podcast->description }}</div>
                     </div>
                     <div class="my-auto mr-auto lg:mr-0 lg:ml-auto">
-                        <span class="inline-flex hover:bg-yellow text-black py-2 px-4 rounded-full align-items-center text-sm uppercase tracking-wider font-bold">
+                        <span class="inline-flex text-black bg-yellow hover:bg-black hover:text-white py-2 px-4 rounded-full align-items-center text-sm uppercase tracking-wider font-bold">
                             Check it out
                         </span>
                     </div>
