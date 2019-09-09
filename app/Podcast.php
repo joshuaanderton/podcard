@@ -45,6 +45,8 @@ class Podcast extends Model
         $episodes = array_reverse($episodes);
 
         foreach ($episodes as $episode) :
+            if (empty($episode->enclosure['url'])) continue;
+
             $episode = $this->episodes()->updateOrCreate(['guid' => $episode->guid], [
                 'title'        => $episode->title,
                 'image_url'    => !empty($episode->image['href']) ? strval($episode->image['href']) : !empty($episode->image->url) ? $episode->image->url : null,
