@@ -7,8 +7,6 @@
 
         <title>Podcard.co</title>
 
-        <meta name="og:image" content="https://jads.s3-us-west-2.amazonaws.com/podcard/screely-transistor.png">
-
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@joshuaanderton" />
         <meta name="twitter:image" content="https://jads.s3-us-west-2.amazonaws.com/podcard/screely-transistor.png" />
@@ -22,6 +20,8 @@
         <script src="{{ asset('js/site.js') }}?v=4" defer></script>
         <link href="{{ asset('css/site.css') }}?v=4" rel="stylesheet">
         <link rel="shortcut icon" href="/favicon.png"/>
+
+        <link href="https://fonts.googleapis.com/css?family=Barlow:400,600,700,900&display=swap" rel="stylesheet">
 
         <!-- Start of Async Drift Code -->
         <script>

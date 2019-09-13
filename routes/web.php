@@ -113,8 +113,12 @@ Route::domain('player.' . env('SESSION_DOMAIN'))->group(function ($router) {
 
     Route::get('embed', function(Request $request){
 
-        $params = [];
-        foreach($request->all() as $key => $val) :
+        if (!$request->url) abort(404);
+
+        $parts = parse_url($request->url);
+        parse_str($parts['query'], $passed_params);
+
+        foreach($passed_params as $key => $val) :
             if (in_array($key, ['feed', 'color', 'episode'])) :
                 $params[$key] = $val;
             endif;
@@ -150,9 +154,11 @@ Route::domain('{subdomain}.' . env('SESSION_DOMAIN'))->group(function ($router) 
     });
 });
 
+/*
 Route::group(array('domain' => '{domain}.{tld}'), function(){
     Route::get('/', function(string $domain){
         // Get card data from $domain
         return view('site', []);
     });
 });
+*/
