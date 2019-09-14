@@ -34,7 +34,9 @@ class Podcast extends Model
         $this->link        = !empty($feed->link['href']) ? strval($feed->link['href']) : !empty($feed->link) ? $feed->link : null;
         $this->owner_name  = $feed->owner->name;
         $this->owner_email = $feed->owner->email;
-        $this->image_url   = !empty($feed->image['href']) ? strval($feed->image['href']) : null;
+
+        // TODO: fallback to null and migrate field to be nullable
+        $this->image_url   = !empty($feed->image['href']) ? strval($feed->image['href']) : '';
         $this->image_url   = !$this->image_url && !empty($feed->image->url) ? $feed->image->url : $this->image_url;
 
         $this->save();
