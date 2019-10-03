@@ -49093,6 +49093,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -49129,6 +49137,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         loop: {
             type: Boolean,
             default: false
+        },
+        speed: {
+            type: Number,
+            default: 100
         }
     },
     data: function data() {
@@ -49169,6 +49181,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         volume: function volume(value) {
             this.showVolume = false;
             this.audio.volume = this.volume / 100;
+        },
+        speed: function speed() {
+            console.log(this.speed);
         }
     },
     methods: {
@@ -49201,6 +49216,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var seekPos = (e.clientX - el.left) / el.width;
 
             this.audio.currentTime = parseInt(this.audio.duration * seekPos);
+        },
+        set_speed: function set_speed(new_speed) {
+            this.speed = new_speed;
+            this.audio.playbackRate = this.speed / 100;
+            console.log(this.audio.playbackRate);
         },
         pause: function pause() {
             this.audio.pause();
@@ -50639,6 +50659,92 @@ var render = function() {
           _c("div", { staticClass: "player-time-total" }, [
             _vm._v(_vm._s(_vm.durationTime))
           ])
+        ]),
+        _vm._v(" "),
+        _c("span", { staticClass: "player-speed" }, [
+          _vm.speed == 100
+            ? _c(
+                "span",
+                {
+                  on: {
+                    click: function($event) {
+                      return _vm.set_speed(125)
+                    }
+                  }
+                },
+                [_vm._v("1x")]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.speed == 125
+            ? _c(
+                "span",
+                {
+                  on: {
+                    click: function($event) {
+                      return _vm.set_speed(150)
+                    }
+                  }
+                },
+                [_vm._v("1.25x")]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.speed == 150
+            ? _c(
+                "span",
+                {
+                  on: {
+                    click: function($event) {
+                      return _vm.set_speed(200)
+                    }
+                  }
+                },
+                [_vm._v("1.5x")]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.speed == 200
+            ? _c(
+                "span",
+                {
+                  on: {
+                    click: function($event) {
+                      return _vm.set_speed(50)
+                    }
+                  }
+                },
+                [_vm._v("2x")]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.speed == 50
+            ? _c(
+                "span",
+                {
+                  on: {
+                    click: function($event) {
+                      return _vm.set_speed(75)
+                    }
+                  }
+                },
+                [_vm._v(".5x")]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.speed == 75
+            ? _c(
+                "span",
+                {
+                  on: {
+                    click: function($event) {
+                      return _vm.set_speed(100)
+                    }
+                  }
+                },
+                [_vm._v(".75x")]
+              )
+            : _vm._e()
         ]),
         _vm._v(" "),
         _c(

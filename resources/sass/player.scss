@@ -145,7 +145,6 @@ h2 {
     &-progress {
         position: relative;
 
-        min-width: 200px;
         height: 15px;
 
         cursor: pointer;
@@ -176,6 +175,29 @@ h2 {
         height: 20px;
 
         opacity: .7;
+    }
+
+    &-speed {
+        position: absolute;
+        right: 45px;
+        bottom: 15px;
+        span {
+            font-size: 75%;
+
+            display: inline-block;
+
+            min-width: 40px;
+            padding: 1px px;
+
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none !important;
+
+            opacity: .7;
+            color: $white;
+            border: 1px solid $white;
+            border-radius: 3px;
+        }
     }
 
     &-time {
