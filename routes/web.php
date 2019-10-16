@@ -33,6 +33,12 @@ Route::domain('ramengames.' . env('SESSION_DOMAIN'))->group(function ($router) {
     });
 });
 
+Route::domain('editing.' . env('SESSION_DOMAIN'))->group(function ($router) {
+    Route::get('/', function(){
+        return view('player-builder');
+    });
+});
+
 Route::group(['domain' => env('SITE_URL')], function() {
     Route::get('/', function(){
         return view('player-builder');
@@ -46,7 +52,7 @@ Route::group(['domain' => env('SITE_URL')], function() {
 Route::domain('player.' . env('SESSION_DOMAIN'))->group(function ($router) {
     Route::get('/', function(Request $request){
 
-        if (empty($request->feed)) return view('player', ['podcast' => false]);
+        if (empty($request->feed)) return view('player-builder');
 
         $request->feed = explode('?', $request->feed)[0];
 

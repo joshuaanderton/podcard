@@ -10,6 +10,17 @@
         <script src="{{ asset('js/player.js') }}?v=6" defer></script>
         <link href="{{ asset('css/player.css') }}?v=6" rel="stylesheet">
         <link rel="shortcut icon" href="/favicon.png"/>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-83304079-2"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-83304079-2');
+        </script>
+
     </head>
     <body>
         @yield('content')
