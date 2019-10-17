@@ -5,17 +5,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>The Ramen Games - Podcard.co</title>
+        <title>The Ramen Games - Podcard.fm</title>
 
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@joshuaanderton" />
-        <meta name="twitter:image" content="https://ramengames.podcard.co/ramen-games-social.png" />
+        <meta name="twitter:image" content="https://ramengames.podcard.fm/ramen-games-social.png" />
 
         <meta property="og:type" content="url">
         <meta property="og:title" content="The Ramen Games">
         <meta property="og:description" content="A list of podcasts following bootstrappers and their journeys to ramen profitable" />
-        <meta property="og:url" content="https://podcard.co">
-        <meta property="og:image" content="https://ramengames.podcard.co/ramen-games-social.png">
+        <meta property="og:url" content="https://podcard.fm">
+        <meta property="og:image" content="https://ramengames.podcard.fm/ramen-games-social.png">
 
         <script src="{{ asset('js/site.js') }}?v=4" defer></script>
         <link href="{{ asset('css/site.css') }}?v=4" rel="stylesheet">

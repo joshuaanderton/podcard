@@ -1,14 +1,12 @@
 <template>
-    <div class="lg:h-screen flex align-items-center overflow-hidden" style="min-height:720px">
-        <div
-            class="h-full w-full absolute left-0 right-0 content opacity-25"
-            v-bind:style="color ? 'background: linear-gradient(' + '#' + color.replace('#', '') + ', #ffffff)' : ''"></div>
+    <div class="lg:h-screen flex align-items-center overflow-hidden pt-48 pb-32 md:py-32" style="min-height:720px">
+        <div class="h-full w-full absolute top-0 left-0 opacity-25" v-bind:style="color ? 'background: linear-gradient(' + '#' + color.replace('#', '') + ', #ffffff)' : ''"></div>
         <div class="container mx-auto px-4">
             <div class="flex flex-col lg:flex-row py-8 align-items-center">
                 <div class="w-full lg:w-1/3 mx-auto lg:ml-0 z-20">
-                    <div class="pb-6 mb-6">
-                        <h1 class="text-5xl font-bold line-height-9 font-weight-normal mb-4 opacity-5 font-weight-light">Podcard Player</h1>
-                        <p class="mb-3">Customize the embeddable player and copy & paste the snippet to any HTML page.</p>
+                    <div class="pb-6 mb-6 fade-up">
+                        <h1 class="font-sans font-bold text-black text-4xl sm:text-5xl -mt-5 ">Podcard Player</h1>
+                        <div class="font-sans text-xl sm:text-2xl text-black mb-12">Customize the embeddable player and copy & paste the snippet to any HTML page.</div>
                     </div>
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
@@ -57,7 +55,7 @@
                         <div class="">
                             <label class="block tracking-wide font-bold mb-2" for="episode">Or build one your self dynamically using the URL...</label>
                             <code class="bg-black p-4 block rounded text-white text-sm">
-                                https://player.podcard.co?episode=<strong>TITLE_OR_NUMBER</strong>&color=<strong>HEX_CODE</strong>&feed=<strong>FEED_URL</strong>
+                                https://player.podcard.fm?episode=<strong>TITLE_OR_NUMBER</strong>&color=<strong>HEX_CODE</strong>&feed=<strong>FEED_URL</strong>
                             </code>
                         </div>
                     </div>
@@ -94,7 +92,7 @@
             },
         },
         data: () => ({
-            player_url: window.location.href.indexOf('.test') > 0 ? 'http://player.podcard.test' : 'https://player.podcard.co',
+            player_url: window.location.href.indexOf('.test') > 0 ? 'http://player.podcard.test' : 'https://player.podcard.fm',
             demos: [
                 {feed_url: 'https://feeds.podhunt.app/feeds/daily/rss',   color: '#8772c7', episode: '37signals'},
                 {feed_url: 'https://feeds.transistor.fm/founderquest',    color: '#b8702d', episode: 'We\'re Going on Summer Vacation!'},

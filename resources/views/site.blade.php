@@ -14,6 +14,6 @@
                 </div>
             </div>
         </div>
-        <iframe frameBorder="0" height="180px" width="100%" src="https://player.podcard.co?feed={{ 'https://anchor.fm/s/d5d3614/podcast/rss' }}"></iframe>
+        <iframe frameBorder="0" height="180px" width="100%" src="https://player.podcard.fm?feed={{ 'https://anchor.fm/s/d5d3614/podcast/rss' }}"></iframe>
     </div>
 @endsection

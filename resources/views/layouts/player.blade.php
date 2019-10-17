@@ -11,6 +11,8 @@
         <link href="{{ asset('css/player.css') }}?v=6" rel="stylesheet">
         <link rel="shortcut icon" href="/favicon.png"/>
 
+        <link href="https://fonts.googleapis.com/css?family=Barlow:400,600,700,900&display=swap" rel="stylesheet">
+
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-83304079-2"></script>
         <script>

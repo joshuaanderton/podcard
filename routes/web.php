@@ -35,7 +35,7 @@ Route::domain('ramengames.' . env('SESSION_DOMAIN'))->group(function ($router) {
 
 Route::domain('editing.' . env('SESSION_DOMAIN'))->group(function ($router) {
     Route::get('/', function(){
-        return view('player-builder');
+        return view('editing');
     });
 });
 

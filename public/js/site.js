@@ -49010,6 +49010,12 @@ if ($('#player_builder').length > 0) {
 
 jQuery(function () {
     $('.fade-up').addClass('active');
+
+    $('[href="#pricing"]').click(function () {
+        $('html, body').animate({
+            scrollTop: $("#pricing").offset().top
+        }, 250);
+    });
 });
 
 /***/ }),
@@ -51261,8 +51267,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: {
@@ -51281,7 +51285,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     data: function data() {
         return {
-            player_url: window.location.href.indexOf('.test') > 0 ? 'http://player.podcard.test' : 'https://player.podcard.co',
+            player_url: window.location.href.indexOf('.test') > 0 ? 'http://player.podcard.test' : 'https://player.podcard.fm',
             demos: [{ feed_url: 'https://feeds.podhunt.app/feeds/daily/rss', color: '#8772c7', episode: '37signals' }, { feed_url: 'https://feeds.transistor.fm/founderquest', color: '#b8702d', episode: 'We\'re Going on Summer Vacation!' }, { feed_url: 'https://feeds.transistor.fm/build-your-saas', color: '#fbc85c', episode: '70' }, { feed_url: 'https://feeds.transistor.fm/ramen', color: '#ff4500', episode: 'growth hacking' }]
         };
     },
@@ -51322,12 +51326,13 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "lg:h-screen flex align-items-center overflow-hidden",
+      staticClass:
+        "lg:h-screen flex align-items-center overflow-hidden pt-48 pb-32 md:py-32",
       staticStyle: { "min-height": "720px" }
     },
     [
       _c("div", {
-        staticClass: "h-full w-full absolute left-0 right-0 content opacity-25",
+        staticClass: "h-full w-full absolute top-0 left-0 opacity-25",
         style: _vm.color
           ? "background: linear-gradient(" +
             "#" +
@@ -51588,21 +51593,25 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "pb-6 mb-6" }, [
+    return _c("div", { staticClass: "pb-6 mb-6 fade-up" }, [
       _c(
         "h1",
         {
           staticClass:
-            "text-5xl font-bold line-height-9 font-weight-normal mb-4 opacity-5 font-weight-light"
+            "font-sans font-bold text-black text-4xl sm:text-5xl -mt-5 "
         },
         [_vm._v("Podcard Player")]
       ),
       _vm._v(" "),
-      _c("p", { staticClass: "mb-3" }, [
-        _vm._v(
-          "Customize the embeddable player and copy & paste the snippet to any HTML page."
-        )
-      ])
+      _c(
+        "div",
+        { staticClass: "font-sans text-xl sm:text-2xl text-black mb-12" },
+        [
+          _vm._v(
+            "Customize the embeddable player and copy & paste the snippet to any HTML page."
+          )
+        ]
+      )
     ])
   },
   function() {
@@ -51693,7 +51702,7 @@ var staticRenderFns = [
         { staticClass: "bg-black p-4 block rounded text-white text-sm" },
         [
           _vm._v(
-            "\n                            https://player.podcard.co?episode="
+            "\n                            https://player.podcard.fm?episode="
           ),
           _c("strong", [_vm._v("TITLE_OR_NUMBER")]),
           _vm._v("&color="),

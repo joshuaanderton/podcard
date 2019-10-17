@@ -166,8 +166,8 @@ h2 {
 
 .player-speed {
   position: absolute;
-  right: 45px;
   bottom: 15px;
+  left: 15px;
 }
 
 .player-speed span {

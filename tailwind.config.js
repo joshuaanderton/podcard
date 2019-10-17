@@ -14,10 +14,12 @@ module.exports = {
             'full': '9999px',
             'large': '12px',
         },
-        colors: {
-          'white': '#fff',
-          'black': '#000',
-          'yellow': '#f1e5b3'
+        extend: {
+            colors: {
+              'white': '#fff',
+              'black': '#000',
+              'yellow': '#f1e5b3'
+            },
         },
         gradients: theme => ({
             'body-gradient': ['to bottom', '#fffaea', '#fff', '#fff'],

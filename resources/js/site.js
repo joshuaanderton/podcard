@@ -20,4 +20,12 @@ if ($('#player_builder').length > 0) {
     });
 }
 
-jQuery(function(){ $('.fade-up').addClass('active'); });
+jQuery(function(){
+    $('.fade-up').addClass('active');
+
+    $('[href="#pricing"]').click(function(){
+        $('html, body').animate({
+            scrollTop: $("#pricing").offset().top
+        }, 250);
+    });
+});
