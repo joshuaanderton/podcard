@@ -33,6 +33,8 @@
                 <h2 class="font-bold text-black text-4xl sm:text-5xl md:text-6xl -mt-5">Pricing</h2>
                 <div class="text-black text-xl sm:text-2xl mb-12">Choose the price that works best for your project.</div>
 
+                <div class="text-red text-xl sm:text-2xl" id="error-message"></div>
+
                 <div class="flex flex-col md:flex-row flex-wrap mb-12">
                     <button role="link" id="checkout-button-sku_G0R7P14TtPO1JV" class="focus:outline-none flex flex-col mb-5 text-black bg-gray-200 p-6 rounded flex-1 md:mr-5">
                         <h3 class="text-2xl"><span class="font-bold">1</span> ep. One time.</h3>
@@ -99,4 +101,129 @@
             </div>
         </div>
     </div>
+
+    <script>
+    (function() {
+      var stripe = Stripe('pk_live_FbHIOPfdYcHv7CNtEXfDKBxE00FT1YGRHZ');
+
+      var checkoutButton = document.getElementById('checkout-button-sku_G0R7P14TtPO1JV');
+      checkoutButton.addEventListener('click', function () {
+        // When the customer clicks on the button, redirect
+        // them to Checkout.
+        stripe.redirectToCheckout({
+          items: [{sku: 'sku_G0R7P14TtPO1JV', quantity: 1}],
+
+          // Do not rely on the redirect to the successUrl for fulfilling
+          // purchases, customers may not always reach the success_url after
+          // a successful payment.
+          // Instead use one of the strategies described in
+          // https://stripe.com/docs/payments/checkout/fulfillment
+          successUrl: 'https://editing.{{ env("SESSION_DOMAIN") }}?success',
+          cancelUrl: 'https://editing.{{ env("SESSION_DOMAIN") }}?canceled',
+        })
+        .then(function (result) {
+          if (result.error) {
+            // If `redirectToCheckout` fails due to a browser or network
+            // error, display the localized error message to your customer.
+            var displayError = document.getElementById('error-message');
+            displayError.textContent = result.error.message;
+          }
+        });
+      });
+    })();
+    </script>
+
+    <script>
+    (function() {
+      var stripe = Stripe('pk_live_FbHIOPfdYcHv7CNtEXfDKBxE00FT1YGRHZ');
+
+      var checkoutButton = document.getElementById('checkout-button-plan_G0R9i25BChCa82');
+      checkoutButton.addEventListener('click', function () {
+        // When the customer clicks on the button, redirect
+        // them to Checkout.
+        stripe.redirectToCheckout({
+          items: [{plan: 'plan_G0R9i25BChCa82', quantity: 1}],
+
+          // Do not rely on the redirect to the successUrl for fulfilling
+          // purchases, customers may not always reach the success_url after
+          // a successful payment.
+          // Instead use one of the strategies described in
+          // https://stripe.com/docs/payments/checkout/fulfillment
+          successUrl: 'https://editing.{{ env("SESSION_DOMAIN") }}?success',
+          cancelUrl: 'https://editing.{{ env("SESSION_DOMAIN") }}?canceled',
+        })
+        .then(function (result) {
+          if (result.error) {
+            // If `redirectToCheckout` fails due to a browser or network
+            // error, display the localized error message to your customer.
+            var displayError = document.getElementById('error-message');
+            displayError.textContent = result.error.message;
+          }
+        });
+      });
+    })();
+    </script>
+
+    <script>
+    (function() {
+      var stripe = Stripe('pk_live_FbHIOPfdYcHv7CNtEXfDKBxE00FT1YGRHZ');
+
+      var checkoutButton = document.getElementById('checkout-button-plan_G0RAsIRo61BsDn');
+      checkoutButton.addEventListener('click', function () {
+        // When the customer clicks on the button, redirect
+        // them to Checkout.
+        stripe.redirectToCheckout({
+          items: [{plan: 'plan_G0RAsIRo61BsDn', quantity: 1}],
+
+          // Do not rely on the redirect to the successUrl for fulfilling
+          // purchases, customers may not always reach the success_url after
+          // a successful payment.
+          // Instead use one of the strategies described in
+          // https://stripe.com/docs/payments/checkout/fulfillment
+          successUrl: 'https://editing.{{ env("SESSION_DOMAIN") }}?success',
+          cancelUrl: 'https://editing.{{ env("SESSION_DOMAIN") }}?canceled',
+        })
+        .then(function (result) {
+          if (result.error) {
+            // If `redirectToCheckout` fails due to a browser or network
+            // error, display the localized error message to your customer.
+            var displayError = document.getElementById('error-message');
+            displayError.textContent = result.error.message;
+          }
+        });
+      });
+    })();
+    </script>
+
+    <script>
+    (function() {
+      var stripe = Stripe('pk_live_FbHIOPfdYcHv7CNtEXfDKBxE00FT1YGRHZ');
+
+      var checkoutButton = document.getElementById('checkout-button-plan_G0R9o2bC3wAcLY');
+      checkoutButton.addEventListener('click', function () {
+        // When the customer clicks on the button, redirect
+        // them to Checkout.
+        stripe.redirectToCheckout({
+          items: [{plan: 'plan_G0R9o2bC3wAcLY', quantity: 1}],
+
+          // Do not rely on the redirect to the successUrl for fulfilling
+          // purchases, customers may not always reach the success_url after
+          // a successful payment.
+          // Instead use one of the strategies described in
+          // https://stripe.com/docs/payments/checkout/fulfillment
+          successUrl: 'https://editing.{{ env("SESSION_DOMAIN") }}?success',
+          cancelUrl: 'https://editing.{{ env("SESSION_DOMAIN") }}?canceled',
+        })
+        .then(function (result) {
+          if (result.error) {
+            // If `redirectToCheckout` fails due to a browser or network
+            // error, display the localized error message to your customer.
+            var displayError = document.getElementById('error-message');
+            displayError.textContent = result.error.message;
+          }
+        });
+      });
+    })();
+    </script>
+
 @endsection
