@@ -49127,10 +49127,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             default: null
         },
         episode: {
-            type: Number,
+            type: String,
             default: null
         },
         autoPlay: {
+            type: Boolean,
+            default: false
+        },
+        muted: {
             type: Boolean,
             default: false
         },
@@ -49166,9 +49170,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         percentComplete: function percentComplete() {
             return parseInt(this.currentSeconds / this.durationSeconds * 100);
-        },
-        muted: function muted() {
-            return this.volume / 100 === 0;
         }
     },
     watch: {
@@ -49199,13 +49200,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         mute: function mute() {
             if (this.muted) {
                 this.unmute();
+                return;
             }
 
             this.previousVolume = this.volume;
             this.volume = 0;
+            this.muted = true;
         },
         unmute: function unmute() {
-            return this.volume = this.previousVolume;
+            this.muted = false;
+            this.volume = this.previousVolume;
         },
         seek: function seek(e) {
             if (e.target.tagName === 'SPAN') {
@@ -50752,12 +50756,7 @@ var render = function() {
           {
             staticClass: "player-mute",
             attrs: { title: "Mute", href: "#" },
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                return _vm.mute($event)
-              }
-            }
+            on: { click: _vm.mute }
           },
           [
             _c(

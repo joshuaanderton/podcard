@@ -1,5 +1,5 @@
 <template>
-    <div class="lg:h-screen flex align-items-center overflow-hidden pt-48 pb-32 md:py-32" style="min-height:720px">
+    <div class="flex align-items-center overflow-hidden pt-48 pb-32 md:py-32" style="min-height:720px">
         <div class="h-full w-full absolute top-0 left-0 opacity-25" v-bind:style="color ? 'background: linear-gradient(' + '#' + color.replace('#', '') + ', #ffffff)' : ''"></div>
         <div class="container mx-auto px-4">
             <div class="flex flex-col lg:flex-row py-8 align-items-center">

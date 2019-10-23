@@ -51327,7 +51327,7 @@ var render = function() {
     "div",
     {
       staticClass:
-        "lg:h-screen flex align-items-center overflow-hidden pt-48 pb-32 md:py-32",
+        "flex align-items-center overflow-hidden pt-48 pb-32 md:py-32",
       staticStyle: { "min-height": "720px" }
     },
     [
