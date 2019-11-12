@@ -106,12 +106,12 @@
     (function() {
       var stripe = Stripe('pk_live_FbHIOPfdYcHv7CNtEXfDKBxE00FT1YGRHZ');
 
-      var checkoutButton = document.getElementById('checkout-button-sku_G0R7P14TtPO1JV');
+      var checkoutButton = document.getElementById('checkout-button-sku_GATyv2jj8o6ujM');
       checkoutButton.addEventListener('click', function () {
         // When the customer clicks on the button, redirect
         // them to Checkout.
         stripe.redirectToCheckout({
-          items: [{sku: 'sku_G0R7P14TtPO1JV', quantity: 1}],
+          items: [{sku: 'sku_GATyv2jj8o6ujM', quantity: 1}],
 
           // Do not rely on the redirect to the successUrl for fulfilling
           // purchases, customers may not always reach the success_url after
@@ -137,12 +137,12 @@
     (function() {
       var stripe = Stripe('pk_live_FbHIOPfdYcHv7CNtEXfDKBxE00FT1YGRHZ');
 
-      var checkoutButton = document.getElementById('checkout-button-plan_G0R9i25BChCa82');
+      var checkoutButton = document.getElementById('checkout-button-plan_GATurQyxQbOy6z');
       checkoutButton.addEventListener('click', function () {
         // When the customer clicks on the button, redirect
         // them to Checkout.
         stripe.redirectToCheckout({
-          items: [{plan: 'plan_G0R9i25BChCa82', quantity: 1}],
+          items: [{plan: 'plan_GATurQyxQbOy6z', quantity: 1}],
 
           // Do not rely on the redirect to the successUrl for fulfilling
           // purchases, customers may not always reach the success_url after
@@ -168,12 +168,12 @@
     (function() {
       var stripe = Stripe('pk_live_FbHIOPfdYcHv7CNtEXfDKBxE00FT1YGRHZ');
 
-      var checkoutButton = document.getElementById('checkout-button-plan_G0RAsIRo61BsDn');
+      var checkoutButton = document.getElementById('checkout-button-plan_GATup1PirYutCo');
       checkoutButton.addEventListener('click', function () {
         // When the customer clicks on the button, redirect
         // them to Checkout.
         stripe.redirectToCheckout({
-          items: [{plan: 'plan_G0RAsIRo61BsDn', quantity: 1}],
+          items: [{plan: 'plan_GATup1PirYutCo', quantity: 1}],
 
           // Do not rely on the redirect to the successUrl for fulfilling
           // purchases, customers may not always reach the success_url after
@@ -199,12 +199,12 @@
     (function() {
       var stripe = Stripe('pk_live_FbHIOPfdYcHv7CNtEXfDKBxE00FT1YGRHZ');
 
-      var checkoutButton = document.getElementById('checkout-button-plan_G0R9o2bC3wAcLY');
+      var checkoutButton = document.getElementById('checkout-button-plan_GATvfhb4zbhCAs');
       checkoutButton.addEventListener('click', function () {
         // When the customer clicks on the button, redirect
         // them to Checkout.
         stripe.redirectToCheckout({
-          items: [{plan: 'plan_G0R9o2bC3wAcLY', quantity: 1}],
+          items: [{plan: 'plan_GATvfhb4zbhCAs', quantity: 1}],
 
           // Do not rely on the redirect to the successUrl for fulfilling
           // purchases, customers may not always reach the success_url after
