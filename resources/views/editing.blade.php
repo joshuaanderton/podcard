@@ -38,7 +38,7 @@
                 <div class="flex flex-col md:flex-row flex-wrap mb-12">
                     <button role="link" id="checkout-button-sku_GATyv2jj8o6ujM" class="focus:outline-none flex flex-col mb-5 text-black bg-gray-200 p-6 rounded flex-1 md:mr-5">
                         <h3 class="text-2xl"><span class="font-bold">1</span> ep. One time.</h3>
-                        <div class="text-5xl font-bold mb-12">$150</div>
+                        <div class="text-5xl font-bold mb-12">$149</div>
                         <div class="mt-auto">
                             <span class="inline-flex text-white bg-black hover:text-white py-2 px-4 rounded align-items-center font-bold" href="#pricing">Get Started</span>
                         </div>
