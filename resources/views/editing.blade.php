@@ -36,33 +36,33 @@
                 <div class="text-red text-xl sm:text-2xl" id="error-message"></div>
 
                 <div class="flex flex-col md:flex-row flex-wrap mb-12">
-                    <button role="link" id="checkout-button-sku_G0R7P14TtPO1JV" class="focus:outline-none flex flex-col mb-5 text-black bg-gray-200 p-6 rounded flex-1 md:mr-5">
+                    <button role="link" id="checkout-button-sku_GATyv2jj8o6ujM" class="focus:outline-none flex flex-col mb-5 text-black bg-gray-200 p-6 rounded flex-1 md:mr-5">
                         <h3 class="text-2xl"><span class="font-bold">1</span> ep. One time.</h3>
-                        <div class="text-5xl font-bold mb-12">$70</div>
+                        <div class="text-5xl font-bold mb-12">$150</div>
                         <div class="mt-auto">
                             <span class="inline-flex text-white bg-black hover:text-white py-2 px-4 rounded align-items-center font-bold" href="#pricing">Get Started</span>
                         </div>
                     </button>
 
-                    <button role="link" id="checkout-button-plan_G0R9o2bC3wAcLY" class="focus:outline-none flex flex-col mb-5 text-black bg-gray-200 p-6 rounded flex-1 md:mr-5">
+                    <button role="link" id="checkout-button-plan_GATurQyxQbOy6z" class="focus:outline-none flex flex-col mb-5 text-black bg-gray-200 p-6 rounded flex-1 md:mr-5">
                         <h3 class="text-2xl"><span class="font-bold">2</span> ep. per month</h3>
-                        <div class="text-5xl font-bold mb-12">$149/mo</div>
-                        <div class="mt-auto">
-                            <span class="inline-flex text-white bg-black hover:text-white py-2 px-4 rounded align-items-center font-bold" href="#pricing">Get Started</span>
-                        </div>
-                    </button>
-
-                    <button role="link" id="checkout-button-plan_G0R9i25BChCa82" class="focus:outline-none flex flex-col mb-5 text-black bg-gray-200 p-6 rounded flex-1 lg:mr-5">
-                        <h3 class="text-2xl"><span class="font-bold">4</span> ep. per month</h3>
                         <div class="text-5xl font-bold mb-12">$249/mo</div>
                         <div class="mt-auto">
                             <span class="inline-flex text-white bg-black hover:text-white py-2 px-4 rounded align-items-center font-bold" href="#pricing">Get Started</span>
                         </div>
                     </button>
 
-                    <button role="link" id="checkout-button-plan_G0RAsIRo61BsDn" class="focus:outline-none flex flex-col mb-5 text-black bg-gray-200 p-6 rounded flex-1">
+                    <button role="link" id="checkout-button-plan_GATup1PirYutCo" class="focus:outline-none flex flex-col mb-5 text-black bg-gray-200 p-6 rounded flex-1 lg:mr-5">
+                        <h3 class="text-2xl"><span class="font-bold">4</span> ep. per month</h3>
+                        <div class="text-5xl font-bold mb-12">$349/mo</div>
+                        <div class="mt-auto">
+                            <span class="inline-flex text-white bg-black hover:text-white py-2 px-4 rounded align-items-center font-bold" href="#pricing">Get Started</span>
+                        </div>
+                    </button>
+
+                    <button role="link" id="checkout-button-plan_GATvfhb4zbhCAs" class="focus:outline-none flex flex-col mb-5 text-black bg-gray-200 p-6 rounded flex-1">
                         <h3 class="text-2xl"><span class="font-bold">8</span> ep. per month</h3>
-                        <div class="text-5xl font-bold mb-12">$499/mo</div>
+                        <div class="text-5xl font-bold mb-12">$599/mo</div>
                         <div class="mt-auto">
                             <span class="inline-flex text-white bg-black hover:text-white py-2 px-4 rounded align-items-center font-bold" href="#pricing">Get Started</span>
                         </div>
