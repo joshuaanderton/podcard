@@ -12,6 +12,13 @@
 */
 use Illuminate\Http\Request;
 
+Route::group(['domain' => env('APP_URL')], function() {
+    Auth::routes();
+    Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+
+    Route::get('/', 'AccountController@edit')->name('accounts.edit');
+});
+
 Route::domain('ramengames.' . env('SESSION_DOMAIN'))->group(function ($router) {
     Route::get('/', function(){
         return view('ramen-games', [
@@ -150,13 +157,16 @@ Route::domain('player.' . env('SESSION_DOMAIN'))->group(function ($router) {
 
 Route::domain('{subdomain}.' . env('SESSION_DOMAIN'))->group(function ($router) {
     Route::get('/', function(string $subdomain){
-        $feed = simplexml_load_file('https://anchor.fm/s/d5d3614/podcast/rss');
-        // Get card data from $subdomain
-        return view('site', [
-            'site' => $feed->channel,
-            'episodes' => $feed->channel->item,
-            'latest' => $feed->channel->item[0]
-        ]);
+
+        $account = \App\Account::where('subdomain', $subdomain)->first();
+
+        if ($account && $podcast = $account->podcasts()->first()) :
+            return view('site', [
+                'podcast'  => $podcast,
+                'episodes' => $podcast->episodes()->get(),
+                'latest'   => $podcast->episodes()->latest()->first()
+            ]);
+        endif;
     });
 });
 

@@ -49,9 +49,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8'],
         ]);
     }
 
@@ -63,10 +62,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        $data['password'] = Hash::make($data['password']);
+
+        $user = \App\Account::accountUserSetup($data);
+
+        $podcast             = new \App\Podcast;
+        $podcast->account_id = $account->id;
+        $podcast->feed_url   = $data['feed_url'];
+        $podcast->subdomain  = $data['subdomain'];
+
+        $podcast->import();
+
+        return $user;
     }
 }

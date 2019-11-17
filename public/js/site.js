@@ -51266,7 +51266,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: {
@@ -51286,7 +51285,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             player_url: window.location.href.indexOf('.test') > 0 ? 'http://player.podcard.test' : 'https://player.podcard.fm',
-            demos: [{ feed_url: 'https://feeds.podhunt.app/feeds/daily/rss', color: '#8772c7', episode: '37signals' }, { feed_url: 'https://feeds.transistor.fm/founderquest', color: '#b8702d', episode: 'We\'re Going on Summer Vacation!' }, { feed_url: 'https://feeds.transistor.fm/build-your-saas', color: '#fbc85c', episode: '70' }, { feed_url: 'https://feeds.transistor.fm/ramen', color: '#ff4500', episode: 'growth hacking' }]
+            demos: [{ feed_url: 'https://feeds.podhunt.app/feeds/daily/rss', color: '#8772c7', episode: '37signals' }, { feed_url: 'https://feeds.transistor.fm/founderquest', color: '#b8702d', episode: 'We\'re Going on Summer Vacation!' }, { feed_url: 'https://feeds.transistor.fm/build-your-saas', color: '#fbc85c', episode: '70' }, { feed_url: 'https://feeds.transistor.fm/ramen', color: '#ff4500', episode: 'tuple.app' }]
         };
     },
     methods: {},
@@ -51751,15 +51750,6 @@ var staticRenderFns = [
             ]
           )
         ]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass:
-            "ml-auto drift-open-chat bg-black hover:bg-gray-700 text-white text-sm font-bold py-2 px-4 rounded-full focus:outline-none"
-        },
-        [_vm._v("Questions?")]
       )
     ])
   }

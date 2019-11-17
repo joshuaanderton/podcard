@@ -17,6 +17,11 @@ class Podcast extends Model
         'feed_url',
     ];
 
+    public function account()
+    {
+        return $this->belongsTo('App\Account');
+    }
+
     public function episodes()
     {
         return $this->hasMany('App\PodcastEpisode');

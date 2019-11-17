@@ -5,7 +5,7 @@
             <div class="flex flex-col lg:flex-row py-8 align-items-center">
                 <div class="w-full lg:w-1/3 mx-auto lg:ml-0 z-20">
                     <div class="pb-6 mb-6 fade-up">
-                        <h1 class="font-sans font-bold text-black text-4xl sm:text-5xl -mt-5 ">Podcard Player</h1>
+                        <h1 class="font-sans font-bold text-black text-4xl sm:text-5xl -mt-5">Podcard Player</h1>
                         <div class="font-sans text-xl sm:text-2xl text-black mb-12">Customize the embeddable player and copy & paste the snippet to any HTML page.</div>
                     </div>
                     <div class="flex flex-wrap -mx-3 mb-6">
@@ -69,7 +69,6 @@
                         <code>@joshuaanderton</code>
                     </span>
                 </a>
-                <button class="ml-auto drift-open-chat bg-black hover:bg-gray-700 text-white text-sm font-bold py-2 px-4 rounded-full focus:outline-none">Questions?</button>
             </div>
         </div>
     </div>
@@ -97,7 +96,7 @@
                 {feed_url: 'https://feeds.podhunt.app/feeds/daily/rss',   color: '#8772c7', episode: '37signals'},
                 {feed_url: 'https://feeds.transistor.fm/founderquest',    color: '#b8702d', episode: 'We\'re Going on Summer Vacation!'},
                 {feed_url: 'https://feeds.transistor.fm/build-your-saas', color: '#fbc85c', episode: '70'},
-                {feed_url: 'https://feeds.transistor.fm/ramen',           color: '#ff4500', episode: 'growth hacking'},
+                {feed_url: 'https://feeds.transistor.fm/ramen',           color: '#ff4500', episode: 'tuple.app'},
             ]
         }),
         methods: {

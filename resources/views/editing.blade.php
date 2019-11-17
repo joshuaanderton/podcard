@@ -5,6 +5,12 @@
     <!-- Load Stripe.js on your website. -->
     <script src="https://js.stripe.com/v3"></script>
 
+    @if(isset($_GET['success']))
+    @endif
+
+    @if(isset($_GET['error']))
+    @endif
+
     <div id="editing">
         <div class="bg-gray-300 flex relative pt-48 pb-32 md:py-32" style="background-image:url(/images/bg.jpg);background-size:cover">
             @include('nav', ['title' => 'Podcast Editing'])
@@ -16,7 +22,7 @@
                     <h1 class="font-bold text-black text-4xl sm:text-5xl md:text-6xl -mt-5">Quality podcast editing</h1>
                     <div class="text-xl sm:text-2xl text-black mb-12">Focus on the content, we'll take care of the rest.</div>
                     <a class="inline-flex text-white bg-black hover:text-white py-2 px-4 rounded align-items-center font-bold" href="#pricing">View Packages</a>
-                    <a class="drift-open-chat font-bold border-b border-black text-black text-lg ml-6" href="javascript:void(0);">Get in touch</a>
+                    <a onclick="Beacon('open')" class="font-bold border-b border-black text-black text-lg ml-6" href="javascript:void(0);">Get in touch</a>
                 </div>
             </div>
 
@@ -81,7 +87,7 @@
                             <li class="mb-3"><span class="mr-2">•</span> Publishing each episode to your <strong>hosting platform</strong></li>
                         </ul>
                     </div>
-                    <a href="javascript:void(0);" class="drift-open-chat md:w-1/2 flex flex-col text-black border-2 border-black p-6 rounded flex-1">
+                    <a href="javascript:void(0);" onclick="Beacon('open')" class="md:w-1/2 flex flex-col text-black border-2 border-black p-6 rounded flex-1">
                         <div class="font-bold text-black text-3xl mb-6">Have multiple podcasts?</div>
                         <div class="text-lg mb-12 max-w-sm">We'll discount the price if you're needing more than one podcast edited ongoing.</div>
                         <div class="mt-auto">
@@ -96,8 +102,8 @@
             <div class="container m-auto px-4 py-48 font-sans">
                 <img class="rounded-full mb-12" height="100" width="100" src="https://pbs.twimg.com/profile_images/1124918005719113733/nhF5z17L_400x400.png"/>
                 <h2 class="font-bold text-white text-4xl sm:text-5xl md:text-6xl -mt-5">Hey! I'm Josh.</h2>
-                <div class="text-gray-500 text-xl sm:text-2xl mb-12">I run <span class="font-semibold">Podcard</span>. Let me know if you have any <span class="cursor-pointer drift-open-chat underline">questions</span> 👍 ☺️</div>
-                <a href="javascript:void(0);" class="drift-open-chat inline-flex text-black bg-white py-2 px-4 rounded align-items-center font-bold">Send me a message</a>
+                <div class="text-gray-500 text-xl sm:text-2xl mb-12">I run <span class="font-semibold">Podcard</span>. Let me know if you have any <span class="cursor-ponclick="Beacon('open')" ointer underline">questions</span> 👍 ☺️</div>
+                <a href="javascript:void(0);" onclick="Beacon('open')" class="inline-flex text-black bg-white py-2 px-4 rounded align-items-center font-bold">Send me a message</a>
             </div>
         </div>
     </div>
