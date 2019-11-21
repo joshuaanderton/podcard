@@ -22,20 +22,7 @@ Route::group(['domain' => env('APP_URL')], function() {
 Route::domain('ramengames.' . env('SESSION_DOMAIN'))->group(function ($router) {
     Route::get('/', function(){
         return view('ramen-games', [
-            'podcasts' => \App\Podcast::where('ramen_games', 1)->paginate(20),
-            /*
-            'episodes' => \App\PodcastEpisode::select(
-                                'podcast_episodes.*',
-                                'podcasts.title as podcast_title',
-                                'podcasts.description as podcast_description',
-                                'podcasts.link as podcast_link'
-                            )
-                            ->latest('published_at')
-                            ->join('podcasts', 'podcast_episodes.podcast_id', 'podcasts.id')
-                            ->where('podcasts.ramen_games', 1)
-                            ->distinct('podcast_id')
-                            ->paginate(5)
-                            */
+            'podcasts' => \App\Podcast::where('ramen_games', 1)->paginate(20)
         ]);
     });
 });
@@ -71,13 +58,24 @@ Route::domain('player.' . env('SESSION_DOMAIN'))->group(function ($router) {
             $podcast->import();
         endif;
 
-        $podcast->import();
-
         $episode = null;
+
+        // Try to get episode from already imported data
         if (is_numeric($request->episode))             $episode = $podcast->episodes()->where(['number' => $request->episode])->first();
         if (!$episode && is_string($request->episode)) $episode = $podcast->episodes()->where('title', 'LIKE', "%{$request->episode}%")->first();
         if (!$episode && $request->episode)            $episode = $podcast->episodes()->offset(intval($request->episode)-1)->first();
-        if (!$episode)                                 $episode = $podcast->episodes()->latest('published_at')->first();
+
+        // Didn't find episode? Let's try an import and then check again
+        if (!$episode) :
+            $podcast->import();
+
+            if (is_numeric($request->episode))             $episode = $podcast->episodes()->where(['number' => $request->episode])->first();
+            if (!$episode && is_string($request->episode)) $episode = $podcast->episodes()->where('title', 'LIKE', "%{$request->episode}%")->first();
+            if (!$episode && $request->episode)            $episode = $podcast->episodes()->offset(intval($request->episode)-1)->first();
+        endif;
+
+        // Finally, if no episode is set then let's just get the latest episode
+        if (!$episode) $episode = $podcast->episodes()->latest('published_at')->first();
 
         $color = $request->color ? \App\Podcast::hexToRgb('#' . str_replace('#', '', $request->color)) : false;
 
