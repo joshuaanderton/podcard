@@ -51597,7 +51597,7 @@ var staticRenderFns = [
         "h1",
         {
           staticClass:
-            "font-sans font-bold text-black text-4xl sm:text-5xl -mt-5 "
+            "font-sans font-bold text-black text-4xl sm:text-5xl -mt-5"
         },
         [_vm._v("Podcard Player")]
       ),

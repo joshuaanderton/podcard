@@ -44,7 +44,7 @@
                 </a>
             </div>
         </div>
-        <audio :loop="innerLoop" ref="audiofile" :src="file" preload="auto" style="display: none;"></audio>
+        <audio :loop="innerLoop" ref="audiofile" :src="file" preload="none" style="display: none;"></audio>
     </div>
 </template>
 
@@ -119,8 +119,16 @@
         },
         watch: {
             playing(value) {
-                if (value) { return this.audio.play(); }
-                this.audio.pause();
+                var _this = this;
+                if (!this.audio.readyState) {
+                    this.audio.load();
+                    this.audio.onloadeddata = function(){
+                        _this.playing = true;
+                    };
+                } else {
+                    if (value) { return this.audio.play(); }
+                    this.audio.pause();
+                }
             },
             volume(value) {
                 this.showVolume = false;

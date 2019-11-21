@@ -49174,10 +49174,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     watch: {
         playing: function playing(value) {
-            if (value) {
-                return this.audio.play();
+            var _this = this;
+            if (!this.audio.readyState) {
+                this.audio.load();
+                this.audio.onloadeddata = function () {
+                    _this.playing = true;
+                };
+            } else {
+                if (value) {
+                    return this.audio.play();
+                }
+                this.audio.pause();
             }
-            this.audio.pause();
         },
         volume: function volume(value) {
             this.showVolume = false;
@@ -49241,16 +49249,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.innerLoop = this.loop;
     },
     mounted: function mounted() {
-        var _this = this;
+        var _this2 = this;
 
         this.audio = this.$el.querySelectorAll('audio')[0];
         this.audio.addEventListener('timeupdate', this.update);
         this.audio.addEventListener('loadeddata', this.load);
         this.audio.addEventListener('pause', function () {
-            _this.playing = false;
+            _this2.playing = false;
         });
         this.audio.addEventListener('play', function () {
-            _this.playing = true;
+            _this2.playing = true;
         });
 
         // Player.js stuff
@@ -49261,47 +49269,47 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         });
         this.audio.addEventListener('timeupdate', function () {
             receiver.emit('timeupdate', {
-                seconds: _this.audio.currentTime,
-                duration: _this.audio.duration
+                seconds: _this2.audio.currentTime,
+                duration: _this2.audio.duration
             });
         });
 
         receiver.on('play', function () {
-            _this.audio.play();
+            _this2.audio.play();
             receiver.emit('play');
         });
 
         receiver.on('pause', function () {
-            _this.audio.pause();
+            _this2.audio.pause();
             receiver.emit('pause');
         });
 
         receiver.on('getDuration', function (callback) {
-            return callback(_this.audio.duration);
+            return callback(_this2.audio.duration);
         });
         receiver.on('getVolume', function (callback) {
-            return callback(_this.audio.volume * 100);
+            return callback(_this2.audio.volume * 100);
         });
         receiver.on('setVolume', function (value) {
-            return _this.audio.volume = value / 100;
+            return _this2.audio.volume = value / 100;
         });
         receiver.on('getPaused', function () {
-            return !_this.audio.playing;
+            return !_this2.audio.playing;
         });
         receiver.on('mute', function () {
-            return _this.audio.mute();
+            return _this2.audio.mute();
         });
         receiver.on('unmute', function () {
-            return _this.audio.unmute();
+            return _this2.audio.unmute();
         });
         receiver.on('getMuted', function (callback) {
-            return callback(_this.audio.muted);
+            return callback(_this2.audio.muted);
         });
         receiver.on('getLoop', function (callback) {
-            return callback(_this.audio.loop);
+            return callback(_this2.audio.loop);
         });
         receiver.on('setLoop', function (value) {
-            return _this.audio.loop = value;
+            return _this2.audio.loop = value;
         });
 
         receiver.ready();
@@ -50794,7 +50802,7 @@ var render = function() {
     _c("audio", {
       ref: "audiofile",
       staticStyle: { display: "none" },
-      attrs: { loop: _vm.innerLoop, src: _vm.file, preload: "auto" }
+      attrs: { loop: _vm.innerLoop, src: _vm.file, preload: "none" }
     })
   ])
 }
