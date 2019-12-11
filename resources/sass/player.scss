@@ -9,7 +9,6 @@ $player-link-color: darken($player-bg, 75%);
 $player-progress-color: $player-border-color;
 $player-seeker-color: $player-link-color;
 $player-text-color: lighten($black, 20%);
-$player-height: 180px;
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Calibri Light', Roboto, sans-serif; //'Nunito', sans-serif;
@@ -51,7 +50,7 @@ h2 {
     line-height: 1.5625;
 
     width: 100%;
-    height: 100%;
+    height: 100vh;
 
     color: $player-text-color;
 
@@ -59,8 +58,7 @@ h2 {
         display: flex;
         overflow: hidden;
 
-        height: 100vh;
-        height: $player-height;
+        height: 100%;
 
         border-radius: 8px;
         background-color: $player-bg;
@@ -71,8 +69,8 @@ h2 {
 
         display: flex;
 
-        min-width: $player-height;
-        height: $player-height;
+        min-width: 180px;
+        height: 100%;
 
         background-color: #e0e0e0;
 
@@ -108,6 +106,8 @@ h2 {
 
     &-controls {
         display: flex;
+
+        height: 100%;
     }
 
     &-options {
@@ -129,7 +129,7 @@ h2 {
             display: block;
             overflow: hidden;
 
-            width: calc(100vw - #{$player-height} - 50px);
+            width: calc(100vw - 180px - 50px);
 
             white-space: nowrap;
             text-overflow: ellipsis;

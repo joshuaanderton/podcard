@@ -34,7 +34,7 @@
             <div class="flex my-6">
                 <a target="_blank" href="https://twitter.com/joshuaanderton" class="text-xs inline-block text-center text-black border-black rounded px-4 py-2 mr-auto">
                     <span class="text-black font-bold flex align-items-center pt-1">
-                        <img class="rounded-full mr-2" height="40" width="40" src="https://pbs.twimg.com/profile_images/1124918005719113733/nhF5z17L_400x400.png"/>
+                        <img class="rounded-full mr-2" height="40" width="40" src="https://ucarecdn.com/4dc7ec09-5c05-43e9-8fc0-889834614778//-/resize/150/"/>
                         <code class="opacity-75">@joshuaanderton</code>
                     </span>
                 </a>

@@ -100,7 +100,7 @@
 
         <div class="bg-black">
             <div class="container m-auto px-4 py-48 font-sans">
-                <img class="rounded-full mb-12" height="100" width="100" src="https://pbs.twimg.com/profile_images/1124918005719113733/nhF5z17L_400x400.png"/>
+                <img class="rounded-full mb-12" height="100" width="100" src="https://ucarecdn.com/4dc7ec09-5c05-43e9-8fc0-889834614778//-/resize/150/"/>
                 <h2 class="font-bold text-white text-4xl sm:text-5xl md:text-6xl -mt-5">Hey! I'm Josh.</h2>
                 <div class="text-gray-500 text-xl sm:text-2xl mb-12">I run <span class="font-semibold">Podcard</span>. Let me know if you have any <span class="cursor-ponclick="Beacon('open')" ointer underline">questions</span> 👍 ☺️</div>
                 <a href="javascript:void(0);" onclick="Beacon('open')" class="inline-flex text-black bg-white py-2 px-4 rounded align-items-center font-bold">Send me a message</a>
