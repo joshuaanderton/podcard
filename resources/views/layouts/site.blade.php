@@ -23,16 +23,9 @@
 
         <link href="https://fonts.googleapis.com/css?family=Barlow:400,600,700,900&display=swap" rel="stylesheet">
 
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-83304079-2"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'UA-83304079-2');
-        </script>
-
+        @if($site_id = env('FATHOM_SITE_ID'))
+            <script defer src="https://cdn.usefathom.com/script.js" site="{{ $site_id }}"></script>
+        @endif
     </head>
     <body>
         @yield('content')
