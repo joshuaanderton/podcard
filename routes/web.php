@@ -12,24 +12,9 @@
 */
 use Illuminate\Http\Request;
 
-Route::group(['domain' => env('APP_URL')], function() {
-    Auth::routes();
-    Route::get('logout', 'Auth\LoginController@logout')->name('logout');
-
-    Route::get('/', 'AccountController@edit')->name('accounts.edit');
-});
-
 Route::domain('ramengames.' . env('SESSION_DOMAIN'))->group(function ($router) {
     Route::get('/', function(){
-        return view('ramen-games', [
-            'podcasts' => \App\Podcast::where('ramen_games', 1)->paginate(20)
-        ]);
-    });
-});
-
-Route::domain('editing.' . env('SESSION_DOMAIN'))->group(function ($router) {
-    Route::get('/', function(){
-        return view('editing');
+        return redirect(env('SITE_URL') . '/ramengames');
     });
 });
 
@@ -40,6 +25,12 @@ Route::group(['domain' => env('SITE_URL')], function() {
 
     Route::get('dnt', function(Request $request){
         return view('pages.dnt');
+    });
+    
+    Route::get('/ramengames', function(){
+        return view('ramen-games', [
+            'podcasts' => \App\Podcast::where('ramen_games', 1)->paginate(20)
+        ]);
     });
 });
 
@@ -152,27 +143,3 @@ Route::domain('player.' . env('SESSION_DOMAIN'))->group(function ($router) {
         ];
     });
 });
-
-Route::domain('{subdomain}.' . env('SESSION_DOMAIN'))->group(function ($router) {
-    Route::get('/', function(string $subdomain){
-
-        $account = \App\Account::where('subdomain', $subdomain)->first();
-
-        if ($account && $podcast = $account->podcasts()->first()) :
-            return view('site', [
-                'podcast'  => $podcast,
-                'episodes' => $podcast->episodes()->get(),
-                'latest'   => $podcast->episodes()->latest()->first()
-            ]);
-        endif;
-    });
-});
-
-/*
-Route::group(array('domain' => '{domain}.{tld}'), function(){
-    Route::get('/', function(string $domain){
-        // Get card data from $domain
-        return view('site', []);
-    });
-});
-*/
