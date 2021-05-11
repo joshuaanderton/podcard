@@ -43,11 +43,12 @@ Route::domain('player.' . env('SESSION_DOMAIN'))->group(function ($router) {
 
         $podcast = \App\Podcast::where('feed_url', $request->feed)->first();
 
-        if (!$podcast || $podcast->episodes()->count() == 0) :
-            if (!$podcast) $podcast = new \App\Podcast;
+        if (!$podcast) :
+            $podcast = new \App\Podcast;
             $podcast->feed_url = $request->feed;
-            $podcast->import();
         endif;
+
+        $podcast->import();
 
         $episode = null;
 

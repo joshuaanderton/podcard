@@ -36,7 +36,8 @@ class Podcast extends Model
 
         $this->title       = $feed->title;
         $this->description = $feed->description;
-        $this->link        = !empty($feed->link['href']) ? strval($feed->link['href']) : !empty($feed->link) ? $feed->link : null;
+        $this->link        = strval($feed->link) ? $feed->link : null; 
+        $this->link        = !$this->link && !empty($feed->link['href']) && strval($feed->link['href']) ? $feed->link['href'] : null;
         $this->owner_name  = $feed->owner->name;
         $this->owner_email = $feed->owner->email;
 
@@ -54,9 +55,12 @@ class Podcast extends Model
         foreach ($episodes as $episode) :
             if (empty($episode->enclosure['url'])) continue;
 
+            $image_url = !empty($episode->image['href']) && strval($episode->image['href']) ? $episode->image['href'] : null;
+            $image_url = !$image_url && !empty($episode->image->url) ? $episode->image->url : null;
+
             $episode = $this->episodes()->updateOrCreate(['guid' => $episode->guid], [
                 'title'        => $episode->title,
-                'image_url'    => !empty($episode->image['href']) ? strval($episode->image['href']) : !empty($episode->image->url) ? $episode->image->url : null,
+                'image_url'    => $image_url,
                 'file_url'     => $episode->enclosure['url'],
                 'number'       => $episode->episode ?: null,
                 'season'       => $episode->season  ?: null,
