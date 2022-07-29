@@ -11,6 +11,7 @@
 |
 */
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 Route::domain('ramengames.' . env('SESSION_DOMAIN'))->group(function ($router) {
     Route::get('/', function(){
