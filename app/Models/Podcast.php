@@ -1,12 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 
 class Podcast extends Model
 {
@@ -17,14 +13,9 @@ class Podcast extends Model
         'feed_url',
     ];
 
-    public function account()
-    {
-        return $this->belongsTo('App\Account');
-    }
-
     public function episodes()
     {
-        return $this->hasMany('App\PodcastEpisode');
+        return $this->hasMany(PodcastEpisode::class);
     }
 
     public function import()

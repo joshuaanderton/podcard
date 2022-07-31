@@ -1,12 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 
 class PodcastEpisode extends Model
 {
@@ -22,9 +18,13 @@ class PodcastEpisode extends Model
         'episode_type',
     ];
 
+    protected $casts = [
+        'ramen_games' => 'boolean'
+    ];
+
     public function podcast()
     {
-        return $this->belongsTo('App\Podcast');
+        return $this->belongsTo(Podcast::class);
     }
 
     public function imageUrl()
