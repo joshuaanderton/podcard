@@ -5,6 +5,7 @@
         <div class="flex flex-col md:flex-row mx-auto md:mr-0">
             <a class="text-black hover:text-gray-700 font-semibold md:ml-6 py-1" href="//player.{{ config('app.host') }}">Embeddable Player</a>
             <a class="text-black hover:text-gray-700 font-semibold md:ml-6 py-1" href="{{ config('app.url') }}/ramengames">Ramen Games</a>
+            <a class="text-black hover:text-gray-700 font-semibold md:ml-6 py-1" target="_blank" href="https://podmelon.com">Podcast Editing</a>
         </div>
         --}}
     </div>

@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="relative pt-48 pb-32 md:py-32">
-        @include('nav', ['title' => 'presents...'])
         <div class="container mx-auto px-4">
             <div class="max-w-full pb-6">
                 <div class="relative fade-up pb-6 mb-6 text-center">
@@ -32,10 +31,10 @@
                 {{ $podcasts->links() }}
             </div>
             <div class="flex my-6">
-                <a target="_blank" href="https://twitter.com/joshuaanderton" class="text-xs inline-block text-center text-black border-black rounded px-4 py-2 mr-auto">
+                <a target="_blank" href="https://twitter.com/gettingtoramen" class="text-xs inline-block text-center text-black border-black rounded px-4 py-2 mr-auto">
                     <span class="text-black font-bold flex align-items-center pt-1">
                         <img class="rounded-full mr-2" height="40" width="40" src="https://ucarecdn.com/4dc7ec09-5c05-43e9-8fc0-889834614778//-/resize/150/"/>
-                        <code class="opacity-75">@joshuaanderton</code>
+                        <code class="opacity-75">Joshua Anderton</code>
                     </span>
                 </a>
             </div>
