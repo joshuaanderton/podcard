@@ -19,7 +19,7 @@ class PodcastEpisode extends Model
     ];
 
     protected $casts = [
-        'ramen_games' => 'boolean'
+        'ramen_games' => 'boolean',
     ];
 
     public function podcast()

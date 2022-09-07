@@ -9,22 +9,22 @@ if (document.getElementById('player_builder')) {
 
   new Vue({
     el: "#player_builder",
-    // props: {
-    //   feed_url: {
-    //     type: String,
-    //     default: ''
-    //   },
-    //   episode: {
-    //     type: String,
-    //     default: ''
-    //   },
-    //   color: {
-    //     type: String,
-    //     default: ''
-    //   },
-    // },
+    props: {
+      feed_url: {
+        type: String,
+        default: ''
+      },
+      episode: {
+        type: String,
+        default: ''
+      },
+      color: {
+        type: String,
+        default: ''
+      },
+    },
     data: () => ({
-      player_url: window.location.href.indexOf('.test') > 0 ? 'http://player.podcard.test' : 'https://player.podcard.fm',
+      player_url: window.location.href.indexOf('.test') > 0 ? 'http://player.podcard.test' : 'https://player.podcard.co',
       demos: [
         {feed_url: 'https://feeds.podhunt.app/feeds/daily/rss',   color: '#8772c7', episode: '37signals'},
         {feed_url: 'https://feeds.transistor.fm/founderquest',    color: '#b8702d', episode: 'We\'re Going on Summer Vacation!'},

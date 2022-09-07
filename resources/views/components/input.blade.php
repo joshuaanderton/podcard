@@ -21,14 +21,40 @@
       </label>
     @endif
 
+    @if($type === 'color')
+
+      <input 
+        type="color"
+        {{ $attributes->merge([
+          'id' => $id,
+          'name' => $name, 
+          'autocomplete' => $autocomplete ?: null,
+          'disabled' => $disabled ?: null,
+          'class' => 'opacity-0 absolute inset-0 w-full h-full z-10',
+        ]) }}
+      />
+
+      <span class="absolute z-[1] left-1 bottom-0 h-full flex items-center">
+        <span
+          class="h-7 w-7 rounded border border-gray-200"
+          @if($attributes['v-model'] ?? false)
+            v-bind:style="{ backgroundColor: {{ $attributes['v-model'] }} || 'transparent' }"
+          @else
+            style="background-color: {{ $value ?? 'transparent' }}"
+          @endif
+        ></span>
+      </span>
+
+    @endif
+
     <input 
-      type="{{ $type }}"
+      type="{{ $type === 'color' ? 'text' : $type }}"
       {{ $attributes->merge([
         'id' => $id,
         'name' => $name, 
         'autocomplete' => $autocomplete ?: null,
         'disabled' => $disabled ?: null,
-        'class' => $class . ' h-full', 
+        'class' => $class . ($type === 'color' ? 'pl-10' : '') . ' h-full',
       ]) }}
     />
     @if($slot)

@@ -1,1 +1,0 @@
-import{V as n}from"./clipboard.d754d3c6.js";/* empty css               */window.convertTimeHHMMSS=t=>{let e=new Date(t*1e3).toISOString().substr(11,8);return e.indexOf("00:")===0?e.substr(3):e};new n({el:"#audio",components:{Player:"./components/Player.vue"}});

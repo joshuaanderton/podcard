@@ -4,20 +4,20 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <title>The Ramen Games - Podcard.fm</title>
+        <title>The Ramen Games - {{ config('app.name', 'Podcard.co') }}</title>
         <link rel="shortcut icon" href="/favicon.png"/>
 
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@gettingtoramen" />
-        <meta name="twitter:image" content="https://ramengames.podcard.fm/ramen-games-social.png" />
+        <meta name="twitter:image" content="https://ramengames.podcard.co/ramen-games-social.png" />
 
         <meta property="og:type" content="url">
-        <meta property="og:title" content="The Ramen Games">
+        <meta property="og:title" content="The Ramen Games (by {{ config('app.name', 'Podcard.co') }})">
         <meta property="og:description" content="A list of podcasts following bootstrappers and their journeys to ramen profitable" />
-        <meta property="og:url" content="https://podcard.fm">
-        <meta property="og:image" content="https://ramengames.podcard.fm/ramen-games-social.png">
+        <meta property="og:url" content="https://podcard.co">
+        <meta property="og:image" content="https://ramengames.podcard.co/ramen-games-social.png">
 
-        {!! (new \App\Features\Shared\Assets)->handle() !!}
+        @blazervelHead('resources/js/app.js')
 
         <link href="https://fonts.googleapis.com/css?family=Barlow:400,600,700,900&display=swap" rel="stylesheet">
 

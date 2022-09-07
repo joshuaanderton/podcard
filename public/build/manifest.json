@@ -1,37 +1,35 @@
 {
   "resources/js/app.js": {
-    "file": "assets/app.4092d9bd.js",
+    "file": "assets/app.19abf999.js",
     "src": "resources/js/app.js",
     "isEntry": true,
     "imports": [
-      "_clipboard.d754d3c6.js"
+      "_clipboard.d2f5ce87.js"
     ],
     "css": [
-      "assets/app.36f4b437.css"
+      "assets/app.820e4894.css"
     ]
   },
   "resources/js/player.js": {
-    "file": "assets/player.764ca28a.js",
+    "file": "assets/player.809f4396.js",
     "src": "resources/js/player.js",
     "isEntry": true,
     "imports": [
-      "_clipboard.d754d3c6.js"
+      "_clipboard.d2f5ce87.js"
     ],
     "css": [
       "assets/player.60d47f51.css"
     ]
   },
-  "_clipboard.d754d3c6.js": {
-    "file": "assets/clipboard.d754d3c6.js"
+  "_clipboard.d2f5ce87.js": {
+    "file": "assets/clipboard.d2f5ce87.js"
   },
-  "resources/css/player.css": {
+  "resources/js/player.css": {
     "file": "assets/player.60d47f51.css",
-    "src": "resources/css/player.css",
-    "isEntry": true
+    "src": "resources/js/player.css"
   },
-  "resources/css/app.css": {
-    "file": "assets/app.36f4b437.css",
-    "src": "resources/css/app.css",
-    "isEntry": true
+  "resources/js/app.css": {
+    "file": "assets/app.820e4894.css",
+    "src": "resources/js/app.css"
   }
 }

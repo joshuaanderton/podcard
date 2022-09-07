@@ -1,1 +1,0 @@
-import{V as l}from"./clipboard.d754d3c6.js";/* empty css            */document.getElementById("player_builder").length>0&&new l({el:"#player_builder",components:{PlayerBuilder:require("./components/PlayerBuilder.vue")}});const e=document.getElementsByClassName("fade-up");e.length>0&&setTimeout(()=>e.map(t=>{t.classList.add("active")}),100);

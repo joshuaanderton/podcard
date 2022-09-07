@@ -1,18 +1,13 @@
-import { defineConfig } from 'vite'
 import laravel from 'laravel-vite-plugin'
 import vue from '@vitejs/plugin-vue2'
+import blazervel from './vendor/blazervel/ui/vite.config'
 
-export default defineConfig({
-  plugins: [
-    laravel({
-      input: [
-        'resources/css/app.css',
-        'resources/js/app.js',
-        'resources/css/player.css',
-        'resources/js/player.js'
-      ],
-      refresh: true,
-    }),
-    vue()
-  ],
+export default blazervel({
+	plugins: [
+    vue(),
+		laravel([
+      './resources/js/app.js',
+      './resources/js/player.js'
+    ])
+	]
 })

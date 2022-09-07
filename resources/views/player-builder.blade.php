@@ -32,13 +32,9 @@
             </div>
 
             <div class="flex flex-wrap -mx-3 mb-6">
-              <label class="px-3">
-                <div class="block tracking-wide font-bold mb-2">Player Color</div>
-                <div class="inline-flex items-center space-x-2">
-                  <input v-model="color" type="color" />
-                  <span v-text="color || 'Choose Color'"></span>
-                </div>
-              </label>
+              <div class="w-full px-3">
+                <x-input type="color" v-model="color" label="Choose Color" />
+              </div>
             </div>
 
           </div>
@@ -78,7 +74,7 @@
               <div>
                 <label class="block tracking-wide font-bold mb-2" for="episode">Or build one your self dynamically using the URL...</label>
                 <code class="bg-black p-4 block rounded text-white text-sm">
-                  https://player.podcard.fm?episode=<strong>TITLE_OR_NUMBER</strong>&color=<strong>HEX_CODE</strong>&feed=<strong>FEED_URL</strong>
+                  https://player.podcard.co?episode=<strong>TITLE_OR_NUMBER</strong>&color=<strong>HEX_CODE</strong>&feed=<strong>FEED_URL</strong>
                 </code>
               </div>
               
@@ -90,6 +86,7 @@
                 <span class="text-gray-600 font-bold flex items-center pt-1">
                   <img class="rounded-full mr-1" height="40" width="40" src="https://ucarecdn.com/4dc7ec09-5c05-43e9-8fc0-889834614778//-/resize/150/"/>
                   <code>Joshua Anderton</code>
+                  <span></span>
                 </span>
               </a>
             </div>

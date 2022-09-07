@@ -7,24 +7,28 @@ use Illuminate\Http\Request;
 
 class Import
 {
-  public function handle(Request $request)
-  {
-    if (empty($request->feed)) return abort(404);
+    public function handle(Request $request)
+    {
+        if (empty($request->feed)) {
+            return abort(404);
+        }
 
-    $request->feed = explode('?', $request->feed)[0];
+        $request->feed = explode('?', $request->feed)[0];
 
-    $podcast = Podcast::where('feed_url', $request->feed)->first();
+        $podcast = Podcast::where('feed_url', $request->feed)->first();
 
-    if (!$podcast || $podcast->episodes()->count() == 0) :
-        if (!$podcast) $podcast = new Podcast;
-        $podcast->feed_url = $request->feed;
+        if (! $podcast || $podcast->episodes()->count() == 0) {
+            if (! $podcast) {
+                $podcast = new Podcast;
+            }
+            $podcast->feed_url = $request->feed;
+            $podcast->import();
+        }
+
         $podcast->import();
-    endif;
 
-    $podcast->import();
+        $podcast->episode_imported = $podcast->episodes()->count();
 
-    $podcast->episode_imported = $podcast->episodes()->count();
-
-    return response()->json(['message' => $podcast], 202);
-  }
+        return response()->json(['message' => $podcast], 202);
+    }
 }

@@ -6,9 +6,9 @@ import playerjs from 'player.js'
 
 import '../css/player.css'
 
-window.convertTimeHHMMSS = (val) => {
-  let hhmmss = new Date(val * 1000).toISOString().substr(11, 8)
-  return hhmmss.indexOf("00:") === 0 ? hhmmss.substr(3) : hhmmss
+const convertTimeHHMMSS = (val) => {
+  let hhmmss = new Date(val * 1000).toISOString().substring(11, 8)
+  return hhmmss.indexOf("00:") === 0 ? hhmmss.substring(3) : hhmmss
 }
 
 new Vue({
@@ -136,7 +136,7 @@ new Vue({
     setSpeed(newSpeed) {
       this.speed = newSpeed
       this.audio.playbackRate = this.speed / 100
-      console.log(this.audio.playbackRate)
+      // console.log(this.audio.playbackRate)
     },
     pause() {
       this.audio.pause()
@@ -156,7 +156,7 @@ new Vue({
 
     const data = PlayerData
 
-    console.log(data)
+    // console.log(data)
 
     this.podcast = data.podcast
     this.title   = data.title
