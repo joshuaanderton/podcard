@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\{ App, URL, Route };
 use App\Features\Pages\RamenGames;
 use App\Features\Podcasts\{
     Import,
@@ -8,6 +8,10 @@ use App\Features\Podcasts\{
     Episodes\Show,
     Episodes\Embed
 };
+
+if (App::environment(['production', 'staging'])) :
+  URL::forceScheme('https');
+endif;
 
 Route::domain('player.' . config('app.host'))->group(function ($router) {
     Route::get('/',          Show::class     )->name('podcasts.episodes.show');
