@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full dark:bg-black">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,7 +25,7 @@
             <script defer src="https://cdn.usefathom.com/script.js" site="{{ $site_id }}"></script>
         @endif
     </head>
-    <body>
+    <body class="h-full dark:text-white">
         @yield('content')
     </body>
 </html>

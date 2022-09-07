@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full bg-orange-50 dark:bg-orange-900">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,7 +25,7 @@
             <script defer src="https://cdn.usefathom.com/script.js" site="{{ $site_id }}"></script>
         @endif
     </head>
-    <body class="bg-body-gradient">
+    <body class="h-full bg-gradient-to-b from-orange-200 dark:from-orange-700 via-orange-50 dark:via-orange-900 text-black dark:text-white">
         @yield('content')
     </body>
 </html>
