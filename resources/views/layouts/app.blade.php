@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full dark:bg-black">
     <head>
+
+        @if($tagId = env('GOOGLE_TAG_ID'))
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-S6Y2TML1Q1"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '{{ $tagId }}');
+            </script>
+        @endif
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -20,10 +31,6 @@
         @blazervelHead('resources/js/app.js')
 
         <link href="https://fonts.googleapis.com/css?family=Barlow:400,600,700,900&display=swap" rel="stylesheet">
-
-        @if($site_id = env('FATHOM_SITE_ID'))
-            <script defer src="https://cdn.usefathom.com/script.js" site="{{ $site_id }}"></script>
-        @endif
     </head>
     <body class="h-full dark:text-white">
         @yield('content')
