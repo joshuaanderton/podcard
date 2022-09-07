@@ -20,12 +20,12 @@ class Embed
         endif;
     endforeach;
 
-    $url = 'https://player.' . env('SESSION_DOMAIN') . '?' . http_build_query($params);
+    $url = 'https://player.' . config('app.host') . '?' . http_build_query($params);
 
     return [
         'version'          => '1.0',
         'provider_name'    => 'Podcard',
-        'provider_url'     => env('SITE_URL'),
+        'provider_url'     => config('app.url'),
         'title'            => '',
         'html'             => "<iframe width=\"100%\" height=\"180\" scrolling=\"no\" frameborder=\"0\" src=\"{$url}?as_embed\"></iframe>",
         'height'           => '180',
