@@ -13,8 +13,13 @@
                 <div class="w-full lg:w-1/3 mx-auto lg:ml-0 z-20">
 
                     <div class="pb-6 mb-6 fade-up">
-                        <h1 class="font-sans font-bold text-black dark:text-white text-4xl sm:text-5xl -mt-1 leading-none">{{ config('app.name') }}</h1>
-                        <div class="font-sans text-xl sm:text-2xl text-black dark:text-white mt-2">Customize your embeddable player and copy & paste the snippet to any HTML page.</div>
+                        <img class="inline-block h-auto w-20 -ml-3 opacity-50" src="{{ asset('favicon.png') }}" />
+                        <h1 class="font-sans font-bold text-black dark:text-white text-4xl sm:text-5xl -mt-1 leading-none">
+                            {{ config('app.name') }}
+                        </h1>
+                        <div class="font-sans text-xl sm:text-2xl text-black dark:text-white mt-2">
+                            Customize your embeddable player and copy & paste the snippet to any HTML page.
+                        </div>
                     </div>
 
                     <div class="flex flex-wrap -mx-3 mb-6">
