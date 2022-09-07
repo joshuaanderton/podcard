@@ -7,8 +7,8 @@ import playerjs from 'player.js'
 import '../css/player.css'
 
 const convertTimeHHMMSS = (val) => {
-  let hhmmss = new Date(val * 1000).toISOString().substring(11, 8)
-  return hhmmss.indexOf("00:") === 0 ? hhmmss.substring(3) : hhmmss
+  let hhmmss = new Date(val * 1000).toISOString().substr(11, 8)
+  return hhmmss.indexOf("00:") === 0 ? hhmmss.substr(3) : hhmmss
 }
 
 new Vue({
@@ -80,12 +80,9 @@ new Vue({
   },
   watch: {
     playing(value) {
-      var _this = this
       if (!this.audio.readyState) {
         this.audio.load()
-        this.audio.onloadeddata = function(){
-          _this.playing = true
-        }
+        this.audio.onloadeddata = () => this.playing = true
       } else {
         if (value) { return this.audio.play() }
         this.audio.pause()
@@ -96,7 +93,7 @@ new Vue({
       this.audio.volume = this.volume / 100
     },
     speed() {
-      // console.log(this.speed)
+      //
     }
   },
   methods: {
@@ -124,19 +121,29 @@ new Vue({
       this.volume = this.previousVolume
     },
     seek(e) {
+
       if (e.target.tagName === 'SPAN') {
         return
       }
 
-      const el = e.target.getBoundingClientRect()
-      const seekPos = (e.clientX - el.left) / el.width
+      const el = e.target.getBoundingClientRect(),
+            seekPos = (e.clientX - el.left) / el.width
 
-      this.audio.currentTime = parseInt(this.audio.duration * seekPos)
+      if (!this.audio.readyState) {
+
+        this.audio.load()
+        this.audio.onloadeddata = () => this.audio.currentTime = parseInt(this.audio.duration * seekPos)
+
+      } else {
+
+        this.audio.currentTime = parseInt(this.audio.duration * seekPos)
+
+      }
+
     },
     setSpeed(newSpeed) {
       this.speed = newSpeed
       this.audio.playbackRate = this.speed / 100
-      // console.log(this.audio.playbackRate)
     },
     pause() {
       this.audio.pause()
@@ -154,9 +161,8 @@ new Vue({
   },
   mounted() {
 
-    const data = PlayerData
-
-    // console.log(data)
+    const data = PlayerData,
+          receiver = new playerjs.Receiver()
 
     this.podcast = data.podcast
     this.title   = data.title
@@ -169,10 +175,6 @@ new Vue({
     this.audio.addEventListener('loadeddata', this.load)
     this.audio.addEventListener('pause', () => { this.playing = false })
     this.audio.addEventListener('play', () => { this.playing = true })
-
-    // Player.js stuff
-    const receiver = new playerjs.Receiver()
-
     this.audio.addEventListener('ended', () => receiver.emit('ended'))
     this.audio.addEventListener('timeupdate', () => {
       receiver.emit('timeupdate', {
