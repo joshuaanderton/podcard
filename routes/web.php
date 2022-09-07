@@ -9,10 +9,6 @@ use App\Features\Podcasts\{
     Episodes\Embed
 };
 
-Route::get('/',          fn () => view('player-builder'));
-Route::get('dnt',        fn () => view('pages.dnt'));
-Route::get('ramengames', RamenGames::class);
-
 Route::domain('player.' . config('app.host'))->group(function ($router) {
     Route::get('/',          Show::class     )->name('podcasts.episodes.show');
     Route::get('embed',      Embed::class    )->name('podcasts.episodes.embed');
@@ -23,3 +19,7 @@ Route::domain('player.' . config('app.host'))->group(function ($router) {
 Route::domain('ramengames.' . config('app.host'))->group(fn () => (
     Route::redirect('/', config('app.url') . '/ramengames')
 ));
+
+Route::get('/',          fn () => view('player-builder'));
+Route::get('dnt',        fn () => view('pages.dnt'));
+Route::get('ramengames', RamenGames::class);
