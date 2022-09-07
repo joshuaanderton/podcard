@@ -30,7 +30,7 @@
           'name' => $name, 
           'autocomplete' => $autocomplete ?: null,
           'disabled' => $disabled ?: null,
-          'class' => 'opacity-0 absolute inset-0 w-full h-full z-10',
+          'class' => 'opacity-0 absolute inset-0 w-full h-full z-10 text-black',
         ]) }}
       />
 
