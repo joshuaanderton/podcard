@@ -13,7 +13,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::domain('ramengames.' . env('SESSION_DOMAIN'))->group(function ($router) {
+Route::domain('ramengames.' . config('app.host'))->group(function ($router) {
     Route::get('/', function(){
         return redirect(env('SITE_URL') . '/ramengames');
     });
@@ -35,7 +35,7 @@ Route::group(['domain' => env('SITE_URL')], function() {
     });
 });
 
-Route::domain('player.' . env('SESSION_DOMAIN'))->group(function ($router) {
+Route::domain('player.' . config('app.host'))->group(function ($router) {
     Route::get('/', function(Request $request){
 
         if (empty($request->feed)) return view('player-builder');
@@ -121,7 +121,7 @@ Route::domain('player.' . env('SESSION_DOMAIN'))->group(function ($router) {
             endif;
         endforeach;
 
-        $url = 'https://player.' . env('SESSION_DOMAIN') . '?' . http_build_query($params);
+        $url = 'https://player.' . config('app.host') . '?' . http_build_query($params);
 
         return [
             'version'          => '1.0',

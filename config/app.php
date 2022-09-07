@@ -52,9 +52,11 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => $appUrl = env('APP_URL', 'http://localhost'),
 
     'asset_url' => env('ASSET_URL', null),
+
+    'host' => explode('//', $appUrl)[1],
 
     /*
     |--------------------------------------------------------------------------
