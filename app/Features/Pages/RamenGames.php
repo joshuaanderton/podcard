@@ -3,8 +3,9 @@
 namespace App\Features\Pages;
 
 use App\Models\Podcast;
+use Blazervel\Feature\Action;
 
-class RamenGames
+class RamenGames extends Action
 {
     public function handle()
     {

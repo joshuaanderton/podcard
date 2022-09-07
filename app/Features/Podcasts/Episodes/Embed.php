@@ -3,8 +3,9 @@
 namespace App\Features\Podcasts\Episodes;
 
 use Illuminate\Http\Request;
+use Blazervel\Feature\Action;
 
-class Embed
+class Embed extends Action
 {
     public function handle(Request $request)
     {

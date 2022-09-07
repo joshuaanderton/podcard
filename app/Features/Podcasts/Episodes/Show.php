@@ -4,8 +4,9 @@ namespace App\Features\Podcasts\Episodes;
 
 use App\Models\Podcast;
 use Illuminate\Http\Request;
+use Blazervel\Feature\Action;
 
-class Show
+class Show extends Action
 {
     public function handle(Request $request)
     {

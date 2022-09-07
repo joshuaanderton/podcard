@@ -4,8 +4,9 @@ namespace App\Features\Podcasts;
 
 use App\Models\Podcast;
 use Illuminate\Http\Request;
+use Blazervel\Feature\Action;
 
-class ImportAll
+class ImportAll extends Action
 {
     public function handle(Request $request)
     {

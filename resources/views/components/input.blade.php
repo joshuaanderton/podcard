@@ -54,7 +54,7 @@
         'name' => $name, 
         'autocomplete' => $autocomplete ?: null,
         'disabled' => $disabled ?: null,
-        'class' => $class . ($type === 'color' ? 'pl-10' : '') . ' h-full',
+        'class' => $class . ($type === 'color' ? 'pl-10' : '') . ' h-full text-black',
       ]) }}
     />
     @if($slot)
