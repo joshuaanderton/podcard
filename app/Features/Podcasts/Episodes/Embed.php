@@ -3,17 +3,17 @@
 namespace App\Features\Podcasts\Episodes;
 
 use Illuminate\Http\Request;
-use Blazervel\Feature\Action;
 
-class Embed extends Action
+class Embed 
 {
-    public function handle(Request $request)
+    public function __invoke(Request $request)
     {
         if (! $request->url) {
             abort(404);
         }
 
         $parts = parse_url($request->url);
+
         parse_str($parts['query'], $passed_params);
 
         foreach ($passed_params as $key => $val) {
@@ -22,7 +22,7 @@ class Embed extends Action
             }
         }
 
-        $url = 'https://player.'.config('app.host').'?'.http_build_query($params);
+        $url = 'https://player.' . config('app.host') . '?' . http_build_query($params);
 
         return [
             'version' => '1.0',

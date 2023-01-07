@@ -7,7 +7,7 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
         <link rel="shortcut icon" href="/favicon.png"/>
 
-        @blazervelHead('resources/js/player.js')
+        @vite('resources/js/player.js')
     </head>
     <body>
         @yield('content')

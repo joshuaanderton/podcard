@@ -17,7 +17,7 @@
         <meta property="og:url" content="https://podcard.co">
         <meta property="og:image" content="https://ramengames.podcard.co/ramen-games-social.png">
 
-        @blazervelHead('resources/js/app.js')
+        @vite('resources/js/app.js')
 
         <link href="https://fonts.googleapis.com/css?family=Barlow:400,600,700,900&display=swap" rel="stylesheet">
 

@@ -4,11 +4,10 @@ namespace App\Features\Podcasts;
 
 use App\Models\Podcast;
 use Illuminate\Http\Request;
-use Blazervel\Feature\Action;
 
-class Import extends Action
+class Import 
 {
-    public function handle(Request $request)
+    public function __invoke(Request $request)
     {
         if (empty($request->feed)) {
             return abort(404);

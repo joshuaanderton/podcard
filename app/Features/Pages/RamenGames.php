@@ -3,11 +3,10 @@
 namespace App\Features\Pages;
 
 use App\Models\Podcast;
-use Blazervel\Feature\Action;
 
-class RamenGames extends Action
+class RamenGames
 {
-    public function handle()
+    public function __invoke()
     {
         return view('ramen-games', [
             'podcasts' => Podcast::where('ramen_games', true)->paginate(20),
