@@ -50,7 +50,7 @@ class PlayerBuilder extends Component
     public function loadFeed()
     {
         $feedUrl = trim($this->feedUrl);
-        
+
         $podcast = Podcast::firstOrImport($feedUrl);
 
         if ($podcast->episodes()->count() > 0) {
@@ -64,7 +64,7 @@ class PlayerBuilder extends Component
 
     public function mount()
     {
-        $this->setDemo();
+        $this->loadDemoEpisode();
     }
 
     public function render()
@@ -72,7 +72,7 @@ class PlayerBuilder extends Component
         return view('livewire.player-builder');
     }
 
-    public function setDemo(): void
+    public function loadDemoEpisode(): void
     {
         $feeds = collect([
             ['feed_url' => 'https://feeds.podhunt.app/feeds/daily/rss',   'color' => '#8772c7'],

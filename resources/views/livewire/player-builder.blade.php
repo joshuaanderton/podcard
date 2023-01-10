@@ -25,6 +25,7 @@
                 </div>
 
                 <div class="space-y-6 text-black flex-1">
+                    
                     <x-jal::input wire:model="feedUrl" label="RSS Feed URL:" />
 
                     @if ($feedUrl && count($episodes ?: []) > 0)
@@ -33,11 +34,6 @@
                                 <option value="{{ $episode->id }}">{{ $episode->title }}</option>
                             @endforeach
                         </x-jal::select>
-
-                        {{--
-                        <x-jal::choices wire:model="currentEpisodeId" label="Episode" :options="$episodes->pluck('id', 'title')->all()" />
-                        --}}
-
                         <x-jal::color-picker wire:model="color" label="Player Color:" />
                     @endif
                 </div>
@@ -57,13 +53,28 @@
             
             @if ($feedUrl && $currentEpisode)
                 <div class="relative z-10 container max-w-3xl mx-auto space-y-8">
-                    <div class="space-y-2">
+                    <div x-data class="space-y-2">
                         <x-jal::label text="Preview" />
-                        <iframe src="{{ $this->playerUrl }}" frameBorder="0" height="180" width="100%"></iframe>
+                        <div class="relative rounded-[8px] overflow-hidden">
+
+                            <iframe
+                                id="iframe"
+                                class="relative z-[2] opacity-0 transition-opacity duration-500"
+                                onload="document.getElementById('iframe').classList.remove('opacity-0')"
+                                src="{{ $this->playerUrl }}"
+                                frameBorder="0"
+                                height="180"
+                                width="100%"></iframe>
+
+                            <div class="absolute z-1 inset-0 flex items-center justify-center animate-pulse bg-black/10">
+                                <x-jal::icon-loading class="h-14 w-14 opacity-60" />
+                            </div>
+
+                        </div>
                     </div>
                     
                     <div class="space-y-2 pt-5 overflow-hidden mb-5">
-                        <x-jal::label text="Snippet" />
+                        <x-jal::label text="Copy the iframe snippet..." />
                         <code class="copy-snippet bg-black p-4 block rounded-lg select-all text-white text-sm hover:cursor-pointer">
                             <span class="token tag">
                             <span class="token tag">
@@ -77,7 +88,7 @@
                     </div>
 
                     <div class="space-y-2">
-                        <x-jal::label for="episode" text="Or build one your self dynamically using the URL..." />
+                        <x-jal::label for="episode" text="Or build one dynamically..." />
                         <code class="copy-snippet bg-black p-4 block rounded-lg select-all text-white text-sm hover:cursor-pointer">
                             <span class="opacity-70">https://player.podcard.co?</span>feed=<strong>FEED_URL</strong><span class="opacity-70">&</span>episode=<strong>TITLE_OR_NUMBER</strong><span class="opacity-70">&</span>color=<strong>HEX_CODE</strong>
                         </code>
@@ -90,7 +101,8 @@
                         <span class="rounded-full w-12 h-12 mx-auto flex justify-center items-center bg-black opacity-20">
                             <x-jal::icon name="arrow-left" md />
                         </span>
-                        <div>Paste a valid podcast rss feed in the sidebar to pull in episodes...</div>
+                        <div>Paste your podcast's rss feed URL in the sidebar to select an episode...</div>
+                        <x-jal::button text="Load demo episode" wire:click="loadDemoEpisode" class="bg-black/10 hover:bg-black/30" />
                     </div>
                 </div>
                 
