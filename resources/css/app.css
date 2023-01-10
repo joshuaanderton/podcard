@@ -1,3 +1,6 @@
+@import '../fonts/modern-era/modern-era';
+@import '@ja-livewire/plugins/choices.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -12,4 +15,16 @@
 .fade-up.active {
   top: 0;
   opacity: 1;
+}
+
+.overlay-noise {
+  @apply fixed left-0 top-0 z-[100000] w-full h-[100vh] pointer-events-none;
+}
+
+.overlay-noise:before {
+  content: '';
+  background-image: url('/images/noise.png');
+  background-position: 50% center;
+  background-size: 10% 10%;
+  @apply absolute w-full h-full left-0 top-0 z-10 pointer-events-none;
 }

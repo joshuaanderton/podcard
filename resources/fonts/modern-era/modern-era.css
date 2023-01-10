@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'ModernEra';
+  src: url('fonts/ModernEra-Regular.woff') format('woff'),
+       url('fonts/ModernEra-Regular.woff2') format('woff2');
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'ModernEra';
+  src: url('fonts/ModernEra-Medium.woff') format('woff'),
+       url('fonts/ModernEra-Medium.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 500;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'ModernEra';
+  src: url('fonts/ModernEra-Bold.woff') format('woff'),
+       url('fonts/ModernEra-Bold.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 700;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'ModernEraMono';
+  src: url('fonts/ModernEraMono-Medium.woff') format('woff'),
+       url('fonts/ModernEraMono-Medium.woff2') format('woff2');
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}

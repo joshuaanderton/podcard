@@ -29,10 +29,11 @@
         <meta property="og:image" content="https://jads.s3-us-west-2.amazonaws.com/podcard/screely-transistor.png">
 
         @vite('resources/js/app.js')
-
-        <link href="https://fonts.googleapis.com/css?family=Barlow:400,600,700,900&display=swap" rel="stylesheet">
+        @livewireStyles
     </head>
     <body class="h-full dark:text-white">
         @yield('content')
+        {{ $slot }}
+        @livewireScripts
     </body>
 </html>

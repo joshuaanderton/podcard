@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Exception;
 use Illuminate\Database\Eloquent\Model;
 
 class Podcast extends Model
@@ -18,9 +19,25 @@ class Podcast extends Model
         return $this->hasMany(PodcastEpisode::class);
     }
 
-    public function import()
+    public static function firstOrImport(string $feedUrl): self
     {
-        $feed = file_get_contents($this->feed_url);
+        if (! $podcast = Podcast::where('feed_url', $feedUrl)->first()) {
+            $podcast = new Podcast;
+            $podcast->feed_url = $feedUrl;
+            $podcast->import();
+        }
+
+        return $podcast;
+    }
+
+    public function import(): void
+    {
+        try {
+            $feed = file_get_contents($this->feed_url);
+        } catch (Exception $e) {
+            return;
+        }
+
         $feed = str_replace('itunes:', '', $feed);
         $feed = simplexml_load_string($feed);
         $feed = $feed->channel;

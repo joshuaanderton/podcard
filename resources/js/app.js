@@ -1,9 +1,13 @@
 import './bootstrap'
 
+import alpine from 'alpinejs'
 import Vue from 'vue/dist/vue.esm'
 import 'clipboard'
+import Choices from 'choices.js'
 
 import '../css/app.css'
+
+window.Choices = Choices
 
 if (document.getElementById('player_builder')) {
 
@@ -43,6 +47,10 @@ if (document.getElementById('player_builder')) {
     }
   })
 
+} else {
+
+  window.Alpine = alpine
+  Alpine.start()
 }
 
 const animateElements = document.getElementsByClassName('fade-up')
