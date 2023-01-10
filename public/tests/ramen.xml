@@ -1,0 +1,1066 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="https://feeds.transistor.fm/stylesheet.xsl" type="text/xsl"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:podcast="https://podcastindex.org/namespace/1.0">
+  <channel>
+    <atom:link rel="self" type="application/atom+xml" href="https://feeds.transistor.fm/ramen" title="MP3 Audio"/>
+    <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <title>Getting To Ramen</title>
+    <generator>Transistor (https://transistor.fm)</generator>
+    <itunes:new-feed-url>https://feeds.transistor.fm/ramen</itunes:new-feed-url>
+    <description>Listen in as I navigate the slow SaaS ramp of death while asking for help along the way from people like Justin Jackson, Matt Wensing, and others who have gone before me...</description>
+    <copyright>© 2022 Getting To Ramen</copyright>
+    <podcast:locked owner="info+ramen@joshanderton.com">no</podcast:locked>
+    <language>en</language>
+    <pubDate>Sat, 13 Nov 2021 13:00:00 +0000</pubDate>
+    <lastBuildDate>Tue, 03 Jan 2023 05:16:13 +0000</lastBuildDate>
+    <link>http://ramen.fm</link>
+    <image>
+      <url>https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg</url>
+      <title>Getting To Ramen</title>
+      <link>http://ramen.fm</link>
+    </image>
+    <itunes:category text="Business">
+      <itunes:category text="Entrepreneurship"/>
+    </itunes:category>
+    <itunes:type>episodic</itunes:type>
+    <itunes:author>Joshua Anderton</itunes:author>
+    <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+    <itunes:summary>Listen in as I navigate the slow SaaS ramp of death while asking for help along the way from people like Justin Jackson, Matt Wensing, and others who have gone before me...</itunes:summary>
+    <itunes:subtitle>Listen in as I navigate the slow SaaS ramp of death while asking for help along the way from people like Justin Jackson, Matt Wensing, and others who have gone before me....</itunes:subtitle>
+    <itunes:keywords></itunes:keywords>
+    <itunes:owner>
+      <itunes:name>Josh Anderton</itunes:name>
+    </itunes:owner>
+    <itunes:complete>No</itunes:complete>
+    <itunes:explicit>No</itunes:explicit>
+    <item>
+      <title>An update on Meeps (and why it's a good time to be a TALL dev)</title>
+      <itunes:episode>39</itunes:episode>
+      <itunes:title>An update on Meeps (and why it's a good time to be a TALL dev)</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">8f0044b0-c384-4898-8737-77fd43fe7478</guid>
+      <link>https://share.transistor.fm/s/ef0398f4</link>
+      <description>
+        <![CDATA[<p>A long overdue update on how the development of Meeps is going!</p>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<p>A long overdue update on how the development of Meeps is going!</p>]]>
+      </content:encoded>
+      <pubDate>Sat, 13 Nov 2021 13:00:00 +0000</pubDate>
+      <author>Joshua Anderton</author>
+      <enclosure url="https://media.transistor.fm/ef0398f4/2d5f57bb.mp3" length="66748918" type="audio/mpeg"/>
+      <itunes:author>Joshua Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>1667</itunes:duration>
+      <itunes:summary>A long overdue update on how the development of Meeps is going!</itunes:summary>
+      <itunes:subtitle>A long overdue update on how the development of Meeps is going!</itunes:subtitle>
+      <itunes:keywords></itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>It's a great time to SaaS</title>
+      <itunes:episode>36</itunes:episode>
+      <itunes:title>It's a great time to SaaS</itunes:title>
+      <itunes:episodeType>trailer</itunes:episodeType>
+      <guid isPermaLink="false">428af5f9-df85-4f3d-b767-ecb916c75a96</guid>
+      <link>https://share.transistor.fm/s/0f5c359e</link>
+      <description>
+        <![CDATA[<p>Josh talks about why it's such a great idea to build a software product right now.</p>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<p>Josh talks about why it's such a great idea to build a software product right now.</p>]]>
+      </content:encoded>
+      <pubDate>Wed, 22 Sep 2021 14:30:15 +0000</pubDate>
+      <author>Joshua Anderton</author>
+      <enclosure url="https://media.transistor.fm/0f5c359e/a5050f08.mp3" length="12114342" type="audio/mpeg"/>
+      <itunes:author>Joshua Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>377</itunes:duration>
+      <itunes:summary>Josh talks about why it's such a great idea to build a software product right now.</itunes:summary>
+      <itunes:subtitle>Josh talks about why it's such a great idea to build a software product right now.</itunes:subtitle>
+      <itunes:keywords></itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>Launching a SaaS. Selling a SaaS.</title>
+      <itunes:episode>35</itunes:episode>
+      <itunes:title>Launching a SaaS. Selling a SaaS.</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">87d15c49-0ce2-4021-8f57-ba6953c2485c</guid>
+      <link>https://share.transistor.fm/s/c11f11e1</link>
+      <description>
+        <![CDATA[<p>Here's a quick update on how things are going with Meeps and Upscribe</p><ul>
+<li><a href="https://megamaker.transistor.fm">Megamaker Podcast</a></li>
+<li><a href="https://meeps.ap">Meeps.app - A better way to manage an online community</a></li>
+<li><a href="https://app.microacquire.com/startup/W4Rk1ERfdBOdjQtPWivz2ZD3O1p2/FhyJNf4Pe2Z2LdlIwAoZ">Upscribe on MicroAcquire</a></li>
+</ul>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<p>Here's a quick update on how things are going with Meeps and Upscribe</p><ul>
+<li><a href="https://megamaker.transistor.fm">Megamaker Podcast</a></li>
+<li><a href="https://meeps.ap">Meeps.app - A better way to manage an online community</a></li>
+<li><a href="https://app.microacquire.com/startup/W4Rk1ERfdBOdjQtPWivz2ZD3O1p2/FhyJNf4Pe2Z2LdlIwAoZ">Upscribe on MicroAcquire</a></li>
+</ul>]]>
+      </content:encoded>
+      <pubDate>Sat, 07 Aug 2021 13:00:00 +0000</pubDate>
+      <author>Joshua Anderton</author>
+      <enclosure url="https://media.transistor.fm/c11f11e1/4ff12dce.mp3" length="22725481" type="audio/mpeg"/>
+      <itunes:author>Joshua Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>708</itunes:duration>
+      <itunes:summary>Here's a quick update on how things are going with Meeps and Upscribe</itunes:summary>
+      <itunes:subtitle>Here's a quick update on how things are going with Meeps and Upscribe</itunes:subtitle>
+      <itunes:keywords></itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>Never going solo again</title>
+      <itunes:episode>34</itunes:episode>
+      <itunes:title>Never going solo again</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">d855cf03-f2b8-4ec1-9632-b0d2b2a36e66</guid>
+      <link>https://share.transistor.fm/s/173f077e</link>
+      <description>
+        <![CDATA[<p>I'm working on a new project with Justin Jackson. Here's what it's been like so far...</p>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<p>I'm working on a new project with Justin Jackson. Here's what it's been like so far...</p>]]>
+      </content:encoded>
+      <pubDate>Thu, 10 Jun 2021 13:00:00 +0000</pubDate>
+      <author>Joshua Anderton</author>
+      <enclosure url="https://media.transistor.fm/173f077e/14a3574f.mp3" length="15676654" type="audio/mpeg"/>
+      <itunes:author>Joshua Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/episode/560717/full_1670370821-artwork.jpg"/>
+      <itunes:duration>650</itunes:duration>
+      <itunes:summary>I'm working on a new project with Justin Jackson. Here's what it's been like so far...</itunes:summary>
+      <itunes:subtitle>I'm working on a new project with Justin Jackson. Here's what it's been like so far...</itunes:subtitle>
+      <itunes:keywords></itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>I got micro-acquired</title>
+      <itunes:episode>33</itunes:episode>
+      <itunes:title>I got micro-acquired</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">0bed21c2-77ff-4435-b36c-8e0f14008723</guid>
+      <link>https://share.transistor.fm/s/8422dfee</link>
+      <description>
+        <![CDATA[<p>Recovered from surgery and back with an exciting announcement. One of my businesses has been acquired!</p><p><strong>Links</strong></p><ul>
+<li><a href="https://joshuaanderton.upscri.be">Joshua's Newsletter (https://joshuaanderton.upscri.be)</a></li>
+<li><a href="https://microacquire.com/">Micro Acquire - Startup acquisition marketplace</a></li>
+<li><a href="https://madewithgrit.fm">Made With Grit - Podcast by Adreform's Landon Bennet and Kyle Conarro</a></li>
+<li><a href="https://www.adreform.com/">Adreform - Speed up your tedious ad ops tasks by 10x</a></li>
+<li><a href="https://userfeed.io">Userfeed - User feedback tool for Interom</a></li>
+<li><a href="https://www.putler.com/">Putler - Consolidate all your stores, payment gateways and Google Analytics in a single app</a></li>
+<li><a href="https://billingly.io">Billingly.io - Dunning emails and SMS</a></li>
+<li><a href="https://upscribe.net">Upscribe - No-bloat email marketing</a></li>
+</ul>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<p>Recovered from surgery and back with an exciting announcement. One of my businesses has been acquired!</p><p><strong>Links</strong></p><ul>
+<li><a href="https://joshuaanderton.upscri.be">Joshua's Newsletter (https://joshuaanderton.upscri.be)</a></li>
+<li><a href="https://microacquire.com/">Micro Acquire - Startup acquisition marketplace</a></li>
+<li><a href="https://madewithgrit.fm">Made With Grit - Podcast by Adreform's Landon Bennet and Kyle Conarro</a></li>
+<li><a href="https://www.adreform.com/">Adreform - Speed up your tedious ad ops tasks by 10x</a></li>
+<li><a href="https://userfeed.io">Userfeed - User feedback tool for Interom</a></li>
+<li><a href="https://www.putler.com/">Putler - Consolidate all your stores, payment gateways and Google Analytics in a single app</a></li>
+<li><a href="https://billingly.io">Billingly.io - Dunning emails and SMS</a></li>
+<li><a href="https://upscribe.net">Upscribe - No-bloat email marketing</a></li>
+</ul>]]>
+      </content:encoded>
+      <pubDate>Mon, 17 May 2021 13:00:00 +0000</pubDate>
+      <author>Joshua Anderton</author>
+      <enclosure url="https://media.transistor.fm/8422dfee/187c4bb4.mp3" length="18014780" type="audio/mpeg"/>
+      <itunes:author>Joshua Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>748</itunes:duration>
+      <itunes:summary>Recovered from surgery and back with an exciting announcement. One of my businesses has been acquired!</itunes:summary>
+      <itunes:subtitle>Recovered from surgery and back with an exciting announcement. One of my businesses has been acquired!</itunes:subtitle>
+      <itunes:keywords></itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>Time to get a job</title>
+      <itunes:episode>32</itunes:episode>
+      <itunes:title>Time to get a job</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">97a70256-91b3-421f-8e03-7ae27b2bb24a</guid>
+      <link>https://share.transistor.fm/s/ec5169de</link>
+      <description>
+        <![CDATA[<p>Time to make a change. Here's how the last 7 months have gone and my plans moving forward.</p><ul>
+<li>
+<a href="https://joshuaanderton.ca/">JoshuaAnderton.ca</a> (Josh's personal portfolio site)</li>
+<li><a href="https://upscribe.net">Upscribe</a></li>
+<li>
+<a href="https://podmelon.com">Podmelon</a> (Josh's podcast editing business)</li>
+<li>
+<a href="https://vidmelon.com">Vidmelon</a> (Josh's video business)</li>
+<li><a href="https://transistor.fm">Transistor.fm</a></li>
+<li><a href="https://saas.transistor.fm/">Build Your SaaS</a></li>
+<li><a href="https://adreform.com">AdReform</a></li>
+<li><a href="https://twitter.com/joshuaanderton/status/1381668791961018374?s=20">Josh's tweet</a></li>
+<li><a href="https://megamaker.co/">MegaMaker</a></li>
+<li><a href="https://potion.so">Potion.so</a></li>
+<li><a href="https://sandwich.co">Sandwich Video</a></li>
+<li><a href="https://wistia.com">Wistia</a></li>
+</ul>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<p>Time to make a change. Here's how the last 7 months have gone and my plans moving forward.</p><ul>
+<li>
+<a href="https://joshuaanderton.ca/">JoshuaAnderton.ca</a> (Josh's personal portfolio site)</li>
+<li><a href="https://upscribe.net">Upscribe</a></li>
+<li>
+<a href="https://podmelon.com">Podmelon</a> (Josh's podcast editing business)</li>
+<li>
+<a href="https://vidmelon.com">Vidmelon</a> (Josh's video business)</li>
+<li><a href="https://transistor.fm">Transistor.fm</a></li>
+<li><a href="https://saas.transistor.fm/">Build Your SaaS</a></li>
+<li><a href="https://adreform.com">AdReform</a></li>
+<li><a href="https://twitter.com/joshuaanderton/status/1381668791961018374?s=20">Josh's tweet</a></li>
+<li><a href="https://megamaker.co/">MegaMaker</a></li>
+<li><a href="https://potion.so">Potion.so</a></li>
+<li><a href="https://sandwich.co">Sandwich Video</a></li>
+<li><a href="https://wistia.com">Wistia</a></li>
+</ul>]]>
+      </content:encoded>
+      <pubDate>Mon, 19 Apr 2021 15:08:19 +0000</pubDate>
+      <author>Joshua Anderton</author>
+      <enclosure url="https://media.transistor.fm/ec5169de/3815c410.mp3" length="25168064" type="audio/mpeg"/>
+      <itunes:author>Joshua Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>1046</itunes:duration>
+      <itunes:summary>Time to make a change. Here's how the last 7 months have gone and my plans moving forward.</itunes:summary>
+      <itunes:subtitle>Time to make a change. Here's how the last 7 months have gone and my plans moving forward.</itunes:subtitle>
+      <itunes:keywords></itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>PART 2: SaaS sales + getting to revenue quickly w/ Landon Bennet of AdReform</title>
+      <itunes:episode>31</itunes:episode>
+      <itunes:title>PART 2: SaaS sales + getting to revenue quickly w/ Landon Bennet of AdReform</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">5d7ab053-4c38-43c0-ac81-b04112773c5b</guid>
+      <link>https://share.transistor.fm/s/f6e20189</link>
+      <description>
+        <![CDATA[<p>In this episode Josh talks to Landon Bennet of <a href="https://adreform.com/">AdReform</a> about finding and closing on larger SaaS customers.</p><p>Landon has a ton of experience in SaaS sales at several customers (including 3 companies that he's successfully bootstrapped with his co-founder Kyle Conarro). This is a must-listen for any indie hackers or bootstrap founders.</p><p>A few topics covered in the call are:</p><ul>
+<li>Landon's approach to finding new (validated) business opportunities</li>
+<li>How early conversations with potential customer helped Landon and Kyle decide what to build</li>
+<li>Where to find bigger customers</li>
+</ul>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<p>In this episode Josh talks to Landon Bennet of <a href="https://adreform.com/">AdReform</a> about finding and closing on larger SaaS customers.</p><p>Landon has a ton of experience in SaaS sales at several customers (including 3 companies that he's successfully bootstrapped with his co-founder Kyle Conarro). This is a must-listen for any indie hackers or bootstrap founders.</p><p>A few topics covered in the call are:</p><ul>
+<li>Landon's approach to finding new (validated) business opportunities</li>
+<li>How early conversations with potential customer helped Landon and Kyle decide what to build</li>
+<li>Where to find bigger customers</li>
+</ul>]]>
+      </content:encoded>
+      <pubDate>Thu, 08 Apr 2021 13:30:00 +0000</pubDate>
+      <author>Joshua Anderton</author>
+      <enclosure url="https://media.transistor.fm/f6e20189/ab4084ab.mp3" length="120817351" type="audio/mpeg"/>
+      <itunes:author>Joshua Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>3774</itunes:duration>
+      <itunes:summary>In this episode (part 2 of 2) Josh talks to Landon Bennet of AdReform about finding and closing on larger SaaS customers.</itunes:summary>
+      <itunes:subtitle>In this episode (part 2 of 2) Josh talks to Landon Bennet of AdReform about finding and closing on larger SaaS customers.</itunes:subtitle>
+      <itunes:keywords></itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>PART 1: Finding and closing bigger SaaS customers w/ Landon Bennet of AdReform</title>
+      <itunes:episode>30</itunes:episode>
+      <itunes:title>PART 1: Finding and closing bigger SaaS customers w/ Landon Bennet of AdReform</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">f7d58c1e-81a4-4669-9e5a-6ed6e3c41623</guid>
+      <link>https://share.transistor.fm/s/62d111c3</link>
+      <description>
+        <![CDATA[<p>In this episode Josh talks to Landon Bennet of <a href="https://adreform.com">AdReform</a> about finding and closing on larger SaaS customers.</p><p>Landon has a ton of experience in SaaS sales at several customers (including 3 companies that he's successfully bootstrapped with his co-founder Kyle Conarro). This is a must-listen for any indie hackers or bootstrap founders.</p><p>A few topics covered in the call are:</p><ul>
+<li>You should never be surprised by the outcome of a deal</li>
+<li>Time kills every deal</li>
+<li>Annual contracts</li>
+<li>Avoid forever discounts</li>
+</ul>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<p>In this episode Josh talks to Landon Bennet of <a href="https://adreform.com">AdReform</a> about finding and closing on larger SaaS customers.</p><p>Landon has a ton of experience in SaaS sales at several customers (including 3 companies that he's successfully bootstrapped with his co-founder Kyle Conarro). This is a must-listen for any indie hackers or bootstrap founders.</p><p>A few topics covered in the call are:</p><ul>
+<li>You should never be surprised by the outcome of a deal</li>
+<li>Time kills every deal</li>
+<li>Annual contracts</li>
+<li>Avoid forever discounts</li>
+</ul>]]>
+      </content:encoded>
+      <pubDate>Thu, 08 Apr 2021 13:00:00 +0000</pubDate>
+      <author>Joshua Anderton</author>
+      <enclosure url="https://media.transistor.fm/62d111c3/a8be341d.mp3" length="56824458" type="audio/mpeg"/>
+      <itunes:author>Joshua Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>1774</itunes:duration>
+      <itunes:summary>In this episode (part 1 of 2) Josh talks to Landon Bennet of AdReform about finding and closing on larger SaaS customers.</itunes:summary>
+      <itunes:subtitle>In this episode (part 1 of 2) Josh talks to Landon Bennet of AdReform about finding and closing on larger SaaS customers.</itunes:subtitle>
+      <itunes:keywords></itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>Founder depression</title>
+      <itunes:episode>29</itunes:episode>
+      <itunes:title>Founder depression</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">33e34edf-0434-4a08-a23c-43598805228a</guid>
+      <link>https://share.transistor.fm/s/ca9876bb</link>
+      <description>
+        <![CDATA[<p>Josh talks about what it's been like managing his mental health while trying to grow a software company full-time. There's also a tiny rant about a certain well-known exit and how the employees were "taken care of".</p>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<p>Josh talks about what it's been like managing his mental health while trying to grow a software company full-time. There's also a tiny rant about a certain well-known exit and how the employees were "taken care of".</p>]]>
+      </content:encoded>
+      <pubDate>Tue, 23 Mar 2021 13:00:00 +0000</pubDate>
+      <author>Joshua Anderton</author>
+      <enclosure url="https://media.transistor.fm/ca9876bb/25551a23.mp3" length="27457598" type="audio/mpeg"/>
+      <itunes:author>Joshua Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>1141</itunes:duration>
+      <itunes:summary>Josh talks about what it's been like managing his mental health while trying to grow a software company full-time. There's also a tiny rant about a certain well-known exit and how the employees were "taken care of".</itunes:summary>
+      <itunes:subtitle>Josh talks about what it's been like managing his mental health while trying to grow a software company full-time. There's also a tiny rant about a certain well-known exit and how the employees were "taken care of".</itunes:subtitle>
+      <itunes:keywords></itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>Building an email marketing solution as an IndieHacker</title>
+      <itunes:episode>28</itunes:episode>
+      <itunes:title>Building an email marketing solution as an IndieHacker</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">1202a33e-592c-4c89-9bb4-6316e204dddd</guid>
+      <link>https://share.transistor.fm/s/14985708</link>
+      <description>
+        <![CDATA[<ul><li><a href="https://www.indiehackers.com/podcast/191-yaroslaw-bagriy-of-newsletter-crew">Making a Living From the Paid Newsletter Ecosystem with Yaroslaw Bagriy of Newsletter Crew</a></li></ul>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<ul><li><a href="https://www.indiehackers.com/podcast/191-yaroslaw-bagriy-of-newsletter-crew">Making a Living From the Paid Newsletter Ecosystem with Yaroslaw Bagriy of Newsletter Crew</a></li></ul>]]>
+      </content:encoded>
+      <pubDate>Mon, 08 Mar 2021 14:00:00 +0000</pubDate>
+      <author>Joshua Anderton</author>
+      <enclosure url="https://media.transistor.fm/14985708/93f065a7.mp3" length="14963262" type="audio/mpeg"/>
+      <itunes:author>Joshua Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>621</itunes:duration>
+      <itunes:summary>Josh gives a quick update on how things are going with Upscribe, the new Paid Newsletters craze, and how tech like Laravel Vapor makes possible to build an ESP as an IndieHacker.</itunes:summary>
+      <itunes:subtitle>Josh gives a quick update on how things are going with Upscribe, the new Paid Newsletters craze, and how tech like Laravel Vapor makes possible to build an ESP as an IndieHacker.</itunes:subtitle>
+      <itunes:keywords></itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>Focusing on just one product (still not ready for freemium)</title>
+      <itunes:episode>27</itunes:episode>
+      <itunes:title>Focusing on just one product (still not ready for freemium)</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">ff0f983e-2cac-44fa-8436-2f80baf1d15e</guid>
+      <link>https://share.transistor.fm/s/3787d25b</link>
+      <description>
+        <![CDATA[<p>Took the plunge! Josh talks about what it's been like after a month of working on Upscribe full-time.</p>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<p>Took the plunge! Josh talks about what it's been like after a month of working on Upscribe full-time.</p>]]>
+      </content:encoded>
+      <pubDate>Wed, 09 Dec 2020 05:00:00 +0000</pubDate>
+      <author>Joshua Anderton</author>
+      <enclosure url="https://media.transistor.fm/3787d25b/19af809d.mp3" length="30978619" type="audio/mpeg"/>
+      <itunes:author>Joshua Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>966</itunes:duration>
+      <itunes:summary>Took the plunge! Josh talks about what it's been like after a month of working on Upscribe full-time.</itunes:summary>
+      <itunes:subtitle>Took the plunge! Josh talks about what it's been like after a month of working on Upscribe full-time.</itunes:subtitle>
+      <itunes:keywords></itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>Should you start multiple businesses? (I built something new)</title>
+      <itunes:episode>26</itunes:episode>
+      <itunes:title>Should you start multiple businesses? (I built something new)</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">bc6911cd-71fa-4875-ae55-6cf7fc1a1114</guid>
+      <link>https://share.transistor.fm/s/7968ef20</link>
+      <description>
+        <![CDATA[<p>As a maker, it's easy to get distracted by new technologies or emerging fads. But is it a great idea to start-up more than one thing simultaneously? Also, I started a new thing...</p><ul>
+<li>
+<a href="https://billingly.io/?ref=ramen-26">Billingly.io</a> - Dunning emails &amp; sms for less (don't pay until we've recovered revenue for you!)</li>
+<li>
+<a href="https://upscri.be/?ref=ramen-26">Upscribe</a> - No-bloat email marketing and opt-in forms</li>
+<li>
+<a href="https://podmelon.com/?ref=ramen-26">Podmelon</a> - Quality podcast editing</li>
+<li>
+<a href="https://basecamp.com">Basecamp</a> - The All-In-One Toolkit for Working Remotely</li>
+<li>
+<a href="https://wildbit.com/">WildBit</a> - The team behind Beanstalk, Postmark, DMARK Digest, and People-First Jobs</li>
+<li>
+<a href="https://adreform.com">Ad Reform</a> - Your intelligent ad ops assistant</li>
+</ul>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<p>As a maker, it's easy to get distracted by new technologies or emerging fads. But is it a great idea to start-up more than one thing simultaneously? Also, I started a new thing...</p><ul>
+<li>
+<a href="https://billingly.io/?ref=ramen-26">Billingly.io</a> - Dunning emails &amp; sms for less (don't pay until we've recovered revenue for you!)</li>
+<li>
+<a href="https://upscri.be/?ref=ramen-26">Upscribe</a> - No-bloat email marketing and opt-in forms</li>
+<li>
+<a href="https://podmelon.com/?ref=ramen-26">Podmelon</a> - Quality podcast editing</li>
+<li>
+<a href="https://basecamp.com">Basecamp</a> - The All-In-One Toolkit for Working Remotely</li>
+<li>
+<a href="https://wildbit.com/">WildBit</a> - The team behind Beanstalk, Postmark, DMARK Digest, and People-First Jobs</li>
+<li>
+<a href="https://adreform.com">Ad Reform</a> - Your intelligent ad ops assistant</li>
+</ul>]]>
+      </content:encoded>
+      <pubDate>Thu, 17 Sep 2020 14:45:22 +0000</pubDate>
+      <author>Joshua Anderton</author>
+      <enclosure url="https://media.transistor.fm/7968ef20/b2b5f52d.mp3" length="8484890" type="audio/mpeg"/>
+      <itunes:author>Joshua Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>421</itunes:duration>
+      <itunes:summary>As a maker, it's easy to get distracted by new technologies or emerging fads. But is it a great idea to start more than one thing? Also, I started a new thing...</itunes:summary>
+      <itunes:subtitle>As a maker, it's easy to get distracted by new technologies or emerging fads. But is it a great idea to start more than one thing? Also, I started a new thing...</itunes:subtitle>
+      <itunes:keywords></itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>What not to work on next (advice from successful founders)</title>
+      <itunes:episode>25</itunes:episode>
+      <itunes:title>What not to work on next (advice from successful founders)</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">a5077aa0-689c-4193-81b5-571415b17650</guid>
+      <link>https://share.transistor.fm/s/887aca0d</link>
+      <description>
+        <![CDATA[<ul>
+<li><a href="https://twitter.com/joshuaanderton/status/1253423807437475841?s=20">Tweet about balancing priorities as a founder</a></li>
+<li><a href="https://versoly.com">Versoly</a></li>
+<li><a href="https://twitter.com/volkandkaya">Volkan Kaya Twitter</a></li>
+<li><a href="https://drawsql.app/">DrawSQL</a></li>
+<li><a href="https://twitter.com/dennisongkj">Dennis Ong Twitter</a></li>
+<li><a href="https://userfeed.io">Userfeed.io</a></li>
+<li><a href="https://usesummit.com/">Summit</a></li>
+<li><a href="https://twitter.com/mattwensing">Matt Wensing Twitter</a></li>
+<li><a href="https://www.bidsketch.com/">BidSketch</a></li>
+<li><a href="https://www.docsketch.com/">DocSketch</a></li>
+<li><a href="https://twitter.com/earthlingworks">Ruben Gamez Twitter</a></li>
+<li><a href="https://www.amazon.com/Borrowing-Brilliance-Business-Innovation-Building/dp/1592405800">Borrowing Brilliance</a></li>
+</ul><p><br></p>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<ul>
+<li><a href="https://twitter.com/joshuaanderton/status/1253423807437475841?s=20">Tweet about balancing priorities as a founder</a></li>
+<li><a href="https://versoly.com">Versoly</a></li>
+<li><a href="https://twitter.com/volkandkaya">Volkan Kaya Twitter</a></li>
+<li><a href="https://drawsql.app/">DrawSQL</a></li>
+<li><a href="https://twitter.com/dennisongkj">Dennis Ong Twitter</a></li>
+<li><a href="https://userfeed.io">Userfeed.io</a></li>
+<li><a href="https://usesummit.com/">Summit</a></li>
+<li><a href="https://twitter.com/mattwensing">Matt Wensing Twitter</a></li>
+<li><a href="https://www.bidsketch.com/">BidSketch</a></li>
+<li><a href="https://www.docsketch.com/">DocSketch</a></li>
+<li><a href="https://twitter.com/earthlingworks">Ruben Gamez Twitter</a></li>
+<li><a href="https://www.amazon.com/Borrowing-Brilliance-Business-Innovation-Building/dp/1592405800">Borrowing Brilliance</a></li>
+</ul><p><br></p>]]>
+      </content:encoded>
+      <pubDate>Fri, 29 May 2020 05:00:00 +0000</pubDate>
+      <author>Joshua Anderton</author>
+      <enclosure url="https://media.transistor.fm/887aca0d/5da28f84.mp3" length="24819532" type="audio/mpeg"/>
+      <itunes:author>Joshua Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>774</itunes:duration>
+      <itunes:summary>Josh goes over some things he's learning about juggling priorities as a founder/GM</itunes:summary>
+      <itunes:subtitle>Josh goes over some things he's learning about juggling priorities as a founder/GM</itunes:subtitle>
+      <itunes:keywords></itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>You should be collecting customer feedback</title>
+      <itunes:episode>24</itunes:episode>
+      <itunes:title>You should be collecting customer feedback</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">faf71a48-44ae-4bc1-838d-9b363b50930a</guid>
+      <link>https://share.transistor.fm/s/03fed183</link>
+      <description>
+        <![CDATA[<p><strong>Links &amp; Resources</strong></p><ul>
+<li><a href="https://userfeed.io">Userfeed.io</a></li>
+<li><a href="https://saas.transistor.fm">Build Your SaaS</a></li>
+</ul>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<p><strong>Links &amp; Resources</strong></p><ul>
+<li><a href="https://userfeed.io">Userfeed.io</a></li>
+<li><a href="https://saas.transistor.fm">Build Your SaaS</a></li>
+</ul>]]>
+      </content:encoded>
+      <pubDate>Sat, 25 Apr 2020 06:00:00 +0000</pubDate>
+      <author>Joshua Anderton</author>
+      <enclosure url="https://media.transistor.fm/03fed183/9c93957c.mp3" length="19043362" type="audio/mpeg"/>
+      <itunes:author>Joshua Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>593</itunes:duration>
+      <itunes:summary>Three major things I've learned about customer feedback so far working on a customer feedback platform.</itunes:summary>
+      <itunes:subtitle>Three major things I've learned about customer feedback so far working on a customer feedback platform.</itunes:subtitle>
+      <itunes:keywords></itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>What is "normal" now?</title>
+      <itunes:episode>23</itunes:episode>
+      <itunes:title>What is "normal" now?</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">75c8bb78-027a-4355-b51e-48d7c6c36fd1</guid>
+      <link>https://share.transistor.fm/s/c3dfc84d</link>
+      <description>
+        <![CDATA[<p>What will "business as usual" look like after this whole thing blows over? Plus; a few ways us techies can help during a pandemic.</p><p><strong>Show Notes</strong></p><ul>
+<li>Still here!</li>
+<li>Can things go back to normal?</li>
+<li>How this affects us and our businesses forever</li>
+<li>Ways we techies can help (financial and otherwise)</li>
+</ul><p><br><strong>Links &amp; Resources</strong></p><ul>
+<li><a href="https://www.stalmanpodcast.com/80">The Tyler Stalman Podcast, EP80: Tech and the Pandemic, with Sam Sheffer</a></li>
+<li><a href="https://listen.madewithgrit.fm/episodes/19-how-were-dealing-with-covid-19">Made With Grit Podcast, EP19: How we're dealing with COVID-19</a></li>
+</ul>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<p>What will "business as usual" look like after this whole thing blows over? Plus; a few ways us techies can help during a pandemic.</p><p><strong>Show Notes</strong></p><ul>
+<li>Still here!</li>
+<li>Can things go back to normal?</li>
+<li>How this affects us and our businesses forever</li>
+<li>Ways we techies can help (financial and otherwise)</li>
+</ul><p><br><strong>Links &amp; Resources</strong></p><ul>
+<li><a href="https://www.stalmanpodcast.com/80">The Tyler Stalman Podcast, EP80: Tech and the Pandemic, with Sam Sheffer</a></li>
+<li><a href="https://listen.madewithgrit.fm/episodes/19-how-were-dealing-with-covid-19">Made With Grit Podcast, EP19: How we're dealing with COVID-19</a></li>
+</ul>]]>
+      </content:encoded>
+      <pubDate>Sat, 11 Apr 2020 05:00:00 +0000</pubDate>
+      <author>Joshua Anderton</author>
+      <enclosure url="https://media.transistor.fm/c3dfc84d/1a4eeb6c.mp3" length="14781004" type="audio/mpeg"/>
+      <itunes:author>Joshua Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>736</itunes:duration>
+      <itunes:summary>What will "business as usual" look like after this whole thing blows over? Plus; a few ways us techies can help during a pandemic.</itunes:summary>
+      <itunes:subtitle>What will "business as usual" look like after this whole thing blows over? Plus; a few ways us techies can help during a pandemic.</itunes:subtitle>
+      <itunes:keywords></itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>Getting COVID-19, un-productivity hacks, and market differentiators</title>
+      <itunes:episode>22</itunes:episode>
+      <itunes:title>Getting COVID-19, un-productivity hacks, and market differentiators</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">1dc3852a-d898-436c-bce9-55f0286d82eb</guid>
+      <link>https://share.transistor.fm/s/dfde39be</link>
+      <description>A bit of an update about the fam &amp; I (as we've been recovering from COVID-19). I also rant about one of the best differentiators I think a business can have in a crowded market.</description>
+      <pubDate>Fri, 27 Mar 2020 07:00:00 +0000</pubDate>
+      <author>Joshua Anderton</author>
+      <enclosure url="https://media.transistor.fm/dfde39be/0acdd2ce.mp3" length="24910035" type="audio/mpeg"/>
+      <itunes:author>Joshua Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>776</itunes:duration>
+      <itunes:summary>A bit of an update about the fam &amp; I (as we've been recovering from COVID-19). I also rant about one of the best differentiators I think a business can have in a crowded market.</itunes:summary>
+      <itunes:subtitle>A bit of an update about the fam &amp; I (as we've been recovering from COVID-19). I also rant about one of the best differentiators I think a business can have in a crowded market.</itunes:subtitle>
+      <itunes:keywords></itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>Head of Product at Userfeed.io</title>
+      <itunes:episode>21</itunes:episode>
+      <itunes:title>Head of Product at Userfeed.io</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">95d55285-a3b1-410d-a9c0-fea8b7b736f7</guid>
+      <link>https://share.transistor.fm/s/93e58741</link>
+      <description>
+        <![CDATA[<p><strong>Links &amp; Resources</strong></p><ul>
+<li><a href="https://listen.madewithgrit.fm/episodes/14-a-big-announcement-about-the-future-of-userfeed">Made with Grit podcast episode</a></li>
+<li><a href="https://twitter.com/LandonB32/status/1223238346924838912?s=20">Landon's announcement on Twitter</a></li>
+<li><a href="https://userfeed.io">Userfeed - Build the right products and grow your business using Intercom data</a></li>
+</ul>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<p><strong>Links &amp; Resources</strong></p><ul>
+<li><a href="https://listen.madewithgrit.fm/episodes/14-a-big-announcement-about-the-future-of-userfeed">Made with Grit podcast episode</a></li>
+<li><a href="https://twitter.com/LandonB32/status/1223238346924838912?s=20">Landon's announcement on Twitter</a></li>
+<li><a href="https://userfeed.io">Userfeed - Build the right products and grow your business using Intercom data</a></li>
+</ul>]]>
+      </content:encoded>
+      <pubDate>Sat, 01 Feb 2020 08:00:00 +0000</pubDate>
+      <author>Joshua Anderton</author>
+      <enclosure url="https://media.transistor.fm/93e58741/30534af0.mp3" length="22750965" type="audio/mpeg"/>
+      <itunes:author>Joshua Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>945</itunes:duration>
+      <itunes:summary>Joshua interviews the new Head of Product at Userfeed.io...</itunes:summary>
+      <itunes:subtitle>Joshua interviews the new Head of Product at Userfeed.io...</itunes:subtitle>
+      <itunes:keywords></itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>Rob Walling of MicroConf &amp; TinySeed on his Stairstep Approach to Bootstrapping</title>
+      <itunes:episode>20</itunes:episode>
+      <itunes:title>Rob Walling of MicroConf &amp; TinySeed on his Stairstep Approach to Bootstrapping</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">8a53c312-8ea8-44ed-9705-c4d81529716e</guid>
+      <link>https://share.transistor.fm/s/27ec7a03</link>
+      <description>
+        <![CDATA[<p><strong>Links &amp; Resources</strong></p><ul>
+<li><a href="https://robwalling.com/2015/03/26/the-stairstep-approach-to-bootstrapping/">Rob's Stairstep Approach to Bootstrapping blog post</a></li>
+<li><a href="https://twitter.com/joshuaanderton/status/1214982005428899840?s=20">Josh's 2019 revenue tweet</a></li>
+<li><a href="https://twitter.com/robwalling/status/1215815923229061120?s=12">Rob's response to revenue tweet</a></li>
+</ul>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<p><strong>Links &amp; Resources</strong></p><ul>
+<li><a href="https://robwalling.com/2015/03/26/the-stairstep-approach-to-bootstrapping/">Rob's Stairstep Approach to Bootstrapping blog post</a></li>
+<li><a href="https://twitter.com/joshuaanderton/status/1214982005428899840?s=20">Josh's 2019 revenue tweet</a></li>
+<li><a href="https://twitter.com/robwalling/status/1215815923229061120?s=12">Rob's response to revenue tweet</a></li>
+</ul>]]>
+      </content:encoded>
+      <pubDate>Sat, 25 Jan 2020 06:00:00 +0000</pubDate>
+      <author>Joshua Anderton</author>
+      <enclosure url="https://media.transistor.fm/27ec7a03/4e6aeeb9.mp3" length="20806545" type="audio/mpeg"/>
+      <itunes:author>Joshua Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>864</itunes:duration>
+      <itunes:summary>Rob Walling (of MicroConf, TinySeed, Drip, HitTail...) takes the mic to talk about the approach he - and now many others - have taken to go from side gig to a profitable SaaS business.</itunes:summary>
+      <itunes:subtitle>Rob Walling (of MicroConf, TinySeed, Drip, HitTail...) takes the mic to talk about the approach he - and now many others - have taken to go from side gig to a profitable SaaS business.</itunes:subtitle>
+      <itunes:keywords>bootstrapping,saas,rob walling,microconf,tinyseed</itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>The big Stripe dispute: a cautionary tale</title>
+      <itunes:episode>19</itunes:episode>
+      <itunes:title>The big Stripe dispute: a cautionary tale</itunes:title>
+      <itunes:episodeType>trailer</itunes:episodeType>
+      <guid isPermaLink="false">0f3a7668-d01b-4f07-9e59-58947605e7d3</guid>
+      <link>https://share.transistor.fm/s/44f99ce9</link>
+      <description>While driving his mini-van home one evening, Josh talks about a Stripe dispute that happened over Christmas time and gives updates on Podmelon (his newly branded podcast editing business) and Upscribe.</description>
+      <pubDate>Sun, 19 Jan 2020 05:00:00 +0000</pubDate>
+      <author>Joshua Anderton</author>
+      <enclosure url="https://media.transistor.fm/44f99ce9/f1c61ab5.mp3" length="26208843" type="audio/mpeg"/>
+      <itunes:author>Joshua Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>1090</itunes:duration>
+      <itunes:summary>While driving his mini-van home one evening, Josh talks about a Stripe dispute that happened over Christmas time and gives updates on Podmelon (his newly branded podcast editing business) and Upscribe.</itunes:summary>
+      <itunes:subtitle>While driving his mini-van home one evening, Josh talks about a Stripe dispute that happened over Christmas time and gives updates on Podmelon (his newly branded podcast editing business) and Upscribe.</itunes:subtitle>
+      <itunes:keywords></itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>Repositioning a platform-reliant product</title>
+      <itunes:episode>18</itunes:episode>
+      <itunes:title>Repositioning a platform-reliant product</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">c98ca306-089c-4e7e-8257-c8380fc6028f</guid>
+      <link>https://share.transistor.fm/s/009190b7</link>
+      <description>Stuck in traffic on my way home from downtown Vancouver, I talk about how the repositioning of Upscribe is going. I also give an update on the podcast editing business, and do some solo-founder venting...</description>
+      <pubDate>Fri, 06 Dec 2019 06:00:00 +0000</pubDate>
+      <author>Joshua Anderton</author>
+      <enclosure url="https://media.transistor.fm/009190b7/7069e865.mp3" length="27229257" type="audio/mpeg"/>
+      <itunes:author>Joshua Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>1132</itunes:duration>
+      <itunes:summary>Stuck in traffic on my way home from downtown Vancouver, I talk about how the repositioning of Upscribe is going. I also give an update on the podcast editing business, and do some solo-founder venting...</itunes:summary>
+      <itunes:subtitle>Stuck in traffic on my way home from downtown Vancouver, I talk about how the repositioning of Upscribe is going. I also give an update on the podcast editing business, and do some solo-founder venting...</itunes:subtitle>
+      <itunes:keywords>saas,startups,startup,bootstrapping</itunes:keywords>
+      <itunes:explicit>Yes</itunes:explicit>
+    </item>
+    <item>
+      <title>Stuck at $5K MRR...now what?</title>
+      <itunes:episode>17</itunes:episode>
+      <itunes:title>Stuck at $5K MRR...now what?</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">c74ecbd4-fb55-4d9f-b40d-d02db5adac65</guid>
+      <link>https://share.transistor.fm/s/ff33c4c3</link>
+      <description>
+        <![CDATA[<p>Upscribe<br><a href="https://upscri.be">https://upscri.be</a></p><p>Podcard - Podcast editing services<br><a href="https://editing.podcard.fm">https://editing.podcard.fm</a></p>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<p>Upscribe<br><a href="https://upscri.be">https://upscri.be</a></p><p>Podcard - Podcast editing services<br><a href="https://editing.podcard.fm">https://editing.podcard.fm</a></p>]]>
+      </content:encoded>
+      <pubDate>Fri, 15 Nov 2019 09:00:00 +0000</pubDate>
+      <author>Joshua Anderton</author>
+      <enclosure url="https://media.transistor.fm/ff33c4c3/92074a40.mp3" length="16191389" type="audio/mpeg"/>
+      <itunes:author>Joshua Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>672</itunes:duration>
+      <itunes:summary>I'm back after missing a week. Today's episode is a bit of a recap on what I've been up to, Upscribe's apparent revenue peak, and the productized service business I've started on the side.</itunes:summary>
+      <itunes:subtitle>I'm back after missing a week. Today's episode is a bit of a recap on what I've been up to, Upscribe's apparent revenue peak, and the productized service business I've started on the side.</itunes:subtitle>
+      <itunes:keywords>bootstrapping,saas,startups,startup</itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>Ben Orenstein of Tuple.app on building a fast-growing bootstrapped company </title>
+      <itunes:episode>16</itunes:episode>
+      <itunes:title>Ben Orenstein of Tuple.app on building a fast-growing bootstrapped company </itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">741d84d3-3630-46ed-8198-01df746955c3</guid>
+      <link>https://share.transistor.fm/s/8ce93e56</link>
+      <description>
+        <![CDATA[<p>Tuple - Pair programming<br><a href="https://tuple.app">https://tuple.app</a></p><p>Ben Orenstein<br><a href="https://twitter.com/r00k">https://twitter.com/r00k</a></p>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<p>Tuple - Pair programming<br><a href="https://tuple.app">https://tuple.app</a></p><p>Ben Orenstein<br><a href="https://twitter.com/r00k">https://twitter.com/r00k</a></p>]]>
+      </content:encoded>
+      <pubDate>Fri, 01 Nov 2019 08:00:00 +0000</pubDate>
+      <author>Joshua Anderton</author>
+      <enclosure url="https://media.transistor.fm/8ce93e56/3e491c0a.mp3" length="46909178" type="audio/mpeg"/>
+      <itunes:author>Joshua Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>1952</itunes:duration>
+      <itunes:summary>In this episode I talk to Ben Orenstein of Tuple.app and Art Of Product podcast about how years of building "social capital" with his audience has paid off with the "faster than expected" growth of Tuple.</itunes:summary>
+      <itunes:subtitle>In this episode I talk to Ben Orenstein of Tuple.app and Art Of Product podcast about how years of building "social capital" with his audience has paid off with the "faster than expected" growth of Tuple.</itunes:subtitle>
+      <itunes:keywords>saas,bootrapping,software,startup,startups</itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>Matt Wensing of SimSaaS.co on why you don't need a co-founder and taking funding from TinySeed</title>
+      <itunes:episode>15</itunes:episode>
+      <itunes:title>Matt Wensing of SimSaaS.co on why you don't need a co-founder and taking funding from TinySeed</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">736f7b79-9be2-4034-ab78-268e9d0152d9</guid>
+      <link>https://share.transistor.fm/s/5a2cb174</link>
+      <description>
+        <![CDATA[<p>Matt's Tweet<br><a href="https://twitter.com/mattwensing/status/1176469847468859392">https://twitter.com/mattwensing/status/1176469847468859392</a></p><p>Matt Wensing<br><a href="https://twitter.com/mattwensing">https://twitter.com/mattwensing</a></p><p>SimSaaS<br><a href="https://simsaas.co/">https://simsaas.co</a></p><p>Matt's podcast Out of Beta<br><a href="https://outofbeta.fm/">https://outofbeta.fm/</a></p>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<p>Matt's Tweet<br><a href="https://twitter.com/mattwensing/status/1176469847468859392">https://twitter.com/mattwensing/status/1176469847468859392</a></p><p>Matt Wensing<br><a href="https://twitter.com/mattwensing">https://twitter.com/mattwensing</a></p><p>SimSaaS<br><a href="https://simsaas.co/">https://simsaas.co</a></p><p>Matt's podcast Out of Beta<br><a href="https://outofbeta.fm/">https://outofbeta.fm/</a></p>]]>
+      </content:encoded>
+      <pubDate>Fri, 25 Oct 2019 08:00:00 +0000</pubDate>
+      <author>Joshua Anderton</author>
+      <enclosure url="https://media.transistor.fm/5a2cb174/0b734076.mp3" length="42194096" type="audio/mpeg"/>
+      <itunes:author>Joshua Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>2634</itunes:duration>
+      <itunes:summary>In this episode Matt talks about why he's chosen not to have a co-founder with his new company. He also talks about his experience with TinySeed and why he took funding right away. </itunes:summary>
+      <itunes:subtitle>In this episode Matt talks about why he's chosen not to have a co-founder with his new company. He also talks about his experience with TinySeed and why he took funding right away. </itunes:subtitle>
+      <itunes:keywords>saas,bootstrapping,self-funded,startup,startups</itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>Landon and Kyle of Userfeed.io and AdReform.com on using continues customer feedback to inform product</title>
+      <itunes:episode>14</itunes:episode>
+      <itunes:title>Landon and Kyle of Userfeed.io and AdReform.com on using continues customer feedback to inform product</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">ea3448c2-3133-472d-a43f-d8ff559a6de3</guid>
+      <link>https://share.transistor.fm/s/7a842c44</link>
+      <description>
+        <![CDATA[<p>Userfeed<br><a href="https://userfeed.io">https://userfeed.io</a><br><a href="https://twitter.com/userfeedio">@userfeedio</a></p><p>AdReform<br><a href="https://adreform.com">https://adreform.com</a><br><a href="https://twitter.com/AdReformers">@adreformers</a></p><p>Landon and Kyle's Podcast Made With Grit<br><a href="https://madewithgrit.fm">https://madewithgrit.fm</a></p><p>Landon on Twitter<br><a href="https://twitter.com/LandonB32">@LandonB32</a></p><p>Kyle on Twitter<br><a href="https://twitter.com/conarro">@conarro</a></p>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<p>Userfeed<br><a href="https://userfeed.io">https://userfeed.io</a><br><a href="https://twitter.com/userfeedio">@userfeedio</a></p><p>AdReform<br><a href="https://adreform.com">https://adreform.com</a><br><a href="https://twitter.com/AdReformers">@adreformers</a></p><p>Landon and Kyle's Podcast Made With Grit<br><a href="https://madewithgrit.fm">https://madewithgrit.fm</a></p><p>Landon on Twitter<br><a href="https://twitter.com/LandonB32">@LandonB32</a></p><p>Kyle on Twitter<br><a href="https://twitter.com/conarro">@conarro</a></p>]]>
+      </content:encoded>
+      <pubDate>Fri, 18 Oct 2019 09:00:00 +0000</pubDate>
+      <author>Joshua Anderton</author>
+      <enclosure url="https://media.transistor.fm/7a842c44/09097175.mp3" length="32222363" type="audio/mpeg"/>
+      <itunes:author>Joshua Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>2010</itunes:duration>
+      <itunes:summary>Landon Bennet and Kyle Conarro recently hit $250K ARR with Userfeed and AdReform. We talk about their journey to profitability and how hard it really is to get there.</itunes:summary>
+      <itunes:subtitle>Landon Bennet and Kyle Conarro recently hit $250K ARR with Userfeed and AdReform. We talk about their journey to profitability and how hard it really is to get there.</itunes:subtitle>
+      <itunes:keywords>saas,bootstrapping,self-funded,startups,startup</itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>Mubashar Iqbal of PodHunt on building the company you want to work for</title>
+      <itunes:episode>13</itunes:episode>
+      <itunes:title>Mubashar Iqbal of PodHunt on building the company you want to work for</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">ea1ce71e-c0e1-4f5c-8fd6-2701795b7751</guid>
+      <link>https://share.transistor.fm/s/32893fca</link>
+      <description>
+        <![CDATA[<p>Mubashar Iqbal on Twitter<br><a href="https://twitter.com/mubashariqbal">https://twitter.com/mubashariqbal</a></p><p>PodHunt<br><a href="https://podhunt.app/">https://podhunt.app</a></p><p>Quuu<br><a href="http://quuu.co/">http://quuu.co</a></p><p>I Worked On<br><a href="https://iworkedon.com/@mubashariqbal">https://iworkedon.com/@mubashariqbal</a></p>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<p>Mubashar Iqbal on Twitter<br><a href="https://twitter.com/mubashariqbal">https://twitter.com/mubashariqbal</a></p><p>PodHunt<br><a href="https://podhunt.app/">https://podhunt.app</a></p><p>Quuu<br><a href="http://quuu.co/">http://quuu.co</a></p><p>I Worked On<br><a href="https://iworkedon.com/@mubashariqbal">https://iworkedon.com/@mubashariqbal</a></p>]]>
+      </content:encoded>
+      <pubDate>Fri, 11 Oct 2019 06:00:00 +0000</pubDate>
+      <author>Joshua Anderton</author>
+      <enclosure url="https://media.transistor.fm/32893fca/d1473693.mp3" length="34313965" type="audio/mpeg"/>
+      <itunes:author>Joshua Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>2141</itunes:duration>
+      <itunes:summary>Mubs and I chat about learning to code, side projects (he's built over 80 so far) and building the business you actually want to work for. We also talk about why he is building PodHunt; a leaderboard of the podcasts people are recommending.</itunes:summary>
+      <itunes:subtitle>Mubs and I chat about learning to code, side projects (he's built over 80 so far) and building the business you actually want to work for. We also talk about why he is building PodHunt; a leaderboard of the podcasts people are recommending.</itunes:subtitle>
+      <itunes:keywords>saas,software,code,startups,startup</itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>Matt Wensing of SimSaaS.co on scaling Stormpulse pricing from $0/mo to $30k/mo</title>
+      <itunes:episode>12</itunes:episode>
+      <itunes:title>Matt Wensing of SimSaaS.co on scaling Stormpulse pricing from $0/mo to $30k/mo</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">8fe63819-a37a-4467-acce-966d95ae9798</guid>
+      <link>https://share.transistor.fm/s/eefdde61</link>
+      <description>
+        <![CDATA[<p>Matt Wensing<br><a href="https://twitter.com/mattwensing">https://twitter.com/mattwensing</a></p><p>SimSaaS<br><a href="https://simsaas.co">https://simsaas.co</a></p><p>Out of Beta podcast<br><a href="https://outofbeta.fm/">https://outofbeta.fm/</a></p>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<p>Matt Wensing<br><a href="https://twitter.com/mattwensing">https://twitter.com/mattwensing</a></p><p>SimSaaS<br><a href="https://simsaas.co">https://simsaas.co</a></p><p>Out of Beta podcast<br><a href="https://outofbeta.fm/">https://outofbeta.fm/</a></p>]]>
+      </content:encoded>
+      <pubDate>Fri, 04 Oct 2019 09:00:00 +0000</pubDate>
+      <author>Joshua Anderton</author>
+      <enclosure url="https://media.transistor.fm/eefdde61/34d06960.mp3" length="37347113" type="audio/mpeg"/>
+      <itunes:author>Joshua Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>2331</itunes:duration>
+      <itunes:summary>I had the privilege of chatting with Matt Wensing about his first company Stormpulse and how he evolved the freemium product through customer interviews until he was able to charge up-words of $30k/mo and eventually pivoting entirely into enterprise.</itunes:summary>
+      <itunes:subtitle>I had the privilege of chatting with Matt Wensing about his first company Stormpulse and how he evolved the freemium product through customer interviews until he was able to charge up-words of $30k/mo and eventually pivoting entirely into enterprise.</itunes:subtitle>
+      <itunes:keywords>saas,bootstrapping,software,startups,startup</itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>Justin Jackson of Transistor.fm on why I'm not gaining traction</title>
+      <itunes:episode>11</itunes:episode>
+      <itunes:title>Justin Jackson of Transistor.fm on why I'm not gaining traction</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">946b7ffd-a2d0-429f-969b-801ad5c71a0f</guid>
+      <link>https://share.transistor.fm/s/a5e83395</link>
+      <description>
+        <![CDATA[<p>Justin Jackson<br><a href="https://justinjackson.ca">https://justinjackson.ca</a></p><p>Transistor.fm - Host all of your podcasts on Transistor<br><a href="https://transistor.fm">https://transistor.fm</a></p><p>MegaMaker - A community for bootstrappers<br><a href="https://megamaker.co">https://megamaker.co</a></p><p>Baremetrics Open Startups<br><a href="https://baremetrics.com/open-startups">https://baremetrics.com/open-startups</a></p><p>Upscribe's open metrics<br><a href="https://upscribe.baremetrics.com">https://upscribe.baremetrics.com</a></p><p>Derrick Reimer<br><a href="https://www.derrickreimer.com/">https://www.derrickreimer.com/</a></p><p>StaticKit<br><a href="http://statickit.com">http://statickit.com</a></p>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<p>Justin Jackson<br><a href="https://justinjackson.ca">https://justinjackson.ca</a></p><p>Transistor.fm - Host all of your podcasts on Transistor<br><a href="https://transistor.fm">https://transistor.fm</a></p><p>MegaMaker - A community for bootstrappers<br><a href="https://megamaker.co">https://megamaker.co</a></p><p>Baremetrics Open Startups<br><a href="https://baremetrics.com/open-startups">https://baremetrics.com/open-startups</a></p><p>Upscribe's open metrics<br><a href="https://upscribe.baremetrics.com">https://upscribe.baremetrics.com</a></p><p>Derrick Reimer<br><a href="https://www.derrickreimer.com/">https://www.derrickreimer.com/</a></p><p>StaticKit<br><a href="http://statickit.com">http://statickit.com</a></p>]]>
+      </content:encoded>
+      <pubDate>Fri, 27 Sep 2019 09:00:00 +0000</pubDate>
+      <author>Joshua Anderton</author>
+      <enclosure url="https://media.transistor.fm/a5e83395/86b92c02.mp3" length="23274893" type="audio/mpeg"/>
+      <itunes:author>Joshua Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>1451</itunes:duration>
+      <itunes:summary>Justin Jackson reached out about why he felt Upscribe isn't gaining the traction I had hoped for. We talk about why well-known writers and brands are leaving Medium.com in droves, what I should do next, and whether business is right for me in the first place.</itunes:summary>
+      <itunes:subtitle>Justin Jackson reached out about why he felt Upscribe isn't gaining the traction I had hoped for. We talk about why well-known writers and brands are leaving Medium.com in droves, what I should do next, and whether business is right for me in the first pl</itunes:subtitle>
+      <itunes:keywords>saas,startups,business</itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>Benedikt Deicke of Userlist.io on competing with Intercom in an established market</title>
+      <itunes:episode>10</itunes:episode>
+      <itunes:title>Benedikt Deicke of Userlist.io on competing with Intercom in an established market</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">2cdc0225-54aa-47f3-a695-789bcddefcd0</guid>
+      <link>https://share.transistor.fm/s/13d84904</link>
+      <description>
+        <![CDATA[<p>Follow <a href="https://twitter.com/benediktdeicke">@benediktdeicke</a> on Twitter.</p><p><a href="https://Userlist.io">Userlist.io</a> - A behavior-based customer messaging tool for SaaS companies.</p><p><a href="http://stagecms.com/">StageCMS</a> - The Content Management System for unique band website design.</p><p><a href="https://www.slowandsteadypodcast.com/">Slow &amp; Steady Podcast</a> - A podcast by Benedikt Deicke and Brian Rea about what it's like to build and launch a bootstrapped startup while working for yourself full-time. </p><p>Also, check out Benedikt's co-founder Jane Portman's podcast <a href="https://uibreakfast.com/">UI Breakfast</a>!</p><p>Userlist blog post about their launch strategy:<br><a href="https://userlist.io/launch-strategy/">https://userlist.io/launch-strategy/</a></p><p>Check out the Ramen Games list.<br><a href="https://ramengames.podcard.co/">https://ramengames.podcard.co/</a></p>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<p>Follow <a href="https://twitter.com/benediktdeicke">@benediktdeicke</a> on Twitter.</p><p><a href="https://Userlist.io">Userlist.io</a> - A behavior-based customer messaging tool for SaaS companies.</p><p><a href="http://stagecms.com/">StageCMS</a> - The Content Management System for unique band website design.</p><p><a href="https://www.slowandsteadypodcast.com/">Slow &amp; Steady Podcast</a> - A podcast by Benedikt Deicke and Brian Rea about what it's like to build and launch a bootstrapped startup while working for yourself full-time. </p><p>Also, check out Benedikt's co-founder Jane Portman's podcast <a href="https://uibreakfast.com/">UI Breakfast</a>!</p><p>Userlist blog post about their launch strategy:<br><a href="https://userlist.io/launch-strategy/">https://userlist.io/launch-strategy/</a></p><p>Check out the Ramen Games list.<br><a href="https://ramengames.podcard.co/">https://ramengames.podcard.co/</a></p>]]>
+      </content:encoded>
+      <pubDate>Fri, 20 Sep 2019 12:00:00 +0000</pubDate>
+      <author>Joshua Anderton</author>
+      <enclosure url="https://media.transistor.fm/13d84904/8f3c6623.mp3" length="37543748" type="audio/mpeg"/>
+      <itunes:author>Joshua Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>2343</itunes:duration>
+      <itunes:summary>I had an awesome chat with Benedikt Deicke (co-founder of Userlist.io) about his start in development at 15, initial experience building a SaaS company for metal bands, how he met his co-founders and formed Userlist.io, and how customer interviews have fueled the launch and development of the product in a well established market.</itunes:summary>
+      <itunes:subtitle>I had an awesome chat with Benedikt Deicke (co-founder of Userlist.io) about his start in development at 15, initial experience building a SaaS company for metal bands, how he met his co-founders and formed Userlist.io, and how customer interviews have fu</itunes:subtitle>
+      <itunes:keywords>saas,bootstrapping,startups,startup</itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>Going part time / building for everyone == building for no-one</title>
+      <itunes:episode>9</itunes:episode>
+      <itunes:title>Going part time / building for everyone == building for no-one</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">3a3df60e-a848-43d3-a1bc-21688b8aea44</guid>
+      <link>https://share.transistor.fm/s/8ad042f8</link>
+      <description>Making a change! One that will affect Upscribe, and this podcast. I also reflect on my time in a rock band and how it has influenced the way I build software.</description>
+      <pubDate>Sun, 15 Sep 2019 08:00:00 +0000</pubDate>
+      <author>Joshua Anderton</author>
+      <enclosure url="https://media.transistor.fm/8ad042f8/e89689a2.mp3" length="6876903" type="audio/mpeg"/>
+      <itunes:author>Joshua Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>426</itunes:duration>
+      <itunes:summary>Making a change! One that will affect Upscribe, and this podcast. I also reflect on my time in a rock band and how it has influenced the way I build software.</itunes:summary>
+      <itunes:subtitle>Making a change! One that will affect Upscribe, and this podcast. I also reflect on my time in a rock band and how it has influenced the way I build software.</itunes:subtitle>
+      <itunes:keywords>saas,bootstrapping,startups,startup,</itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>Product launches: Build first vs talk to customers first</title>
+      <itunes:episode>8</itunes:episode>
+      <itunes:title>Product launches: Build first vs talk to customers first</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">3f156d18-a208-4cd9-8894-477c107734ce</guid>
+      <link>https://share.transistor.fm/s/c49f03ad</link>
+      <description>After receiving some extremely appreciated listener feedback I go into more detail about how I started Upscribe following a failed project (that I also talk about) and the lessons learned. I also talk about the successful Product Hunt launch that brought in Upscribe' first 1000 users in just over a week.</description>
+      <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
+      <author>Joshua Anderton</author>
+      <enclosure url="https://media.transistor.fm/c49f03ad/8b887b87.mp3" length="12528833" type="audio/mpeg"/>
+      <itunes:author>Joshua Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>780</itunes:duration>
+      <itunes:summary>After receiving some extremely appreciated listener feedback I go into more detail about how I started Upscribe following a failed project (that I also talk about) and the lessons learned. I also talk about the successful Product Hunt launch that brought in Upscribe' first 1000 users in just over a week.</itunes:summary>
+      <itunes:subtitle>After receiving some extremely appreciated listener feedback I go into more detail about how I started Upscribe following a failed project (that I also talk about) and the lessons learned. I also talk about the successful Product Hunt launch that brought </itunes:subtitle>
+      <itunes:keywords>saas,startups,startup,bootstrapping</itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>Creating an emotional connection between your customer and your product</title>
+      <itunes:episode>7</itunes:episode>
+      <itunes:title>Creating an emotional connection between your customer and your product</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">a8ff25f5-d9ba-80d6-9008-4356e563b3cd</guid>
+      <link>https://share.transistor.fm/s/f20041b6</link>
+      <description>
+        <![CDATA[<p>Customer service has become one of my favourite parts of running a small SaaS company. You learn so much about your product and what people are feeling when they use it. Here are a few examples how to turn an angry customer into a true fan or just truly churned.</p>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<p>Customer service has become one of my favourite parts of running a small SaaS company. You learn so much about your product and what people are feeling when they use it. Here are a few examples how to turn an angry customer into a true fan or just truly churned.</p>]]>
+      </content:encoded>
+      <pubDate>Wed, 28 Aug 2019 23:34:00 +0000</pubDate>
+      <author>Josh Anderton</author>
+      <enclosure url="https://media.transistor.fm/f20041b6/05df658b.mp3" length="7918196" type="audio/mpeg"/>
+      <itunes:author>Josh Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>491</itunes:duration>
+      <itunes:summary>Customer service has become one of my favourite parts of running a small SaaS company. You learn so much about your product and what people are feeling when they use it. Here are a few examples how to turn an angry customer into a true fan or just truly churned. </itunes:summary>
+      <itunes:subtitle>Customer service has become one of my favourite parts of running a small SaaS company. You learn so much about your product and what people are feeling when they use it. Here are a few examples how to turn an angry customer into a true fan or just truly c</itunes:subtitle>
+      <itunes:keywords></itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>Growing a startup and a young family and learning to take my time seriously</title>
+      <itunes:episode>6</itunes:episode>
+      <itunes:title>Growing a startup and a young family and learning to take my time seriously</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">20c99017-4a94-c3f1-e492-dc400549ab3c</guid>
+      <link>https://share.transistor.fm/s/c679f860</link>
+      <description>
+        <![CDATA[<p>I’ve been doing a poor job lately of being present while with my family. In this episode I talk about some of the pressures of having a young family and trying to start a company as well as some of the benefits. --- Send in a voice message: https://anchor.fm/gettingtoramen/message</p>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<p>I’ve been doing a poor job lately of being present while with my family. In this episode I talk about some of the pressures of having a young family and trying to start a company as well as some of the benefits. --- Send in a voice message: https://anchor.fm/gettingtoramen/message</p>]]>
+      </content:encoded>
+      <pubDate>Tue, 27 Aug 2019 00:00:00 +0000</pubDate>
+      <author>Josh Anderton</author>
+      <enclosure url="https://media.transistor.fm/c679f860/8447a095.mp3" length="7093049" type="audio/mpeg"/>
+      <itunes:author>Josh Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/episode/90133/full_1567571251-artwork.jpg"/>
+      <itunes:duration>440</itunes:duration>
+      <itunes:summary>I’ve been doing a poor job lately of being present while with my family. In this episode I talk about some of the pressures of having a young family and trying to start a company as well as some of the benefits.</itunes:summary>
+      <itunes:subtitle>I’ve been doing a poor job lately of being present while with my family. In this episode I talk about some of the pressures of having a young family and trying to start a company as well as some of the benefits.</itunes:subtitle>
+      <itunes:keywords></itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>Why annual plans are a win win and I’m building features for nobody</title>
+      <itunes:episode>5</itunes:episode>
+      <itunes:title>Why annual plans are a win win and I’m building features for nobody</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">91acaec9-6094-b44b-a675-81f0e9ae76ca</guid>
+      <link>https://share.transistor.fm/s/eb99683a</link>
+      <description>
+        <![CDATA[<p>In this episode I talk about my phone call with Corey Haines from Baremetrics (https://baremetrics.com) and how he showed me how I’ve been building a bunch of features no one needs (as well as how to fix this). Then I really nerd out like a number-one-fan about bootstrapping SaaS. --- Send in a voice message: https://anchor.fm/gettingtoramen/message</p>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<p>In this episode I talk about my phone call with Corey Haines from Baremetrics (https://baremetrics.com) and how he showed me how I’ve been building a bunch of features no one needs (as well as how to fix this). Then I really nerd out like a number-one-fan about bootstrapping SaaS. --- Send in a voice message: https://anchor.fm/gettingtoramen/message</p>]]>
+      </content:encoded>
+      <pubDate>Fri, 23 Aug 2019 20:13:00 +0000</pubDate>
+      <author>Josh Anderton</author>
+      <enclosure url="https://media.transistor.fm/eb99683a/471ae0b6.mp3" length="10243331" type="audio/mpeg"/>
+      <itunes:author>Josh Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>637</itunes:duration>
+      <itunes:summary>In this episode I talk about my phone call with Corey Haines from Baremetrics (https://baremetrics.com) and how he showed me how I’ve been building a bunch of features no one needs (as well as how to fix this). Then I really nerd out like a number-one-fan about bootstrapping SaaS.</itunes:summary>
+      <itunes:subtitle>In this episode I talk about my phone call with Corey Haines from Baremetrics (https://baremetrics.com) and how he showed me how I’ve been building a bunch of features no one needs (as well as how to fix this). Then I really nerd out like a number-one-fan</itunes:subtitle>
+      <itunes:keywords></itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>The downside to this “No Code” fad and lessons from a millionaire</title>
+      <itunes:episode>4</itunes:episode>
+      <itunes:title>The downside to this “No Code” fad and lessons from a millionaire</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">0f50e1c6-a4e8-5485-0ba4-1d6c1fa8703e</guid>
+      <link>https://share.transistor.fm/s/fa2b8229</link>
+      <description>
+        <![CDATA[<p>This No Code fad has been huge. Tools like Bubble, WebFlow, etc. are killing it and changing the way we launch and build products. But there may be a cost I think most people aren’t thinking about. I also talk about a conversation I had with a multi-millionaire business man (who shall not be named) about “learning whatever it takes”.</p>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<p>This No Code fad has been huge. Tools like Bubble, WebFlow, etc. are killing it and changing the way we launch and build products. But there may be a cost I think most people aren’t thinking about. I also talk about a conversation I had with a multi-millionaire business man (who shall not be named) about “learning whatever it takes”.</p>]]>
+      </content:encoded>
+      <pubDate>Tue, 20 Aug 2019 16:10:00 +0000</pubDate>
+      <author>Josh Anderton</author>
+      <enclosure url="https://media.transistor.fm/fa2b8229/1933134a.mp3" length="7420959" type="audio/mpeg"/>
+      <itunes:author>Josh Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>460</itunes:duration>
+      <itunes:summary>This No Code fad has been huge. Tools like Bubble, WebFlow, etc. are killing it and changing the way we launch and build products. But there may be a cost I think most people aren’t thinking about. I also talk about a conversation I had with a multi-millionaire business man (who shall not be named) about “learning whatever it takes”. </itunes:summary>
+      <itunes:subtitle>This No Code fad has been huge. Tools like Bubble, WebFlow, etc. are killing it and changing the way we launch and build products. But there may be a cost I think most people aren’t thinking about. I also talk about a conversation I had with a multi-milli</itunes:subtitle>
+      <itunes:keywords></itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>Why MRR is a deceiving metric and my 2 year old thinks I don’t love him</title>
+      <itunes:episode>2</itunes:episode>
+      <itunes:title>Why MRR is a deceiving metric and my 2 year old thinks I don’t love him</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">8152b4d0-0ccc-168c-4957-f40786e503fe</guid>
+      <link>https://share.transistor.fm/s/1bd7053c</link>
+      <description>
+        <![CDATA[<p>Balancing a day job, a family, and a side project can be a rollercoaster of emotion. So are revenue analytics. I talk about these (while trying to say “umm” less), how founders are addicted to checking their baremetrics dashboard, and a more (not a lot more).</p>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<p>Balancing a day job, a family, and a side project can be a rollercoaster of emotion. So are revenue analytics. I talk about these (while trying to say “umm” less), how founders are addicted to checking their baremetrics dashboard, and a more (not a lot more).</p>]]>
+      </content:encoded>
+      <pubDate>Mon, 19 Aug 2019 19:33:00 +0000</pubDate>
+      <author>Josh Anderton</author>
+      <enclosure url="https://media.transistor.fm/1bd7053c/7f8b67ea.mp3" length="7682877" type="audio/mpeg"/>
+      <itunes:author>Josh Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>477</itunes:duration>
+      <itunes:summary>Balancing a day job, a family, and a side project can be a rollercoaster of emotion. So are revenue analytics. I talk about these (while trying to say “umm” less), how founders are addicted to checking their baremetrics dashboard, and a more (not a lot more).</itunes:summary>
+      <itunes:subtitle>Balancing a day job, a family, and a side project can be a rollercoaster of emotion. So are revenue analytics. I talk about these (while trying to say “umm” less), how founders are addicted to checking their baremetrics dashboard, and a more (not a lot mo</itunes:subtitle>
+      <itunes:keywords></itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>The future of “growth hacking”</title>
+      <itunes:episode>3</itunes:episode>
+      <itunes:title>The future of “growth hacking”</itunes:title>
+      <itunes:episodeType>full</itunes:episodeType>
+      <guid isPermaLink="false">90cb9a31-95a0-9c00-212d-9143c012fcd0</guid>
+      <link>https://share.transistor.fm/s/b800b825</link>
+      <description>
+        <![CDATA[<p>Wistia, Basecamp, Transistor.fm...companies that are run by teams who actually need and use the product they build. Here’s another rant about the advantages of being your own customer and NOT JUST knowing your own customers.</p>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<p>Wistia, Basecamp, Transistor.fm...companies that are run by teams who actually need and use the product they build. Here’s another rant about the advantages of being your own customer and NOT JUST knowing your own customers.</p>]]>
+      </content:encoded>
+      <pubDate>Mon, 19 Aug 2019 19:27:00 +0000</pubDate>
+      <author>Josh Anderton</author>
+      <enclosure url="https://media.transistor.fm/b800b825/1bad3b83.mp3" length="8955829" type="audio/mpeg"/>
+      <itunes:author>Josh Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>556</itunes:duration>
+      <itunes:summary>Wistia, Basecamp, Transistor.fm...companies that are run by teams who actually need and use the product they build. Here’s another rant about the advantages of being your own customer and NOT JUST knowing your own customers.</itunes:summary>
+      <itunes:subtitle>Wistia, Basecamp, Transistor.fm...companies that are run by teams who actually need and use the product they build. Here’s another rant about the advantages of being your own customer and NOT JUST knowing your own customers.</itunes:subtitle>
+      <itunes:keywords></itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+    <item>
+      <title>Why I’m making a podcast about SaaS</title>
+      <itunes:episode>1</itunes:episode>
+      <itunes:title>Why I’m making a podcast about SaaS</itunes:title>
+      <itunes:episodeType>trailer</itunes:episodeType>
+      <guid isPermaLink="false">ebd6431b-8a6e-112e-8c97-79d4db3a8eff</guid>
+      <link>https://share.transistor.fm/s/a7f7ce2e</link>
+      <description>
+        <![CDATA[<p>I talk about why I’m building a SaaS company and why I’m podcasting about it.</p>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<p>I talk about why I’m building a SaaS company and why I’m podcasting about it.</p>]]>
+      </content:encoded>
+      <pubDate>Wed, 14 Aug 2019 15:53:00 +0000</pubDate>
+      <author>Josh Anderton</author>
+      <enclosure url="https://media.transistor.fm/a7f7ce2e/14ff1d31.mp3" length="12405798" type="audio/mpeg"/>
+      <itunes:author>Josh Anderton</itunes:author>
+      <itunes:image href="https://images.transistor.fm/file/transistor/images/show/4088/full_1567571248-artwork.jpg"/>
+      <itunes:duration>772</itunes:duration>
+      <itunes:summary>I talk about why I’m building a SaaS company and why I’m podcasting about it.</itunes:summary>
+      <itunes:subtitle>I talk about why I’m building a SaaS company and why I’m podcasting about it.</itunes:subtitle>
+      <itunes:keywords></itunes:keywords>
+      <itunes:explicit>No</itunes:explicit>
+    </item>
+  </channel>
+</rss>
