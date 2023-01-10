@@ -15,11 +15,13 @@ class CreatePodcastsTable extends Migration
     {
         Schema::create('podcasts', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('feed_url')->unique();
             $table->string('title');
             $table->string('owner_name');
             $table->string('owner_email');
             $table->string('image_url');
-            $table->string('feed_url');
+            $table->text('description')->nullable();
+            $table->string('link')->nullable();
             $table->timestamps();
         });
     }

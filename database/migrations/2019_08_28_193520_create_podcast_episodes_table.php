@@ -19,11 +19,12 @@ class CreatePodcastEpisodesTable extends Migration
             $table->string('guid');
             $table->string('title');
             $table->string('image_url')->nullable();
-            $table->string('file_url');
+            $table->text('file_url');
             $table->integer('number')->nullable();
             $table->integer('season')->nullable();
             $table->string('episode_type');
             $table->timestamp('published_at')->nullable();
+            $table->boolean('ramen_games')->default(0);
             $table->timestamps();
         });
     }
