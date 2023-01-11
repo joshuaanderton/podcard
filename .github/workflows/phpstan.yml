@@ -1,6 +1,5 @@
 name: PHP Stan
 on:
-  workflow_dispatch:
   push:
     branches-ignore:
       - 'dependabot/npm_and_yarn/*'

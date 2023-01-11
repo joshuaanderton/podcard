@@ -1,7 +1,6 @@
 # https://laravelmagazine.com/blog/run-laravel-pint-as-part-of-your-ci-pipeline-with-github-actions
 name: PHP Lint (Laravel Pint)
 on:
-  workflow_dispatch:
   push:
     branches-ignore:
       - 'dependabot/npm_and_yarn/*'

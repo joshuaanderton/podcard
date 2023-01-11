@@ -5,7 +5,6 @@ run: |
   npm run dev
 name: Build
 on:
-  workflow_dispatch:
   push:
     branches-ignore:
       - 'dependabot/npm_and_yarn/*'
