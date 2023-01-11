@@ -43,7 +43,9 @@ class PlayerBuilder extends Component
             $this->currentEpisode = $this->episodes->find($value);
         }
 
-        if ($name === 'color' && ! $value) {
+        if ($name === 'color' && (
+            ! $value || Str::length(Str::remove('#', $value)) !== 6
+        )) {
             $this->color = PodcastEpisode::defaultColor;
         }
     }

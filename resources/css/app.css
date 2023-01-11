@@ -5,18 +5,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.fade-up {
-  position: relative;
-  top: 5rem;
-  transition: ease all .8s;
-  opacity: 0;
-}
-
-.fade-up.active {
-  top: 0;
-  opacity: 1;
-}
-
 .overlay-noise {
   @apply fixed left-0 top-0 z-[100000] w-full h-[100vh] pointer-events-none;
 }

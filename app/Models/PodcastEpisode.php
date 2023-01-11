@@ -71,9 +71,13 @@ class PodcastEpisode extends Model
 
     public function playerData(): array
     {
-        $color = PodcastEpisode::hexToRgb(
-            request()->color ?: PodcastEpisode::defaultColor
-        );
+        $color = request()->color;
+
+        if ($color !== null && Str::length(Str::remove('#', $color)) !== 6) {
+            $color = PodcastEpisode::defaultColor;
+        }
+
+        $color = PodcastEpisode::hexToRgb($color);
 
         $border = ((int) request()->border) !== 0;
 

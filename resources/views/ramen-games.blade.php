@@ -5,7 +5,7 @@
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto pb-6">
 
-                <div class="relative fade-up pb-6 mb-6 text-center">
+                <div class="relative pb-6 mb-6 text-center">
                     <div class="text-[6rem]">🍜</div>
                     <h1 class="font-sans font-bold text-4xl sm:text-5xl -mt-2 text-black dark:text-white">The Ramen Games</h1>
                     <div class="font-sans text-xl sm:text-2xl mb-12 md:max-w-md mx-auto mt-3">A curated list of podcasts following brave bootstrappers and their journeys to ramen profitability and beyond.</div>
