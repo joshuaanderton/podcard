@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Actions\Podcasts\ImportFirstOrCreate;
 use App\Models\Podcast;
 use App\Models\PodcastEpisode;
 use Illuminate\Support\Str;
@@ -15,7 +16,7 @@ class PlayerBuilder extends Component
 
     public ?PodcastEpisode $currentEpisode = null;
 
-    public string $feedUrl;
+    public ?string $feedUrl = null;
 
     public ?int $currentEpisodeId = null;
 
@@ -30,8 +31,7 @@ class PlayerBuilder extends Component
     public function updated($name, $value)
     {
         if ($name === 'feedUrl') {
-
-            $this->episodes = $this->currentEpisode = $this->currentEpisodeId = null;
+            $this->resetBuilder();
             
             if ($value) {
                 $this->loadFeed();
@@ -43,28 +43,15 @@ class PlayerBuilder extends Component
         }
 
         if ($name === 'color' && ! $value) {
-            $this->color = '#000000';
-        }
-    }
-
-    public function loadFeed()
-    {
-        $feedUrl = trim($this->feedUrl);
-
-        $podcast = Podcast::firstOrImport($feedUrl);
-
-        if ($podcast->episodes()->count() > 0) {
-            $this->episodes = $podcast->episodes()->get();
-            $this->currentEpisode = $this->episodes->first();
-            $this->currentEpisodeId = $this->currentEpisode->id;
-        } else {
-            $this->emit('error', __('No episodes found'));
+            $this->color = PodcastEpisode::defaultColor;
         }
     }
 
     public function mount()
     {
-        $this->loadDemoEpisode();
+        if (! $this->feedUrl) {
+            $this->setDemoFeedUrl();
+        }
     }
 
     public function render()
@@ -72,7 +59,32 @@ class PlayerBuilder extends Component
         return view('livewire.player-builder');
     }
 
-    public function loadDemoEpisode(): void
+    public function loadFeed(): void
+    {
+        $podcast = ImportFirstOrCreate::run($this->feedUrl);
+
+        if ($podcast === null) {
+            $this->emit('error-message', __('No podcast found'));
+        }
+        
+        if ($podcast->episodes()->count() === 0) {
+            $podcast = null;
+            $this->emit('error-message', __('No episodes found for podcast'));
+        }
+
+        if (! $podcast) {
+            $this->feedUrl = null;
+            $this->resetBuilder();
+            
+            return;
+        }
+
+        $this->episodes = $podcast->episodes()->get();
+        $this->currentEpisode = $this->episodes->first();
+        $this->currentEpisodeId = $this->currentEpisode->id;
+    }
+
+    public function setDemoFeedUrl(): void
     {
         $feeds = collect([
             ['feed_url' => 'https://feeds.podhunt.app/feeds/daily/rss',   'color' => '#8772c7'],
@@ -81,15 +93,16 @@ class PlayerBuilder extends Component
             ['feed_url' => 'https://feeds.transistor.fm/ramen',           'color' => '#ff4500'],
         ]);
 
-        $podcasts = Podcast::whereIn('feed_url', $feeds->pluck('feed_url')->all())->get();
+        $randomFeed = $feeds->random();
 
-        $randomPodcast = $podcasts->random();
-        
-        $this->episodes = $randomPodcast->episodes;
-        $this->currentEpisode = $this->episodes->first();
-        $this->currentEpisodeId = $this->currentEpisode->id;
-        $this->feedUrl = $randomPodcast->feed_url;
-        $this->color = $feeds->firstWhere('feed_url', $randomPodcast->feed_url)['color'];
+        $this->feedUrl = $randomFeed['feed_url'];
+        $this->color = $randomFeed['color'];
+    }
+
+    public function setDemoFeedUrlAndLoad(): void
+    {
+        $this->setDemoFeedUrl();
+        $this->loadFeed();
     }
 
     public function getPlayerUrlProperty(): string|null
@@ -103,5 +116,11 @@ class PlayerBuilder extends Component
         $endpoint = App::environment('local') ? "http://player.{$domain}" : "https://player.{$domain}";
 
         return "{$endpoint}/episodes/{$episode->id}?color={$color}";
+    }
+
+    public function resetBuilder(): void
+    {
+        $this->episodes = $this->currentEpisode = $this->currentEpisodeId = null;
+        $this->color = PodcastEpisode::defaultColor;
     }
 }

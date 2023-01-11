@@ -51,6 +51,7 @@ if (document.getElementById('player_builder')) {
 
   window.Alpine = alpine
   Alpine.start()
+
 }
 
 const animateElements = document.getElementsByClassName('fade-up')

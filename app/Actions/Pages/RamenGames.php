@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Features\Pages;
+namespace App\Actions\Pages;
 
 use App\Models\Podcast;
 

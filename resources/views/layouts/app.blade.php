@@ -30,10 +30,13 @@
 
         @vite('resources/js/app.js')
         @livewireStyles
+        
     </head>
     <body class="h-full dark:text-white">
         @yield('content')
+        
         {{ $slot }}
+
         @livewireScripts
     </body>
 </html>

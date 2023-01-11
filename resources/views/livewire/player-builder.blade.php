@@ -1,10 +1,12 @@
 <div class="relative bg-white dark:bg-black text-black dark:text-white">
 
+    @livewire('jal-notifications')
+
     <div class="overlay-noise"></div>
     
     <div class="lg:h-screen flex flex-col lg:flex-row items-stretch">
 
-        <div class="relative flex-1 overflow-y-scroll lg:max-w-xs bg-white dark:bg-black p-6">
+        <div class="relative flex-1 overflow-y-scroll lg:max-w-xs bg-white dark:bg-black px-6 pt-6 pb-8 lg:pb-6">
 
             @if ($color)
                 <div class="z-0 absolute inset-0 opacity-25 dark:opacity-60" style="background: {{ $color }}"></div>
@@ -26,26 +28,32 @@
 
                 <div class="space-y-6 text-black flex-1">
                     
-                    <x-jal::input wire:model="feedUrl" label="RSS Feed URL:" />
+                    <x-jal::input wire:model.lazy="feedUrl" label="RSS Feed URL:" />
 
-                    @if ($feedUrl && count($episodes ?: []) > 0)
+                    <div class="{{ ! $feedUrl || $episodes === null ? 'episode-field-hidden opacity-0' : '' }} transition-opacity">
                         <x-jal::select wire:model="currentEpisodeId" label="Episode:">
-                            @foreach ($episodes as $episode)
+                            @forelse ($episodes ?: [] as $episode)
                                 <option value="{{ $episode->id }}">{{ $episode->title }}</option>
-                            @endforeach
+                            @empty
+                                <option disabled selected value="null">None found</option>
+                            @endforelse
                         </x-jal::select>
-                        <x-jal::color-picker wire:model="color" label="Player Color:" />
-                    @endif
+                    </div>
+
+                    <div class="{{ ! $feedUrl && ! $currentEpisode ? 'color-field-hidden opacity-0' : '' }} transition-opacity">
+                        <x-jal::color-picker wire:model.lazy="color" label="Player Color:" />
+                    </div>
+
                 </div>
 
-                <div>
+                <div class="hidden lg:block">
                     @include('made-by')
                 </div>
             </div>
 
         </div>
 
-        <div class="relative flex-1 overflow-y-scroll p-6">
+        <div wire:init="loadFeed" class="relative flex-1 overflow-y-scroll p-6">
 
             @if ($color)
                 <div class="z-0 absolute inset-0 opacity-25 dark:opacity-60" style="background: {{ $color }}"></div>
@@ -102,11 +110,15 @@
                             <x-jal::icon name="arrow-left" md />
                         </span>
                         <div>Paste your podcast's rss feed URL in the sidebar to select an episode...</div>
-                        <x-jal::button text="Load demo episode" wire:click="loadDemoEpisode" class="bg-black/10 hover:bg-black/30" />
+                        <x-jal::button text="Load demo episode" wire:click="setDemoFeedUrlAndLoad" class="bg-black/10 hover:bg-black/30" />
                     </div>
                 </div>
                 
             @endif
+
+            <div class="pt-6 relative z-20 lg:hidden">
+                @include('made-by')
+            </div>
 
         </div>
 

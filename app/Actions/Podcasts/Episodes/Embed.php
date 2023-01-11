@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Features\Podcasts\Episodes;
+namespace App\Actions\Podcasts\Episodes;
 
 use Illuminate\Http\Request;
 
@@ -8,9 +8,9 @@ class Embed
 {
     public function __invoke(Request $request)
     {
-        if (! $request->url) {
-            abort(404);
-        }
+        $request->validate([
+            'url' => 'required|string'
+        ]);
 
         $parts = parse_url($request->url);
 
