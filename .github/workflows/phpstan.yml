@@ -13,4 +13,4 @@ jobs:
           fetch-depth: 1
       - name: "Run PHP Stan"
         run: |
-          phpstan analyze app tests
+          ./vendor/bin/phpstan analyze app tests
