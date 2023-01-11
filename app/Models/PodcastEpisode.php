@@ -61,12 +61,12 @@ class PodcastEpisode extends Model
         return "{$r},{$g},{$b}";
     }
 
-    public static function isColorLight($color): bool
+    public static function isColorDark($color): bool
     {
         $rgb = explode(',', $color);
         $lightness = (max($rgb[0], $rgb[1], $rgb[2]) + min($rgb[0], $rgb[1], $rgb[2])) / 510.0;
 
-        return $lightness >= .8;
+        return $lightness <= .8;
     }
 
     public function playerData(): array
@@ -82,21 +82,15 @@ class PodcastEpisode extends Model
         $border = ((int) request()->border) !== 0;
 
         return [
-            'file_url' => $this->file_url,
-            'cover_url' => $this->imageUrl(),
-            'title' => $this->title,
-            'podcast' => $this->podcast->title,
-            'episode' => $this->number,
-            'season' => $this->season,
             'border' => $border,
             'color' => $color,
-            'is_light' => PodcastEpisode::isColorLight($color),
+            'dark' => PodcastEpisode::isColorDark($color),
             'playerData' => [
                 'podcast' => $this->podcast->title ?: '',
                 'title' => $this->title,
                 'episode' => $this->number,
-                'cover_url' => $this->imageUrl(),
-                'file_url' => $this->file_url,
+                'coverUrl' => $this->imageUrl(),
+                'fileUrl' => $this->file_url,
             ],
         ];
     }
