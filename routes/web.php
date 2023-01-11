@@ -14,7 +14,7 @@ if (App::environment(['production', 'staging'])) {
 Route::domain('player.'.config('app.host'))->group(function ($router) {
     Route::get('/', Podcasts\Episodes\Dynamic::class)->name('podcasts.episodes.dynamic');
     Route::get('embed', Podcasts\Episodes\Embed::class)->name('podcasts.episodes.embed');
-    Route::get('episodes/{episode}', Podcasts\Episodes\Show::class)->name('podcasts.episodes.show');
+    Route::get('episodes/{episode}/{color?}', Podcasts\Episodes\Show::class)->name('podcasts.episodes.show');
 });
 
 Route::domain('ramengames.'.config('app.host'))->group(fn () => (

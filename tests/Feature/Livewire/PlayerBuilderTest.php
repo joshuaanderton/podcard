@@ -20,13 +20,12 @@ class PlayerBuilderTest extends TestCase
         $this->assertDatabaseCount(Podcast::class, 0);
         $this->assertDatabaseCount(PodcastEpisode::class, 0);
 
-        $component = Livewire::test(PlayerBuilder::class);
+        $component = Livewire::test(PlayerBuilder::class, ['feedUrl' => $feedUrl]);
 
         $component
-            ->assertDontSee('RSS Feed URL:')
-            ->set('feedUrl', $feedUrl)
+            ->assertSee('RSS Feed URL:')
             ->set('color', '#000000')
-            ->call('loadFeed');
+            ->assertSet('color', '#000000');
 
         $this->assertDatabaseCount(Podcast::class, 1);
         $this->assertDatabaseCount(PodcastEpisode::class, 37);
@@ -37,9 +36,7 @@ class PlayerBuilderTest extends TestCase
             ->assertSet('currentEpisodeId', $firstEpisode->id)
             ->assertSet('currentEpisode', $firstEpisode)
             ->assertSee('Episode:')
-            ->assertSee('Color:')
-            ->assertDontSeeHtml('episode-field-hidden')
-            ->assertDontSeeHtml('color-field-hidden')
+            ->assertSee('Player Color:')
             ->assertSeeHtml('id="iframe"');
 
         $component
@@ -48,8 +45,8 @@ class PlayerBuilderTest extends TestCase
             ->assertSet('currentEpisodeId', null)
             ->assertSet('currentEpisode', null)
             ->assertSet('color', PodcastEpisode::defaultColor)
-            ->assertSeeHtml('episode-field-hidden')
-            ->assertSeeHtml('color-field-hidden')
+            ->assertDontSee('Episode:')
+            ->assertDontSee('Player Color:')
             ->assertDontSeeHtml('id="iframe"');
     }
 }

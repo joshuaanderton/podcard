@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full dark:bg-black">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="bg-white dark:bg-black">
     <head>
 
         @if($tagId = env('GOOGLE_TAG_ID'))
@@ -32,11 +32,12 @@
         @livewireStyles
         
     </head>
-    <body class="h-full dark:text-white">
+    <body class="text-black dark:text-white">
+
         @yield('content')
-        
         {{ $slot }}
 
         @livewireScripts
+        
     </body>
 </html>

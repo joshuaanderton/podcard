@@ -7,7 +7,7 @@
     </h1>
 
     <div class="text-sm font-light opacity-90 text-black dark:text-white mt-2">
-        Customize your embeddable player and paste the snippet anywhere
+        A customizable, embeddable podcast player that works with any podcast and goes anywhere
     </div>
 
 </div>
