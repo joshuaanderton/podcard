@@ -3,6 +3,7 @@ name: PHP Lint (Laravel Pint)
 on:
   push:
     branches-ignore:
+      - 'master'
       - 'dependabot/npm_and_yarn/*'
 jobs:
   phplint:
