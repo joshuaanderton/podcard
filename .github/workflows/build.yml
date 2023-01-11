@@ -4,9 +4,6 @@ on:
   push:
     branches-ignore:
       - 'dependabot/npm_and_yarn/*'
-env:
-  DB_CONNECTION: 'sqlite'
-  DB_DATABASE: ':memory:'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,6 +22,7 @@ jobs:
 
       - name: Environment
         run: |
+          cp .env.example .env
           php artisan key:generate
 
       - name: Compile Assets
