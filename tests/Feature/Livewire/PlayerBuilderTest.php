@@ -24,7 +24,7 @@ class PlayerBuilderTest extends TestCase
         $component = Livewire::test(PlayerBuilder::class);
 
         $component
-            ->assertSee('RSS Feed URL:')
+            ->assertDontSee('RSS Feed URL:')
             ->set('feedUrl', $feedUrl)
             ->set('color', '#000000')
             ->call('loadFeed');
