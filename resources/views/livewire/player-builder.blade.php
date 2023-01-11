@@ -15,16 +15,8 @@
             <div class="z-1 absolute inset-0 opacity-25 dark:opacity-60 bg-gradient-to-l from-white dark:from-black/30 mix-blend-overlay"></div>
 
             <div class="h-full relative z-10 space-y-8 flex flex-col">
-                <div>
-                    <img class="inline-block h-auto w-14 -mt-2 -ml-3 opacity-50" src="{{ asset('favicon.png') }}" />
 
-                    <h1 class="font-bold text-black dark:text-white text-2xl leading-none">
-                        Podcard
-                    </h1>
-                    <div class="text-sm font-light opacity-90 text-black dark:text-white mt-2">
-                        Customize your embeddable player and paste the snippet anywhere
-                    </div>
-                </div>
+                @include('branding')
 
                 <div class="space-y-6 text-black flex-1">
                     
@@ -53,13 +45,14 @@
 
         </div>
 
-        <div wire:init="loadFeed" class="relative flex-1 overflow-y-scroll p-6">
+        <div class="relative flex-1 overflow-y-scroll p-6">
 
             @if ($color)
                 <div class="z-0 absolute inset-0 opacity-25 dark:opacity-60" style="background: {{ $color }}"></div>
             @endif
-            
+
             @if ($feedUrl && $currentEpisode)
+            
                 <div class="relative z-10 container max-w-3xl mx-auto space-y-8">
                     <div x-data class="space-y-2">
                         <x-jal::label text="Preview" />
@@ -83,7 +76,7 @@
                     
                     <div class="space-y-2 pt-5 overflow-hidden mb-5">
                         <x-jal::label text="Copy the iframe snippet..." />
-                        <code class="copy-snippet bg-black p-4 block rounded-lg select-all text-white text-sm hover:cursor-pointer">
+                        <code class="copy-snippet bg-gradient-to-r from-black/50 to-black/40 p-4 block rounded-lg select-all text-white text-sm hover:cursor-pointer">
                             <span class="token tag">
                             <span class="token tag">
                                 <span class="token punctuation">&lt;</span>iframe
@@ -97,11 +90,12 @@
 
                     <div class="space-y-2">
                         <x-jal::label for="episode" text="Or build one dynamically..." />
-                        <code class="copy-snippet bg-black p-4 block rounded-lg select-all text-white text-sm hover:cursor-pointer">
+                        <code class="copy-snippet bg-gradient-to-r from-black/50 to-black/40 p-4 block rounded-lg select-all text-white text-sm hover:cursor-pointer">
                             <span class="opacity-70">https://player.podcard.co?</span>feed=<strong>FEED_URL</strong><span class="opacity-70">&</span>episode=<strong>TITLE_OR_NUMBER</strong><span class="opacity-70">&</span>color=<strong>HEX_CODE</strong>
                         </code>
                     </div>
                 </div>
+
             @else
 
                 <div class="h-full flex items-center max-w-xs mx-auto">
