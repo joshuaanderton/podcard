@@ -8,34 +8,28 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
-      setup:
-        - name: Checkout Code
-          uses: actions/checkout@v3
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.1.3"
 
-        - name: Setup PHP
-          uses: shivammathur/setup-php@v2
-          with:
-            php-version: "8.1.3"
+      - name: Install composer dependencies
+        run: |
+          composer install --no-scripts
 
-      composer:
-        - name: Install composer dependencies
-          run: |
-            composer install --no-scripts
+      - name: Environment
+        run: |
+          cp .env.example .env
+          php artisan key:generate
 
-      environment:
-        - name: Environment
-          run: |
-            cp .env.example .env
-            php artisan key:generate
+      - name: Compile Assets
+        run: |
+          yarn
+          yarn build
 
-      assets:
-        - name: Compile Assets
-          run: |
-            yarn
-            yarn build
-
-      tests:
-        - name: Run Tests
-          run: |
-            php artisan test
+      - name: Run Tests
+        run: |
+          php artisan test
