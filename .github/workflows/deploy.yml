@@ -6,8 +6,26 @@ on:
     branches: [master]
 jobs:
   deploy:
+    runs-on: ubuntu-latest
     steps:
-      - name: Trigger Deploy
-        uses: jbrooksuk/laravel-forge-action@v1.0.2
+      #- name: Setup SSH
+      #  uses: webfactory/ssh-agent@v0.7.0
+      #  with:
+      #    ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
         with:
-          trigger_url: ${{ secrets.FORGE_DEPLOY_WEBHOOK_URL }}
+          php-version: 8.2
+          tools: composer:v2
+          coverage: none
+
+      - name: Require Forge CLI
+        run: composer global require laravel/forge-cli
+
+      - name: Deploy Site
+        run: |
+          forge server:switch polarize
+          forge deploy podcard.co
+        env:
+          FORGE_API_TOKEN: ${{ secrets.FORGE_API_TOKEN }}
