@@ -2,11 +2,11 @@
 
 namespace App\Actions\Podcasts;
 
-use Illuminate\Support\Str;
 use App\Models\Podcast;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 class LoadFeed
@@ -20,9 +20,9 @@ class LoadFeed
 
         // Stream reading of rss feed
         //$context = stream_context_create(['http' => ['follow_location' => false]]);
-                
+
         try {
-            $feed = file_get_contents($feedUrl);//, false, $context, $offset);
+            $feed = file_get_contents($feedUrl); //, false, $context, $offset);
         } catch (Exception $e) {
             return null;
         }

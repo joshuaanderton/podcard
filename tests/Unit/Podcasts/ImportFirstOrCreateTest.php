@@ -2,7 +2,6 @@
 
 namespace Tests\Feature\Podcasts\Episodes\Show;
 
-use App\Actions\Podcasts\Import;
 use App\Actions\Podcasts\ImportFirstOrCreate;
 use App\Models\Podcast;
 use App\Models\PodcastEpisode;
@@ -15,7 +14,7 @@ class ImportFirstOrCreateTest extends TestCase
 
     public function test_action_import_first_or_create_creates_new_podcast_for_missing_feed_url()
     {
-        $feedUrl = env('APP_URL') . '/tests/ramen.xml';
+        $feedUrl = env('APP_URL').'/tests/ramen.xml';
 
         $this->assertDatabaseCount(Podcast::class, 0);
         $this->assertDatabaseCount(PodcastEpisode::class, 0);
@@ -36,7 +35,7 @@ class ImportFirstOrCreateTest extends TestCase
 
     public function test_action_import_first_or_create_updates_existing_podcast_for_existing_canonical_feed_url()
     {
-        $feedUrl = env('APP_URL') . '/tests/ramen.xml';
+        $feedUrl = env('APP_URL').'/tests/ramen.xml';
         $podcast = ImportFirstOrCreate::run($feedUrl);
 
         $podcast->episodes()->limit(7)->delete();
@@ -60,7 +59,7 @@ class ImportFirstOrCreateTest extends TestCase
 
     public function test_action_import_first_or_create_updates_existing_podcast_for_existing_provided_feed_url()
     {
-        $feedUrl = env('APP_URL') . '/tests/ramen.xml';
+        $feedUrl = env('APP_URL').'/tests/ramen.xml';
         $podcast = ImportFirstOrCreate::run($feedUrl);
 
         $podcast->update(['feed_url' => $feedUrl]);

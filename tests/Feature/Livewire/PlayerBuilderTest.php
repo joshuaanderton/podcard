@@ -6,7 +6,6 @@ use App\Http\Livewire\PlayerBuilder;
 use App\Models\Podcast;
 use App\Models\PodcastEpisode;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Livewire\Livewire;
 use Tests\TestCase;
 
@@ -16,7 +15,7 @@ class PlayerBuilderTest extends TestCase
 
     public function test_feed_url_pulls_in_episodes()
     {
-        $feedUrl = env('APP_URL') . '/tests/ramen.xml';
+        $feedUrl = env('APP_URL').'/tests/ramen.xml';
 
         $this->assertDatabaseCount(Podcast::class, 0);
         $this->assertDatabaseCount(PodcastEpisode::class, 0);

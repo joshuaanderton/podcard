@@ -3,11 +3,9 @@
 namespace App\Actions\Podcasts\Episodes;
 
 use App\Actions\Podcasts\ImportFirstOrCreate;
-use App\Models\Podcast;
-use App\Models\PodcastEpisode;
 use Illuminate\Http\Request;
 
-class Dynamic 
+class Dynamic
 {
     public function __invoke(Request $request)
     {
@@ -28,17 +26,11 @@ class Dynamic
         }
 
         if (! $request->episode) {
-
             $episode = $podcast->episodes()->latest('published_at')->first();
-
         } elseif (is_numeric($request->episode)) {
-
             $episode = $podcast->episodes()->where(['number' => $request->episode])->first();
-
         } else {
-
             $episode = $podcast->episodes()->where('title', 'LIKE', "%{$request->episode}%")->first();
-
         }
 
         if (! $episode) {

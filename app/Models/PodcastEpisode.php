@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Str;
 
 class PodcastEpisode extends Model
 {
@@ -24,7 +24,7 @@ class PodcastEpisode extends Model
 
     protected $casts = [
         'ramen_games' => 'boolean',
-        'published_at' => 'date:Y-m-d H:i:s'
+        'published_at' => 'date:Y-m-d H:i:s',
     ];
 
     public function podcast(): BelongsTo

@@ -3,12 +3,10 @@
 namespace App\Models;
 
 use App\Actions\Podcasts\Import;
-use App\Actions\Podcasts\ImportNew;
 use Carbon\Carbon;
-use Exception;
-use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Str;
 
 class Podcast extends Model
 {
@@ -45,11 +43,10 @@ class Podcast extends Model
 
     public function getNeedsImportAttribute(): bool
     {
-        return (
+        return
             $this->updated_at === null || (
                 $this->updated_at->timestamp < Carbon::now()->subDays(1)->timestamp
-            )
-        );
+            );
     }
 
     public function import(): int|null

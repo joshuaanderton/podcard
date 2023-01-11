@@ -3,11 +3,10 @@
 namespace App\Http\Livewire;
 
 use App\Actions\Podcasts\ImportFirstOrCreate;
-use App\Models\Podcast;
 use App\Models\PodcastEpisode;
-use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Str;
 use Livewire\Component;
 
 class PlayerBuilder extends Component
@@ -34,12 +33,12 @@ class PlayerBuilder extends Component
     {
         if ($name === 'feedUrl') {
             $this->resetBuilder();
-            
+
             if ($value) {
                 $this->loadFeed();
             }
         }
-        
+
         if ($name === 'currentEpisodeId' && ($this->currentEpisode->id ?? null) !== $value) {
             $this->currentEpisode = $this->episodes->find($value);
         }
@@ -84,7 +83,7 @@ class PlayerBuilder extends Component
         if (! $podcast) {
             $this->emit('error-message', __('No podcast found'));
         }
-        
+
         if ($podcast->episodes()->count() === 0) {
             $podcast = null;
             $this->emit('error-message', __('No episodes found for podcast'));

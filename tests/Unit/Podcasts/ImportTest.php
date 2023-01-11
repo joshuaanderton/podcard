@@ -15,7 +15,7 @@ class ImportTest extends TestCase
 
     public function test_podcast_episode_player_loads_correct_episode()
     {
-        $feedUrl = env('APP_URL') . '/tests/ramen.xml';
+        $feedUrl = env('APP_URL').'/tests/ramen.xml';
         $podcast = ImportFirstOrCreate::run($feedUrl);
 
         $this->assertDatabaseCount(Podcast::class, 1);
@@ -28,7 +28,7 @@ class ImportTest extends TestCase
         $firstEpisode->update(['title' => 'Test Title']);
 
         $this->assertDatabaseHas(Podcast::class, [
-            'title' => 'Test Podcast Title'
+            'title' => 'Test Podcast Title',
         ]);
 
         $this->assertDatabaseHas(PodcastEpisode::class, [
@@ -43,8 +43,8 @@ class ImportTest extends TestCase
 
         $this->assertDatabaseCount(Podcast::class, 1);
         $this->assertDatabaseCount(PodcastEpisode::class, 37);
-        
+
         $this->assertEquals($podcast->title, 'Getting To Ramen');
-        $this->assertEquals($firstEpisode->title, "Why I’m making a podcast about SaaS");
+        $this->assertEquals($firstEpisode->title, 'Why I’m making a podcast about SaaS');
     }
 }

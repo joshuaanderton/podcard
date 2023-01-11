@@ -4,12 +4,12 @@ namespace App\Actions\Podcasts\Episodes;
 
 use Illuminate\Http\Request;
 
-class Embed 
+class Embed
 {
     public function __invoke(Request $request)
     {
         $request->validate([
-            'url' => 'required|string'
+            'url' => 'required|string',
         ]);
 
         $parts = parse_url($request->url);
@@ -22,7 +22,7 @@ class Embed
             }
         }
 
-        $url = 'https://player.' . config('app.host') . '?' . http_build_query($params);
+        $url = 'https://player.'.config('app.host').'?'.http_build_query($params);
 
         return [
             'version' => '1.0',
