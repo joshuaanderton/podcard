@@ -1,0 +1,31 @@
+# https://laravel-news.com/laravel-github-actions
+name: 'Build'
+run: |
+  npm install
+  npm run dev
+name: Build
+on:
+  workflow_dispatch:
+  push:
+    branches-ignore:
+      - 'dependabot/npm_and_yarn/*'
+env:
+  DB_CONNECTION: 'sqlite'
+  DB_DATABASE: ':memory:'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+      - name: Install composer dependencies
+        run: |
+          composer install --no-scripts
+      - name: Compile Assets
+        run: |
+          yarn
+          yarn build
+      - name: Run Tests
+        run: |
+          php artisan test

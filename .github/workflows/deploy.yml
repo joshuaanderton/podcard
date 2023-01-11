@@ -1,0 +1,10 @@
+name: "Deploy"
+on:
+  workflow_run:
+    workflows: ["Build"]
+    types: [completed]
+    branches: [master]
+jobs:
+  deploy:
+    with: $FORGE_DEPLOY_WEBHOOK_URL
+    method: 'POST'
