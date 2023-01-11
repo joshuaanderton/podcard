@@ -76,11 +76,16 @@ class PodcastEpisode extends Model
         return $lightness >= .8;
     }
 
+    public static function isColorHex(string|null $color): bool
+    {
+        return $color !== null && Str::length(Str::remove('#', $color)) === 6;
+    }
+
     public function playerData(): array
     {
         $color = request()->color;
 
-        if (! $color || Str::length(Str::remove('#', $color)) !== 6) {
+        if (! static::isColorHex($color)) {
             $color = PodcastEpisode::defaultColor;
         }
 
