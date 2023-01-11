@@ -5,7 +5,6 @@ namespace App\Http\Livewire;
 use App\Actions\Podcasts\ImportFirstOrCreate;
 use App\Models\PodcastEpisode;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
 use Livewire\Component;
 
@@ -51,7 +50,7 @@ class PlayerBuilder extends Component
         if (! $this->feedUrl) {
             $this->setDemoFeedUrl();
         }
-        
+
         $this->loadFeed();
     }
 
@@ -116,7 +115,7 @@ class PlayerBuilder extends Component
         $domain = explode('//', config('app.url'))[1];
         $endpoint = "https://player.{$domain}";
 
-        return $endpoint . route('podcasts.episodes.show', compact('episode', 'color'), false);
+        return $endpoint.route('podcasts.episodes.show', compact('episode', 'color'), false);
     }
 
     public function getPlayerDynamicUrlProperty(): string|null
