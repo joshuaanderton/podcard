@@ -42,7 +42,7 @@ class PodcastEpisode extends Model
         return $imageUrl;
     }
 
-    public static function hexToRgb($color): string
+    public static function hexToRgb(string $color): string
     {
         $color = Str::remove('#', $color);
 
@@ -61,9 +61,16 @@ class PodcastEpisode extends Model
         return "{$r},{$g},{$b}";
     }
 
-    public static function isColorLight($color): bool
+    public static function isColorLight(string $color): bool
     {
         $rgb = explode(',', $color);
+
+        // Check if hex code
+        if (count($rgb) === 1) {
+            $color = static::hexToRgb($color);
+            $rgb = explode(',', $color);
+        }
+
         $lightness = (max($rgb[0], $rgb[1], $rgb[2]) + min($rgb[0], $rgb[1], $rgb[2])) / 510.0;
 
         return $lightness >= .8;
@@ -73,7 +80,7 @@ class PodcastEpisode extends Model
     {
         $color = request()->color;
 
-        if ($color !== null && Str::length(Str::remove('#', $color)) !== 6) {
+        if (! $color || Str::length(Str::remove('#', $color)) !== 6) {
             $color = PodcastEpisode::defaultColor;
         }
 
