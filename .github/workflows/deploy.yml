@@ -6,5 +6,7 @@ on:
     branches: [master]
 jobs:
   deploy:
-    with: $FORGE_DEPLOY_WEBHOOK_URL
-    method: 'POST'
+    steps:
+      uses: jbrooksuk/laravel-forge-action@v1.0.2
+      with:
+        trigger_url: ${{ secrets.FORGE_DEPLOY_WEBHOOK_URL }}
