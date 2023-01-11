@@ -67,17 +67,21 @@
             @if ($feedUrl && $currentEpisode)
                 <div class="space-y-2 overflow-hidden mb-5">
                     <x-jal::label text="Copy the iframe snippet..." />
-                    <pre class="copy-snippet text-xs whitespace-nowrap overflow-auto bg-gradient-to-r from-black/50 to-black/40 p-4 rounded-lg text-white hover:cursor-pointer"><code class="bg-transparent"><span class="opacity-60"><span class="token punctuation">&lt;</span>iframe src="</span>{{
+                    <pre data-clipboard-text="{{ '<iframe src="https://player.podcard.test/episodes/189/b8702d" style="border:none;height:180px;width:100%"></iframe>' }}" class="copy-snippet text-xs whitespace-nowrap overflow-auto bg-gradient-to-r from-black/50 to-black/40 p-4 rounded-lg text-white hover:cursor-pointer"><code class="bg-transparent"><span class="opacity-60"><span class="token punctuation">&lt;</span>iframe src="</span>{{
                             $this->playerUrl
                         }}<span class="opacity-60">" style="border:none;height:180px;width:100%"<span class="token punctuation">&gt;</span><span class="token punctuation">&lt;</span>/iframe<span class="token punctuation">&gt;</span></span></code></pre>
                 </div>
 
                 <div class="space-y-2">
                     <x-jal::label for="episode" text="Or load episodes dynamically..." />
-                    <pre class="copy-snippet text-xs whitespace-pre overflow-auto bg-gradient-to-r from-black/50 to-black/40 p-4 rounded-lg text-white hover:cursor-pointer"><code><span class="opacity-60">{{ $this->playerDynamicUrl }}</span>
-    <span class="opacity-60">?feed=</span>{{ $feedUrl }}
-    <span class="opacity-60">&episode=</span>{{ $currentEpisode->title }}
-    <span class="opacity-60">&color=</span>{{ Str::remove('#', $color) }}</code></pre>
+                    <pre data-clipboard-text="{{ "{$this->playerDynamicUrl}?feed={$feedUrl}&episode={$currentEpisode->title}&color=" . Str::remove('#', $color) }}" class="copy-snippet text-xs whitespace-nowrap overflow-auto bg-gradient-to-r from-black/50 to-black/40 p-4 rounded-lg text-white hover:cursor-pointer">
+                        <code>
+                            <span class="opacity-60">{{ $this->playerDynamicUrl }}/</span>
+                            <span class="block pl-4"><span class="opacity-60">?feed=</span>{{ $feedUrl }}</span>
+                            <span class="block pl-4"><span class="opacity-60">&episode=</span>{{ $currentEpisode->title }}</span>
+                            <span class="block pl-4"><span class="opacity-60">&color=</span>{{ Str::remove('#', $color) }}</span>
+                        </code>
+                    </pre>
                 </div>
             @endif
 
