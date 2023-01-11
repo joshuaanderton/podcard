@@ -25,7 +25,7 @@ jobs:
 
       - name: Deploy Site
         run: |
-          forge server:switch polarize
-          forge deploy podcard.co
+          forge server:switch ${{ vars.FORGE_SERVER_NAME }}
+          forge deploy ${{ vars.FORGE_SITE_NAME }}
         env:
           FORGE_API_TOKEN: ${{ secrets.FORGE_API_TOKEN }}
