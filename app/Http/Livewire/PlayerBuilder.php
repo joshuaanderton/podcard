@@ -81,17 +81,17 @@ class PlayerBuilder extends Component
         $podcast = ImportFirstOrCreate::run($this->feedUrl);
 
         if (! $podcast) {
+            $this->feedUrl = null;
+            $this->resetBuilder();
             $this->emit('error-message', __('No podcast found'));
+
+            return;
         }
 
         if ($podcast->episodes()->count() === 0) {
-            $podcast = null;
-            $this->emit('error-message', __('No episodes found for podcast'));
-        }
-
-        if (! $podcast) {
             $this->feedUrl = null;
             $this->resetBuilder();
+            $this->emit('error-message', __('No episodes found for podcast'));
 
             return;
         }
