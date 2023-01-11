@@ -947,12 +947,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joshuaanderton/livewire.git",
-                "reference": "383b8dfdaa088e2b4431b033efec2440fb7efa9e"
+                "reference": "9fb0a3c448a1aa95c71c888ce4d36a07e0d657af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joshuaanderton/livewire/zipball/383b8dfdaa088e2b4431b033efec2440fb7efa9e",
-                "reference": "383b8dfdaa088e2b4431b033efec2440fb7efa9e",
+                "url": "https://api.github.com/repos/joshuaanderton/livewire/zipball/9fb0a3c448a1aa95c71c888ce4d36a07e0d657af",
+                "reference": "9fb0a3c448a1aa95c71c888ce4d36a07e0d657af",
                 "shasum": ""
             },
             "require": {
@@ -992,7 +992,7 @@
                 "issues": "https://github.com/joshuaanderton/livewire/issues",
                 "source": "https://github.com/joshuaanderton/livewire/tree/master"
             },
-            "time": "2023-01-11T01:14:44+00:00"
+            "time": "2023-01-11T21:10:39+00:00"
         },
         {
             "name": "laravel/framework",
