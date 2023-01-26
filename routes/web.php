@@ -26,7 +26,7 @@ Route::get('/video', Pages\VideoBuilder::class)->name('player.video');
 
 // Ramen Games
 Route::get('ramengames', Pages\RamenGames::class);
-Route::domain('ramengames.' . config('app.host'))->group(fn () => Route::redirect('/', config('app.url') . '/ramengames')); // Redirect old subdomain
+Route::domain('ramengames.'.config('app.host'))->group(fn () => Route::redirect('/', config('app.url').'/ramengames')); // Redirect old subdomain
 
 // Terms & Policies
 Route::get('dnt', fn () => view('pages.dnt'));
