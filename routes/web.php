@@ -21,9 +21,6 @@ Route::domain('player.'.config('app.host'))->group(function ($router) {
 // Player Builder
 Route::get('/', Livewire\PlayerBuilder::class)->name('player.builder');
 
-// Video Builder
-Route::get('/video', Pages\VideoBuilder::class)->name('player.video');
-
 // Ramen Games
 Route::get('ramengames', Pages\RamenGames::class);
 Route::domain('ramengames.'.config('app.host'))->group(fn () => Route::redirect('/', config('app.url').'/ramengames')); // Redirect old subdomain
