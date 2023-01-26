@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "../packages/ja-livewire"
+		},
+		{
+			"path": "../packages/ja-inertia"
 		}
 	],
 	"settings": {}

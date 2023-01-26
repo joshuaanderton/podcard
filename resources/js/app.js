@@ -1,21 +1,21 @@
 import './bootstrap'
-
+import { createApp } from '@ja-inertia/utils'
 import alpine from 'alpinejs'
 import ClipboardJS from 'clipboard'
-// import Choices from 'choices.js'
-
 import '../css/app.css'
 
-// window.Choices = Choices
-window.Alpine = alpine
+if (document.getElementById('app'))
 
-const clipboard = new ClipboardJS('.copy-snippet')
+  createApp()
 
-clipboard.on('success', function(event) {
-  
-  Livewire.emit('success-message', "You've copied some text")
+else {
 
-  event.clearSelection()
-})
+  const clipboard = new ClipboardJS('.copy-snippet')
+  clipboard.on('success', function(event) {
+    Livewire.emit('success-message', "You've copied some text")
+    event.clearSelection()
+  })
+  window.Alpine = alpine
+  Alpine.start()
 
-Alpine.start()
+}

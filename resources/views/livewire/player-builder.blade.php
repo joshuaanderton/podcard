@@ -21,7 +21,7 @@
                 <div class="z-1 absolute inset-0 opacity-25 dark:opacity-60 bg-gradient-to-l from-white/30 dark:from-black/30 to-white/10 dark:to-black/10 mix-blend-overlay"></div>
 
                 <div class="z-30 lg:fixed lg:top-[8.3rem] lg:-left-[5rem] max-w-xs pb-8 lg:pb-0">
-                    @include('branding', ['class' => 'relative lg:rotate-90'])
+                    @include('livewire.player-builder.branding', ['class' => 'relative lg:rotate-90'])
                 </div>
 
                 <div class="relative z-[2] space-y-8" x-data>
@@ -58,7 +58,7 @@
 
                     </div>
                     
-                    @include('toolbar')
+                    @include('livewire.player-builder.toolbar')
 
                 </div>
                 
@@ -67,7 +67,7 @@
             @if ($feedUrl && $currentEpisode)
                 <div class="space-y-2 overflow-hidden mb-5">
                     <x-jal::label text="Copy the iframe snippet..." />
-                    <pre data-clipboard-text="{{ '<iframe src="https://player.podcard.test/episodes/189/b8702d" style="border:none;height:180px;width:100%"></iframe>' }}" class="copy-snippet text-xs whitespace-nowrap overflow-auto bg-gradient-to-r from-black/50 to-black/40 p-4 rounded-lg text-white hover:cursor-pointer"><code class="bg-transparent"><span class="opacity-60"><span class="token punctuation">&lt;</span>iframe src="</span>{{
+                    <pre data-clipboard-text="{{ "<iframe src=\"{$this->playerUrl}\" style=\"border:none;height:180px;width:100%\"></iframe>" }}" class="copy-snippet text-xs whitespace-nowrap overflow-auto bg-gradient-to-r from-black/50 to-black/40 p-4 rounded-lg text-white hover:cursor-pointer"><code class="bg-transparent"><span class="opacity-60"><span class="token punctuation">&lt;</span>iframe src="</span>{{
                             $this->playerUrl
                         }}<span class="opacity-60">" style="border:none;height:180px;width:100%"<span class="token punctuation">&gt;</span><span class="token punctuation">&lt;</span>/iframe<span class="token punctuation">&gt;</span></span></code></pre>
                 </div>
@@ -90,8 +90,8 @@
     </div>
 
     <footer class="py-8 mt-auto max-w-7xl mx-auto relative z-20 flex items-end space-x-14">
-        @include('product-hunt')
-        @include('made-by')
+        @include('livewire.player-builder.product-hunt')
+        @include('livewire.player-builder.made-by')
     </footer>
 
 </div>
