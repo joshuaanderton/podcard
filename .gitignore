@@ -13,3 +13,4 @@ yarn-error.log
 /public/build
 /packages
 /composer.dev*
+.DS_Store
