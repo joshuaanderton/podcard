@@ -27,3 +27,5 @@ Route::domain('ramengames.'.config('app.host'))->group(fn () => Route::redirect(
 
 // Terms & Policies
 Route::get('dnt', fn () => view('pages.dnt'));
+
+Route::get('auth/freesound/callback', fn () => []);

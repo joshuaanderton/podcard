@@ -4,7 +4,7 @@
 			"path": "../../Sites/podcard"
 		},
 		{
-			"path": "../packages/ja-livewire"
+			"path": "../packages/livewirekit"
 		}
 	],
 	"settings": {}
