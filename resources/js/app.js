@@ -1,6 +1,7 @@
 import './bootstrap'
 import alpine from 'alpinejs'
 import ClipboardJS from 'clipboard'
+// import '@livewirekit/plugins/choices'
 import '../css/app.css'
 
 const clipboard = new ClipboardJS('.copy-snippet')

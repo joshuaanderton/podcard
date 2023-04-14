@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import laravel from 'laravel-vite-plugin'
 import vue2 from '@vitejs/plugin-vue2'
-import jaLivewire from './vendor/joshuaanderton/livewire'
+import livewirekit from './vendor/joshuaanderton/livewire'
 
 export default defineConfig({
 	plugins: [
@@ -17,6 +17,6 @@ export default defineConfig({
     vue2(),
 
     // For Player Builder
-    jaLivewire(),
+    livewirekit(),
 	]
 })

@@ -44,6 +44,8 @@ h2 {
   height: 100%;
   border-radius: 8px;
   background-color: #fff;
+  opacity: 1 !important;
+  transition: ease opacity 1s;
 }
 
 .player-cover {
@@ -114,6 +116,15 @@ h2 {
           flex: 1;
 }
 
+.player-options:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
 .player-options > div {
   width: 100%;
 }
@@ -129,6 +140,8 @@ h2 {
 
 .player-heading h2 {
   font-size: 1.2rem;
+  margin: 0;
+  padding: 0;
 }
 
 .player-heading .player-meta {
@@ -141,6 +154,7 @@ h2 {
   cursor: pointer;
   border-radius: 30px;
   background-color: #e0e0e0;
+  margin-top: auto;
 }
 
 .player-progress .player-seeker {
@@ -154,32 +168,40 @@ h2 {
 }
 
 .player-mute {
-  position: absolute;
-  right: 15px;
-  bottom: 15px;
   display: block;
-  height: 20px;
-  opacity: .7;
+  height: 16px;
+  width: auto;
 }
 
 .player-speed {
-  position: absolute;
-  bottom: 15px;
-  left: 15px;
+  display: inline-flex;
 }
 
 .player-speed span {
   font-size: 75%;
   display: inline-block;
   min-width: 40px;
-  padding: 1px px;
+  line-height: 1.4;
   cursor: pointer;
   text-align: center;
   text-decoration: none !important;
-  opacity: .7;
-  color: #fff;
-  border: 1px solid #fff;
+  border-width: 1px;
+  border-style: solid;
   border-radius: 3px;
+}
+
+.player-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: auto;
+}
+
+.player-buttons > * + * {
+  margin-left: 10px;
 }
 
 .player-time {
@@ -187,13 +209,22 @@ h2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding-top: 10px;
-  padding-bottom: 20px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  margin-left: auto;
 }
 
-.player-time-total {
-  opacity: .5;
+.player-time > * + * {
+  margin-left: 2px;
+}
+
+.player-time-total,
+.player-mute,
+.player-speed {
+  transition: ease opacity 300ms;
+  opacity: .7;
+}
+
+.player-time-total:hover,
+.player-mute:hover,
+.player-speed:hover {
+  opacity: 1;
 }

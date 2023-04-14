@@ -1,5 +1,4 @@
 @import '../fonts/modern-era/modern-era';
-@import '@ja-livewire/plugins/choices.css';
 
 @tailwind base;
 @tailwind components;

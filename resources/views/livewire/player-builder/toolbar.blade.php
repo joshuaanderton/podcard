@@ -17,17 +17,19 @@
     @if ($showFields)
 
       <div class="flex-1 mt-6 lg:mt-0 lg:ml-6">
-          <x-jal::select wire:model="currentEpisodeId" label="Episode:">
-              @forelse ($episodes ?: [] as $episode)
-                  <option value="{{ $episode->id }}">{{ $episode->title }}</option>
-              @empty
-                  <option disabled selected value="null">None found</option>
-              @endforelse
-          </x-jal::select>
+        <x-jal::select wire:model="currentEpisodeId" label="Episode:">
+            @forelse ($episodes ?: [] as $episode)
+                <option value="{{ $episode->id }}">{{ $episode->title }}</option>
+            @empty
+                <option disabled selected value="null">None found</option>
+            @endforelse
+        </x-jal::select>
+          
+        {{-- <x-jal::choices id="episode" wire:model="currentEpisodeId" label="Episode:" :options="$episodes ? $episodes->all() : []" /> --}}
       </div>
 
       <div class="flex-1 mt-6 lg:mt-0 ml-6">
-          <x-jal::color-picker wire:model.lazy="color" label="Player Color:" />
+        <x-jal::color-picker wire:model.lazy="color" label="Player Color:" />
       </div>
 
     @endif

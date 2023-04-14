@@ -22,7 +22,7 @@ class Dynamic
             return <<<'blade'
                 <div style="text-align:center">
                     <h1>Oops!</h1>
-                    <p style="color:#999">Please provide a valid RSS feed url (e.g. https://player.podcast.co/?<strong>feed=</strong>)</p>
+                    <p style="color:#999">Please provide a valid RSS feed url (e.g. {{ config('app.player_url') }}/?<strong>feed=</strong>)</p>
                 </div>
             blade;
         }

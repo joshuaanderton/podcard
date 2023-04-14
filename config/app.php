@@ -58,7 +58,13 @@ return [
 
     'asset_url' => env('ASSET_URL'),
 
-    'host' => explode('//', $appUrl)[1],
+    'host' => $appDomain = explode('//', $appUrl)[1],
+
+    'domain' => $appDomain,
+
+    'player_url' => $playerUrl = env('PLAYER_URL', explode('//', $appUrl)[0]."//player.{$appDomain}"),
+
+    'player_domain' => explode('//', $playerUrl)[1],
 
     /*
     |--------------------------------------------------------------------------

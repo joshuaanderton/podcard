@@ -24,7 +24,7 @@ class Embed
             }
         }
 
-        $url = 'https://player.'.config('app.host').'?'.http_build_query($params);
+        $url = config('app.player_url').'?'.http_build_query($params);
 
         return [
             'version' => '1.0',

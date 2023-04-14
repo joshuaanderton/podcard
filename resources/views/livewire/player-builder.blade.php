@@ -12,13 +12,13 @@
     
         <div class="relative z-10 container max-w-3xl mx-auto space-y-8">
 
-            <div class="relative bg-white dark:bg-black p-8 lg:-mx-8 rounded-b-3xl overflow-hidden">
+            <div class="relative bg-white dark:bg-black p-8 lg:-mx-8 rounded-b-3xl">
 
                 @if ($color)
-                    <div class="z-0 absolute inset-0 opacity-25 dark:opacity-60" style="background: {{ $color }}"></div>
+                    <div class="z-0 absolute inset-0 opacity-25 dark:opacity-60 rounded-b-3xl" style="background: {{ $color }}"></div>
                 @endif
                 
-                <div class="z-1 absolute inset-0 opacity-25 dark:opacity-60 bg-gradient-to-l from-white/30 dark:from-black/30 to-white/10 dark:to-black/10 mix-blend-overlay"></div>
+                <div class="z-1 absolute inset-0 opacity-25 dark:opacity-60 bg-gradient-to-l from-white/30 dark:from-black/30 to-white/10 dark:to-black/10 mix-blend-overlay rounded-b-3xl"></div>
 
                 <div class="z-30 lg:fixed lg:top-[8.3rem] lg:-left-[5rem] max-w-xs pb-8 lg:pb-0">
                     @include('livewire.player-builder.branding', ['class' => 'relative lg:rotate-90'])

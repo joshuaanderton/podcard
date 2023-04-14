@@ -7,6 +7,7 @@ namespace App\Http\Livewire;
 use App\Actions\Podcasts\ImportFirstOrCreate;
 use App\Models\PodcastEpisode;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
 use Livewire\Component;
 
@@ -52,7 +53,7 @@ class PlayerBuilder extends Component
         if (! $this->feedUrl) {
             $this->setDemoFeedUrl();
         }
-
+        
         $this->loadFeed();
     }
 
@@ -113,8 +114,11 @@ class PlayerBuilder extends Component
         }
 
         $color = Str::remove('#', $this->color);
-        $domain = explode('//', config('app.url'))[1];
-        $endpoint = "https://player.{$domain}";
+        $endpoint = config('app.player_url');
+
+        if (App::environment('local')) {
+            $endpoint.= ':'.env('SERVER_PORT');
+        }
 
         return $endpoint.route('podcasts.episodes.show', compact('episode', 'color'), false);
     }
