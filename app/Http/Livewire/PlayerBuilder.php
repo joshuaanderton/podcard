@@ -89,7 +89,6 @@ class PlayerBuilder extends Component
     public function setDemoFeedUrl(): void
     {
         $feeds = collect([
-            ['feed_url' => 'https://feeds.podhunt.app/feeds/daily/rss',   'color' => '#8772c7'],
             ['feed_url' => 'https://feeds.transistor.fm/founderquest',    'color' => '#b8702d'],
             ['feed_url' => 'https://feeds.transistor.fm/build-your-saas', 'color' => '#fbc85c'],
             ['feed_url' => 'https://feeds.transistor.fm/ramen',           'color' => '#ff4500'],
