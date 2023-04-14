@@ -53,7 +53,7 @@ class PlayerBuilder extends Component
         if (! $this->feedUrl) {
             $this->setDemoFeedUrl();
         }
-        
+
         $this->loadFeed();
     }
 
@@ -117,7 +117,7 @@ class PlayerBuilder extends Component
         $endpoint = config('app.player_url');
 
         if (App::environment('local')) {
-            $endpoint.= ':'.env('SERVER_PORT');
+            $endpoint .= ':'.env('SERVER_PORT');
         }
 
         return $endpoint.route('podcasts.episodes.show', compact('episode', 'color'), false);
