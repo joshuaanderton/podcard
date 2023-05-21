@@ -17,8 +17,8 @@ class CreatePodcastsTable extends Migration
             $table->bigIncrements('id');
             $table->string('feed_url')->unique();
             $table->string('title');
-            $table->string('owner_name');
-            $table->string('owner_email');
+            $table->string('owner_name')->nullable();
+            $table->string('owner_email')->nullable();
             $table->string('image_url');
             $table->text('description')->nullable();
             $table->string('link')->nullable();
