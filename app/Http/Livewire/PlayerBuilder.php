@@ -4,28 +4,28 @@ declare(strict_types=1);
 
 namespace App\Http\Livewire;
 
-use App\Actions\Podcasts\ImportFirstOrCreate;
+use App\Actions\Podcasts\LoadFeed;
+use App\Models\Podcast;
 use App\Models\PodcastEpisode;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
 use Livewire\Component;
 
 class PlayerBuilder extends Component
 {
-    public ?Collection $episodes = null;
+    public Collection|null $episodes = null;
 
-    public ?PodcastEpisode $currentEpisode = null;
+    public array|PodcastEpisode|null $previewEpisode = null;
 
-    public ?string $feedUrl = null;
+    public string|null $feedUrl = null;
 
-    public ?int $currentEpisodeId = null;
+    public string $selectedEpisodeId = 'latest';
 
-    public ?string $color = null;
+    public string|null $color = null;
 
     protected $rules = [
         'feedUrl' => 'required|url|max:255',
-        'currentEpisodeId' => 'nullable|int',
+        'selectedEpisodeId' => 'nullable|string',
         'color' => 'nullable|string|max:255',
     ];
 
@@ -39,8 +39,12 @@ class PlayerBuilder extends Component
             }
         }
 
-        if ($name === 'currentEpisodeId' && ($this->currentEpisode->id ?? null) !== $value) {
-            $this->currentEpisode = $this->episodes->find($value);
+        if ($name === 'selectedEpisodeId' && ($this->previewEpisode['guid'] ?? null) !== $value) {
+            if ($value === 'latest') {
+                $this->previewEpisode = $this->episodes->sortBy('published_at')->last();
+            } else {
+                $this->previewEpisode = $this->episodes->where('guid', $value)->first();
+            }
         }
 
         if ($name === 'color' && ! PodcastEpisode::isColorHex($value)) {
@@ -64,17 +68,21 @@ class PlayerBuilder extends Component
 
     public function loadFeed(): void
     {
-        $podcast = ImportFirstOrCreate::run($this->feedUrl);
+        $feed = LoadFeed::run($this->feedUrl);
+        $podcastData = $feed['podcast'];
+        $episodeDatas = $feed['episodes'];
 
-        if (! $podcast) {
-            $this->feedUrl = null;
-            $this->resetBuilder();
-            $this->emit('error-message', __('No podcast found'));
+        if ($podcast = Podcast::whereIn('feed_url', [$this->feedUrl, $podcastData['feed_url'] ?? null])->first()) {
+            $this->episodes = $episodeDatas;
+            $this->previewEpisode = $podcast->episodes()->latest('published_at')->first() ?: $episodeDatas->sortBy('published_at')->last();
+            $this->selectedEpisodeId = 'latest';
 
-            return;
+            if ($this->previewEpisode !== null) {
+                return;
+            }
         }
 
-        if ($podcast->episodes()->count() === 0) {
+        if (! $episodeDatas || $episodeDatas->count() === 0) {
             $this->feedUrl = null;
             $this->resetBuilder();
             $this->emit('error-message', __('No episodes found for podcast'));
@@ -82,9 +90,9 @@ class PlayerBuilder extends Component
             return;
         }
 
-        $this->episodes = $podcast->episodes()->get();
-        $this->currentEpisode = $this->episodes->first();
-        $this->currentEpisodeId = $this->currentEpisode->id;
+        $this->episodes = $episodeDatas;
+        $this->previewEpisode = $episodeDatas->sortBy('published_at')->last();
+        $this->selectedEpisodeId = 'latest';
     }
 
     public function setDemoFeedUrl(): void
@@ -109,32 +117,54 @@ class PlayerBuilder extends Component
 
     public function getPlayerUrlProperty(): string|null
     {
-        if (! $episode = $this->currentEpisode) {
+        if ($this->previewEpisode && !is_array($this->previewEpisode)) {
+            return $this->getPlayerDynamicUrlProperty();
+        }
+        if (! $feed = $this->feedUrl) {
+            return null;
+        }
+
+        if (! $guid = $this->previewEpisode['guid']) {
             return null;
         }
 
         $color = Str::remove('#', $this->color);
         $endpoint = config('app.player_url');
 
-        if (App::environment('local')) {
-            $endpoint .= ':'.env('SERVER_PORT');
+        $url = $endpoint.route('podcasts.episodes.dynamic', compact('feed', 'color'), false);
+
+        if ($this->selectedEpisodeId === 'latest') {
+            return $url;
         }
 
-        return $endpoint.route('podcasts.episodes.show', compact('episode', 'color'), false);
+        return "{$url}&guid={$guid}";
     }
 
     public function getPlayerDynamicUrlProperty(): string|null
     {
-        if (! $this->currentEpisode) {
+        if (! $feed = $this->feedUrl) {
             return null;
         }
 
-        return explode('/episodes', $this->playerUrl)[0];
+        if ($this->selectedEpisodeId !== 'latest' && ! $number = $this->previewEpisode['number']) {
+            return null;
+        }
+        
+        $color = Str::remove('#', $this->color);
+        $endpoint = config('app.player_url');
+
+        $url = $endpoint.route('podcasts.episodes.dynamic', compact('feed', 'color'), false);
+
+        if ($this->selectedEpisodeId === 'latest') {
+            return $url;
+        }
+
+        return "{$url}&number={$number}";
     }
 
     public function resetBuilder(): void
     {
-        $this->episodes = $this->currentEpisode = $this->currentEpisodeId = null;
+        $this->episodes = $this->previewEpisode = $this->selectedEpisodeId = null;
         $this->color = PodcastEpisode::defaultColor;
     }
 }

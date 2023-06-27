@@ -4,11 +4,9 @@ declare(strict_types=1);
 
 namespace App\Actions\Podcasts;
 
-use App\Models\Podcast;
+use App\Services\PodcastIndex;
 use Carbon\Carbon;
-use Exception;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Str;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 class LoadFeed
@@ -17,66 +15,47 @@ class LoadFeed
 
     public function handle(string $feedUrl): array|null
     {
-        $feedUrl = Podcast::cleanFeedUrl($feedUrl);
-        //$offset = null;
-
-        // Stream reading of rss feed
-        //$context = stream_context_create(['http' => ['follow_location' => false]]);
-
-        try {
-            $feed = file_get_contents($feedUrl); //, false, $context, $offset);
-        } catch (Exception $e) {
+        if (! $podcast = $this->podcast($feedUrl)) {
             return null;
         }
 
-        $cleanTags = [
-            'itunes:' => '',
-            'podcast:' => 'podcast_',
-            'atom:' => 'atom_',
-        ];
+        $episodes = $this->episodes($feedUrl);
 
-        foreach ($cleanTags as $find => $replace) {
-            $feed = Str::replace("<{$find}", "<{$replace}", $feed);
-            $feed = Str::replace("</{$find}", "</{$replace}", $feed);
-        }
+        return compact('podcast', 'episodes');
+    }
 
-        $feed = simplexml_load_string($feed);
+    public function podcast(string $feedUrl): array|null
+    {
+        $podcast = (new PodcastIndex)->podcastByFeedUrl($feedUrl);
 
-        $feed = $feed->channel;
-
-        $episodes = new Collection;
-
-        foreach ($feed->item as $episode) {
-            if (empty($episode->enclosure['url'])) {
-                continue;
-            }
-            $episodes->push($episode);
-        }
-
-        if ($episodes->count() === 0) {
+        if (! $podcast['url'] ?? null) {
             return null;
         }
 
         return [
-            'podcast' => [
-                'feed_url' => ((string) $feed->atom_link['href']) ?: $feedUrl,
-                'title' => $feed->title,
-                'description' => $feed->description,
-                'link' => ((string) $feed->link['href'] ?? $feed->link) ?: null,
-                'owner_name' => $feed->owner->name,
-                'owner_email' => (string) ($feed->owner->email ?? $feed->podcast_locked['owner']) ?: null,
-                'image_url' => (string) ($feed->image['href'] ?? $feed->image->url ?? '') ?: null,
-            ],
-            'episodes' => $episodes->reverse()->map(fn ($episode) => [
-                'guid' => $episode->guid,
-                'file_url' => $episode->enclosure['url'],
-                'title' => $episode->title,
-                'image_url' => ((string) $episode->image['href'] ?? $episode->image->url) ?: null,
-                'number' => $episode->episode ?? null,
-                'season' => $episode->season ?? null,
-                'episode_type' => $episode->episodeType,
-                'published_at' => ($episode->pubDate ?? null) ? Carbon::parse($episode->pubDate) : null,
-            ]),
+            'feed_url' => $podcast['url'],
+            'title' => $podcast['title'],
+            'description' => $podcast['description'],
+            'link' => $podcast['link'],
+            'owner_name' => $podcast['ownerName'],
+            'owner_email' => $podcast['ownerEmail'] ?? '',
+            'image_url' => $podcast['image'],
         ];
+    }
+
+    public function episodes(string $feedUrl): Collection
+    {
+        $episodes = (new PodcastIndex)->episodesByFeedUrl($feedUrl);
+
+        return $episodes->reverse()->map(fn ($episode) => [
+            'guid' => $episode['guid'],
+            'file_url' => $episode['enclosureUrl'],
+            'title' => $episode['title'],
+            'image_url' => $episode['image'],
+            'number' => $episode['episode'],
+            'season' => $episode['season'],
+            'episode_type' => $episode['episodeType'],
+            'published_at' => Carbon::parse($episode['datePublished']),
+        ]);
     }
 }

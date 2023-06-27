@@ -28,12 +28,10 @@
 
                     <div class="relative rounded-[8px] overflow-hidden">
 
-                        @if ($feedUrl && $currentEpisode)
-
+                        @if ($feedUrl && $previewEpisode)
                             <iframe
                                 id="iframe"
-                                class="relative z-[2] opacity-0 transition-opacity duration-500"
-                                onload="document.getElementById('iframe').classList.remove('opacity-0')"
+                                class="relative z-[2]"
                                 src="{{ $this->playerUrl }}"
                                 frameBorder="0"
                                 height="180"
@@ -64,24 +62,54 @@
                 
             </div>
             
-            @if ($feedUrl && $currentEpisode)
+            @if ($feedUrl && $previewEpisode)
                 <div class="space-y-2 overflow-hidden mb-5">
                     <x-jal::label text="Copy the iframe snippet..." />
-                    <pre data-clipboard-text="{{ "<iframe src=\"{$this->playerUrl}\" style=\"border:none;height:180px;width:100%\"></iframe>" }}" class="copy-snippet text-xs whitespace-nowrap overflow-auto bg-gradient-to-r from-black/50 to-black/40 p-4 rounded-lg text-white hover:cursor-pointer"><code class="bg-transparent"><span class="opacity-60"><span class="token punctuation">&lt;</span>iframe src="</span>{{
-                            $this->playerUrl
-                        }}<span class="opacity-60">" style="border:none;height:180px;width:100%"<span class="token punctuation">&gt;</span><span class="token punctuation">&lt;</span>/iframe<span class="token punctuation">&gt;</span></span></code></pre>
+                    <div
+                        x-data='{
+                            content: "<iframe src=\"{{ urldecode($this->playerUrl) }}\" style=\"border:none;height:180px;width:100%\"></iframe>",
+                            copied: false,
+                            copy() {
+                                window.copyToClipboard($data.content)
+                                this.copied = true
+                                setTimeout(() => this.copied = false, 1000)
+                            }
+                        }'
+                        x-on:click="copy"
+                        class="relative"
+                    >
+                        <x-button-copy :color="$color" class="absolute top-1.5 right-1.5" />
+                        <pre class="text-xs whitespace-nowrap overflow-auto bg-gradient-to-r from-black/50 to-black/40 p-4 rounded-lg text-white hover:cursor-pointer"><code class="bg-transparent"><span class="opacity-60"><span class="token punctuation">&lt;</span>iframe src="</span>{{ urldecode($this->playerUrl) }}<span class="opacity-60">" style="border:none;height:180px;width:100%"<span class="token punctuation">&gt;</span><span class="token punctuation">&lt;</span>/iframe<span class="token punctuation">&gt;</span></span></code></pre>
+                    </div>
                 </div>
 
                 <div class="space-y-2">
                     <x-jal::label for="episode" text="Or load episodes dynamically..." />
-                    <pre data-clipboard-text="{{ "{$this->playerDynamicUrl}?feed={$feedUrl}&episode={$currentEpisode->title}&color=" . Str::remove('#', $color) }}" class="copy-snippet text-xs whitespace-nowrap overflow-auto bg-gradient-to-r from-black/50 to-black/40 p-4 rounded-lg text-white hover:cursor-pointer">
-                        <code>
-                            <span class="opacity-60">{{ $this->playerDynamicUrl }}/</span>
-                            <span class="block pl-4"><span class="opacity-60">?feed=</span>{{ $feedUrl }}</span>
-                            <span class="block pl-4"><span class="opacity-60">&episode=</span>{{ $currentEpisode->title }}</span>
-                            <span class="block pl-4"><span class="opacity-60">&color=</span>{{ Str::remove('#', $color) }}</span>
-                        </code>
-                    </pre>
+                    <div
+                        x-data="{
+                            content: '{{ urlencode($this->playerDynamicUrl) }}',
+                            copied: false,
+                            copy() {
+                                window.copyToClipboard($data.content)
+                                this.copied = true
+                                setTimeout(() => this.copied = false, 1000)
+                            }
+                        }"
+                        x-on:click="copy"
+                        class="copy-snippet relative"
+                    >
+                        <x-button-copy :color="$color" class="absolute top-1.5 right-1.5" />
+                        <pre class="text-xs whitespace-nowrap overflow-auto bg-gradient-to-r from-black/50 to-black/40 p-4 rounded-lg text-white hover:cursor-pointer">
+                            <code>
+                                <span class="opacity-60">{{ config('app.player_url') }}/</span>
+                                <span class="block pl-4"><span class="opacity-60">?feed=</span>{{ $feedUrl }}</span>
+                                <span class="block pl-4"><span class="opacity-60">&color=</span>{{ Str::remove('#', $color) }}</span>
+                                @if($selectedEpisodeId !== 'latest')
+                                <span class="block pl-4"><span class="opacity-60">&number=</span>{{ urlencode($previewEpisode['number']) }}</span>
+                                @endif
+                            </code>
+                        </pre>
+                    </div>
                 </div>
             @endif
 

@@ -11,11 +11,13 @@ if (App::environment(['production', 'staging'])) {
     URL::forceScheme('https');
 }
 
+$playerUrl = explode(':', config('app.player_domain'))[0]; // Remove port number in dev
+
 // Player
-Route::domain(config('app.player_domain'))->group(function ($router) {
+Route::domain($playerUrl)->group(function () {
     Route::get('/', Podcasts\Episodes\Dynamic::class)->name('podcasts.episodes.dynamic');
+    Route::get('episodes/{episode}', Podcasts\Episodes\Show::class)->name('podcasts.episodes.show');
     Route::get('embed', Podcasts\Episodes\Embed::class)->name('podcasts.episodes.embed');
-    Route::get('episodes/{episode}/{color?}', Podcasts\Episodes\Show::class)->name('podcasts.episodes.show');
 });
 
 // Player Builder

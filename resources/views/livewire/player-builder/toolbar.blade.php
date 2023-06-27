@@ -17,15 +17,16 @@
     @if ($showFields)
 
       <div class="flex-1 mt-6 lg:mt-0 lg:ml-6">
-        <x-jal::select wire:model="currentEpisodeId" label="Episode:">
+        <x-jal::select wire:model="selectedEpisodeId" label="Episode:">
+            @if (count($episodes ?: []))
+              <option value="latest">Latest Episode</option>
+            @endif
             @forelse ($episodes ?: [] as $episode)
-                <option value="{{ $episode->id }}">{{ $episode->title }}</option>
+                <option value="{{ $episode['guid'] }}">{{ $episode['title'] }}</option>
             @empty
                 <option disabled selected value="null">None found</option>
             @endforelse
         </x-jal::select>
-          
-        {{-- <x-jal::choices id="episode" wire:model="currentEpisodeId" label="Episode:" :options="$episodes ? $episodes->all() : []" /> --}}
       </div>
 
       <div class="flex-1 mt-6 lg:mt-0 ml-6">

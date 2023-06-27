@@ -4,32 +4,23 @@ declare(strict_types=1);
 
 namespace App\Actions\Podcasts;
 
-use App\Models\Podcast;
+use App\Models\Episode;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 class Import
 {
     use AsAction;
 
-    public function handle(Podcast $podcast): Podcast|null
+    public function handle(string $podcastFeedUrl): Episode|null
     {
-        if (! $feed = LoadFeed::run($podcast->feed_url)) {
+        $episodes = LoadFeed::run($podcastFeedUrl);
+
+        if (!$episodes || $episodes?->count() === 0) {
             return null;
         }
 
-        $podcastData = $feed['podcast'];
-        $episodes = collect($feed['episodes']);
+        $episode = $episodes->sortBy('published_at')->first();
 
-        $podcast->update($podcastData);
-
-        if ($episodes->count() === 0) {
-            return $podcast;
-        }
-
-        $episodes->each(fn ($episode) => (
-            $podcast->episodes()->updateOrCreate(['guid' => $episode['guid']], $episode)
-        ));
-
-        return $podcast;
+        return Episode::updateOrCreate(['guid' => $episode['guid']], $episode);
     }
 }

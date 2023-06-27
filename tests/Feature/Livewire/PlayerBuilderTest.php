@@ -33,8 +33,8 @@ class PlayerBuilderTest extends TestCase
         $firstEpisode = PodcastEpisode::first();
 
         $component
-            ->assertSet('currentEpisodeId', $firstEpisode->id)
-            ->assertSet('currentEpisode', $firstEpisode)
+            ->assertSet('selectedEpisodeId', $firstEpisode->id)
+            ->assertSet('previewEpisode', $firstEpisode)
             ->assertSee('Episode:')
             ->assertSee('Player Color:')
             ->assertSeeHtml('id="iframe"');
@@ -42,8 +42,8 @@ class PlayerBuilderTest extends TestCase
         $component
             ->set('feedUrl', null)
             ->assertSet('episodes', null)
-            ->assertSet('currentEpisodeId', null)
-            ->assertSet('currentEpisode', null)
+            ->assertSet('selectedEpisodeId', null)
+            ->assertSet('previewEpisode', null)
             ->assertSet('color', PodcastEpisode::defaultColor)
             ->assertDontSee('Episode:')
             ->assertDontSee('Player Color:')
