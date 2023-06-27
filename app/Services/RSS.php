@@ -46,7 +46,6 @@ class RSS
             }
             $episodes->push($episode);
         }
-        
 
         if ($episodes->count() === 0) {
             return null;
@@ -75,7 +74,7 @@ class RSS
                 'season' => (string) $episode->season ?? null,
                 'episode_type' => (string) $episode->episodeType,
                 'published_at' => Carbon::parse((string) $episode->pubDate),
-            ])
+            ]),
         ];
     }
 }

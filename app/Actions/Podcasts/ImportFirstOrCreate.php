@@ -14,7 +14,7 @@ class ImportFirstOrCreate
     public function handle(string $feedUrl): Podcast|null
     {
         return null;
-        
+
         if (! $feed = LoadFeed::run($feedUrl)) {
             return null;
         }

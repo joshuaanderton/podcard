@@ -15,7 +15,7 @@ class Import
     {
         $episodes = LoadFeed::run($podcastFeedUrl);
 
-        if (!$episodes || $episodes?->count() === 0) {
+        if (! $episodes || $episodes?->count() === 0) {
             return null;
         }
 

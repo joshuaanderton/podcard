@@ -5,15 +5,18 @@ declare(strict_types=1);
 namespace App\Services;
 
 use Exception;
-use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
 
 class PodcastIndex
 {
     protected string $apiHost = 'https://api.podcastindex.org/api/1.0';
+
     protected string $apiKey;
+
     protected string $apiSecret;
+
     protected string $apiUserAgent;
 
     public function __construct()
@@ -21,7 +24,7 @@ class PodcastIndex
         $this->apiKey = env('PODCAST_INDEX_API_KEY');
         $this->apiSecret = env('PODCAST_INDEX_API_SECRET');
         $this->apiUserAgent = 'Podcard/0.0';
-        
+
         if (! $this->apiKey || ! $this->apiSecret) {
             throw new Exception('Missing API credentials');
         }
@@ -32,6 +35,7 @@ class PodcastIndex
         $feedUrl = trim($feedUrl);
         $feedUrl = Str::lower($feedUrl);
         $feedUrl = rtrim($feedUrl, '/');
+
         return $feedUrl;
     }
 
@@ -41,7 +45,7 @@ class PodcastIndex
         $hash = sha1(implode('', [$this->apiKey, $this->apiSecret, $apiHeaderTime]));
         $url = "{$this->apiHost}/{$endpoint}";
 
-        $response = Http::withHeaders([  
+        $response = Http::withHeaders([
             'User-Agent' => $this->apiUserAgent,
             'X-Auth-Key' => $this->apiKey,
             'X-Auth-Date' => $apiHeaderTime,

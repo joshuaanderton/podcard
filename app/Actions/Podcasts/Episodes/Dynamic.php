@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 namespace App\Actions\Podcasts\Episodes;
 
-use Illuminate\Support\Str;
-use App\Actions\Podcasts\Import;
 use App\Actions\Podcasts\LoadFeed;
-use App\Models\Episode;
 use App\Models\Podcast;
 use App\Models\PodcastEpisode;
 use Illuminate\Http\Request;
@@ -89,9 +86,9 @@ class Dynamic
             if ($podcast->episodes()->count() > 0) {
                 if ($title) {
                     $episode = $podcast->episodes()->where('title', 'LIKE', "%{$title}%")->first();
-                } else if ($guid) {
+                } elseif ($guid) {
                     $episode = $podcast->episodes()->where('guid', $guid)->first();
-                } else if ($number) {
+                } elseif ($number) {
                     $episode = $podcast->episodes()->where('number', $number)->first();
                 }
             }
@@ -101,7 +98,7 @@ class Dynamic
 
                 if ($title) {
                     $episodeData = $episodeDatas->where('title', 'LIKE', "%{$title}%")->first();
-                } else if ($guid) {
+                } elseif ($guid) {
                     $episodeData = $episodeDatas->where('guid', $guid)->first();
                 } else { //if ($number) {
                     $episodeData = $episodeDatas->where('number', $number)->first();
@@ -112,7 +109,7 @@ class Dynamic
                 }
             }
 
-        } else if ($search) {
+        } elseif ($search) {
 
             if ($podcast->episodes()->count() > 0) {
                 $episode = $podcast->episodes()->where('guid', $search)->first();
@@ -132,7 +129,7 @@ class Dynamic
                     $episode = $podcast->episodes()->firstOrCreate(['guid' => $episodeData['guid']], $episodeData);
                 }
             }
-            
+
         } else {
 
             // Get latest episode
@@ -142,7 +139,7 @@ class Dynamic
 
             if (! $episode) {
                 $episodeDatas = (new LoadFeed)->episodes($feedUrl);
-                
+
                 if ($episodeData = $episodeDatas->first()) {
                     $episode = $podcast->episodes()->firstOrCreate(['guid' => $episodeData['guid']], $episodeData);
                 }

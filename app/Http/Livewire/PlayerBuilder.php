@@ -117,7 +117,7 @@ class PlayerBuilder extends Component
 
     public function getPlayerUrlProperty(): string|null
     {
-        if ($this->previewEpisode && !is_array($this->previewEpisode)) {
+        if ($this->previewEpisode && ! is_array($this->previewEpisode)) {
             return $this->getPlayerDynamicUrlProperty();
         }
         if (! $feed = $this->feedUrl) {
@@ -149,7 +149,7 @@ class PlayerBuilder extends Component
         if ($this->selectedEpisodeId !== 'latest' && ! $number = $this->previewEpisode['number']) {
             return null;
         }
-        
+
         $color = Str::remove('#', $this->color);
         $endpoint = config('app.player_url');
 
