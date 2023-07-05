@@ -164,7 +164,8 @@ class PlayerBuilder extends Component
 
     public function resetBuilder(): void
     {
-        $this->episodes = $this->previewEpisode = $this->selectedEpisodeId = null;
+        $this->episodes = $this->previewEpisode = null;
+        $this->selectedEpisodeId = 'latest';
         $this->color = PodcastEpisode::defaultColor;
     }
 }

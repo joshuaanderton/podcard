@@ -38,7 +38,7 @@
                                 width="100%"></iframe>
 
                             <div class="absolute z-1 inset-0 flex items-center justify-center animate-pulse bg-black/10">
-                                <x-jal::icon-loading class="h-14 w-14 opacity-60" />
+                                <x-jal::icon-loading class="h-14 w-14 opacity-60 !fill-white" />
                             </div>
 
                         @else
@@ -47,7 +47,7 @@
                                 <div class="w-full max-w-xs space-y-6 text-center">
                                     <p>Paste your podcast's rss feed URL below to select an episode...</p>
                                     <span class="rounded-full w-12 h-12 mx-auto flex justify-center items-center bg-black opacity-20">
-                                        <x-jal::icon name="arrow-down" md />
+                                        <x-jal::icon name="arrow-down" md class="!fill-white" />
                                     </span>
                                 </div>
                             </div>
