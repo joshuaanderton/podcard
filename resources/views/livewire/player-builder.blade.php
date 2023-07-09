@@ -1,3 +1,7 @@
+@if (App::environment('local'))
+  <script type="text/javascript">window.$salestream=[];(function(){d=document;s=d.createElement("script");s.src="http://localhost:8000/999b467f-0455-489e-bfc5-8e696f8f46d7/embed.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+@endif
+
 <div class="min-h-screen flex flex-col relative bg-white dark:bg-black text-black dark:text-white">
 
     @if ($color)
