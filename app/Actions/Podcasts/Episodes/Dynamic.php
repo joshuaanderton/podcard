@@ -7,6 +7,7 @@ namespace App\Actions\Podcasts\Episodes;
 use App\Actions\Podcasts\LoadFeed;
 use App\Models\Podcast;
 use App\Models\PodcastEpisode;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class Dynamic
@@ -76,7 +77,7 @@ class Dynamic
         $request = request();
         $feedUrl = $request->feed;
         $podcast = $this->podcast;
-        $search = $request->search;
+        $search = $request->search ?: $request->episode;
         $title = $request->title;
         $guid = $request->guid;
         $number = $request->number;
@@ -123,7 +124,7 @@ class Dynamic
 
                 $episodeData = $episodeDatas->where('guid', $search)->first();
                 $episodeData = $episodeData ? $episodeData : $episodeDatas->where('number', $search)->first();
-                $episodeData = $episodeData ? $episodeData : $episodeDatas->where('title', 'LIKE', "%{$search}%")->first();
+                $episodeData = $episodeData ? $episodeData : $episodeDatas->filter(fn ($ep) => Str::contains($ep['title'], $search))->first();
 
                 if ($episodeData) {
                     $episode = $podcast->episodes()->firstOrCreate(['guid' => $episodeData['guid']], $episodeData);
