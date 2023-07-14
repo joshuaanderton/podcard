@@ -1,7 +1,3 @@
-@if (App::environment('local'))
-  <script type="text/javascript">window.$salestream=[];(function(){d=document;s=d.createElement("script");s.src="http://localhost:8000/999b467f-0455-489e-bfc5-8e696f8f46d7/embed.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
-@endif
-
 <div class="min-h-screen flex flex-col relative bg-white dark:bg-black text-black dark:text-white">
 
     @if ($color)
@@ -11,9 +7,9 @@
     <div class="overlay-noise"></div>
 
     @livewire('jal-notifications')
-    
+
     <div class="px-8 w-full max-w-3xl mx-auto">
-    
+
         <div class="relative z-10 container max-w-3xl mx-auto space-y-8">
 
             <div class="relative bg-white dark:bg-black p-8 lg:-mx-8 rounded-b-3xl">
@@ -21,7 +17,7 @@
                 @if ($color)
                     <div class="z-0 absolute inset-0 opacity-25 dark:opacity-60 rounded-b-3xl" style="background: {{ $color }}"></div>
                 @endif
-                
+
                 <div class="z-1 absolute inset-0 opacity-25 dark:opacity-60 bg-gradient-to-l from-white/30 dark:from-black/30 to-white/10 dark:to-black/10 mix-blend-overlay rounded-b-3xl"></div>
 
                 <div class="z-30 lg:fixed lg:top-[8.3rem] lg:-left-[5rem] max-w-xs pb-8 lg:pb-0">
@@ -55,17 +51,17 @@
                                     </span>
                                 </div>
                             </div>
-                            
+
                         @endif
 
                     </div>
-                    
+
                     @include('livewire.player-builder.toolbar')
 
                 </div>
-                
+
             </div>
-            
+
             @if ($feedUrl && $previewEpisode)
                 <div class="space-y-2 overflow-hidden mb-5">
                     <x-jal::label text="Copy the iframe snippet..." />
