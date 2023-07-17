@@ -2,7 +2,7 @@
     "private": true,
     "scripts": {
         "dev": "vite",
-        "dev:serve": "concurrently yarn:dev \"php artisan serve\" -k --kill-others-on-fail",
+        "start": "concurrently yarn:dev \"php artisan serve\" -k --kill-others-on-fail",
         "build": "vite build"
     },
     "dependencies": {
