@@ -34,7 +34,12 @@ class PodcastIndex
     {
         $feedUrl = trim($feedUrl);
         $feedUrl = Str::lower($feedUrl);
-        $feedUrl = rtrim($feedUrl, '/');
+        $parse = parse_url($feedUrl);
+        $feedUrl = implode('', [
+            "{$parse['scheme']}://",
+            $parse['host'],
+            $parse['path']
+        ]);
 
         return $feedUrl;
     }
@@ -53,7 +58,7 @@ class PodcastIndex
         ])->get($url, $params);
 
         if ($response->failed()) {
-            throw new Exception('Unable to make request');
+            throw new Exception($response['description'] ?? 'Unable to make request');
         }
 
         return $response->json();
@@ -67,16 +72,57 @@ class PodcastIndex
     public function episodesByFeedUrl(string $feedUrl): Collection
     {
         $feedUrl = $this->cleanFeedUrl($feedUrl);
-        $response = $this->request('episodes/byfeedurl', ['url' => $feedUrl]);
+        $items = null;
 
-        return collect($response['items'] ?? null);
+        try {
+
+            $response = $this->request('episodes/byfeedurl', ['url' => $feedUrl]);
+            $items = $response['items'];
+
+        } catch (Exception $e) {
+
+            if ($e->getMessage() === 'Feed url not found.') {
+                $rssFeed = RSS::parse($feedUrl);
+                if ($rssFeed['feed']['url'] ?? null) {
+                    $this->addPodcastByFeedUrl($feedUrl);
+                    $items = $rssFeed['items'];
+                }
+            }
+
+        }
+
+        return collect($items);
     }
 
     public function podcastByFeedUrl(string $feedUrl): array|null
     {
         $feedUrl = $this->cleanFeedUrl($feedUrl);
-        $response = $this->request('podcasts/byfeedurl', ['url' => $feedUrl]);
 
-        return $response['feed'] ?? null;
+        try {
+
+            $response = $this->request('podcasts/byfeedurl', ['url' => $feedUrl]);
+            return $response['feed'];
+
+        } catch (Exception $e) {
+
+            if ($e->getMessage() === 'Feed url not found.') {
+                $rssFeed = RSS::parse($feedUrl);
+                if ($rssFeed['feed']['url'] ?? null) {
+                    $this->addPodcastByFeedUrl($feedUrl);
+                    return $rssFeed['feed'];
+                }
+            }
+
+        }
+
+        return null;
+    }
+
+    public function addPodcastByFeedUrl(string $feedUrl): bool
+    {
+        $feedUrl = $this->cleanFeedUrl($feedUrl);
+        $response = $this->request('add/byfeedurl', ['url' => $feedUrl]);
+
+        return $response->success();
     }
 }

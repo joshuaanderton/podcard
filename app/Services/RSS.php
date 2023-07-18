@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace App\Services;
 
-use Carbon\Carbon;
 use Exception;
 use Illuminate\Support\Str;
 
 class RSS
 {
-    public function __construct(string $feedUrl, ?callable $handleResponse = null)
+    public static function parse(string $feedUrl, ?callable $handleResponse = null)
     {
         //$offset = null;
 
@@ -56,24 +55,24 @@ class RSS
         }
 
         return [
-            'podcast' => [
-                'feed_url' => (string) $feed->atom_link['href'] ?? $feedUrl,
+            'feed' => [
+                'url' => (string) $feed->atom_link['href'] ?? $feedUrl,
                 'title' => (string) $feed->title,
                 'description' => (string) $feed->description,
                 'link' => (string) $feed->link['href'] ?? (string) $feed->link ?? null,
-                'owner_name' => (string) $feed->owner->name,
-                'owner_email' => (string) ($feed->owner->email ?? $feed->podcast_locked['owner']) ?: null,
-                'image_url' => (string) ($feed->image['href'] ?? $feed->image->url ?? '') ?: null,
+                'ownerName' => (string) $feed->owner->name,
+                'ownerEmail' => (string) ($feed->owner->email ?? $feed->podcast_locked['owner']) ?: null,
+                'image' => (string) ($feed->image['href'] ?? $feed->image->url ?? '') ?: null,
             ],
-            'episodes' => $episodes->reverse()->map(fn ($episode) => [
+            'items' => $episodes->reverse()->map(fn ($episode) => [
                 'guid' => (string) $episode->guid,
-                'file_url' => (string) $episode->enclosure['url'],
+                'enclosureUrl' => (string) $episode->enclosure['url'],
                 'title' => (string) $episode->title,
-                'image_url' => ((string) $episode->image['href'] ?? $episode->image->url) ?: null,
-                'number' => (string) $episode->episode ?? null,
+                'image' => ((string) $episode->image['href'] ?? $episode->image->url) ?: null,
+                'episode' => (string) $episode->episode ?? null,
                 'season' => (string) $episode->season ?? null,
-                'episode_type' => (string) $episode->episodeType,
-                'published_at' => Carbon::parse((string) $episode->pubDate),
+                'episodeType' => (string) $episode->episodeType,
+                'datePublished' => (string) $episode->pubDate,
             ]),
         ];
     }
