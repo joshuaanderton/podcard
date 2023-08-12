@@ -1,5 +1,18 @@
 <?php
 
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+use Illuminate\Foundation\Application;
+use Inertia\Inertia;
 use App\Actions\Pages;
 use App\Actions\Podcasts;
 use App\Http\Livewire;
@@ -32,3 +45,13 @@ Route::domain('ramengames.'.config('app.host'))->group(fn () => Route::redirect(
 Route::get('dnt', fn () => view('pages.dnt'));
 
 Route::get('auth/freesound/callback', fn () => []);
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return Inertia::render('Dashboard');
+    })->name('dashboard');
+});

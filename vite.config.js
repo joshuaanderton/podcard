@@ -1,18 +1,23 @@
 import { defineConfig } from 'vite'
 import laravel from 'laravel-vite-plugin'
-import vue2 from '@vitejs/plugin-vue2'
+import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
-	plugins: [
-		laravel({
+  plugins: [
+    laravel({
       input: [
-        './resources/js/app.js',
-        './resources/js/player.js'
+        'resources/js/app.js',
+        'resources/js/player.js'
       ],
-      refresh: true
+      refresh: true,
     }),
-
-    // For Player
-    vue2(),
-	]
+    vue({
+      template: {
+        transformAssetUrls: {
+          base: null,
+          includeAbsolute: false,
+        },
+      },
+    }),
+  ],
 })
