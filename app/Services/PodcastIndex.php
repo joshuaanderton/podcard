@@ -38,7 +38,7 @@ class PodcastIndex
         $feedUrl = implode('', [
             "{$parse['scheme']}://",
             $parse['host'],
-            $parse['path']
+            $parse['path'],
         ]);
 
         return $feedUrl;
@@ -94,13 +94,14 @@ class PodcastIndex
         return collect($items);
     }
 
-    public function podcastByFeedUrl(string $feedUrl): array|null
+    public function podcastByFeedUrl(string $feedUrl): ?array
     {
         $feedUrl = $this->cleanFeedUrl($feedUrl);
 
         try {
 
             $response = $this->request('podcasts/byfeedurl', ['url' => $feedUrl]);
+
             return $response['feed'];
 
         } catch (Exception $e) {
@@ -109,6 +110,7 @@ class PodcastIndex
                 $rssFeed = RSS::parse($feedUrl);
                 if ($rssFeed['feed']['url'] ?? null) {
                     $this->addPodcastByFeedUrl($feedUrl);
+
                     return $rssFeed['feed'];
                 }
             }

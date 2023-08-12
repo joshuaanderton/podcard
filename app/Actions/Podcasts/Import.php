@@ -11,7 +11,7 @@ class Import
 {
     use AsAction;
 
-    public function handle(string $podcastFeedUrl): Episode|null
+    public function handle(string $podcastFeedUrl): ?Episode
     {
         $episodes = LoadFeed::run($podcastFeedUrl);
 

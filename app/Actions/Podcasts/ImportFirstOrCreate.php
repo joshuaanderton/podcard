@@ -11,7 +11,7 @@ class ImportFirstOrCreate
 {
     use AsAction;
 
-    public function handle(string $feedUrl): Podcast|null
+    public function handle(string $feedUrl): ?Podcast
     {
         return null;
 

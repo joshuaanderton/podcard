@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Http;
 
 class Freesound
 {
-    public static function search(?string $term = null): mixed
+    public static function search(string $term = null): mixed
     {
         return Http::get(
             'https://freesound.org/apiv2/search/text',

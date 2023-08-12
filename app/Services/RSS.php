@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 
 class RSS
 {
-    public static function parse(string $feedUrl, ?callable $handleResponse = null)
+    public static function parse(string $feedUrl, callable $handleResponse = null)
     {
         //$offset = null;
 

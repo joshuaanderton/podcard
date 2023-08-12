@@ -34,7 +34,7 @@ class PodcastEpisode extends Model
         return $this->belongsTo(Podcast::class);
     }
 
-    public function imageUrl(): string|null
+    public function imageUrl(): ?string
     {
         if (! $imageUrl = $this->image_url) {
             $firstEpisodeWithImage = $this->podcast()->whereNotNull('image_url')->first();
@@ -78,7 +78,7 @@ class PodcastEpisode extends Model
         return $lightness >= .8;
     }
 
-    public static function isColorHex(string|null $color): bool
+    public static function isColorHex(?string $color): bool
     {
         return $color !== null && Str::length(Str::remove('#', $color)) === 6;
     }

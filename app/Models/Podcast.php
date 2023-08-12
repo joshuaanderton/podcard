@@ -51,7 +51,7 @@ class Podcast extends Model
             );
     }
 
-    public function import(): int|null
+    public function import(): ?int
     {
         return Import::run($this);
     }
