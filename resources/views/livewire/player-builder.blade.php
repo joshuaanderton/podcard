@@ -122,4 +122,9 @@
         @include('livewire.player-builder.made-by')
     </footer>
 
+
+    @if ($salestreamTeam = env('SALESTREAM_TEAM_ID'))
+      <script type="text/javascript">window.$salestream=[];(function(){d=document;s=d.createElement("script");s.src="https://salestream.app/{{ $salestreamTeam }}/embed.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+    @endif
+
 </div>

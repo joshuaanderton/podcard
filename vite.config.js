@@ -8,8 +8,7 @@ export default defineConfig({
       input: [
         'resources/js/app.js',
         'resources/js/player.js'
-      ],
-      refresh: true,
+      ]
     }),
     vue({
       template: {
