@@ -34,7 +34,7 @@ class LoadFeed
 
         return [
             'feed_url' => $podcast['url'],
-            'guid' => $podcast['guid'],
+            'guid' => $podcast['podcastGuid'] ?? null,
             'title' => $podcast['title'],
             'description' => $podcast['description'],
             'link' => $podcast['link'],
