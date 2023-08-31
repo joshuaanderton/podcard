@@ -7,8 +7,8 @@ namespace App\Actions\Podcasts\Episodes;
 use App\Actions\Podcasts\LoadFeed;
 use App\Models\Podcast;
 use App\Models\PodcastEpisode;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class Dynamic
 {
@@ -54,7 +54,7 @@ class Dynamic
         return view('player', $episode->playerData());
     }
 
-    protected function podcastLookup(): Podcast|null
+    protected function podcastLookup(): ?Podcast
     {
         $feedUrl = request()->feed;
 
@@ -71,7 +71,7 @@ class Dynamic
         return $this->podcast = $podcast;
     }
 
-    protected function episodeLookup(): PodcastEpisode|null
+    protected function episodeLookup(): ?PodcastEpisode
     {
         $episode = null;
         $request = request();

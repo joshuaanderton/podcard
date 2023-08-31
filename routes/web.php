@@ -11,14 +11,14 @@
 |
 */
 
-use Illuminate\Foundation\Application;
-use Inertia\Inertia;
 use App\Actions\Pages;
 use App\Actions\Podcasts;
 use App\Http\Livewire;
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\URL;
+use Inertia\Inertia;
 
 if (App::environment(['production', 'staging'])) {
     URL::forceScheme('https');

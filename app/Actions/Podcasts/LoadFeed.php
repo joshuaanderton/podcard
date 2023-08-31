@@ -13,7 +13,7 @@ class LoadFeed
 {
     use AsAction;
 
-    public function handle(string $feedUrl): array|null
+    public function handle(string $feedUrl): ?array
     {
         if (! $podcast = $this->podcast($feedUrl)) {
             return null;
@@ -24,7 +24,7 @@ class LoadFeed
         return compact('podcast', 'episodes');
     }
 
-    public function podcast(string $feedUrl): array|null
+    public function podcast(string $feedUrl): ?array
     {
         $podcast = (new PodcastIndex)->podcastByFeedUrl($feedUrl);
 

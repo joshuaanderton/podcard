@@ -13,15 +13,15 @@ use Livewire\Component;
 
 class PlayerBuilder extends Component
 {
-    public Collection|null $episodes = null;
+    public ?Collection $episodes = null;
 
     public array|PodcastEpisode|null $previewEpisode = null;
 
-    public string|null $feedUrl = null;
+    public ?string $feedUrl = null;
 
     public string $selectedEpisodeId = 'latest';
 
-    public string|null $color = null;
+    public ?string $color = null;
 
     protected $rules = [
         'feedUrl' => 'required|url|max:255',
@@ -115,7 +115,7 @@ class PlayerBuilder extends Component
         $this->loadFeed();
     }
 
-    public function getPlayerUrlProperty(): string|null
+    public function getPlayerUrlProperty(): ?string
     {
         if ($this->previewEpisode && ! is_array($this->previewEpisode)) {
             return $this->getPlayerDynamicUrlProperty();
@@ -140,7 +140,7 @@ class PlayerBuilder extends Component
         return "{$url}&guid={$guid}";
     }
 
-    public function getPlayerDynamicUrlProperty(): string|null
+    public function getPlayerDynamicUrlProperty(): ?string
     {
         if (! $feed = $this->feedUrl) {
             return null;
