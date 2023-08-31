@@ -1,8 +1,8 @@
 import './bootstrap'
 
-import Vue from 'vue'
-import 'clipboard'
+import Vue from 'vue/dist/vue.esm'
 import playerjs from 'player.js'
+import 'clipboard'
 
 import '../css/player.css'
 
