@@ -64,6 +64,18 @@ class PodcastIndex
         return $response->json();
     }
 
+    public function categories(): array|null
+    {
+        $response = $this->request('categories/list');
+
+        return $response['feeds'] ?? null;
+    }
+
+    public function podcastByFeedId(string $id)
+    {
+        return $this->request('podcasts/byfeedid', ['id' => $id]);
+    }
+
     public function trendingPodcasts()
     {
         $response = $this->request('podcasts/trending');

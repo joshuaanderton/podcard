@@ -15,6 +15,20 @@ class PodcastsController extends Controller
         return response()->json($podcast->toArray());
     }
 
+    public function categories(): JsonResponse
+    {
+        $categories = (new PodcastIndex)->categories();
+
+        return response()->json(['categories' => $categories]);
+    }
+
+    public function showByFeedId(int $id): JsonResponse
+    {
+        $podcastData = (new PodcastIndex)->podcastByFeedId($id);
+
+        return response()->json($podcastData);
+    }
+
     public function search(Request $request): JsonResponse
     {
         $request->validate(['q' => 'required|string']);

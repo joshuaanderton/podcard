@@ -24,5 +24,5 @@ Route::middleware(['auth:sanctum'])->group(function () {
 Route::prefix('v1')->group(function () {
     Route::get('podcasts/search', [V1\PodcastsController::class, 'search']);
     Route::get('podcasts/trending', [V1\PodcastsController::class, 'trending']);
-    Route::get('podcasts/{podcast}', [V1\PodcastsController::class, 'show']);
+    Route::get('podcasts/byfeedid/{id}', [V1\PodcastsController::class, 'showByFeedId']);
 });
