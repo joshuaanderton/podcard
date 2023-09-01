@@ -9,7 +9,7 @@ export const getSubscribedPodcasts = async (): Promise<Podcast[]|null> => {
   return await prefs.get('podcasts')
 }
 
-export const getTrendingPodcasts = async (term: string ): Promise<{results: Podcast[], count: number}|null> => {
+export const getTrendingPodcasts = async (term: string ): Promise<{feeds: Podcast[], count: number}|null> => {
   return await api.searchPodcasts(term)
 }
 

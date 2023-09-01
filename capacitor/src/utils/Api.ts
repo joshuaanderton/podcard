@@ -12,8 +12,7 @@ export default class Api {
   }
 
   constructor() {
-    console.log('instantiate')
-    this.endpoint = `${import.meta.env.VITE_LARAVEL_URL}/api/v1/`
+    this.endpoint = `${import.meta.env.VITE_LARAVEL_URL || 'https://podcard.co'}/api/v1/`
 
     CapacitorHttp.get({ url: 'sanctum/csrf-cookie' }).then(() => {
       this.headers['X-XSRF-TOKEN'] = this.csrfToken
@@ -35,7 +34,7 @@ export default class Api {
     return csrfToken = xsrfToken
   }
 
-  req(endpoint: string, data?: object, method?: "get"|"post"): Promise<HttpResponse> {
+  req(endpoint: string, data?: object, method?: "get"|"post"): Promise<any> {
 
     const options: HttpOptions = {
       url: `${this.endpoint}${endpoint}`,
@@ -43,20 +42,30 @@ export default class Api {
       headers: this.headers
     }
 
-    console.log(options)
+    let request
 
     if (method === 'post') {
-        return CapacitorHttp.post(options).then(resp => resp)
+      request = CapacitorHttp.post(options)
+    } else {
+      request = CapacitorHttp.get(options)
     }
 
-    return CapacitorHttp.get(options).then(resp => resp)
+    return (
+      request
+        .then(resp => resp.data)
+        .catch(err => {
+          console.log(err)
+          return null
+        })
+        .then(value => value)
+    )
   }
 
-  async searchPodcasts(term: string): Promise<{results: Podcast[], count: number}> {
-    const response = await this.req('podcasts/search', {q: term})
-    if (!response.data.results) {
-      throw new Error('Unable to search for podcasts')
-    }
-    return response.data
+  async searchPodcasts(term: string): Promise<{feeds: Podcast[], count: number}|null> {
+    return await this.req('podcasts/search', {q: term})
+  }
+
+  async trendingPodcasts(): Promise<{feeds: Podcast[], count: number}|null> {
+    return await this.req('podcasts/trending')
   }
 }
