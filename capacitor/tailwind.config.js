@@ -1,17 +1,14 @@
-const defaultTheme = require('tailwindcss/defaultTheme'),
-      konstaConfig = require('konsta/config')
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 /** @type {import('tailwindcss').Config} */
-export default konstaConfig({
+export default {
+    darkMode: 'class',
     content: [
         './index.html',
         './src/*/**.tsx'
     ],
     theme: {
         extend: {
-            fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-            },
             colors: {
                 primary: {
                     DEFAULT: '#f1641e',
@@ -40,7 +37,6 @@ export default konstaConfig({
                     '800': '#6b5a57',
                     '900': '#5a4c49',
                     '950': '#352d2c',
-
                 },
             }
         },
@@ -50,4 +46,4 @@ export default konstaConfig({
         // require('@tailwindcss/forms'),
         // require('@tailwindcss/typography'),
     ],
-})
+}

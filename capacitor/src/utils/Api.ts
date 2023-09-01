@@ -68,4 +68,9 @@ export default class Api {
   async trendingPodcasts(): Promise<{feeds: Podcast[], count: number}|null> {
     return await this.req('podcasts/trending')
   }
+
+  async podcastByFeedId(id: number): Promise<Podcast|null> {
+    return await this.req(`podcasts/byfeedid/${id}`)
+  }
+
 }

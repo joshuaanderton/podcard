@@ -31,7 +31,6 @@
     "@vitejs/plugin-react": "^3.1.0",
     "autoprefixer": "^10.4.15",
     "history": "^5.3.0",
-    "konsta": "^3.0.1",
     "postcss": "^8.4.29",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

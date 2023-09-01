@@ -1,41 +1,47 @@
-import { useState, useEffect } from "react"
-import { IonContent, IonHeader, IonPage, IonImg, IonToolbar, IonTitle } from "@ionic/react"
-import { Block } from 'konsta/react'
+import React, { useState, useEffect } from "react"
+import { IonContent, IonHeader, IonToolbar, IonTitle, IonSearchbar, IonPage } from "@ionic/react"
 import { Podcast } from "../types"
 import Api from "../utils/Api"
+import PodcastCard from "../components/PodcastCard"
+import Footer from "../components/Footer"
 
-export default () => {
+const Explore: React.FC = () => {
 
   const [podcasts, setPodcasts] = useState<Podcast[]|null>(null)
 
   useEffect(() => {
 
-    console.log('test')
+    const api = new Api
 
-    ;(new Api).trendingPodcasts().then(resp => setPodcasts(resp ? resp.feeds : null))
+    api.trendingPodcasts().then(resp => (
+      setPodcasts(resp?.feeds || null)
+    ))
 
   }, [])
 
   return (
     <IonPage>
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Trending</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <Block strong>
-          {podcasts?.map(podcast => (
-            <Block className="flex items-center space-x-3">
-              <IonImg src={podcast.artwork} className="shrink-0 w-10" />
-              <span className="font-bold">{podcast.title}</span>
-            </Block>
-          ))}
-          <p>
-            Here is your Ionic & Konsta UI app. Let's see what we have here.
-          </p>
-        </Block>
+      <IonHeader>
+        <IonToolbar>
+          <IonTitle>{'Explore'}</IonTitle>
+        </IonToolbar>
+        <IonSearchbar />
+      </IonHeader>
+      <IonContent>
+        <IonHeader className="px-3 pb-3">{'Trending'}</IonHeader>
+        <div className="overflow-x-scroll px-1.5 pb-3">
+          <div className="flex flex-nowrap">
+            {podcasts?.map(podcast => (
+              <PodcastCard podcast={podcast} className="shrink-0 w-[36vw]" />
+            ))}
+          </div>
+        </div>
       </IonContent>
+
+      <Footer />
+
     </IonPage>
   )
 }
+
+export default Explore

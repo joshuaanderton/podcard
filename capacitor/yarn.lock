@@ -1231,11 +1231,6 @@ kleur@^4.1.4:
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-4.1.5.tgz#95106101795f7050c6c650f350c683febddb1780"
   integrity sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==
 
-konsta@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/konsta/-/konsta-3.0.1.tgz#c105e9382be70be80e5de3a6fa25c5cc7a9b84d0"
-  integrity sha512-ySSsRUl6Ll1ljZ75UzAoJXk7hSpoDP7x62LIs84Al5N0P8SzJLYwJ958UmsLggDsAQ+WYHZ22PYLvTzOndsFrg==
-
 lilconfig@^2.0.5, lilconfig@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/lilconfig/-/lilconfig-2.1.0.tgz#78e23ac89ebb7e1bfbf25b18043de756548e7f52"
