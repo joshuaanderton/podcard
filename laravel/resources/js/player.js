@@ -1,43 +1,13 @@
 import './bootstrap'
-
 import Vue from 'vue/dist/vue.esm'
 import playerjs from 'player.js'
 import 'clipboard'
 
 import '../css/player.css'
 
-const convertTimeHHMMSS = (val) => {
-  let hhmmss = new Date(val * 1000).toISOString().substr(11, 8)
-  return hhmmss.indexOf("00:") === 0 ? hhmmss.substr(3) : hhmmss
-}
-
 new Vue({
   el: "#player",
   props: {
-    file: {
-      type: String,
-      default: null
-    },
-    cover: {
-      type: String,
-      default: null
-    },
-    title: {
-      type: String,
-      default: null
-    },
-    podcast: {
-      type: String,
-      default: null
-    },
-    season: {
-      type: Number,
-      default: null
-    },
-    episode: {
-      type: String,
-      default: null
-    },
     autoPlay: {
       type: Boolean,
       default: false
@@ -55,27 +25,51 @@ new Vue({
       default: 100
     }
   },
-  data: () => ({
-    audio: undefined,
-    currentSeconds: 0,
-    durationSeconds: 0,
-    cover_url: '',
-    innerLoop: false,
-    loaded: false,
-    playing: false,
-    previousVolume: 35,
-    showVolume: false,
-    volume: 100
-  }),
+  data: () => {
+
+    const playerEl = document.querySelector('#player'),
+          playerData = eval(playerEl.dataset.episode)
+
+    playerEl.removeAttribute('data-episode')
+
+    return {
+      podcast: playerData.podcast,
+      title: playerData.title,
+      episode: playerData.episode,
+      season: playerData.season,
+      cover: playerData.cover_url,
+      file: playerData.file_url,
+      audio: undefined,
+      currentSeconds: 0,
+      durationSeconds: 0,
+      cover_url: '',
+      innerLoop: false,
+      loaded: false,
+      playing: false,
+      previousVolume: 35,
+      showVolume: false,
+      volume: 100
+    }
+  },
   computed: {
     currentTime() {
-      return convertTimeHHMMSS(this.currentSeconds)
+      return this.convertTimeHHMMSS(this.currentSeconds)
     },
     durationTime() {
-      return convertTimeHHMMSS(this.durationSeconds)
+      return this.convertTimeHHMMSS(this.durationSeconds)
     },
     percentComplete() {
-      return parseInt(this.currentSeconds / this.durationSeconds * 100)
+      if (!this.durationSeconds) {
+        return 0
+      }
+
+      const percent = (this.currentSeconds / this.durationSeconds) * 100
+
+      if (isNaN(percent)) {
+        return 0
+      }
+
+      return percent
     },
   },
   watch: {
@@ -97,10 +91,14 @@ new Vue({
     }
   },
   methods: {
+    convertTimeHHMMSS: (val) => {
+      let hhmmss = new Date(val * 1000).toISOString().substr(11, 8)
+      return hhmmss.indexOf("00:") === 0 ? hhmmss.substr(3) : hhmmss
+    },
     load() {
       if (this.audio.readyState >= 2) {
         this.loaded = true
-        this.durationSeconds = parseInt(this.audio.duration)
+        this.durationSeconds = this.audio.duration
         return this.playing = this.autoPlay
       }
 
@@ -153,7 +151,7 @@ new Vue({
       this.audio.currentTime = 0
     },
     update(e) {
-      this.currentSeconds = parseInt(this.audio.currentTime)
+      this.currentSeconds = this.audio.currentTime
     }
   },
   created() {
@@ -161,14 +159,7 @@ new Vue({
   },
   mounted() {
 
-    const data = PlayerData,
-          receiver = new playerjs.Receiver()
-
-    this.podcast = data.podcast
-    this.title   = data.title
-    this.episode = data.episode
-    this.cover   = data.cover_url
-    this.file    = data.file_url
+    const receiver = new playerjs.Receiver()
 
     this.audio = this.$el.querySelectorAll('audio')[0]
     this.audio.addEventListener('timeupdate', this.update)

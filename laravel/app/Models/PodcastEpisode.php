@@ -85,15 +85,25 @@ class PodcastEpisode extends Model
 
     public function playerData(): array
     {
-        $color = request()->color;
+        $request = request();
+
+        $color = $request->color;
 
         if (! static::isColorHex($color)) {
             $color = PodcastEpisode::defaultColor;
         }
 
-        $color = PodcastEpisode::hexToRgb($color);
-
         $border = ((int) request()->border) !== 0;
+
+        $font = null;
+
+        if ($fontshare = $request->fontshare) {
+            $font = [
+                'type' => 'fontshare',
+                'name' => Str::replace('-', ' ', Str::title($fontshare)),
+                'import' => "https://api.fontshare.com/v2/css?f[]={$fontshare}@500,700&display=swap"
+            ];
+        }
 
         return [
             'file_url' => $this->file_url,
@@ -103,9 +113,13 @@ class PodcastEpisode extends Model
             'episode' => $this->number,
             'season' => $this->season,
             'border' => $border,
-            'color' => $color,
             'is_light' => PodcastEpisode::isColorLight($color),
-            'playerData' => [
+            'font' => $font,
+            'themeStyles' => [
+                "--player-color: #{$color}",
+                ($font['name'] ?? null) ? "--player-font: '{$font['name']}'" : '',
+            ],
+            'data' => [
                 'podcast' => $this->podcast->title ?: '',
                 'title' => $this->title,
                 'episode' => $this->number,

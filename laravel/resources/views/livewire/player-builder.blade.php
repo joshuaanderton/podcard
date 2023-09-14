@@ -87,7 +87,7 @@
                     <x-jal::label for="episode" text="Or load episodes dynamically..." />
                     <div
                         x-data="{
-                            content: '{{ urlencode($this->playerDynamicUrl) }}',
+                            content: '{{ urldecode($this->playerDynamicUrl) }}',
                             copied: false,
                             copy() {
                                 window.copyToClipboard($data.content)

@@ -1,4 +1,4 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -13,10 +13,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['ModernEra', '-apple-system', 'BlinkMacSystemFont', '"Helvetica Neue"', '"Calibri Light"', 'Roboto', 'sans-serif'],
-        'mono': ['ModernEraMono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
-      },
-    },
+        sans: ['-apple-system', ...defaultTheme.fontFamily.sans.filter(font => font !== '-apple-system')],
+      }
+    }
   },
   plugins: [
     require('@tailwindcss/forms'),

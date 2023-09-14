@@ -1,219 +1,139 @@
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Calibri Light', Roboto, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: none !important;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
+@config '../../tailwind.player.config.js'
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
-  position: relative;
+  /**/
 }
 
-*, *:before, *:after {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+/* Colors */
+
+.player-title,
+.player,
+.player-time-current,
+.player-time-total,
+.player-speed span,
+.player-mute svg {
+  @apply text-black dark:text-white;
 }
 
-a,
-svg {
-  color: #ccc;
+.player-cover > a:before {
+  @apply bg-[var(--player-color)];
 }
 
-h2 {
-  margin-top: 0;
-  margin-bottom: 15px;
-  padding-top: 0;
-  color: #333333;
-}
-
-.player {
-  line-height: 1.5625;
-  width: 100%;
-  height: 100vh;
-  color: #333333;
-}
-
-.player-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  overflow: hidden;
-  height: 100%;
-  border-radius: 8px;
-  background-color: #fff;
-  opacity: 1 !important;
-  transition: ease opacity 1s;
-}
-
-.player-cover {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  min-width: 180px;
-  height: 100%;
-  background-color: #e0e0e0;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.player-cover > a {
-  font-size: 40px;
-  position: relative;
-  z-index: 20;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 60px;
-  height: 60px;
-  margin: 0;
-  padding: 0;
-  color: #fff;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.7);
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.player-cover > a svg {
-  width: 40px;
-  height: 40px;
-  color: #fff;
-}
-
-.player-controls {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-}
-
-.player-options {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: 15px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-
-.player-options:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-.player-options > div {
-  width: 100%;
-}
-
-.player-heading h2,
-.player-heading .player-meta {
-  display: block;
-  overflow: hidden;
-  width: calc(100vw - 180px - 50px);
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.player-heading h2 {
-  font-size: 1.2rem;
-  margin: 0;
-  padding: 0;
-}
-
-.player-heading .player-meta {
-  font-size: .9rem;
+.player-speed span {
+  @apply border-black dark:border-white;
 }
 
 .player-progress {
-  position: relative;
-  height: 15px;
-  cursor: pointer;
-  border-radius: 30px;
-  background-color: #e0e0e0;
-  margin-top: auto;
+  @apply bg-black dark:bg-white;
+}
+
+.player-cover,
+.player-wrapper {
+  @apply bg-[var(--player-color)];
 }
 
 .player-progress .player-seeker {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  min-width: 15px;
-  border-radius: 30px;
-  background-color: #404040;
+  @apply bg-[var(--player-color)] opacity-40;
+}
+
+html:not(.dark).player-options:before {
+  background-image: linear-gradient(75deg, rgba(255,255,255,.25) 0%, rgba(255,255,255,0) 100%);
+}
+
+html.dark .player-options:before {
+  background-image: linear-gradient(75deg, var(--player-color) 0%, rgba(0,0,0,0) 100%);
+}
+
+/* Main Styles */
+
+.player {
+  @apply h-full w-full;
+}
+
+.player-wrapper {
+  @apply flex overflow-hidden h-full rounded-lg opacity-100 transition-opacity;
+}
+
+.player-cover {
+  @apply relative flex items-center justify-center w-[180px] h-full z-10;
+  > a {
+    @apply text-4xl relative z-20 flex w-[60px] h-[60px] items-center justify-center rounded-full;
+    &:before {
+      @apply content-[''] absolute inset-0 rounded-full opacity-70;
+    }
+    svg {
+      @apply relative w-10 h-10;
+    }
+  }
+}
+
+.player-controls {
+  @apply flex h-full;
+}
+
+.player-options {
+  @apply flex-1 flex flex-col p-4;
+  &:before {
+    @apply content-[''] absolute inset-0;
+  }
+  > div {
+    @apply w-full;
+  }
+}
+
+header {
+  @apply z-10;
+  .player-title,
+  .player-meta {
+    @apply block overflow-hidden w-[calc(100vw-180px-50px)] whitespace-nowrap truncate;
+  }
+  .player-title {
+    @apply text-xl;
+  }
+  .player-meta {
+    @apply text-sm;
+  }
+}
+
+.player-progress {
+  @apply h-4 relative cursor-pointer rounded-full mt-auto;
+  .player-seeker {
+    @apply w-full min-w-[16px] absolute inset-0 rounded-full opacity-40;
+  }
 }
 
 .player-mute {
   display: block;
   height: 16px;
   width: auto;
+  svg {
+    @apply h-full w-auto;
+  }
 }
 
 .player-speed {
-  display: inline-flex;
-}
-
-.player-speed span {
-  font-size: 75%;
-  display: inline-block;
-  min-width: 40px;
-  line-height: 1.4;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none !important;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 3px;
+  @apply inline-flex;
+  span {
+    @apply inline-block min-w-[40px] cursor-pointer text-center tracking-wide border rounded-[3px] text-[75%];
+  }
 }
 
 .player-buttons {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-top: 10px;
-  margin-bottom: auto;
-}
-
-.player-buttons > * + * {
-  margin-left: 10px;
+  @apply flex items-center mt-2.5 mb-auto z-10 gap-x-2.5;
+  button {
+    @apply inline-flex;
+  }
 }
 
 .player-time {
-  font-size: 13px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-left: auto;
+  @apply flex text-xs ml-auto;
 }
 
 .player-time > * + * {
-  margin-left: 2px;
+  @apply ml-0.5;
 }
 
 .player-time-total,

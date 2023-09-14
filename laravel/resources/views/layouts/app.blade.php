@@ -4,7 +4,7 @@
     @include('head')
     @livewireStyles
   </head>
-  <body class="text-black dark:text-white">
+  <body class="font-sans antialiased h-full text-black dark:text-white">
     @yield('content')
     {{ $slot }}
     @livewireScripts

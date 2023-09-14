@@ -1,28 +1,53 @@
 {
-    "private": true,
-    "scripts": {
-        "dev": "vite",
-        "start": "concurrently yarn:dev \"php artisan serve\" -k --kill-others-on-fail",
-        "build": "vite build"
-    },
-    "dependencies": {
-        "@inertiajs/react": "^1.0.0",
-        "@tailwindcss/forms": "^0.5.3",
-        "@tailwindcss/typography": "^0.5.9",
-        "@vitejs/plugin-vue2": "^1.1.2",
-        "alpinejs": "^3.10.5",
-        "autoprefixer": "^10.4.2",
-        "axios": "^0.27",
-        "choices.js": "^10.2.0",
-        "clipboard": "^2.0.1",
-        "concurrently": "^8.2.0",
-        "laravel-vite-plugin": "^0.5.0",
-        "lodash": "^4.17.19",
-        "player.js": "^0.1.0",
-        "postcss": "^8.4.6",
-        "tailwindcss": "^3.0.23",
-        "typescript": "^4.9.3",
-        "vite": "^4.0.4",
-        "vue": "^2.7.0"
-    }
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "dev:serve": "concurrently yarn:dev \"php artisan serve\" -k --kill-others-on-fail",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.17",
+    "@inertiajs/core": "^1.0.11",
+    "@inertiajs/react": "^1.0.11",
+    "@inertiajs/server": "^0.1.0",
+    "@vitejs/plugin-vue2": "^1.1.2",
+    "alpinejs": "^3.10.5",
+    "axios": "^0.26.1",
+    "choices.js": "^10.2.0",
+    "classnames": "^2.3.2",
+    "clipboard": "^2.0.1",
+    "concurrently": "^8.2.0",
+    "lodash": "^4.17.21",
+    "player.js": "^0.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "ziggy-js": "^1.6.2"
+  },
+  "devDependencies": {
+    "@prettier/plugin-php": "^0.18.9",
+    "@tailwindcss/forms": "^0.5.6",
+    "@tailwindcss/typography": "^0.5.10",
+    "@types/lodash": "^4.14.198",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "@types/ziggy-js": "^1.3.3",
+    "@vitejs/plugin-react": "^2.2.0",
+    "autoprefixer": "^10.4.15",
+    "laravel-vite-plugin": "^0.7.8",
+    "postcss": "^8.4.29",
+    "prettier": "^2.8.8",
+    "tailwindcss": "^3.3.3",
+    "typescript": "^4.9.5",
+    "vite": "^3.2.7",
+    "vue": "^2.7.0"
+  },
+  "prettier": {
+    "semi": true,
+    "singleQuote": true,
+    "useTabs": false,
+    "tabWidth": 2,
+    "trailingComma": "all",
+    "printWidth": 80,
+    "arrowParens": "avoid"
+  }
 }
