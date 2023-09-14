@@ -115,10 +115,7 @@ class PodcastEpisode extends Model
             'border' => $border,
             'is_light' => PodcastEpisode::isColorLight($color),
             'font' => $font,
-            'themeStyles' => [
-                "--player-color: #{$color}",
-                ($font['name'] ?? null) ? "--player-font: '{$font['name']}'" : '',
-            ],
+            'themeStyles' => ["--player-color: #{$color}"],
             'data' => [
                 'podcast' => $this->podcast->title ?: '',
                 'title' => $this->title,
