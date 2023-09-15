@@ -15,6 +15,7 @@ use Illuminate\Foundation\Application;
 use Inertia\Inertia;
 use App\Actions\Pages;
 use App\Actions\Podcasts;
+use App\Http\Controllers\DoNotTrackPolicyController;
 use App\Http\Livewire;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
@@ -35,23 +36,19 @@ Route::domain($playerUrl)->group(function () {
 
 // Player Builder
 Route::get('/', Livewire\PlayerBuilder::class)->name('player.builder');
-Route::get('episodes/{episode}/{color?}', Podcasts\Episodes\Show::class)->name('podcasts.episodes.show');
 
 // Ramen Games
 Route::get('ramengames', Pages\RamenGames::class);
 Route::domain('ramengames.'.config('app.host'))->group(fn () => Route::redirect('/', config('app.url').'/ramengames')); // Redirect old subdomain
 
-// Terms & Policies
-Route::get('dnt', fn () => view('pages.dnt'));
-
-Route::get('auth/freesound/callback', fn () => []);
+// Pages (Inertia)
+Route::get('dnt', [DoNotTrackPolicyController::class, 'show'])->name('dnt');
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
+    Route::inertia('dashboard','Dashboard')->name('dashboard');
+    Route::inertia('artwork', 'Artwork')->name('artwork');
 });

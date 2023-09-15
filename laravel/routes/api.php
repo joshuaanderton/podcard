@@ -1,5 +1,6 @@
 <?php
 
+use App\Actions\GenerateArtwork;
 use App\Http\Controllers\Api\V1;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -15,14 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('user', fn (Request $request) => $request->user());
+    Route::get('generate/artwork', GenerateArtwork::class)->name('generate.artwork');
 });
 
 Route::prefix('v1')->group(function () {
-    Route::get('podcasts/search', [V1\PodcastsController::class, 'search']);
-    Route::get('podcasts/trending', [V1\PodcastsController::class, 'trending']);
-    Route::get('podcasts/byfeedid/{id}', [V1\PodcastsController::class, 'showByFeedId']);
+    Route::prefix('podcasts', function () {
+        Route::get('search', [V1\PodcastsController::class, 'search']);
+        Route::get('trending', [V1\PodcastsController::class, 'trending']);
+        Route::get('byfeedid/{id}', [V1\PodcastsController::class, 'showByFeedId']);
+    });
 });
