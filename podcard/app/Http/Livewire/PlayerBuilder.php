@@ -29,6 +29,15 @@ class PlayerBuilder extends Component
         'color' => 'nullable|string|max:255',
     ];
 
+    protected $listeners = [
+        'success-message' => 'successMessage',
+    ];
+
+    public function successMessage(string $message)
+    {
+        session()->flash('success-message', $message);
+    }
+
     public function updated($name, $value)
     {
         if ($name === 'feedUrl') {

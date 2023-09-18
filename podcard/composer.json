@@ -6,9 +6,9 @@
     "license": "MIT",
     "require": {
         "php": "^8.2|^8.1",
+        "blade-ui-kit/blade-heroicons": "^2.1",
         "guzzlehttp/guzzle": "^7.2",
         "inertiajs/inertia-laravel": "^0.6.8",
-        "joshuaanderton/livewire": "dev-master",
         "larabug/larabug": "^3.0",
         "laravel/framework": "^9.19",
         "laravel/jetstream": "^3.0",

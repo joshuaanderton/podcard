@@ -1,12 +1,15 @@
 <div class="min-h-screen flex flex-col relative bg-white dark:bg-black text-black dark:text-white">
+    <div aria-live="assertive" class="flex-col pointer-events-none fixed inset-0 items-end p-4 sm:items-start sm:p-6 z-[100]">
+        @if (session()->has('success-message'))
+            <x-notification id="success" :text="session('success-message')" success />
+        @endif
+    </div>
 
     @if ($color)
         <div class="z-0 absolute inset-0 opacity-25 dark:opacity-60" style="background: {{ $color }}"></div>
     @endif
 
     <div class="overlay-noise"></div>
-
-    @livewire('jal-notifications')
 
     <div class="px-8 w-full max-w-3xl mx-auto">
 
@@ -38,7 +41,10 @@
                                 width="100%"></iframe>
 
                             <div class="absolute z-1 inset-0 flex items-center justify-center animate-pulse bg-black/10">
-                                <x-jal::icon-loading class="h-14 w-14 opacity-60 !fill-white" />
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="relative animate-spin h-14 w-14 opacity-60 !fill-white">
+                                    <path class="fill-current" d="M256 32C256 14.33 270.3 0 288 0C429.4 0 544 114.6 544 256C544 302.6 531.5 346.4 509.7 384C500.9 399.3 481.3 404.6 465.1 395.7C450.7 386.9 445.5 367.3 454.3 351.1C470.6 323.8 480 291 480 255.1C480 149.1 394 63.1 288 63.1C270.3 63.1 256 49.67 256 31.1V32z"></path>
+                                    <path class="fill-current opacity-40" d="M287.1 64C181.1 64 95.1 149.1 95.1 256C95.1 362 181.1 448 287.1 448C358.1 448 419.3 410.5 452.9 354.4L453 354.5C446.1 369.4 451.5 387.3 465.1 395.7C481.3 404.6 500.9 399.3 509.7 384C509.9 383.7 510.1 383.4 510.2 383.1C466.1 460.1 383.1 512 288 512C146.6 512 32 397.4 32 256C32 114.6 146.6 0 288 0C270.3 0 256 14.33 256 32C256 49.67 270.3 64 288 64H287.1z"></path>
+                                </svg>
                             </div>
 
                         @else
@@ -47,7 +53,7 @@
                                 <div class="w-full max-w-xs space-y-6 text-center">
                                     <p>Paste your podcast's rss feed URL below to select an episode...</p>
                                     <span class="rounded-full w-12 h-12 mx-auto flex justify-center items-center bg-black opacity-20">
-                                        <x-jal::icon name="arrow-down" md class="!fill-white" />
+                                        <x-heroicon-s-chevron-down class="!fill-white" />
                                     </span>
                                 </div>
                             </div>
@@ -64,7 +70,7 @@
 
             @if ($feedUrl && $previewEpisode)
                 <div class="space-y-2 overflow-hidden mb-5">
-                    <x-jal::label text="Copy the iframe snippet..." />
+                    <x-label text="Copy the iframe snippet..." />
                     <div
                         x-data='{
                             content: "<iframe src=\"{{ urldecode($this->playerUrl) }}\" style=\"border:none;height:180px;width:100%\"></iframe>",
@@ -84,7 +90,7 @@
                 </div>
 
                 <div class="space-y-2">
-                    <x-jal::label for="episode" text="Or load episodes dynamically..." />
+                    <x-label for="episode" text="Or load episodes dynamically..." />
                     <div
                         x-data="{
                             content: '{{ urldecode($this->playerDynamicUrl) }}',
