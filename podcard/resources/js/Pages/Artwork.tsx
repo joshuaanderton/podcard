@@ -10,7 +10,7 @@ const Artwork: React.FC<Props> = () => {
 
   const [prompt, setPrompt] = useState<string|null>(null),
         [artwork, setArtwork] = useState<string|null>(null),
-        [artworks, setArtworks] = useState<string[]>([]]),
+        [artworks, setArtworks] = useState<string[]>([]),
         handleSubmit = (event: any) => {
           event.preventDefault()
           axios.post('/api/generate/artwork', { prompt }).then((response: any) => {
