@@ -9,7 +9,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 
-class PodcastIndex
+class PodcastIndexService
 {
     protected string $apiHost = 'https://api.podcastindex.org/api/1.0';
 
@@ -109,7 +109,7 @@ class PodcastIndex
         } catch (Exception $e) {
 
             if ($e->getMessage() === 'Feed url not found.') {
-                $rssFeed = RSS::parse($feedUrl);
+                $rssFeed = FeedService::parse($feedUrl);
                 if ($rssFeed['feed']['url'] ?? null) {
                     $this->addPodcastByFeedUrl($feedUrl);
                     $items = $rssFeed['items'];
@@ -133,7 +133,7 @@ class PodcastIndex
         } catch (Exception $e) {
 
             if ($e->getMessage() === 'Feed url not found.') {
-                $rssFeed = RSS::parse($feedUrl);
+                $rssFeed = FeedService::parse($feedUrl);
                 if ($rssFeed['feed']['url'] ?? null) {
                     $this->addPodcastByFeedUrl($feedUrl);
                     return $rssFeed['feed'];

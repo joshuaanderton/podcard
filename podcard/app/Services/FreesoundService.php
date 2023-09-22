@@ -6,7 +6,7 @@ namespace App\Services;
 
 use Illuminate\Support\Facades\Http;
 
-class Freesound
+class FreesoundService
 {
     public static function search(?string $term = null): mixed
     {

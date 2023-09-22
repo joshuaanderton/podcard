@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Actions\Podcasts;
 
-use App\Services\PodcastIndex;
+use App\Services\PodcastIndexService;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Lorisleiva\Actions\Concerns\AsAction;
@@ -26,7 +26,7 @@ class LoadFeed
 
     public function podcast(string $feedUrl): array|null
     {
-        $podcast = (new PodcastIndex)->podcastByFeedUrl($feedUrl);
+        $podcast = (new PodcastIndexService)->podcastByFeedUrl($feedUrl);
 
         if (! $podcast['url'] ?? null) {
             return null;
@@ -46,7 +46,7 @@ class LoadFeed
 
     public function episodes(string $feedUrl): Collection
     {
-        $episodes = (new PodcastIndex)->episodesByFeedUrl($feedUrl);
+        $episodes = (new PodcastIndexService)->episodesByFeedUrl($feedUrl);
 
         return $episodes->reverse()->map(fn ($episode) => [
             'guid' => $episode['guid'],

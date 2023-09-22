@@ -7,7 +7,7 @@ namespace App\Services;
 use Exception;
 use Illuminate\Support\Str;
 
-class RSS
+class FeedService
 {
     public static function parse(string $feedUrl, ?callable $handleResponse = null)
     {
