@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace App\Actions;
 
-use Exception;
+use App\Services\OpenAiService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 class GenerateArtwork
@@ -16,22 +15,7 @@ class GenerateArtwork
 
     public function handle(string $prompt): string|null
     {
-        $apiKey = env('OPENAI_API_KEY');
-
-        $response = Http::withHeaders([
-            'Content-Type' => 'application/json',
-            'Authorization' => "Bearer {$apiKey}"
-        ])->post('https://api.openai.com/v1/images/generations', [
-            'prompt' => $prompt,
-            'n' => 1,
-            'size' => '1024x1024'
-        ]);
-
-        if ($response->failed()) {
-            throw new Exception($response['error']['message'] ?? 'Failed to generate artwork');
-        }
-
-        return $response['data']['url'];
+        return (new OpenAiService)->image($prompt);
     }
 
     public function asController(Request $request): JsonResponse
