@@ -103,7 +103,10 @@ class PodcastIndexService
 
         try {
 
-            $response = $this->request('episodes/byfeedurl', ['url' => $feedUrl]);
+            $response = $this->request('episodes/byfeedurl', [
+                'url' => $feedUrl,
+                'max' => 250,
+            ]);
             $items = $response['items'];
 
         } catch (Exception $e) {
