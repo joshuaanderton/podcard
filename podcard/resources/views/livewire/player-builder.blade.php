@@ -123,7 +123,7 @@
 
     </div>
 
-    <footer class="py-8 mt-auto max-w-7xl mx-auto relative z-20 flex items-end space-x-14">
+    <footer class="p-8 w-full max-w-3xl mx-auto mt-auto relative z-20 flex items-end justify-between space-x-14">
         @include('livewire.player-builder.product-hunt')
         @include('livewire.player-builder.made-by')
     </footer>
