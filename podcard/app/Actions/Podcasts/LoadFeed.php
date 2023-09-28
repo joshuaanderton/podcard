@@ -28,7 +28,7 @@ class LoadFeed
     {
         $podcast = (new PodcastIndexService)->podcastByFeedUrl($feedUrl);
 
-        if (! $podcast['url'] ?? null) {
+        if (! ($podcast['url'] ?? null)) {
             return null;
         }
 
