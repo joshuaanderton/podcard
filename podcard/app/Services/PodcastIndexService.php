@@ -44,7 +44,7 @@ class PodcastIndexService
         return $feedUrl;
     }
 
-    public function request(string $endpoint, ?array $params = [])
+    public function request(string $endpoint, ?array $params = [], ?bool $throw = true): mixed
     {
         $apiHeaderTime = time();
         $hash = sha1(implode('', [$this->apiKey, $this->apiSecret, $apiHeaderTime]));
@@ -58,7 +58,11 @@ class PodcastIndexService
         ])->get($url, $params);
 
         if ($response->failed()) {
-            throw new Exception($response['description'] ?? 'Unable to make request');
+            if ($throw) {
+                throw new Exception($response['description'] ?? 'Unable to make request');
+            } else {
+                return null;
+            }
         }
 
         return $response->json();
@@ -113,9 +117,10 @@ class PodcastIndexService
 
             if ($e->getMessage() === 'Feed url not found.') {
                 $rssFeed = FeedService::parse($feedUrl);
-                if ($rssFeed['feed']['url'] ?? null) {
-                    $this->addPodcastByFeedUrl($feedUrl);
-                    $items = $rssFeed['items'];
+                $items = $rssFeed['items'] ?? null;
+
+                if ($canonicalFeedUrl = $rssFeed['feed']['url'] ?? null) {
+                    $this->addPodcastByFeedUrl($canonicalFeedUrl);
                 }
             }
 
@@ -151,7 +156,7 @@ class PodcastIndexService
     public function addPodcastByFeedUrl(string $feedUrl): bool
     {
         $feedUrl = $this->cleanFeedUrl($feedUrl);
-        $response = $this->request('add/byfeedurl', ['url' => $feedUrl]);
+        $response = $this->request('add/byfeedurl', ['url' => $feedUrl], false);
 
         return $response->success();
     }
