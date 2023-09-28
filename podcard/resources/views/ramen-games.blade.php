@@ -32,9 +32,9 @@
 
         {{ $podcasts->links() }}
       </div>
-      
-      @include('made-by')
-      
+
+      @include('livewire.player-builder.made-by')
+
     </div>
   </div>
 @endsection
