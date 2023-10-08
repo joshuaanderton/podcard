@@ -11,22 +11,30 @@ use Lorisleiva\Actions\Concerns\AsAction;
 
 class LoadFeed
 {
-    use AsAction;
+    protected $client;
 
-    public function handle(string $feedUrl): array|null
+    public function __construct(string $feedUrl)
     {
-        if (! $podcast = $this->podcast($feedUrl)) {
+        $this->client = new PodcastIndexService($feedUrl);
+    }
+
+    public static function run(string $feedUrl): array|null
+    {
+        $obj = new self($feedUrl);
+        $obj->client = new PodcastIndexService($feedUrl);
+
+        if (! $podcast = $obj->podcast()) {
             return null;
         }
 
-        $episodes = $this->episodes($feedUrl);
+        $episodes = $obj->episodes();
 
         return compact('podcast', 'episodes');
     }
 
-    public function podcast(string $feedUrl): array|null
+    public function podcast(): array|null
     {
-        $podcast = (new PodcastIndexService)->podcastByFeedUrl($feedUrl);
+        $podcast = $this->client->podcastByFeedUrl();
 
         if (! ($podcast['url'] ?? null)) {
             return null;
@@ -44,9 +52,9 @@ class LoadFeed
         ];
     }
 
-    public function episodes(string $feedUrl): Collection
+    public function episodes(): Collection
     {
-        $episodes = (new PodcastIndexService)->episodesByFeedUrl($feedUrl);
+        $episodes = $this->client->episodesByFeedUrl();
 
         return $episodes->reverse()->map(fn ($episode) => [
             'guid' => $episode['guid'],

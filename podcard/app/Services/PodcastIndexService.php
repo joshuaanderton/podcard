@@ -19,8 +19,13 @@ class PodcastIndexService
 
     protected string $apiUserAgent;
 
-    public function __construct()
+    protected string $feedUrl;
+
+    protected array $items = [];
+
+    public function __construct(string $feedUrl)
     {
+        $this->feedUrl = $this->cleanFeedUrl($feedUrl);
         $this->apiKey = env('PODCAST_INDEX_API_KEY');
         $this->apiSecret = env('PODCAST_INDEX_API_SECRET');
         $this->apiUserAgent = 'Podcard/0.0';
@@ -100,24 +105,25 @@ class PodcastIndexService
         ];
     }
 
-    public function episodesByFeedUrl(string $feedUrl): Collection
+    public function episodesByFeedUrl(): Collection
     {
-        $feedUrl = $this->cleanFeedUrl($feedUrl);
-        $items = null;
+        if ($this->items) {
+            return collect($this->items);
+        }
 
         try {
 
             $response = $this->request('episodes/byfeedurl', [
-                'url' => $feedUrl,
+                'url' => $this->feedUrl,
                 'max' => 250,
             ]);
-            $items = $response['items'];
+            $this->items = $response['items'];
 
         } catch (Exception $e) {
 
             if ($e->getMessage() === 'Feed url not found.') {
-                $rssFeed = FeedService::parse($feedUrl);
-                $items = $rssFeed['items'] ?? null;
+                $rssFeed = FeedService::parse($this->feedUrl);
+                $this->items = $rssFeed['items']?->toArray() ?? [];
 
                 if ($canonicalFeedUrl = $rssFeed['feed']['url'] ?? null) {
                     $this->addPodcastByFeedUrl($canonicalFeedUrl);
@@ -126,24 +132,33 @@ class PodcastIndexService
 
         }
 
-        return collect($items);
+        return collect($this->items);
     }
 
-    public function podcastByFeedUrl(string $feedUrl): array|null
+    public function podcastByFeedUrl(): array|null
     {
-        $feedUrl = $this->cleanFeedUrl($feedUrl);
-
         try {
 
-            $response = $this->request('podcasts/byfeedurl', ['url' => $feedUrl]);
+            $response = $this->request('podcasts/byfeedurl', ['url' => $this->feedUrl]);
+
+            if ($response['items'] ?? null) {
+                $this->items = $response['items'];
+            }
+
+            if ($response['description'] === 'This feed has no meta-data yet.') {
+                throw new Exception('Feed url not found.');
+            }
+
             return $response['feed'];
 
         } catch (Exception $e) {
 
             if ($e->getMessage() === 'Feed url not found.') {
-                $rssFeed = FeedService::parse($feedUrl);
+                $rssFeed = FeedService::parse($this->feedUrl);
+                $this->items = $rssFeed['items']?->toArray() ?? [];
+
                 if ($rssFeed['feed']['url'] ?? null) {
-                    $this->addPodcastByFeedUrl($feedUrl);
+                    $this->addPodcastByFeedUrl();
                     return $rssFeed['feed'];
                 }
             }
@@ -153,11 +168,10 @@ class PodcastIndexService
         return null;
     }
 
-    public function addPodcastByFeedUrl(string $feedUrl): bool
+    public function addPodcastByFeedUrl(): bool
     {
-        $feedUrl = $this->cleanFeedUrl($feedUrl);
-        $response = $this->request('add/byfeedurl', ['url' => $feedUrl], false);
+        $response = $this->request('add/byfeedurl', ['url' => $this->feedUrl], false);
 
-        return $response->success();
+        return $response?->success() || false;
     }
 }

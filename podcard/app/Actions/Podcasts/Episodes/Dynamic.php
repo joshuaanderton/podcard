@@ -14,6 +14,8 @@ class Dynamic
 {
     protected ?Podcast $podcast = null;
 
+    protected $feed;
+
     public function __invoke(Request $request)
     {
         $request->validate([
@@ -30,6 +32,8 @@ class Dynamic
             'color' => 'nullable|string',
             'border' => 'nullable|numeric',
         ]);
+
+        $this->feed = new LoadFeed($request->feed);
 
         // Find or import podcast by feed URl
         if (! $this->podcastLookup()) {
@@ -61,7 +65,7 @@ class Dynamic
         $podcast = Podcast::firstWhere('feed_url', $feedUrl);
 
         if (! $podcast) {
-            $podcastData = (new LoadFeed)->podcast($feedUrl);
+            $podcastData = $this->feed->podcast();
 
             if ($podcastData['feed_url'] ?? null) {
                 $podcast = Podcast::firstOrCreate(['feed_url' => $podcastData['feed_url']], $podcastData);
@@ -95,7 +99,7 @@ class Dynamic
             }
 
             if (! $episode) {
-                $episodeDatas = (new LoadFeed)->episodes($feedUrl);
+                $episodeDatas = $this->feed->episodes();
 
                 if ($title) {
                     $episodeData = $episodeDatas->where('title', 'LIKE', "%{$title}%")->first();
@@ -119,7 +123,7 @@ class Dynamic
             }
 
             if (! $episode) {
-                $episodeDatas = (new LoadFeed)->episodes($feedUrl);
+                $episodeDatas = $this->feed->episodes();
                 $episodeData = null;
 
                 $episodeData = $episodeDatas->where('guid', $search)->first();
@@ -139,7 +143,7 @@ class Dynamic
             }
 
             if (! $episode) {
-                $episodeDatas = (new LoadFeed)->episodes($feedUrl);
+                $episodeDatas = $this->feed->episodes();
 
                 if ($episodeData = $episodeDatas->first()) {
                     $episode = $podcast->episodes()->firstOrCreate(['guid' => $episodeData['guid']], $episodeData);
