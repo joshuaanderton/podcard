@@ -4,67 +4,58 @@ declare(strict_types=1);
 
 namespace App\Actions\Podcasts;
 
+use App\Services\FeedService;
 use App\Services\PodcastIndexService;
 use Carbon\Carbon;
-use Illuminate\Support\Collection;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 class LoadFeed
 {
-    protected $client;
+    use AsAction;
 
-    public function __construct(string $feedUrl)
+    public function handle(string $feedUrl)
     {
-        $this->client = new PodcastIndexService($feedUrl);
-    }
+        $usePodcastIndexApi = false;
 
-    public static function run(string $feedUrl): array|null
-    {
-        $obj = new self($feedUrl);
-        $obj->client = new PodcastIndexService($feedUrl);
+        if ($usePodcastIndexApi) {
+            $client = new PodcastIndexService($feedUrl);
+            $podcast = $client->podcastByFeedUrl();
 
-        if (! $podcast = $obj->podcast()) {
-            return null;
-        }
+            if (! ($podcast['url'] ?? null)) {
+                return null;
+            }
 
-        $episodes = $obj->episodes();
+            $episodes = $client->episodesByFeedUrl();
+        } else {
+            if (! $feed = FeedService::parse($feedUrl)) {
+                return null;
+            }
 
-        return compact('podcast', 'episodes');
-    }
-
-    public function podcast(): array|null
-    {
-        $podcast = $this->client->podcastByFeedUrl();
-
-        if (! ($podcast['url'] ?? null)) {
-            return null;
+            $podcast = $feed['feed'];
+            $episodes = $feed['items'];
         }
 
         return [
-            'feed_url' => $podcast['url'],
-            'guid' => $podcast['podcastGuid'] ?? null,
-            'title' => $podcast['title'],
-            'description' => $podcast['description'],
-            'link' => $podcast['link'],
-            'owner_name' => $podcast['ownerName'],
-            'owner_email' => $podcast['ownerEmail'] ?? '',
-            'image_url' => $podcast['image'],
+            'podcast' => [
+                'feed_url' => $podcast['url'],
+                'guid' => $podcast['podcastGuid'] ?? null,
+                'title' => $podcast['title'],
+                'description' => $podcast['description'],
+                'link' => $podcast['link'],
+                'owner_name' => $podcast['ownerName'],
+                'owner_email' => $podcast['ownerEmail'] ?? '',
+                'image_url' => $podcast['image'],
+            ],
+            'episodes' => $episodes->reverse()->map(fn ($episode) => [
+                'guid' => $episode['guid'],
+                'file_url' => $episode['enclosureUrl'],
+                'title' => $episode['title'],
+                'image_url' => $episode['image'],
+                'number' => $episode['episode'],
+                'season' => $episode['season'],
+                'episode_type' => $episode['episodeType'],
+                'published_at' => Carbon::parse($episode['datePublished']),
+            ])
         ];
-    }
-
-    public function episodes(): Collection
-    {
-        $episodes = $this->client->episodesByFeedUrl();
-
-        return $episodes->reverse()->map(fn ($episode) => [
-            'guid' => $episode['guid'],
-            'file_url' => $episode['enclosureUrl'],
-            'title' => $episode['title'],
-            'image_url' => $episode['image'],
-            'number' => $episode['episode'],
-            'season' => $episode['season'],
-            'episode_type' => $episode['episodeType'],
-            'published_at' => Carbon::parse($episode['datePublished']),
-        ]);
     }
 }

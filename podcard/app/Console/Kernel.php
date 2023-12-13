@@ -4,11 +4,16 @@ declare(strict_types=1);
 
 namespace App\Console;
 
+use App\Actions\Podcasts\ImportFeed;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
+    protected $commands = [
+        ImportFeed::class
+    ];
+
     /**
      * Define the application's command schedule.
      *
@@ -16,7 +21,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->command('podcard:import-feeds')->everyThirtyMinutes();
     }
 
     /**

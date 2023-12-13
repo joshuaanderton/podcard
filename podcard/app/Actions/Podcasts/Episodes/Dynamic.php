@@ -14,7 +14,9 @@ class Dynamic
 {
     protected ?Podcast $podcast = null;
 
-    protected $feed;
+    protected string $feedUrl;
+
+    protected ?array $feed = null;
 
     public function __invoke(Request $request)
     {
@@ -33,7 +35,7 @@ class Dynamic
             'border' => 'nullable|numeric',
         ]);
 
-        $this->feed = new LoadFeed($request->feed);
+        $this->feedUrl = $request->feed;
 
         // Find or import podcast by feed URl
         if (! $this->podcastLookup()) {
@@ -60,12 +62,9 @@ class Dynamic
 
     protected function podcastLookup(): Podcast|null
     {
-        $feedUrl = request()->feed;
-
-        $podcast = Podcast::firstWhere('feed_url', $feedUrl);
-
-        if (! $podcast) {
-            $podcastData = $this->feed->podcast();
+        if (! $podcast = Podcast::firstWhere('feed_url', $this->feedUrl)) {
+            $feed = $this->feed ?: ($this->feed = LoadFeed::run($this->feedUrl));
+            $podcastData = $feed['podcast'];
 
             if ($podcastData['feed_url'] ?? null) {
                 $podcast = Podcast::firstOrCreate(['feed_url' => $podcastData['feed_url']], $podcastData);
@@ -79,7 +78,6 @@ class Dynamic
     {
         $episode = null;
         $request = request();
-        $feedUrl = $request->feed;
         $podcast = $this->podcast;
         $search = $request->search ?: $request->episode;
         $title = $request->title;
@@ -99,7 +97,8 @@ class Dynamic
             }
 
             if (! $episode) {
-                $episodeDatas = $this->feed->episodes();
+                $feed = $this->feed ?: ($this->feed = LoadFeed::run($this->feedUrl));
+                $episodeDatas = $feed['episodes'] ?? collect();
 
                 if ($title) {
                     $episodeData = $episodeDatas->where('title', 'LIKE', "%{$title}%")->first();
@@ -123,7 +122,8 @@ class Dynamic
             }
 
             if (! $episode) {
-                $episodeDatas = $this->feed->episodes();
+                $feed = $this->feed ?: ($this->feed = LoadFeed::run($this->feedUrl));
+                $episodeDatas = $feed['episodes'] ?? collect();
                 $episodeData = null;
 
                 $episodeData = $episodeDatas->where('guid', $search)->first();
@@ -143,7 +143,8 @@ class Dynamic
             }
 
             if (! $episode) {
-                $episodeDatas = $this->feed->episodes();
+                $feed = $this->feed ?: ($this->feed = LoadFeed::run($this->feedUrl));
+                $episodeDatas = $feed['episodes'] ?? collect();
 
                 if ($episodeData = $episodeDatas->first()) {
                     $episode = $podcast->episodes()->firstOrCreate(['guid' => $episodeData['guid']], $episodeData);

@@ -56,9 +56,4 @@ class Podcast extends Model
                 $this->updated_at->timestamp < Carbon::now()->subDays(1)->timestamp
             );
     }
-
-    public function import(): int|null
-    {
-        return Import::run($this);
-    }
 }

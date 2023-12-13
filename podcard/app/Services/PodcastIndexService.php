@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Exceptions\PodcastIndexServiceException;
 use Exception;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
@@ -121,6 +122,8 @@ class PodcastIndexService
 
         } catch (Exception $e) {
 
+            // throw new PodcastIndexServiceException($e->getMessage());
+
             if ($e->getMessage() === 'Feed url not found.') {
                 $rssFeed = FeedService::parse($this->feedUrl);
                 $this->items = $rssFeed['items']?->toArray() ?? [];
@@ -152,6 +155,8 @@ class PodcastIndexService
             return $response['feed'];
 
         } catch (Exception $e) {
+
+            // throw new PodcastIndexServiceException($e->getMessage());
 
             if ($e->getMessage() === 'Feed url not found.') {
                 $rssFeed = FeedService::parse($this->feedUrl);
