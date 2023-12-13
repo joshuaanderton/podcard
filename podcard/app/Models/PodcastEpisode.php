@@ -88,6 +88,7 @@ class PodcastEpisode extends Model
         $request = request();
 
         $color = $request->color;
+        $color = Str::remove('#', $color);
 
         if (! static::isColorHex($color)) {
             $color = PodcastEpisode::defaultColor;
