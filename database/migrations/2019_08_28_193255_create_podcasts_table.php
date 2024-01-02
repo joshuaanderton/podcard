@@ -23,6 +23,7 @@ class CreatePodcastsTable extends Migration
             $table->string('image_url');
             $table->text('description')->nullable();
             $table->string('link')->nullable();
+            $table->boolean('ramen_games')->default(0);
             $table->timestamps();
         });
     }

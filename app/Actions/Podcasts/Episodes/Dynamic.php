@@ -64,7 +64,7 @@ class Dynamic
     {
         if (! $podcast = Podcast::firstWhere('feed_url', $this->feedUrl)) {
             $feed = $this->feed ?: ($this->feed = LoadFeed::run($this->feedUrl));
-            $podcastData = $feed['podcast'];
+            $podcastData = $feed['podcast'] ?? null;
 
             if ($podcastData['feed_url'] ?? null) {
                 $podcast = Podcast::firstOrCreate(['feed_url' => $podcastData['feed_url']], $podcastData);

@@ -24,7 +24,6 @@ class CreatePodcastEpisodesTable extends Migration
             $table->integer('season')->nullable();
             $table->string('episode_type');
             $table->timestamp('published_at')->nullable();
-            $table->boolean('ramen_games')->default(0);
             $table->timestamps();
         });
     }

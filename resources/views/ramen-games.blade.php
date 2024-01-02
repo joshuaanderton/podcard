@@ -8,7 +8,10 @@
         <div class="relative pb-6 mb-6 text-center">
           <div class="text-[6rem]">🍜</div>
           <h1 class="font-sans font-bold text-4xl sm:text-5xl -mt-2 text-black dark:text-white">The Ramen Games</h1>
-          <div class="font-sans text-xl sm:text-2xl mb-12 md:max-w-md mx-auto mt-3">A curated list of podcasts following brave bootstrappers and their journeys to ramen profitability and beyond.</div>
+          <div class="font-sans text-xl sm:text-2xl mb-12 md:max-w-md mx-auto mt-3">A curated list of podcasts that follow the journeys of self-funded/alt-funded businesses</div>
+          <div class="flex justify-center">
+            @include('livewire.player-builder.made-by')
+          </div>
         </div>
 
         <div class="divide-y divide-orange-300 dark:divide-orange-400 divide-dashed border-t border-orange-300 dark:border-orange-400 border-dashed">
@@ -32,8 +35,6 @@
 
         {{ $podcasts->links() }}
       </div>
-
-      @include('livewire.player-builder.made-by')
 
     </div>
   </div>
